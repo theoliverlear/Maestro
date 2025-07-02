@@ -1,0 +1,15 @@
+@import "variables-globales";
+@import "funciones-globales";
+
+%radio-del-borde-del-círculo {
+    border-radius: 50%;
+}
+
+%radio-de-borde-suave {
+    border-radius: $uno-porciento;
+}
+
+%llenar-contenedor {
+    width: 100%;
+    height: 100%;
+}
