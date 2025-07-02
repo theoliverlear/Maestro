@@ -1,0 +1,13 @@
+@function calc-size($ancho, $altura, $rem) {
+    @return calc(((#{$ancho}vw + #{$altura}vh) / 2) + #{$rem}rem);
+}
+
+@function calc-sencillo($ancho-altura, $rem) {
+    @return calc-size(#{$ancho-altura}, #{$ancho-altura}, #{$rem});
+}
+@function calc-mas-sencillo($ancho-altura-rem) {
+    @return calc-sencillo(#{$ancho-altura-rem}, #{$ancho-altura-rem});
+}
+@function calc-píxeles-sencillo($ancho-altura, $px) {
+    @return calc(((#{$ancho-altura}vw + #{$ancho-altura}vh) / 2) + #{$px}px);
+}
