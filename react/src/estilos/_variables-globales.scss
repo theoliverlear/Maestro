@@ -1,0 +1,57 @@
+@import "funciones-globales";
+
+$h1-tamaño-de-fuente: min(calc-píxeles-sencillo(6, 12), 140px);
+$h2-tamaño-de-fuente: min(calc-píxeles-sencillo(5, 10), 120px);
+$h3-tamaño-de-fuente: min(calc-píxeles-sencillo(4,  8), 100px);
+$h4-mitad-del-tamaño-de-fuente: min(calc-píxeles-sencillo(3.5,  7), 90px);
+$h4-cuarto-tamaño-de-fuente: min(calc-píxeles-sencillo(3,  6), 80px);
+$h4-tamaño-de-fuente: min(calc-píxeles-sencillo(2.5,  6), 80px);
+$h5-tamaño-de-fuente: min(calc-píxeles-sencillo(1.75,  4), 60px);
+$h6-tamaño-de-fuente: min(calc-píxeles-sencillo(1.15,  2), 40px);
+$p-tamaño-de-fuente:  min(calc-píxeles-sencillo(1.15,  2), 40px);
+
+$cero: 0;
+
+$dieciseisavo-porciento: calc-sencillo(0.0625, 0.025);
+$octavo-porciento: calc-sencillo(0.125, 0.05);
+$cuarto-porciento: calc-sencillo(0.25, 0.1);
+$medio-porciento: calc-sencillo(0.5, 0.2);
+$dos-tercios-porciento: calc-sencillo(0.6666666666666666, 0.26666666666666666);
+$tres-cuartos-porciento: calc-sencillo(0.75, 0.3);
+
+$uno-porciento: calc-sencillo(1, 0.4);
+$uno-medio-porciento: calc-sencillo(1.5, 0.6);
+$dos-porciento: calc-sencillo(2, 0.8);
+$dos-medio-porciento: calc-sencillo(2.5, 1);
+$tres-porciento: calc-sencillo(3, 1.2);
+$tres-y-cuarto-porciento: calc-sencillo(3.25, 1.3);
+$tres-medio-porciento: calc-sencillo(3.5, 1.4);
+$cuatro-porciento: calc-sencillo(4, 1.6);
+
+$cinco-porciento: calc-sencillo(5, 2);
+$seis-porciento: calc-sencillo(6, 2.4);
+$siete-porciento: calc-sencillo(7, 2.8);
+
+$diez-porciento: calc-sencillo(10, 4);
+$doce-porciento: calc-sencillo(12, 4.8);
+$catorce-porciento: calc-sencillo(14, 5.6);
+$quince-porciento: calc-sencillo(15, 6);
+
+$veinte-porciento: calc-sencillo(20, 8);
+$veinticinco-porciento: calc-sencillo(25, 10);
+$treinta-porciento: calc-sencillo(30, 12);
+$treinta-y-cinco-porciento: calc-sencillo(35, 14);
+
+$cuarenta-porciento: calc-sencillo(40, 16);
+$cuarenta-y-cinco-porciento: calc-sencillo(45, 18);
+$cincuenta-porciento: calc-sencillo(50, 20);
+
+$sesenta-porciento: calc-sencillo(60, 24);
+$setenta-porciento: calc-sencillo(70, 28);
+$ochenta-porciento: calc-sencillo(80, 32);
+$noventa-porciento: calc-sencillo(90, 36);
+$cien-porciento: calc-sencillo(100, 40);
+
+$borde-más-delgado: min(calc(((0.025vw + 0.025vh) / 2) + 0.025rem), 2px);
+$borde-muy-delgado: calc(((0.05vw + 0.05vh) / 2) + 0.05em);
+$borde-delgado: calc(((0.1vw + 0.1vh) / 2) + 0.1em);
