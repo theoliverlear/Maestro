@@ -39,7 +39,7 @@ public class Conjugador
                 Delimiter = ",",
                 BadDataFound = null,
                 MissingFieldFound = null,
-                TrimOptions = CsvHelper.Configuration.TrimOptions.Trim
+                TrimOptions = TrimOptions.Trim
             });
             return csv;
         }
