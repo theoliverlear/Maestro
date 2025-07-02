@@ -1,0 +1,21 @@
+@mixin flex($justificar: center, $alinear: center, $dirección: row) {
+    display: flex;
+    justify-content: $justificar;
+    align-items: $alinear;
+    flex-direction: $dirección;
+}
+
+@mixin tamaño($ancho: 100%, $altura: 100%) {
+    width: $ancho;
+    height: $altura;
+}
+
+@mixin tamaño-cuadrado($ancho-altura: 100%) {
+    width: $ancho-altura;
+    height: $ancho-altura;
+}
+
+@mixin relleno-de-margen-básico($margen: 0, $relleno: 0) {
+    margin: $margen;
+    padding: $relleno;
+}
