@@ -1,4 +1,4 @@
-using Maestro.Api.Modelos.Verbos;
+using Maestro.Modelos.Verbos;
 
 namespace Maestro.Prueba.Modelos.Verbos;
 

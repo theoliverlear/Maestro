@@ -1,4 +1,4 @@
-namespace Maestro.Api.Modelos;
+namespace Maestro.Modelos;
 
 public class Pronombre
 {

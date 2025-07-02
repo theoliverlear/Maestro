@@ -2,7 +2,7 @@ using System.Globalization;
 using CsvHelper;
 using CsvHelper.Configuration;
 
-namespace Maestro.Api.Modelos.Conjugación;
+namespace Maestro.Modelos.Conjugación;
 
 using DiccionarioDeConjugación = Dictionary<string, Dictionary<string,
                                  Dictionary<string, FilaDeConjugación>>>;
@@ -32,8 +32,8 @@ public class Conjugador
         CsvReader? csv = null;
         try
         {
-            string camino = Path.Combine(AppContext.BaseDirectory, @"Api\Modelos\Conjugación\conjugaciones.csv");
-            using StreamReader lectora = new StreamReader(camino);
+            string camino = Path.Combine(AppContext.BaseDirectory, @"Modelos/Conjugación/conjugaciones.csv");
+            StreamReader lectora = new StreamReader(camino);
             csv = new CsvReader(lectora, new CsvConfiguration(CultureInfo.InvariantCulture)
             {
                 Delimiter = ",",

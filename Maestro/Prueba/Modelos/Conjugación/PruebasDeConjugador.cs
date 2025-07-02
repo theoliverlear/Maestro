@@ -1,4 +1,4 @@
-using Maestro.Api.Modelos.Conjugación;
+using Maestro.Modelos.Conjugación;
 using Serilog;
 using Xunit.Abstractions;
 using ILogger = Microsoft.Extensions.Logging.ILogger;

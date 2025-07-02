@@ -1,6 +1,6 @@
 using CsvHelper.Configuration.Attributes;
 
-namespace Maestro.Api.Modelos.Conjugación;
+namespace Maestro.Modelos.Conjugación;
 
 public class FilaDeConjugación
 {

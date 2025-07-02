@@ -1,12 +1,12 @@
 using System.ClientModel;
 using OpenAI.Chat;
 
-namespace Maestro.Api.Modelos.Ai;
+namespace Maestro.Modelos.Ia;
 using Lombok.NET;
 
-public class MensajeDeAi
+public class MensajeDeIa
 {
-    public MensajeDeAi()
+    public MensajeDeIa()
     {
         string? claveApi = Environment.GetEnvironmentVariable("CLAVE_API_DE_OPEN_AI");
         if (string.IsNullOrEmpty(claveApi))

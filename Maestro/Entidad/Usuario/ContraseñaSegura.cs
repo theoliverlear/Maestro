@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
 using Microsoft.AspNetCore.Identity;
-namespace Maestro.Api.Entidad.Usuario;
+namespace Maestro.Entidad.Usuario;
 
 public class ContraseñaSegura
 {

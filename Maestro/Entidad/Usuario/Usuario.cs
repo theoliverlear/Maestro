@@ -1,6 +1,6 @@
-using Maestro.Api.Entidad.Tarjeta;
+using Maestro.Entidad.Tarjeta;
 
-namespace Maestro.Api.Entidad.Usuario;
+namespace Maestro.Entidad.Usuario;
 
 public class Usuario
 {

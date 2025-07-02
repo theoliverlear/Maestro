@@ -1,7 +1,7 @@
-using Maestro.Api.Modelos.Ai;
+using Maestro.Modelos.Ia;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Maestro.Api.Controlador;
+namespace Maestro.Controlador;
 
 [ApiController]
 [Route("api/casa")]
@@ -24,7 +24,7 @@ public class ControladorDeCasa : ControllerBase
     [HttpGet("ai/palabras")]
     public ActionResult<string> ObtenerPalabras()
     {
-        MensajeDeAi mensaje = new MensajeDeAi();
+        MensajeDeIa mensaje = new MensajeDeIa();
         string respuesta = mensaje.ObtenerListaDePalabras().Result;
         return Ok(respuesta);
     }
