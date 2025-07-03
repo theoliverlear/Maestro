@@ -1,6 +1,7 @@
 using System.Globalization;
 using CsvHelper;
 using CsvHelper.Configuration;
+using Maestro.Excepción;
 
 namespace Maestro.Modelos.Conjugación;
 
@@ -50,15 +51,71 @@ public class Conjugador
         }
     }
 
+    public static void DetectarVerboNoAdmitidos(string verbo)
+    {
+        if (!Diccionario.ContainsKey(verbo))
+        {
+            throw new ExcepciónDeVerboNoAdmitido(verbo);
+        }
+    }
+
     public static string ObtenerPorPronombre(string verbo, Pronombre pronombre)
     {
-        return string.Empty;
+        if (pronombre.EsYo())
+        {
+            return ObtenerYo(verbo);
+        }
+
+        if (pronombre.EsTú())
+        {
+            return ObtenerTú(verbo);
+        }
+
+        if (pronombre.EsÉl() || pronombre.EsElla() || pronombre.EsUsted())
+        {
+            return ObtenerÉl(verbo);
+        }
+
+        if (pronombre.EsNosotros())
+        {
+            return ObtenerNosotros(verbo);
+        }
+
+        if (pronombre.EsEllos() || pronombre.EsUstedes())
+        {
+            return ObtenerEllos(verbo);
+        }
+
+        throw new ArgumentException("Pronombre no reconocido.", nameof(pronombre));
     }
 
     public static string ObtenerYo(string verbo)
     {
+        DetectarVerboNoAdmitidos(verbo);
         return Diccionario[verbo]["Indicativo"]["Presente"].Yo;
     }
 
-    private string verbo;
+    public static string ObtenerTú(string verbo)
+    {
+        DetectarVerboNoAdmitidos(verbo);
+        return Diccionario[verbo]["Indicativo"]["Presente"].Tú;
+    }
+
+    public static string ObtenerÉl(string verbo)
+    {
+        DetectarVerboNoAdmitidos(verbo);
+        return Diccionario[verbo]["Indicativo"]["Presente"].Él;
+    }
+
+    public static string ObtenerNosotros(string verbo)
+    {
+        DetectarVerboNoAdmitidos(verbo);
+        return Diccionario[verbo]["Indicativo"]["Presente"].Nosotros;
+    }
+
+    public static string ObtenerEllos(string verbo)
+    {
+        DetectarVerboNoAdmitidos(verbo);
+        return Diccionario[verbo]["Indicativo"]["Presente"].Ellos;
+    }
 }
