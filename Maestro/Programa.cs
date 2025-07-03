@@ -1,3 +1,5 @@
+using Maestro.Servicio;
+using Maestro.Servicio.Conjugación;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 
@@ -6,6 +8,8 @@ constructora.Services.AddControllers();
 
 constructora.Services.AddEndpointsApiExplorer();
 constructora.Services.AddSwaggerGen();
+
+constructora.Services.AddScoped<IServicioDeConjugación, ServicioDeConjugación>();
 
 WebApplication app = constructora.Build();
 
