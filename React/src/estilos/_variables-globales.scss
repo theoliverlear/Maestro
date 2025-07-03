@@ -1,5 +1,17 @@
 @import "funciones-globales";
 
+$blanco-prístino: hsl(0, 0%, 100%);
+$casi-blanca: hsl(210, 17%, 98%);
+$piedra-de-alabastro: hsl(40, 21%, 89%);
+$carbón: hsl(0, 0%, 9%);
+$carbón-claro: hsl(0, 0%, 20%);
+$rojo-real: hsl(358, 78%, 37%);
+$mostaza: hsl(48, 100%, 47%);
+$granate-oscura: hsl(358, 78%, 27%);
+
+$sombra-negra: rgba(0, 0, 0, 0.1);
+$sombra-negra-más-oscura: rgba(0, 0, 0, 0.3);
+
 $h1-tamaño-de-fuente: min(calc-píxeles-sencillo(6, 12), 140px);
 $h2-tamaño-de-fuente: min(calc-píxeles-sencillo(5, 10), 120px);
 $h3-tamaño-de-fuente: min(calc-píxeles-sencillo(4,  8), 100px);
