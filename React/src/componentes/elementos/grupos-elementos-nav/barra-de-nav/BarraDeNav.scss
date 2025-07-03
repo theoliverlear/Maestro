@@ -1,0 +1,13 @@
+// BarraDeNav.scss
+@import "../../../../estilos/funciones-globales";
+@import "../../../../estilos/marcadores-de-posición-globales";
+@import "../../../../estilos/mixins-globales";
+@import "../../../../estilos/variables-globales";
+
+.barra-de-nav {
+    //background-image: linear-gradient(to bottom, $rojo-real, $granate-oscura);
+    background-image: linear-gradient(to bottom, $granate-oscura, $rojo-real);
+    box-shadow: $sombra-negra-más-oscura 0 0 $medio-porciento $cuarto-porciento;
+    width: 100%;
+    height: $cuatro-porciento;
+}
