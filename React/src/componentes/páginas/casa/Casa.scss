@@ -3,3 +3,23 @@
 @import "../../../estilos/marcadores-de-posición-globales";
 @import "../../../estilos/mixins-globales";
 @import "../../../estilos/variables-globales";
+
+.casa {
+    .texto-de-apertura-casa {
+        background-color: $mostaza;
+        padding: $uno-porciento;
+        @extend %radio-de-borde-suave;
+        .título {
+            color: $carbón;
+            background: -webkit-linear-gradient($rojo-real, $carbón, $rojo-real);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtítulo {
+            color: $rojo-real;
+            background: -webkit-linear-gradient($rojo-real, $carbón-claro, $carbón);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+}
