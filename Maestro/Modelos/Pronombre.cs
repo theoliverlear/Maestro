@@ -17,6 +17,22 @@ public class Pronombre
         this.sujeto = sujeto;
     }
 
+    public static Pronombre DeCuerda(string sujeto)
+    {
+        return sujeto.ToLower() switch
+        {
+            "yo" => Yo,
+            "tú" => Tú,
+            "él" => Él,
+            "ella" => Ella,
+            "usted" => Usted,
+            "nosotros" => Nosotros,
+            "ellos" => Ellos,
+            "ustedes" => Ustedes,
+            _ => throw new ArgumentException("Pronombre no reconocido.", nameof(sujeto))
+        };
+    }
+
     public bool EsYo() => this.Equals(Yo);
     public bool EsTú() => this.Equals(Tú);
     public bool EsÉl() => this.Equals(Él);
@@ -25,7 +41,6 @@ public class Pronombre
     public bool EsNosotros() => this.Equals(Nosotros);
     public bool EsEllos() => this.Equals(Ellos);
     public bool EsUstedes() => this.Equals(Ustedes);
-
 
 
 
