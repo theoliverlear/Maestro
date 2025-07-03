@@ -1,0 +1,10 @@
+// Título.scss
+@import "../../../../estilos/funciones-globales";
+@import "../../../../estilos/marcadores-de-posición-globales";
+@import "../../../../estilos/mixins-globales";
+@import "../../../../estilos/variables-globales";
+
+.título {
+    @include flex(center, center, column);
+    text-align: center;
+}
