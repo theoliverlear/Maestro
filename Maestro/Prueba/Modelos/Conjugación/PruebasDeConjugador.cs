@@ -1,3 +1,4 @@
+using Maestro.Excepción;
 using Maestro.Modelos.Conjugación;
 using Serilog;
 using Xunit.Abstractions;
@@ -23,5 +24,19 @@ public class PruebasDeConjugador
     public void InicializarDiccionario_Inicializa_NoNulo()
     {
         Assert.NotNull(Conjugador.Diccionario);
+    }
+
+    [Fact]
+    public void DetectarVerboNoAdmitidos_VerboInválido_LanzaExcepción()
+    {
+        string verboInválido = "verboInexistente";
+        ExcepciónDeVerboNoAdmitido excepción = Assert.Throws<ExcepciónDeVerboNoAdmitido>(() =>
+        {
+            Conjugador.DetectarVerboNoAdmitidos(verboInválido);
+        });
+
+        string mensajeEsperado = $"Este verbo no está soportado en el" +
+                                 $" diccionario de Maestro: {verboInválido}";
+        Assert.Equal(mensajeEsperado, excepción.Message);
     }
 }
