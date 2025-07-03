@@ -37,6 +37,14 @@ span {
     @include relleno-de-margen-básico(0, 0);
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: $fuente-del-título;
+}
+
+p, span {
+    font-family: $texto-bloque-serif;
+}
+
 body {
     @include tamaño-cuadrado(100%);
     @include relleno-de-margen-básico(0, 0);
@@ -59,7 +67,7 @@ body {
             min-height: 100vh;
             @include relleno-de-margen-básico(0, 0);
             overflow-x: hidden;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Croissant One', sans-serif;
             max-width: 100vw;
             main {
                 width: 100%;
