@@ -6,8 +6,15 @@
 
 .barra-de-nav {
     //background-image: linear-gradient(to bottom, $rojo-real, $granate-oscura);
-    background-image: linear-gradient(to bottom, $granate-oscura, $rojo-real);
+    //background-image: linear-gradient(to bottom, $granate-oscura, $rojo-real);
+    background-image: linear-gradient(to bottom, $blanco-prístino, $piedra-de-alabastro);
     box-shadow: $sombra-negra-más-oscura 0 0 $medio-porciento $cuarto-porciento;
     width: 100%;
-    height: $cuatro-porciento;
+    height: $altura-barra-de-nav;
+    @include flex(center, center, column);
+    margin: 0 0 $dos-porciento 0 0;
+    nav {
+        width: 70%;
+        @include flex(center, center, row);
+    }
 }
