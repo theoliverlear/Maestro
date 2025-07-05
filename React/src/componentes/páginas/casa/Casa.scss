@@ -9,6 +9,10 @@
         background-color: $mostaza;
         padding: $uno-porciento;
         @extend %radio-de-borde-suave;
+        margin: $uno-porciento 0;
+        animation: deslizar-hacia-izquierda 1.5s ease-in-out forwards;
+        //transform: translateX(100%);
+        box-shadow: $sombra-negra 0 0 $medio-porciento $cuarto-porciento;
         .título {
             color: $carbón;
             background: -webkit-linear-gradient($rojo-real, $carbón, $rojo-real);
@@ -22,4 +26,13 @@
             -webkit-text-fill-color: transparent;
         }
     }
-}
+
+
+@keyframes deslizar-hacia-izquierda {
+    from {
+        transform: translateX(150%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}}
