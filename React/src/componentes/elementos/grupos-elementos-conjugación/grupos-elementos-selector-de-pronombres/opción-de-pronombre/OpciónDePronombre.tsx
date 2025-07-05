@@ -6,11 +6,26 @@ import {TipoDeEtiqueta} from "../../../../../modelos/html/TipoDeEtiqueta.ts";
 
 interface PropsOpciónDePronombre {
     pronombre: Pronombre;
+    enSeleccionar: (pronombre: Pronombre) => void;
+    estáSeleccionado?: boolean;
 }
 
 function OpciónDePronombre(props: PropsOpciónDePronombre): ReactElement {
+    function selecciónDeMango(): void {
+        props.enSeleccionar(props.pronombre);
+    }
+
+    function obtenerClases(): string {
+        let claseBase: string = "opción-de-pronombre";
+        if (props.estáSeleccionado) {
+            claseBase += " seleccionado";
+        }
+        return claseBase;
+    }
+
     return (
-        <div className={"opción-de-pronombre"}>
+        <div className={obtenerClases()}
+             onClick={selecciónDeMango}>
             <Título texto={props.pronombre} tipoDeEtiqueta={TipoDeEtiqueta.H4}/>
         </div>
     );
