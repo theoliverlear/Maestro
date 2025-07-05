@@ -1,7 +1,10 @@
 import './SelectorDePronombres.scss';
 import {ReactElement, useEffect, useState} from "react";
-import {Pronombre, pronombres} from "../opción-de-pronombre/modelos/tipos.ts";
 import OpciónDePronombre from "../opción-de-pronombre/OpciónDePronombre.tsx";
+import {
+    Pronombre,
+    pronombres
+} from "../../../../../modelos/conjugación/tipos.ts";
 
 interface PropsSelectorDePronombres {
     enLaSelección: (pronombre: Pronombre) => void;
