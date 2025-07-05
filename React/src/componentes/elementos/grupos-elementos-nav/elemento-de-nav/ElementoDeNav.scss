@@ -3,3 +3,36 @@
 @import "../../../../estilos/marcadores-de-posición-globales";
 @import "../../../../estilos/mixins-globales";
 @import "../../../../estilos/variables-globales";
+
+.elemento-de-nav {
+    @include flex(center, center, row);
+    //background-color: $mostaza;
+    background-image: radial-gradient($carbón-claro, $carbón);
+    //background-image: radial-gradient($rojo-real-descolorido, $mostaza);
+    padding: $tres-cuartos-porciento;
+    color: $piedra-de-alabastro;
+    margin: 0 $medio-porciento;
+    //color: $sombra-negra-más-oscura;
+    //color: $blanco-prístino;
+    @extend %radio-de-borde-suave;
+    @extend %sombra-de-caja-suave;
+    user-select: none;
+    opacity: 1;
+    transition: background-color 0.1s ease-in-out, opacity 0.1s ease-in-out;
+    .título {
+        font-size: $h4-tamaño-de-fuente;
+        min-width: 10ch;
+        h4 {
+            font-family: $texto-bloque-serif;
+        }
+    }
+    &:hover {
+        background-image: none;
+        background-color: $piedra-de-alabastro;
+        color: $carbón;
+        cursor: pointer;
+    }
+    &:active {
+        opacity: 0.8;
+    }
+}
