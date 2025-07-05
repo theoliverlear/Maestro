@@ -1,0 +1,26 @@
+// EntradaConTítulo.scss
+@import "../../../../estilos/funciones-globales";
+@import "../../../../estilos/marcadores-de-posición-globales";
+@import "../../../../estilos/mixins-globales";
+@import "../../../../estilos/variables-globales";
+
+.entrada-con-título {
+    background-color: $mostaza;
+    @include flex(center, center, column);
+    padding: $uno-porciento;
+    margin: $uno-porciento 0;
+    @extend %radio-de-borde-más-suave;
+    @extend %sombra-de-caja-mediana;
+    .título {
+        color: $blanco-prístino;
+        @extend %sombra-de-texto-suave;
+        margin: $cuarto-porciento 0;
+        //background-color: $rojo-real-descolorido;
+        padding: $cuarto-porciento $medio-porciento;
+        @extend %radio-de-borde-suave;
+        h1, h2, h3, h4, h5, h6 {
+            font-size: calc($h3-tamaño-de-fuente * 0.8);
+            font-family: $texto-bloque-serif;
+        }
+    }
+}
