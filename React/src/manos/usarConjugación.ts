@@ -6,7 +6,7 @@ import {useCallback, useState} from "react";
 import type {
     Pronombre,
     Verbo,
-    VerboConjugado
+    VerboConjugado, VerboConjugadoHttp
 } from "../modelos/conjugación/tipos.ts";
 
 export function usarConjugación() {
@@ -15,8 +15,10 @@ export function usarConjugación() {
 
     const conjugado: (verbo: Verbo, pronombre: Pronombre) => void = useCallback(async (verbo: Verbo, pronombre: Pronombre): Promise<void> => {
         if (verbo && pronombre) {
-            const resultado: VerboConjugado = await conjugador.obtenerConjugación(verbo, pronombre);
-            asignarVerboConjugado(resultado);
+            const verboNormalizado: string = verbo.toLowerCase().trim();
+            const pronombreNormalizado: string = pronombre.toLowerCase().trim();
+            const resultado: VerboConjugadoHttp = await conjugador.obtenerConjugación(verboNormalizado, pronombreNormalizado);
+            asignarVerboConjugado(resultado.verboConjugado);
         } else {
             asignarVerboConjugado("");
         }
