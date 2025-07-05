@@ -16,4 +16,9 @@
         font-size: $h4-tamaño-de-fuente;
         min-width: 8ch;
     }
+    &.seleccionado {
+        background-color: $rojo-real;
+        color: $blanco-prístino;
+        @extend %sombra-de-caja-suave;
+    }
 }
