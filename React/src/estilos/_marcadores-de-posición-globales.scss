@@ -13,3 +13,15 @@
     width: 100%;
     height: 100%;
 }
+
+%sombra-de-caja-suave {
+    box-shadow: $sombra-negra 0 0 $medio-porciento $cuarto-porciento;
+}
+
+%sombra-de-caja-mediana {
+    box-shadow: $sombra-negra 0 0 $uno-porciento $medio-porciento;
+}
+
+%sombra-de-texto-suave {
+    text-shadow: $sombra-negra-más-oscura 0 0 $medio-porciento;
+}
