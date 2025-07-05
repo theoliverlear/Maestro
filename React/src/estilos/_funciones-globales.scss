@@ -1,9 +1,9 @@
-@function calc-size($ancho, $altura, $rem) {
+@function tamaño-de-cálculo($ancho, $altura, $rem) {
     @return calc(((#{$ancho}vw + #{$altura}vh) / 2) + #{$rem}rem);
 }
 
 @function calc-sencillo($ancho-altura, $rem) {
-    @return calc-size(#{$ancho-altura}, #{$ancho-altura}, #{$rem});
+    @return tamaño-de-cálculo(#{$ancho-altura}, #{$ancho-altura}, #{$rem});
 }
 @function calc-mas-sencillo($ancho-altura-rem) {
     @return calc-sencillo(#{$ancho-altura-rem}, #{$ancho-altura-rem});
