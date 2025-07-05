@@ -10,9 +10,7 @@ import {
 import {usarConjugación} from "../../../manos/usarConjugación.ts";
 import Título from "../../elementos/grupos-elementos-texto/título/Título.tsx";
 import {TipoDeEtiqueta} from "../../../modelos/html/TipoDeEtiqueta.ts";
-import {
-    Pronombre
-} from "../../elementos/grupos-elementos-conjugación/grupos-elementos-selector-de-pronombres/opción-de-pronombre/modelos/tipos.ts";
+import {Pronombre} from "../../../modelos/conjugación/tipos.ts";
 
 function Conjugador(): ReactElement {
     const [pronombreSeleccionado, asignarPronombreSeleccionado] = useState<Pronombre>("Yo");
