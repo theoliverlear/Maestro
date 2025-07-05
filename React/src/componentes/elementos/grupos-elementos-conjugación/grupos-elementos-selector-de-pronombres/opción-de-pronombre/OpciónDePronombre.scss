@@ -1,0 +1,19 @@
+// OpciónDePronombre.scss
+@import "../../../../../estilos/funciones-globales";
+@import "../../../../../estilos/marcadores-de-posición-globales";
+@import "../../../../../estilos/mixins-globales";
+@import "../../../../../estilos/variables-globales";
+
+.opción-de-pronombre {
+    padding: $uno-porciento;
+    @extend %radio-de-borde-suave;
+    color: $blanco-prístino;
+    //text-shadow: $sombra-negra-más-oscura 0 0 $medio-porciento;
+    @extend %sombra-de-texto-suave;
+    margin: $medio-porciento;
+    background-color: $mostaza;
+    .título {
+        font-size: $h4-tamaño-de-fuente;
+        min-width: 8ch;
+    }
+}
