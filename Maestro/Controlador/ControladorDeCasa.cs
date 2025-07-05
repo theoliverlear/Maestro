@@ -9,10 +9,9 @@ namespace Maestro.Controlador;
 [Route("api/casa")]
 public class ControladorDeCasa : ControllerBase
 {
-    private IServicioDeConjugación _servicioDeConjugación;
-    public ControladorDeCasa(IServicioDeConjugación servicioDeConjugación)
+    public ControladorDeCasa()
     {
-        this._servicioDeConjugación = servicioDeConjugación;
+
     }
 
     private static readonly List<string> Alumnos =
@@ -29,28 +28,11 @@ public class ControladorDeCasa : ControllerBase
         return Ok(Alumnos);
     }
 
-    [HttpGet("ai/palabras")]
+    [HttpGet("ia/palabras")]
     public ActionResult<string> ObtenerPalabras()
     {
         MensajeDeIa mensaje = new MensajeDeIa();
         string respuesta = mensaje.ObtenerListaDePalabras().Result;
         return Ok(respuesta);
-    }
-
-    [HttpGet("conj/{verbo}/{pronombre}")]
-    public ActionResult<string> Conjugar(string verbo, string pronombre)
-    {
-        string verboConjugado = string.Empty;
-        try
-        {
-            verboConjugado =
-                this._servicioDeConjugación.Conjugar(verbo, pronombre);
-        }
-        catch (ExcepciónDeVerboNoAdmitido ex)
-        {
-            verboConjugado = ex.Message;
-        }
-
-        return Ok(verboConjugado);
     }
 }
