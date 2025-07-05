@@ -9,6 +9,10 @@
     border-radius: $uno-porciento;
 }
 
+%radio-de-borde-más-suave {
+    border-radius: $medio-porciento;
+}
+
 %llenar-contenedor {
     width: 100%;
     height: 100%;
