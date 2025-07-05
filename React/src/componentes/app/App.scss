@@ -59,11 +59,12 @@ body {
             @include flex(flex-start, center, column);
             width: 100%;
             height: 100%;
-            background-image: radial-gradient(
-                            circle at center,
-                            $casi-blanca,
-                            $blanco-prístino
-            );
+            //background-image: radial-gradient(
+            //                circle at center,
+            //                $casi-blanca,
+            //                $blanco-prístino
+            //);
+            background-image: radial-gradient($rojo-real, $granate-oscura, $carbón);
             min-height: 100vh;
             @include relleno-de-margen-básico(0, 0);
             overflow-x: hidden;
@@ -75,16 +76,16 @@ body {
                 @include flex(center, center, column);
             }
             .casa,
-            .conjugación {
+            .conjugador {
                 width: 100%;
                 box-sizing: border-box;
                 //flex: 1;
                 @include flex(flex-start, center, column);
                 //width: 100%;
                 height: 100%;
-                min-height: calc(100vh - $cuatro-porciento);
+                min-height: calc(100vh - $altura-barra-de-nav);
                 //min-height: 80vh;
-                margin: $cuatro-porciento 0 0 0;
+                //margin: $cinco-porciento 0 0 0;
                 max-width: 99vw;
                 overflow-x: hidden;
             }
@@ -94,4 +95,8 @@ body {
         width: 80%;
         border: $borde-más-delgado solid $piedra-de-alabastro;
     }
+}
+.enlace-sin-estilo {
+    color: inherit;
+    text-decoration: none;
 }
