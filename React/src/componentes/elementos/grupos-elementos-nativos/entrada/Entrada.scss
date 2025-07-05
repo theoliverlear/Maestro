@@ -1,0 +1,18 @@
+// Entrada.scss
+@import "../../../../estilos/funciones-globales";
+@import "../../../../estilos/marcadores-de-posición-globales";
+@import "../../../../estilos/mixins-globales";
+@import "../../../../estilos/variables-globales";
+
+.entrada {
+    input {
+        font-size: $h5-tamaño-de-fuente;
+        @extend %radio-de-borde-más-suave;
+        border: $rojo-real $borde-delgado solid;
+        //background-color: $rojo-real-descolorido;
+        background-color: $piedra-de-alabastro;
+        padding: $medio-porciento;
+        color: $granate-oscura;
+        font-family: $texto-bloque-serif;
+    }
+}
