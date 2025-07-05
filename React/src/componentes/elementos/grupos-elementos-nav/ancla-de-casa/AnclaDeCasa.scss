@@ -1,0 +1,23 @@
+// AnclaDeCasa.scss
+@import "../../../../estilos/funciones-globales";
+@import "../../../../estilos/marcadores-de-posición-globales";
+@import "../../../../estilos/mixins-globales";
+@import "../../../../estilos/variables-globales";
+
+.ancla-de-casa {
+    @include tamaño-cuadrado($cuatro-porciento);
+    position: absolute;
+    top: $cuarto-porciento;
+    left: $medio-porciento;
+    //padding: $cuarto-porciento;
+    //background-color: $mostaza;
+    //border: $borde-delgado $carbón-claro solid;
+    border: black $borde-delgado solid;
+    @extend %radio-de-borde-suave;
+    .imagen {
+        @extend %radio-de-borde-suave;
+        img {
+            @extend %radio-de-borde-suave;
+        }
+    }
+}
