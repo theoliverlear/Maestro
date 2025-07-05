@@ -18,6 +18,7 @@ $granate-oscura: hsl(358, 78%, 27%);
 
 $sombra-negra: rgba(0, 0, 0, 0.1);
 $sombra-negra-más-oscura: rgba(0, 0, 0, 0.3);
+$rojo-real-descolorido: hsla(358, 78%, 37%, 0.5);
 
 $h1-tamaño-de-fuente: min(calc-píxeles-sencillo(6, 12), 140px);
 $h2-tamaño-de-fuente: min(calc-píxeles-sencillo(5, 10), 120px);
@@ -74,3 +75,5 @@ $cien-porciento: calc-sencillo(100, 40);
 $borde-más-delgado: min(calc(((0.025vw + 0.025vh) / 2) + 0.025rem), 2px);
 $borde-muy-delgado: calc(((0.05vw + 0.05vh) / 2) + 0.05em);
 $borde-delgado: calc(((0.1vw + 0.1vh) / 2) + 0.1em);
+
+$altura-barra-de-nav: calc-size(6, 3, 2);
