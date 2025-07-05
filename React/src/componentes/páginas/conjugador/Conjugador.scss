@@ -5,5 +5,13 @@
 @import "../../../estilos/variables-globales";
 
 .conjugador {
-
+    .título-del-verbo-conjugado {
+        background-image: radial-gradient($piedra-de-alabastro, $blanco-prístino);
+        padding: $uno-porciento;
+        margin: $uno-porciento 0 $medio-porciento 0;
+        @extend %radio-de-borde-suave;
+        @extend %sombra-de-texto-suave;
+        font-size: $h3-tamaño-de-fuente;
+        min-width: 10ch;
+    }
 }
