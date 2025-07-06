@@ -2,7 +2,7 @@ using Maestro.Modelos;
 using Maestro.Modelos.Conjugación;
 using Maestro.Servicio.Conjugación;
 
-namespace Maestro.Servicio.Conjugación;
+namespace Maestro.Servicio.Conjugación.ServicioDeConjugación;
 
 public class ServicioDeConjugación : IServicioDeConjugación
 {
