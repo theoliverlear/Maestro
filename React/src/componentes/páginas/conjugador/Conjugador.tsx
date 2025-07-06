@@ -1,5 +1,5 @@
 import "./Conjugador.scss";
-import {ReactElement, useEffect, useState} from "react";
+import {ReactElement, useEffect, useMemo, useState} from "react";
 import SelectorDePronombres
     from "../../elementos/grupos-elementos-conjugación/grupos-elementos-selector-de-pronombres/selector-de-pronombres/SelectorDePronombres.tsx";
 import EntradaConTítulo
@@ -11,6 +11,8 @@ import {usarConjugación} from "../../../manos/usarConjugación.ts";
 import Título from "../../elementos/grupos-elementos-texto/título/Título.tsx";
 import {TipoDeEtiqueta} from "../../../modelos/html/TipoDeEtiqueta.ts";
 import {Pronombre} from "../../../modelos/conjugación/tipos.ts";
+import debounce from "lodash/debounce";
+
 
 function Conjugador(): ReactElement {
     const [pronombreSeleccionado, asignarPronombreSeleccionado] = useState<Pronombre>("Yo");
@@ -25,11 +27,17 @@ function Conjugador(): ReactElement {
         manejarLaConjugación();
     }
 
+    const manejarConjugaciónSinRebote = useMemo(() => {
+        return debounce((nuevoVerbo: string, nuevoPronombre: Pronombre) => {
+            if (nuevoVerbo.trim().length < 2) {
+                return;
+            }
+            conjugado(nuevoVerbo, nuevoPronombre);
+        }, 150);
+    }, [conjugado])
+
     function manejarLaConjugación(): void {
-        if (verbo.trim().length < 2) {
-            return;
-        }
-        conjugado(verbo, pronombreSeleccionado);
+        manejarConjugaciónSinRebote(verbo, pronombreSeleccionado);
     }
 
     function manejarLaSelecciónDePronombre(pronombre: Pronombre): void {
@@ -43,6 +51,10 @@ function Conjugador(): ReactElement {
         }
         return verboConjugado;
     }
+
+    useEffect(() => {
+        return () => manejarConjugaciónSinRebote.cancel();
+    }, [manejarConjugaciónSinRebote]);
 
     useEffect(() => {
         if (verbo.trim().length >= 2) {
