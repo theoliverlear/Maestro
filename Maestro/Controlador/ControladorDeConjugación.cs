@@ -1,8 +1,7 @@
 using Maestro.Comunicación.Respuesta.Conjugación;
 using Maestro.Excepción;
-using Maestro.Servicio.Conjugación;
+using Maestro.Servicio.Conjugación.ServicioDeConjugación;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
 namespace Maestro.Controlador;
 
 [ApiController]
