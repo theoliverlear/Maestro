@@ -11,6 +11,12 @@ public class ListaPalabrasConDificultad
         this.palabras = new List<PalabraConDificultad>();
     }
 
+    public PalabraConDificultad this[int index]
+    {
+        get => this.palabras[index];
+        set => this.palabras[index] = value;
+    }
+
     public List<PalabraConDificultad> Palabras
     {
         get => this.palabras;
