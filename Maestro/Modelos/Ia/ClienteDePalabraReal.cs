@@ -25,15 +25,15 @@ public class ClienteDePalabraReal : ClienteDeIa
                                Escribe la respuesta en formato JSON como:
                                "palabras": [
                                    {
+                                       "dificultad": 1,
                                        "español": "gato",
-                                       "inglés": "cat",
-                                       "dificultad": 1
+                                       "inglés": "cat"
                                    },
                                    ...
                                    {
+                                       "dificultad": 10,
                                        "español": "efímero",
-                                       "ingles": "ephemeral",
-                                       "dificultad": 10
+                                       "ingles": "ephemeral"
                                    }
                                ]
                                Incluye solo el formato JSON en tu respuesta.
