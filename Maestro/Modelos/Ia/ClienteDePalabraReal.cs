@@ -3,7 +3,7 @@ using Maestro.Modelos.Palabra;
 
 namespace Maestro.Modelos.Ia;
 
-public class ClienteDePalabraReal : MensajeDeIa
+public class ClienteDePalabraReal : ClienteDeIa
 {
     public ClienteDePalabraReal()
     {
