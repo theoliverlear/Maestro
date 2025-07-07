@@ -2,15 +2,26 @@ import type {ReactElement} from "react";
 import "./BarraDeNav.scss";
 import ElementoDeNav from "../elemento-de-nav/ElementoDeNav.tsx";
 import AnclaDeCasa from "../ancla-de-casa/AnclaDeCasa.tsx";
+import {
+    EnlaceDeElemento,
+    enlacesDeBarraDeNav,
+    enlacesDelDesplegablesDeHerramientas,
+    enlacesDelDesplegablesDeJuegos
+} from "../../../../activos/activosDeEnlaceDeElementos.ts";
+import MenúDesplegableDeNav
+    from "../menú-desplegable-de-nav/MenúDesplegableDeNav.tsx";
 
 function BarraDeNav(): ReactElement {
     return (
         <div className={"barra-de-nav"}>
             <AnclaDeCasa/>
             <nav>
-                <ElementoDeNav texto={"Panel"} enlace={"/panel"}/>
-                <ElementoDeNav texto={"Conjugador"} enlace={"/conj"}/>
-                <ElementoDeNav texto={"Perfil"} enlace={"/perfil"}/>
+                <MenúDesplegableDeNav enlaceDelElementoDesplegable={enlacesDelDesplegablesDeHerramientas}/>
+                <MenúDesplegableDeNav enlaceDelElementoDesplegable={enlacesDelDesplegablesDeJuegos}/>
+                {enlacesDeBarraDeNav.map((enlaceDeElemento: EnlaceDeElemento) => {
+                    return <ElementoDeNav enlaceDeElemento={enlaceDeElemento}
+                                          key={enlaceDeElemento.texto}/>;
+                })}
             </nav>
         </div>
     );
