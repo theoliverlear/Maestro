@@ -9,6 +9,7 @@ public class ContextoDeBdMaestro : DbContext
     public DbSet<Usuario> Usuarios => Set<Usuario>();
     public DbSet<BarajaDeCartas> BarajasDeCartas => Set<BarajaDeCartas>();
     public DbSet<Tarjeta> Tarjetas => Set<Tarjeta>();
+    public DbSet<ContraseñaSegura> ContraseñasSeguras => Set<ContraseñaSegura>();
 
     public ContextoDeBdMaestro(DbContextOptions<ContextoDeBdMaestro> options)
         : base(options)
@@ -16,12 +17,23 @@ public class ContextoDeBdMaestro : DbContext
 
     }
 
+    public DbSet<TEntidad> ObtenerConjuntoPorEntidad<TEntidad>() where TEntidad : class
+    {
+        return Set<TEntidad>();
+    }
+
     protected override void OnModelCreating(ModelBuilder constructorDeModelos)
     {
         constructorDeModelos.Entity<Usuario>()
             .HasOne(usuario => usuario.BarajaDeCartas)
             .WithOne(barajaDeCartas => barajaDeCartas.Usuario)
-            .HasForeignKey<BarajaDeCartas>(barajaDeCartas => barajaDeCartas.Id)
+            .HasForeignKey<Usuario>(usuario => usuario.IdBarajaDeCartas)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        constructorDeModelos.Entity<Usuario>()
+            .HasOne(usuario => usuario.ContraseñaSegura)
+            .WithOne()
+            .HasForeignKey<Usuario>(usuario => usuario.IdContraseñaSegura)
             .OnDelete(DeleteBehavior.Cascade);
 
         constructorDeModelos.Entity<BarajaDeCartas>()
