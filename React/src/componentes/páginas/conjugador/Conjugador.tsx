@@ -6,7 +6,7 @@ import EntradaConTítulo
     from "../../elementos/grupos-elementos-entrada/entrada-con-título/EntradaConTítulo.tsx";
 import {
     TipoDeEntrada
-} from "../../elementos/grupos-elementos-nativos/entrada/models/TipoDeEntrada.ts";
+} from "../../elementos/grupos-elementos-nativos/entrada/modelos/TipoDeEntrada.ts";
 import {usarConjugación} from "../../../manos/usarConjugación.ts";
 import Título from "../../elementos/grupos-elementos-texto/título/Título.tsx";
 import {TipoDeEtiqueta} from "../../../modelos/html/TipoDeEtiqueta.ts";
