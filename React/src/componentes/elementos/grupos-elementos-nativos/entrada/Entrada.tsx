@@ -1,6 +1,6 @@
 import './Entrada.scss';
 import {ChangeEvent, ReactElement, useState} from "react";
-import {TipoDeEntrada} from "./models/TipoDeEntrada.ts";
+import {TipoDeEntrada} from "./modelos/TipoDeEntrada.ts";
 
 interface PropsEntrada {
     tipo: TipoDeEntrada;
