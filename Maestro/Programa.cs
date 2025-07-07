@@ -1,10 +1,22 @@
+using Maestro.Datos;
 using Maestro.Servicio;
 using Maestro.Servicio.Conjugación.ServicioDeConjugación;
 using Maestro.Servicio.Palabra.PalabraReal;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 
 WebApplicationBuilder constructora = WebApplication.CreateBuilder(args);
+
+string? cadenaDeConexión = constructora.Configuration.GetConnectionString("MaestroBd");
+
+constructora.Services.AddDbContext<ContextoDeBdMaestro>(opciones =>
+{
+    opciones.UseNpgsql(cadenaDeConexión, opcionesDeSql =>
+    {
+        opcionesDeSql.SetPostgresVersion(new Version(17, 0));
+    });
+});
 
 const string react = "React";
 
@@ -27,7 +39,6 @@ constructora.Services.AddScoped<IServicioDeConjugación, ServicioDeConjugación>
 constructora.Services.AddScoped<IServicioPalabraReal, ServicioPalabraReal>();
 
 WebApplication app = constructora.Build();
-
 app.UseCors(react);
 
 if (app.Environment.IsDevelopment())
