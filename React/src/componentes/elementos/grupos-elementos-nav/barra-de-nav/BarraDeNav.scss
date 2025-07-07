@@ -1,13 +1,11 @@
 // BarraDeNav.scss
+@use "sass:color";
 @import "../../../../estilos/funciones-globales";
 @import "../../../../estilos/marcadores-de-posición-globales";
 @import "../../../../estilos/mixins-globales";
 @import "../../../../estilos/variables-globales";
-
 .barra-de-nav {
-    //background-image: linear-gradient(to bottom, $rojo-real, $granate-oscura);
-    //background-image: linear-gradient(to bottom, $granate-oscura, $rojo-real);
-    background-image: linear-gradient(to bottom, $blanco-prístino, $piedra-de-alabastro);
+    background-image: radial-gradient($carbón-claro, $rojo-real, $rojo-real-descolorido 10%);
     box-shadow: $sombra-negra-más-oscura 0 0 $medio-porciento $cuarto-porciento;
     width: 100%;
     height: $altura-barra-de-nav;
