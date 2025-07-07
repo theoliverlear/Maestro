@@ -1,52 +1,44 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Maestro.Entidad.Tarjeta;
 
 namespace Maestro.Entidad.Usuario;
 
+[Table("usuarios")]
 public class Usuario
 {
-    private long id;
-    private string nombre;
-    private string correoElectronico;
-    private BarajaDeCartas barajaDeCartas;
-    public Usuario()
+    [Key]
+    public int Id { get; set; }
+
+    [Column("nombre", TypeName = "varchar(100)")]
+    public string Nombre { get; set; }
+
+    [Column("correo_electrónico", TypeName = "varchar(100)")]
+    public string CorreoElectrónico { get; set; }
+
+    [Column("id_baraja_de_cartas")]
+    public int IdBarajaDeCartas { get; set; }
+
+    [ForeignKey(nameof(IdBarajaDeCartas))]
+    public BarajaDeCartas BarajaDeCartas { get; set; }
+
+    public Usuario() : this(string.Empty, string.Empty)
     {
-        this.barajaDeCartas = new BarajaDeCartas();
-        this.nombre = string.Empty;
-        this.correoElectronico = string.Empty;
+
     }
 
-    public Usuario(string nombre, string correoElectronico)
+    public Usuario(string nombre, string correoElectrónico) : this(nombre, correoElectrónico, new BarajaDeCartas())
     {
-        this.barajaDeCartas = new BarajaDeCartas();
-        this.nombre = nombre;
-        this.correoElectronico = correoElectronico;
+
     }
 
     public Usuario(string nombre,
-                   string correoElectronico,
+                   string correoElectrónico,
                    BarajaDeCartas barajaDeCartas)
     {
-        this.barajaDeCartas = barajaDeCartas;
-        this.nombre = nombre;
-        this.correoElectronico = correoElectronico;
-    }
-
-    public long Id
-    {
-        get; set;
-    }
-
-    public string Nombre
-    {
-        get; set;
-    }
-    public string CorreoElectronico
-    {
-        get; set;
-    }
-    public BarajaDeCartas BarajaDeCartas
-    {
-        get => this.barajaDeCartas;
-        set => this.barajaDeCartas = value ?? new BarajaDeCartas();
+        this.BarajaDeCartas = barajaDeCartas;
+        this.Nombre = nombre;
+        this.CorreoElectrónico = correoElectrónico;
+        this.IdBarajaDeCartas = barajaDeCartas.Id;
     }
 }
