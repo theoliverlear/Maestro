@@ -1,0 +1,25 @@
+// MenúDesplegableDeNav.scss
+@import "../../../../estilos/funciones-globales";
+@import "../../../../estilos/marcadores-de-posición-globales";
+@import "../../../../estilos/mixins-globales";
+@import "../../../../estilos/variables-globales";
+
+.menú-desplegable-de-nav {
+    position: relative;
+    @extend %radio-de-borde-suave;
+    .elementos-ocultos {
+        z-index: 2;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        .elemento-de-nav {
+            margin: $medio-porciento 0;
+        }
+        .lista-de-elementos {
+
+        }
+    }
+    &:hover {
+
+    }
+}
