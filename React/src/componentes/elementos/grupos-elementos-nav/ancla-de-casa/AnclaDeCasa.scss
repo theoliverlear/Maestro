@@ -7,11 +7,8 @@
 .ancla-de-casa {
     @include tamaño-cuadrado($cuatro-porciento);
     position: absolute;
-    top: $cuarto-porciento;
+    top: calc($cuarto-porciento + $octavo-porciento);
     left: $medio-porciento;
-    //padding: $cuarto-porciento;
-    //background-color: $mostaza;
-    //border: $borde-delgado $carbón-claro solid;
     border: black $borde-delgado solid;
     @extend %radio-de-borde-suave;
     .imagen {
