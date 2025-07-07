@@ -1,121 +1,42 @@
-using System.Globalization;
-using CsvHelper;
-using CsvHelper.Configuration;
-using Maestro.Excepción;
+using Maestro.Modelos.Conjugación.Diccionario;
 
 namespace Maestro.Modelos.Conjugación;
 
-using DiccionarioDeConjugación = Dictionary<string, Dictionary<string,
-                                 Dictionary<string, FilaDeConjugación>>>;
-
 public class Conjugador
 {
-    public static DiccionarioDeConjugación Diccionario = InicializarDiccionario();
 
-    private static DiccionarioDeConjugación InicializarDiccionario()
+    public static string Conjugado(string verbo = "",
+                                   string ánimo = "Indicativo",
+                                   string tenso = "Presente",
+                                   string pronombre = "Yo")
     {
-        using CsvReader csv = InicializarCsv();
-        IEnumerable<FilaDeConjugación> filas = csv.GetRecords<FilaDeConjugación>();
-        DiccionarioDeConjugación diccionario = filas
-            .GroupBy(fila => fila.Infinitivo)
-            .ToDictionary(groupo => groupo.Key,
-                groupo => groupo.GroupBy(fila => fila.Ánimo)
-                    .ToDictionary(
-                        groupoDeEstadoÁnimo => groupoDeEstadoÁnimo.Key,
-                        groupoDeEstadoÁnimo =>
-                            groupoDeEstadoÁnimo.ToDictionary(tenso => tenso.Tenso,
-                                tenso => tenso)));
-        return diccionario;
+        return DiccionarioDeConjugación.Constructor()
+                                       .ConVerbo(verbo)
+                                       .ConÁnimo(ánimo)
+                                       .ConTenso(tenso)
+                                       .ConPronombre(pronombre)
+                                       .Construir();
     }
 
-    private static CsvReader InicializarCsv()
+    public static string ConjugarSoloConVerbo(string verbo)
     {
-        CsvReader? csv = null;
-        try
-        {
-            string camino = Path.Combine(AppContext.BaseDirectory, @"Modelos/Conjugación/conjugaciones.csv");
-            StreamReader lectora = new StreamReader(camino);
-            csv = new CsvReader(lectora, new CsvConfiguration(CultureInfo.InvariantCulture)
-            {
-                Delimiter = ",",
-                BadDataFound = null,
-                MissingFieldFound = null,
-                TrimOptions = TrimOptions.Trim
-            });
-            return csv;
-        }
-        catch
-        {
-            csv?.Dispose();
-            throw;
-        }
+        return Conjugado(verbo: verbo);
     }
 
-    public static void DetectarVerboNoAdmitidos(string verbo)
+    public static string ConjugarConVerboPronombre(string verbo, string pronombre)
     {
-        if (!Diccionario.ContainsKey(verbo))
-        {
-            throw new ExcepciónDeVerboNoAdmitido(verbo);
-        }
+        return Conjugado(verbo: verbo, pronombre: pronombre);
     }
 
-    public static string ObtenerPorPronombre(string verbo, Pronombre pronombre)
+    public static string ConjugarConVerboPronombre(string verbo, Pronombre pronombre)
     {
-        if (pronombre.EsYo())
-        {
-            return ObtenerYo(verbo);
-        }
-
-        if (pronombre.EsTú())
-        {
-            return ObtenerTú(verbo);
-        }
-
-        if (pronombre.EsÉl() || pronombre.EsElla() || pronombre.EsUsted())
-        {
-            return ObtenerÉl(verbo);
-        }
-
-        if (pronombre.EsNosotros())
-        {
-            return ObtenerNosotros(verbo);
-        }
-
-        if (pronombre.EsEllos() || pronombre.EsUstedes())
-        {
-            return ObtenerEllos(verbo);
-        }
-
-        throw new ArgumentException("Pronombre no reconocido.", nameof(pronombre));
+        return ConjugarConVerboPronombre(verbo, pronombre.Sujeto);
     }
 
-    public static string ObtenerYo(string verbo)
+    public static string ConjugarConVerboPronombreÁnimo(string verbo,
+                                                        string pronombre,
+                                                        string ánimo)
     {
-        DetectarVerboNoAdmitidos(verbo);
-        return Diccionario[verbo]["Indicativo"]["Presente"].Yo;
-    }
-
-    public static string ObtenerTú(string verbo)
-    {
-        DetectarVerboNoAdmitidos(verbo);
-        return Diccionario[verbo]["Indicativo"]["Presente"].Tú;
-    }
-
-    public static string ObtenerÉl(string verbo)
-    {
-        DetectarVerboNoAdmitidos(verbo);
-        return Diccionario[verbo]["Indicativo"]["Presente"].Él;
-    }
-
-    public static string ObtenerNosotros(string verbo)
-    {
-        DetectarVerboNoAdmitidos(verbo);
-        return Diccionario[verbo]["Indicativo"]["Presente"].Nosotros;
-    }
-
-    public static string ObtenerEllos(string verbo)
-    {
-        DetectarVerboNoAdmitidos(verbo);
-        return Diccionario[verbo]["Indicativo"]["Presente"].Ellos;
+        return Conjugado(verbo: verbo, pronombre: pronombre, ánimo: ánimo);
     }
 }
