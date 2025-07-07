@@ -8,6 +8,15 @@ using Microsoft.Extensions.Hosting;
 
 WebApplicationBuilder constructora = WebApplication.CreateBuilder(args);
 
+constructora.Services.AddDistributedMemoryCache();
+
+constructora.Services.AddSession(opciones =>
+{
+    opciones.Cookie.Name = ".Maestro.Sesión";
+    opciones.IdleTimeout = TimeSpan.FromMinutes(30);
+    // opciones.Cookie.HttpOnly = true;
+});
+
 string? cadenaDeConexión = constructora.Configuration.GetConnectionString("MaestroBd");
 
 constructora.Services.AddDbContext<ContextoDeBdMaestro>(opciones =>
@@ -47,5 +56,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseSession();
 app.MapControllers();
 app.Run();
