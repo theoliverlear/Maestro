@@ -6,9 +6,9 @@ namespace Maestro.Entidad.Tarjeta;
 using Maestro.Entidad.Usuario;
 
 [Table("barajas_de_cartas")]
-public class BarajaDeCartas
+public class BarajaDeCartas : Identificable
 {
-    [Key, ForeignKey(nameof(Usuario))]
+    [Key, Column("id"), ForeignKey(nameof(Usuario))]
     public int Id { get; set; }
 
     [InverseProperty(nameof(BarajaDeCartas))]
