@@ -7,30 +7,44 @@
 .elemento-de-nav {
     @include flex(center, center, row);
     //background-color: $mostaza;
-    background-image: radial-gradient($carbón-claro, $carbón);
+    //background-image: radial-gradient($carbón-claro, $carbón);
+    background-image: radial-gradient($piedra-de-alabastro, $blanco-prístino);
     //background-image: radial-gradient($rojo-real-descolorido, $mostaza);
     padding: $tres-cuartos-porciento;
-    color: $piedra-de-alabastro;
+    //color: $piedra-de-alabastro;
+    color: $carbón-claro;
     margin: 0 $medio-porciento;
     //color: $sombra-negra-más-oscura;
     //color: $blanco-prístino;
     @extend %radio-de-borde-suave;
+    @extend %sombra-de-caja-mediana;
     @extend %sombra-de-caja-suave;
     user-select: none;
     opacity: 1;
     transition: background-color 0.1s ease-in-out, opacity 0.1s ease-in-out;
     .título {
         font-size: $h4-tamaño-de-fuente;
-        min-width: 10ch;
+        min-width: calc(10ch + $dos-medio-porciento);
         h4 {
             font-family: $texto-bloque-serif;
         }
+        &.icono-ajustado {
+            margin-right: calc(-1 * $uno-porciento);
+        }
+    }
+    .imagen {
+        @include tamaño-cuadrado($uno-porciento);
+        margin: 0 0 0 $medio-porciento;
+        transition: filter 0.1s ease-in-out;
     }
     &:hover {
         background-image: none;
         background-color: $piedra-de-alabastro;
         color: $carbón;
         cursor: pointer;
+        .imagen {
+            filter: invert(1);
+        }
     }
     &:active {
         opacity: 0.8;
