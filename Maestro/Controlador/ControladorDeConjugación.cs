@@ -17,15 +17,55 @@ public class ControladorDeConjugación : ControllerBase
     }
 
     [HttpGet("{verbo}/{pronombre}")]
-    public ActionResult<RespuestaVerbalConjugada> Conjugar(string verbo, string pronombre)
+    public ActionResult<RespuestaVerbalConjugada> Conjugar(string verbo,
+                                                           string pronombre)
     {
-        string verboConjugado = string.Empty;
+        string verboConjugado;
         try
         {
-            verboConjugado =
-                this._servicioDeConjugación.Conjugar(verbo, pronombre);
+            verboConjugado = this._servicioDeConjugación.Conjugar(verbo, pronombre);
         }
-        catch (ExcepciónDeVerboNoAdmitido ex)
+        catch (Exception ex)
+        {
+            verboConjugado = "Verbo no encontrado.";
+        }
+        return StatusCode(200, new RespuestaVerbalConjugada(verboConjugado));
+    }
+
+    [HttpGet("{verbo}/{pronombre}/{ánimo}")]
+    public ActionResult<RespuestaVerbalConjugada> Conjugar(string verbo,
+                                                           string pronombre,
+                                                           string ánimo)
+    {
+        string verboConjugado;
+        try
+        {
+            verboConjugado = this._servicioDeConjugación.Conjugar(verbo,
+                                                                  pronombre,
+                                                                  ánimo);
+        }
+        catch (Exception ex)
+        {
+            verboConjugado = "Verbo no encontrado.";
+        }
+        return StatusCode(200, new RespuestaVerbalConjugada(verboConjugado));
+    }
+
+    [HttpGet("{verbo}/{pronombre}/{ánimo}/{tenso}")]
+    public ActionResult<RespuestaVerbalConjugada> Conjugar(string verbo,
+                                                           string pronombre,
+                                                           string ánimo,
+                                                           string tenso)
+    {
+        string verboConjugado;
+        try
+        {
+            verboConjugado = this._servicioDeConjugación.Conjugar(verbo,
+                                                                  pronombre,
+                                                                  ánimo,
+                                                                  tenso);
+        }
+        catch (Exception ex)
         {
             verboConjugado = "Verbo no encontrado.";
         }
