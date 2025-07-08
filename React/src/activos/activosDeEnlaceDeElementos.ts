@@ -43,14 +43,19 @@ export const enlaceDeHerramientas: EnlaceDeElemento = {
     texto: "Herramientas"
 };
 
-export const enlacesDePalabraReal: EnlaceDeElemento = {
+export const enlaceDePalabraReal: EnlaceDeElemento = {
     enlace: "/palabra-real",
     texto: "Palabra Real"
 };
 
-export const enlacesDePulsoDePalabras: EnlaceDeElemento = {
+export const enlaceDePulsoDePalabras: EnlaceDeElemento = {
     enlace: "/pulso-de-palabras",
     texto: "Pulso de Palabras"
+};
+
+export const enlaceDeBarajaDeCartas: EnlaceDeElemento = {
+    enlace: "/baraja-de-cartas",
+    texto: "Baraja de Cartas"
 };
 
 export const enlacesDeBarraDeNav: EnlaceDeElemento[] = [
@@ -62,14 +67,15 @@ export const enlacesDeBarraDeNav: EnlaceDeElemento[] = [
 export const enlacesDelDesplegablesDeHerramientas: EnlaceDeElementoDesplegableVinculado = {
     enlaceDelTítulo: enlaceDeHerramientas,
     enlacesDeElemento: [
-        enlaceDeConjugador
+        enlaceDeConjugador,
+        enlaceDeBarajaDeCartas
     ]
 };
 
 export const enlacesDelDesplegablesDeJuegos: EnlaceDeElementoDesplegableVinculado = {
     enlaceDelTítulo: enlaceDeJuegos,
     enlacesDeElemento: [
-        enlacesDePalabraReal,
-        enlacesDePulsoDePalabras
+        enlaceDePalabraReal,
+        enlaceDePulsoDePalabras
     ]
 };
