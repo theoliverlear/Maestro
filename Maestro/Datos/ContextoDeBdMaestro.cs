@@ -25,9 +25,9 @@ public class ContextoDeBdMaestro : DbContext
     protected override void OnModelCreating(ModelBuilder constructorDeModelos)
     {
         constructorDeModelos.Entity<Usuario>()
-            .HasOne(usuario => usuario.BarajaDeCartas)
-            .WithOne(barajaDeCartas => barajaDeCartas.Usuario)
-            .HasForeignKey<Usuario>(usuario => usuario.IdBarajaDeCartas)
+            .HasMany(usuario => usuario.BarajasDeCartas)
+            .WithOne(barajasDeCartas => barajasDeCartas.Usuario)
+            .HasForeignKey(barajasDeCartas => barajasDeCartas.IdUsuario)
             .OnDelete(DeleteBehavior.Cascade);
 
         constructorDeModelos.Entity<Usuario>()
