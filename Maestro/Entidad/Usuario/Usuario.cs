@@ -13,8 +13,7 @@ public class Usuario : Identificable
     [Column("correo_electrónico", TypeName = "varchar(100)")]
     public string CorreoElectrónico { get; set; }
 
-    [Column("id_baraja_de_cartas")]
-    public int IdBarajaDeCartas { get; set; }
+    public ICollection<BarajaDeCartas> BarajasDeCartas { get; set; } = new List<BarajaDeCartas>();
 
     [Column("id_contraseña_segura")]
     public int IdContraseñaSegura { get; set; }
@@ -22,42 +21,37 @@ public class Usuario : Identificable
     [ForeignKey(nameof(IdContraseñaSegura))]
     public ContraseñaSegura ContraseñaSegura { get; set; }
 
-    [ForeignKey(nameof(IdBarajaDeCartas))]
-    public BarajaDeCartas BarajaDeCartas { get; set; }
-
     public Usuario() : this(string.Empty, string.Empty)
     {
 
     }
 
-    public Usuario(string nombre, string correoElectrónico) : this(nombre, correoElectrónico, new BarajaDeCartas())
+    public Usuario(string nombre, string correoElectrónico) : this(nombre, correoElectrónico, new List<BarajaDeCartas>())
     {
 
     }
 
     public Usuario(string nombre,
                    string correoElectrónico,
-                   BarajaDeCartas barajaDeCartas)
+                   ICollection<BarajaDeCartas> barajasDeCartas)
     {
-        this.BarajaDeCartas = barajaDeCartas;
+        this.BarajasDeCartas = barajasDeCartas;
         this.Nombre = nombre;
         this.CorreoElectrónico = correoElectrónico;
         this.ContraseñaSegura = new ContraseñaSegura(string.Empty, this);
         this.IdContraseñaSegura = this.ContraseñaSegura.Id;
-        this.IdBarajaDeCartas = barajaDeCartas.Id;
     }
 
     public Usuario(string nombre,
                    string correoElectrónico,
-                   BarajaDeCartas barajaDeCartas,
+                   ICollection<BarajaDeCartas> barajasDeCartas,
                    ContraseñaSegura contraseñaSegura)
     {
-        this.BarajaDeCartas = barajaDeCartas;
+        this.BarajasDeCartas = barajasDeCartas;
         this.Nombre = nombre;
         this.CorreoElectrónico = correoElectrónico;
         this.ContraseñaSegura = contraseñaSegura;
         this.IdContraseñaSegura = contraseñaSegura.Id;
-        this.IdBarajaDeCartas = barajaDeCartas.Id;
     }
 }
 
