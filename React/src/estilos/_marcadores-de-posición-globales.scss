@@ -1,5 +1,6 @@
 @import "variables-globales";
 @import "funciones-globales";
+@import "mixins-globales";
 
 %radio-del-borde-del-círculo {
     border-radius: 50%;
@@ -28,4 +29,14 @@
 
 %sombra-de-texto-suave {
     text-shadow: $sombra-negra-más-oscura 0 0 $medio-porciento;
+}
+
+%página {
+    width: 100%;
+    box-sizing: border-box;
+    @include flex(flex-start, center, column);
+    height: 100%;
+    min-height: calc(100vh - $altura-barra-de-nav);
+    max-width: 99vw;
+    overflow-x: hidden;
 }
