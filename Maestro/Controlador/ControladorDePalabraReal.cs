@@ -6,8 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Maestro.Controlador;
 
-[ApiController]
-[Route("api/palabra-real")]
+[ApiController, Route("api/palabra-real")]
 public class ControladorDePalabraReal : ControllerBase
 {
     private readonly IServicioPalabraReal _servicioPalabraReal;
