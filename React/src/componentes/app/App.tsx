@@ -5,6 +5,7 @@ import Casa from "../páginas/casa/Casa.tsx";
 import Conjugador from "../páginas/conjugador/Conjugador.tsx";
 import BarraDeNav
     from "../elementos/grupos-elementos-nav/barra-de-nav/BarraDeNav.tsx";
+import BarajaDeCartas from "../páginas/baraja-de-cartas/BarajaDeCartas.tsx";
 
 function App(): ReactElement {
     return (
@@ -14,6 +15,7 @@ function App(): ReactElement {
                 <Routes>
                     <Route path={"/"} element={<Casa/>}/>
                     <Route path={"/conj"} element={<Conjugador/>}/>
+                    <Route path={"/baraja-de-cartas"} element={<BarajaDeCartas/>}/>
                 </Routes>
             </Router>
         </div>
