@@ -4,8 +4,7 @@ using Maestro.Servicio.Conjugación.ServicioDeConjugación;
 using Microsoft.AspNetCore.Mvc;
 namespace Maestro.Controlador;
 
-[ApiController]
-[Route("api/conj")]
+[ApiController, Route("api/conj")]
 public class ControladorDeConjugación : ControllerBase
 {
     private readonly IServicioDeConjugación _servicioDeConjugación;
