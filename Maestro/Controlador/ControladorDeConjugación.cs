@@ -8,10 +8,9 @@ namespace Maestro.Controlador;
 [Route("api/conj")]
 public class ControladorDeConjugación : ControllerBase
 {
-    private IServicioDeConjugación _servicioDeConjugación;
+    private readonly IServicioDeConjugación _servicioDeConjugación;
 
-    public ControladorDeConjugación(
-        IServicioDeConjugación servicioDeConjugación)
+    public ControladorDeConjugación(IServicioDeConjugación servicioDeConjugación)
     {
         this._servicioDeConjugación = servicioDeConjugación;
     }
@@ -25,7 +24,7 @@ public class ControladorDeConjugación : ControllerBase
         {
             verboConjugado = this._servicioDeConjugación.Conjugar(verbo, pronombre);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             verboConjugado = "Verbo no encontrado.";
         }
@@ -44,7 +43,7 @@ public class ControladorDeConjugación : ControllerBase
                                                                   pronombre,
                                                                   ánimo);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             verboConjugado = "Verbo no encontrado.";
         }
@@ -65,7 +64,7 @@ public class ControladorDeConjugación : ControllerBase
                                                                   ánimo,
                                                                   tenso);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             verboConjugado = "Verbo no encontrado.";
         }
