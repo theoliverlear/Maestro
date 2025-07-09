@@ -8,7 +8,9 @@
     @include flex(center, center, row);
     //background-color: $mostaza;
     //background-image: radial-gradient($carbón-claro, $carbón);
+    //background-image: radial-gradient($piedra-de-alabastro, $blanco-prístino);
     background-image: radial-gradient($piedra-de-alabastro, $blanco-prístino);
+    //background-image: $radial-alba;
     //background-image: radial-gradient($rojo-real-descolorido, $mostaza);
     padding: $tres-cuartos-porciento;
     //color: $piedra-de-alabastro;
@@ -23,9 +25,9 @@
     opacity: 1;
     transition: background-color 0.1s ease-in-out, opacity 0.1s ease-in-out;
     .título {
-        font-size: $h4-tamaño-de-fuente;
+        font-size: $h5-tamaño-de-fuente;
         min-width: calc(10ch + $dos-medio-porciento);
-        h4 {
+        h5 {
             font-family: $texto-bloque-serif;
         }
         &.icono-ajustado {
@@ -38,10 +40,11 @@
         transition: filter 0.1s ease-in-out;
     }
     &:hover {
-        background-image: none;
-        background-color: $piedra-de-alabastro;
+        //background-image: none;
+        //background-color: $piedra-de-alabastro;
         color: $carbón;
         cursor: pointer;
+        filter: brightness(1.2);
         .imagen {
             filter: invert(1);
         }
