@@ -5,8 +5,22 @@ using Maestro.Servicio.Palabra.PalabraReal;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
+using Serilog;
+using Serilog.Settings.Configuration;
+using Serilog.Sinks.SystemConsole.Themes;
+
 
 WebApplicationBuilder constructora = WebApplication.CreateBuilder(args);
+Log.Logger = new LoggerConfiguration()
+    .Enrich.FromLogContext()
+    .WriteTo.Console(
+        outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {RequestPath} {Message:lj}{NewLine}{Exception}",
+        applyThemeToRedirectedOutput: true,
+        theme: AnsiConsoleTheme.Literate)
+    .WriteTo.Debug()
+    .CreateLogger();
+
+constructora.Host.UseSerilog();
 
 constructora.Services.AddDistributedMemoryCache();
 
@@ -48,6 +62,7 @@ constructora.Services.AddScoped<IServicioDeConjugación, ServicioDeConjugación>
 constructora.Services.AddScoped<IServicioPalabraReal, ServicioPalabraReal>();
 
 WebApplication app = constructora.Build();
+app.UseSerilogRequestLogging();
 app.UseCors(react);
 
 if (app.Environment.IsDevelopment())
