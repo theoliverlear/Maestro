@@ -10,6 +10,7 @@ import {
 } from "../../../../activos/activosDeEnlaceDeElementos.ts";
 import MenúDesplegableDeNav
     from "../menú-desplegable-de-nav/MenúDesplegableDeNav.tsx";
+import AnclaDeCuenta from "../ancla-de-cuenta/AnclaDeCuenta.tsx";
 
 function BarraDeNav(): ReactElement {
     return (
@@ -23,6 +24,7 @@ function BarraDeNav(): ReactElement {
                                           key={enlaceDeElemento.texto}/>;
                 })}
             </nav>
+            <AnclaDeCuenta/>
         </div>
     );
 }
