@@ -2,14 +2,13 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
 
-using Microsoft.AspNetCore.Identity;
 namespace Maestro.Entidad.Usuario;
 
 [Table("contraseñas_seguros")]
 public class ContraseñaSegura : Identificable
 {
     [Key, Column("id"), ForeignKey(nameof(Usuario))]
-    public int Id { get; set; }
+    public new int Id { get; set; }
 
     public Usuario Usuario { get; set; }
 
