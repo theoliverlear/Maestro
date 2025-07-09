@@ -66,6 +66,16 @@ function Conjugador(): ReactElement {
         manejarLaConjugación();
     }, [pronombreSeleccionado]);
 
+    function normalizarEntradaDelVerbo(valor: string | number): string | number {
+        let valorComoCadena: string = String(valor);
+        const regex: RegExp = /[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜ]/g;
+        valorComoCadena = valorComoCadena.replace(regex, "");
+        if (valorComoCadena.length > 25) {
+            valorComoCadena = valorComoCadena.slice(0, 25);
+        }
+        return valorComoCadena.trim();
+    }
+
     return (
         <div className={"conjugador"}>
             <Título nombreClase={"título-del-verbo-conjugado"}
@@ -73,6 +83,8 @@ function Conjugador(): ReactElement {
                     tipoDeEtiqueta={TipoDeEtiqueta.H3}/>
             <EntradaConTítulo textoDelTítulo={"Verbo"}
                               enLaEntrada={manejarEntrada}
+                              max={25}
+                              normalizarEntrada={normalizarEntradaDelVerbo}
                               tipoDeEntrada={TipoDeEntrada.TEXTO}
                               marcadorDePosición={"Ej. \"hablar\""}/>
             <SelectorDePronombres enLaSelección={manejarLaSelecciónDePronombre}/>
