@@ -1,0 +1,25 @@
+// AnclaDeCuenta.scss
+@import "../../../../estilos/funciones-globales";
+@import "../../../../estilos/marcadores-de-posición-globales";
+@import "../../../../estilos/mixins-globales";
+@import "../../../../estilos/variables-globales";
+
+.ancla-de-cuenta {
+    @include tamaño-cuadrado($tres-porciento);
+    position: absolute;
+    top: calc($cuarto-porciento + $octavo-porciento);
+    right: $medio-porciento;
+    padding: $medio-porciento;
+    background-color: $piedra-de-alabastro;
+    border: gray $borde-delgado solid;
+    @extend %sombra-de-caja-mediana;
+    @extend %radio-de-borde-suave;
+    .imagen {
+        @extend %radio-de-borde-suave;
+        img {
+            //@extend %radio-de-borde-suave;
+            // Filter to make it red
+            filter: invert(0.5);
+        }
+    }
+}
