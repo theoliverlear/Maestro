@@ -39,7 +39,7 @@ function ElementoDeNav(props: PropsElementoDeNav): ReactElement {
               draggable={false}>
             <div className={"elemento-de-nav"}>
                 <Título texto={props.enlaceDeElemento.texto}
-                        tipoDeEtiqueta={TipoDeEtiqueta.H4}
+                        tipoDeEtiqueta={TipoDeEtiqueta.H5}
                         nombreClase={obtenerClasesDeTítulo()}/>
                 {añadirFlecha() && <Imagen recursoDeImagen={recursoDeImagenDeIconoDesplegable}/>}
             </div>
