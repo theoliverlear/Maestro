@@ -2,21 +2,22 @@
 @use "../../../../estilos/globales" as *;
 
 .ancla-de-cuenta {
-    @include tamaño-cuadrado($tres-porciento);
+    @include tamaño-cuadrado(calc($dos-medio-porciento + $medio-porciento));
     position: absolute;
     top: calc($cuarto-porciento + $octavo-porciento);
     right: $medio-porciento;
     padding: $medio-porciento;
-    background-color: $piedra-de-alabastro;
-    border: gray $borde-delgado solid;
+    background-color: $terracota;
+    border: $granate-oscura $borde-más-delgado solid;
     @extend %sombra-de-caja-mediana;
     @extend %radio-de-borde-suave;
+    @extend %flotar-crecer-activo-encoger;
     .imagen {
         @extend %radio-de-borde-suave;
         img {
             //@extend %radio-de-borde-suave;
             // Filter to make it red
-            filter: invert(0.5);
+            filter: invert(1);
         }
     }
 }
