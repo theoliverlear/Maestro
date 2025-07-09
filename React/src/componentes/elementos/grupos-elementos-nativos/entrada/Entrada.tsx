@@ -5,6 +5,7 @@ import {TipoDeEntrada} from "./modelos/TipoDeEntrada.ts";
 interface PropsEntrada {
     tipo: TipoDeEntrada;
     enLaEntrada: (valor: string | number) => void;
+    normalizarEntrada?: (valor: string | number) => string | number;
     marcadorDePosición?: string;
     min?: number;
     max?: number;
@@ -14,7 +15,10 @@ interface PropsEntrada {
 function Entrada(props: PropsEntrada): ReactElement {
     const [valor, asignarValor] = useState<string | number>(props.valorPredeterminado ? props.valorPredeterminado : '');
     function cambioDeManejo(evento: ChangeEvent<HTMLInputElement>): void {
-        const valorDeEntrada: string = evento.target.value;
+        let valorDeEntrada: string = evento.target.value;
+        if (props.normalizarEntrada) {
+            valorDeEntrada = props.normalizarEntrada(valorDeEntrada);
+        }
         asignarValor(valorDeEntrada);
         props.enLaEntrada(valorDeEntrada);
     }
