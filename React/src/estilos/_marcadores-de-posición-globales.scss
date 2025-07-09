@@ -40,3 +40,7 @@
     max-width: 99vw;
     overflow-x: hidden;
 }
+
+%flotar-crecer-activo-encoger {
+    @include flotar-crecer-activo-encoger;
+}
