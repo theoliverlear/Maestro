@@ -32,4 +32,9 @@ export const recursoDeImagenDelLogotipoTransparente: RecursoDeImagen = {
 export const recursoDeImagenDeIconoDesplegable: RecursoDeImagen = {
     src: obtenerRutaDeImagenDelIcono('icono_desplegable.svg'),
     alt: 'Icono de menú desplegable'
-}
+};
+
+export const recursoDeImagenDeIconoDeUsuarioPredeterminado: RecursoDeImagen = {
+    src: obtenerRutaDeImagenDelIcono('icono_de_usuario_predeterminado.svg'),
+    alt: 'Icono de usuario predeterminado'
+};
