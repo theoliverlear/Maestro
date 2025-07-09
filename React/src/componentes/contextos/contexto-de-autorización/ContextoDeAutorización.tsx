@@ -1,0 +1,1 @@
+// TODO: Implementar un protector de cuenta usando contextos de React.
