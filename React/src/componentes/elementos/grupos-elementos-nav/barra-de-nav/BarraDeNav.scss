@@ -1,9 +1,6 @@
 // BarraDeNav.scss
 @use "sass:color";
-@import "../../../../estilos/funciones-globales";
-@import "../../../../estilos/marcadores-de-posición-globales";
-@import "../../../../estilos/mixins-globales";
-@import "../../../../estilos/variables-globales";
+@use "../../../../estilos/globales" as *;
 
 .barra-de-nav {
     //background-image: radial-gradient(at bottom, $rojo-real, $rojo-real-descolorido);

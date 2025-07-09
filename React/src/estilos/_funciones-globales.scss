@@ -11,3 +11,7 @@
 @function calc-píxeles-sencillo($ancho-altura, $px) {
     @return calc(((#{$ancho-altura}vw + #{$ancho-altura}vh) / 2) + #{$px}px);
 }
+
+@function añadir-alfa($color, $alfa) {
+    @return rgba($color, $alfa);
+}

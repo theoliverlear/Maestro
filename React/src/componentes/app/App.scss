@@ -1,9 +1,6 @@
 // App.scss
 @use "sass:color";
-@import "../../estilos/funciones-globales";
-@import "../../estilos/marcadores-de-posición-globales";
-@import "../../estilos/mixins-globales";
-@import "../../estilos/variables-globales";
+@use "../../estilos/globales" as *;
 
 h1 {
     font-size: $h1-tamaño-de-fuente;

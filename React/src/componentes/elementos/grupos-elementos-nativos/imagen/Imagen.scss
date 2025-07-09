@@ -1,8 +1,5 @@
 // Imagen.scss
-@import "../../../../estilos/funciones-globales";
-@import "../../../../estilos/marcadores-de-posición-globales";
-@import "../../../../estilos/mixins-globales";
-@import "../../../../estilos/variables-globales";
+@use "../../../../estilos/globales" as *;
 
 .imagen {
     img {

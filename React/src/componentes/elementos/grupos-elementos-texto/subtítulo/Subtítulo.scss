@@ -1,8 +1,5 @@
 // Subtítulo.scss
-@import "../../../../estilos/funciones-globales";
-@import "../../../../estilos/marcadores-de-posición-globales";
-@import "../../../../estilos/mixins-globales";
-@import "../../../../estilos/variables-globales";
+@use "../../../../estilos/globales" as *;
 
 .subtítulo {
     @include flex(center, center, column);

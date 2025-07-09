@@ -1,8 +1,5 @@
 // MenúDesplegableDeNav.scss
-@import "../../../../estilos/funciones-globales";
-@import "../../../../estilos/marcadores-de-posición-globales";
-@import "../../../../estilos/mixins-globales";
-@import "../../../../estilos/variables-globales";
+@use "../../../../estilos/globales" as *;
 
 .menú-desplegable-de-nav {
     position: relative;

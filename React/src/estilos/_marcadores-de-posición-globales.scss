@@ -1,6 +1,6 @@
-@import "variables-globales";
-@import "funciones-globales";
-@import "mixins-globales";
+@use "variables-globales" as *;
+@use "funciones-globales" as *;
+@use "mixins-globales" as *;
 
 %radio-del-borde-del-círculo {
     border-radius: 50%;
