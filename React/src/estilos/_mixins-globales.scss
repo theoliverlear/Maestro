@@ -19,3 +19,15 @@
     margin: $margen;
     padding: $relleno;
 }
+
+@mixin flotar-crecer-activo-encoger($tamaño-flotador: 1.1,
+                                    $tamaño-activo: 0.9,
+                                    $tiempo-en-segundos: 0.1) {
+    transition: transform #{$tiempo-en-segundos}s ease-in-out;
+    &:hover {
+        transform: scale($tamaño-flotador);
+    }
+    &:active {
+        transform: scale($tamaño-activo);
+    }
+}
