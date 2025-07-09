@@ -1,7 +1,7 @@
 using Maestro.Entidad.Usuario;
 using Maestro.Repositorio.Usuario;
 
-namespace Maestro.Servicio.ServicioUsuario;
+namespace Maestro.Servicio.Usuarios.ServicioUsuario;
 
 public class ServicioUsuario : IServicioUsuario
 {
