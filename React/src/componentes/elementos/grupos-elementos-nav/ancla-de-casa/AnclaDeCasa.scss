@@ -9,7 +9,8 @@
     position: absolute;
     top: calc($cuarto-porciento + $octavo-porciento);
     left: $medio-porciento;
-    border: black $borde-delgado solid;
+    background-color: $logotipo-gris;
+    border: gray $borde-delgado solid;
     @extend %radio-de-borde-suave;
     .imagen {
         @extend %radio-de-borde-suave;
