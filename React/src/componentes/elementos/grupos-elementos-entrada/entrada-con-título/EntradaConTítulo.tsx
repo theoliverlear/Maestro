@@ -4,13 +4,14 @@ import Título from "../../grupos-elementos-texto/título/Título.tsx";
 import {TipoDeEtiqueta} from "../../../../modelos/html/TipoDeEtiqueta.ts";
 import {
     TipoDeEntrada
-} from "../../grupos-elementos-nativos/entrada/models/TipoDeEntrada.ts";
+} from "../../grupos-elementos-nativos/entrada/modelos/TipoDeEntrada.ts";
 import Entrada from "../../grupos-elementos-nativos/entrada/Entrada.tsx";
 
 interface PropsEntradaConTítulo {
     textoDelTítulo: string;
     tipoDeEntrada: TipoDeEntrada;
     enLaEntrada: (valor: string | number) => void;
+    normalizarEntrada?: (valor: string | number) => string | number;
     marcadorDePosición?: string;
     min?: number;
     max?: number;
@@ -26,6 +27,7 @@ function EntradaConTítulo(props: PropsEntradaConTítulo): ReactElement {
                      marcadorDePosición={props.marcadorDePosición}
                      min={props.min}
                      max={props.max}
+                     normalizarEntrada={props.normalizarEntrada}
                      valorPredeterminado={props.valorPredeterminado}/>
         </div>
     );
