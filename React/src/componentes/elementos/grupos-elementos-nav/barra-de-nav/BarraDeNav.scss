@@ -4,8 +4,10 @@
 @import "../../../../estilos/marcadores-de-posición-globales";
 @import "../../../../estilos/mixins-globales";
 @import "../../../../estilos/variables-globales";
+
 .barra-de-nav {
-    background-image: radial-gradient($carbón-claro, $rojo-real, $rojo-real-descolorido 10%);
+    //background-image: radial-gradient(at bottom, $rojo-real, $rojo-real-descolorido);
+    background-image: linear-gradient($terracota, $naranja-sevilla);
     box-shadow: $sombra-negra-más-oscura 0 0 $medio-porciento $cuarto-porciento;
     width: 100%;
     height: $altura-barra-de-nav;
