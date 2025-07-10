@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Maestro.Entidad.Tarjeta;
+using Maestro.Entidad.Usuario.Constructor;
 
 namespace Maestro.Entidad.Usuario;
 
@@ -52,6 +53,11 @@ public class Usuario : Identificable
         this.CorreoElectrónico = correoElectrónico;
         this.ContraseñaSegura = contraseñaSegura;
         this.IdContraseñaSegura = contraseñaSegura.Id;
+    }
+
+    public static ConstructorDeUsuarios Constructor()
+    {
+        return new ConstructorDeUsuarios();
     }
 }
 
