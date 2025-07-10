@@ -63,4 +63,10 @@ public class Repositorio : IRepositorio
         this._bd.ObtenerConjuntoPorEntidad<TEntidad>().Remove(entidad);
         await this.GuardarCambiosAsíncronos();
     }
+
+    public async Task<bool> ExistePorId<TEntidad>(int id)
+    {
+        object? entidad = await this._bd.ObtenerConjuntoPorEntidad<object>().FindAsync(id);
+        return entidad != null;
+    }
 }

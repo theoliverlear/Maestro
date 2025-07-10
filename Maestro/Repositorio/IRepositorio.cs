@@ -8,4 +8,5 @@ public interface IRepositorio
     Task ActualizarAsíncrono<TEntidad>(TEntidad entidad) where TEntidad : class;
     Task EliminarAsíncrono<TEntidad>(int id) where TEntidad : class;
     Task EliminarAsíncrono<TEntidad>(TEntidad entidad) where TEntidad : class;
+    Task<bool> ExistePorId<TEntidad>(int id);
 }
