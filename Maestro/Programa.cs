@@ -1,7 +1,12 @@
 using Maestro.Datos;
+using Maestro.Repositorio;
+using Maestro.Repositorio.Usuario;
 using Maestro.Servicio;
+using Maestro.Servicio.Autorización.ServicioDeAutorización;
 using Maestro.Servicio.Conjugación.ServicioDeConjugación;
 using Maestro.Servicio.Palabra.PalabraReal;
+using Maestro.Servicio.Sesión.ServicioDeSesión;
+using Maestro.Servicio.Usuarios.ServicioDeUsuario;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
@@ -31,6 +36,8 @@ constructora.Services.AddSession(opciones =>
     // opciones.Cookie.HttpOnly = true;
 });
 
+constructora.Services.AddHttpContextAccessor();
+
 string? cadenaDeConexión = constructora.Configuration.GetConnectionString("MaestroBd");
 
 constructora.Services.AddDbContext<ContextoDeBdMaestro>(opciones =>
@@ -58,8 +65,14 @@ constructora.Services.AddControllers();
 constructora.Services.AddEndpointsApiExplorer();
 constructora.Services.AddSwaggerGen();
 
+constructora.Services.AddScoped<IServicioDeAutorización, ServicioDeAutorización>();
 constructora.Services.AddScoped<IServicioDeConjugación, ServicioDeConjugación>();
 constructora.Services.AddScoped<IServicioPalabraReal, ServicioPalabraReal>();
+constructora.Services.AddScoped<IServicioDeSesión, ServicioDeSesión>();
+constructora.Services.AddScoped<IServicioDeUsuario, ServicioDeDeUsuario>();
+
+constructora.Services.AddScoped<IRepositorio, Repositorio>();
+constructora.Services.AddScoped<IUsuariosDeRepositorio, UsuariosDeRepositorio>();
 
 WebApplication app = constructora.Build();
 app.UseSerilogRequestLogging();
