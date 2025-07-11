@@ -1,6 +1,6 @@
 using Maestro.Datos;
 using Maestro.Repositorio;
-using Maestro.Repositorio.Usuario;
+using Maestro.Repositorio.Usuarios;
 using Maestro.Servicio;
 using Maestro.Servicio.Autorización.ServicioDeAutorización;
 using Maestro.Servicio.Conjugación.ServicioDeConjugación;
@@ -69,7 +69,7 @@ constructora.Services.AddScoped<IServicioDeAutorización, ServicioDeAutorizació
 constructora.Services.AddScoped<IServicioDeConjugación, ServicioDeConjugación>();
 constructora.Services.AddScoped<IServicioPalabraReal, ServicioPalabraReal>();
 constructora.Services.AddScoped<IServicioDeSesión, ServicioDeSesión>();
-constructora.Services.AddScoped<IServicioDeUsuario, ServicioDeDeUsuario>();
+constructora.Services.AddScoped<IServicioDeUsuario, ServicioDeUsuario>();
 
 constructora.Services.AddScoped<IRepositorio, Repositorio>();
 constructora.Services.AddScoped<IUsuariosDeRepositorio, UsuariosDeRepositorio>();
