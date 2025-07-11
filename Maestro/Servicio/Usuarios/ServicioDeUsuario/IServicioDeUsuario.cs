@@ -6,4 +6,5 @@ namespace Maestro.Servicio.Usuarios.ServicioDeUsuario;
 public interface IServicioDeUsuario : IServicioDeBaseDatos<Usuario>
 {
     Usuario ObtenerEntidadDeSolicitud(SolicitudInicioDeSesión solicitud);
+    Usuario? ObtenerPorNombreDeUsuario(string nombreDeUsuario);
 }
