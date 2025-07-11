@@ -1,21 +1,35 @@
 using Maestro.Comunicación.Solicitud.Autorización;
 using Maestro.Entidad.Usuario;
-using Maestro.Repositorio.Usuario;
+using Maestro.Repositorio.Usuarios;
 
 namespace Maestro.Servicio.Usuarios.ServicioDeUsuario;
 
-public class ServicioDeDeUsuario : IServicioDeUsuario
+public class ServicioDeUsuario : IServicioDeUsuario
 {
     private IUsuariosDeRepositorio _repositorioUsuarios;
 
-    public ServicioDeDeUsuario(IUsuariosDeRepositorio repositorioUsuarios)
+    public ServicioDeUsuario(IUsuariosDeRepositorio repositorioUsuarios)
     {
         this._repositorioUsuarios = repositorioUsuarios;
     }
 
+    public Usuario? ObtenerPorNombreDeUsuario(string nombreDeUsuario)
+    {
+        if (string.IsNullOrWhiteSpace(nombreDeUsuario))
+        {
+            return null;
+        }
+
+        var usuario = this._repositorioUsuarios.ObtenerPorNombreDeUsuario(nombreDeUsuario);
+        return usuario;
+    }
+
     public Usuario ObtenerEntidadDeSolicitud(SolicitudInicioDeSesión solicitud)
     {
-        throw new NotImplementedException();
+        return Usuario.Constructor()
+                      .ConNombreDeUsuario(solicitud.NombreDeUsuario)
+                      .ConContraseñaSegura(solicitud.Contraseña)
+                      .Construir();
     }
 
     public async Task EliminarAsíncrono(Usuario usuario)
