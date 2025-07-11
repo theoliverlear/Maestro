@@ -4,6 +4,7 @@ namespace Maestro.Servicio.Sesión.ServicioDeSesión;
 
 public class ServicioDeSesión : IServicioDeSesión
 {
+    private static readonly string ClaveDeIdDeUsuario = "UsuarioId";
     private readonly IHttpContextAccessor _contextoHttp;
     private readonly ILogger<ServicioDeSesión> _log;
     public ServicioDeSesión(IHttpContextAccessor contextoHttp,
@@ -46,11 +47,11 @@ public class ServicioDeSesión : IServicioDeSesión
     {
         ISession sesión = this.ObtenerSesión();
         this._log.LogInformation("Eliminando ID de usuario de la sesión.");
-        if (!this.ExistePorClave("UsuarioId"))
+        if (!this.ExistePorClave(ClaveDeIdDeUsuario))
         {
             return false;
         }
-        sesión.Remove("UsuarioId");
+        sesión.Remove(ClaveDeIdDeUsuario);
         return true;
     }
 
@@ -62,5 +63,43 @@ public class ServicioDeSesión : IServicioDeSesión
         }
         ISession sesión = this.ObtenerSesión();
         return sesión.Keys.Contains(clave);
+    }
+
+
+
+    public bool UsuarioEnSesión()
+    {
+        ISession sesión = this.ObtenerSesión();
+        if (!this.ExistePorClave(ClaveDeIdDeUsuario))
+        {
+            this._log.LogWarning("No hay un ID de usuario en la sesión.");
+            return false;
+        }
+        int? idUsuario = sesión.GetInt32(ClaveDeIdDeUsuario);
+        if (idUsuario is null or <= 0)
+        {
+            this._log.LogWarning("El ID de usuario en la sesión es nulo o no válido.");
+            return false;
+        }
+        this._log.LogInformation("El ID de usuario {UsuarioId} está en la sesión.", idUsuario);
+        return true;
+    }
+
+    public int? ObtenerIdDelUsuarioDeSesión()
+    {
+        if (!this.UsuarioEnSesión())
+        {
+            this._log.LogWarning("No hay un usuario en la sesión.");
+            return null;
+        }
+        ISession sesión = this.ObtenerSesión();
+        int? idUsuario = sesión.GetInt32(ClaveDeIdDeUsuario);
+        if (idUsuario is null or <= 0)
+        {
+            this._log.LogWarning("El ID de usuario en la sesión es nulo o no válido.");
+            return null;
+        }
+        this._log.LogInformation("Obteniendo ID de usuario {UsuarioId} de la sesión.", idUsuario);
+        return idUsuario;
     }
 }
