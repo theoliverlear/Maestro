@@ -11,6 +11,9 @@ public class Usuario : Identificable
     [Column("nombre", TypeName = "varchar(100)")]
     public string Nombre { get; set; }
 
+    [Column("nombre_de_usuario", TypeName = "varchar(100)")]
+    public string NombreDeUsuario { get; set; }
+
     [Column("correo_electrónico", TypeName = "varchar(100)")]
     public string CorreoElectrónico { get; set; }
 
@@ -53,6 +56,17 @@ public class Usuario : Identificable
         this.CorreoElectrónico = correoElectrónico;
         this.ContraseñaSegura = contraseñaSegura;
         this.IdContraseñaSegura = contraseñaSegura.Id;
+        this.NombreDeUsuario = string.Empty;
+    }
+
+    public Usuario(string nombre,
+                   string correoElectrónico,
+                   ICollection<BarajaDeCartas> barajasDeCartas,
+                   ContraseñaSegura contraseñaSegura,
+                   string nombreDeUsuario) : this(nombre, correoElectrónico,
+                   barajasDeCartas, contraseñaSegura)
+    {
+        this.NombreDeUsuario = nombreDeUsuario;
     }
 
     public static ConstructorDeUsuarios Constructor()
@@ -60,4 +74,3 @@ public class Usuario : Identificable
         return new ConstructorDeUsuarios();
     }
 }
-
