@@ -13,7 +13,7 @@ export class ServicioDeRegistroHttp extends ClienteHttp<SolicitudDeRegistro, Est
         super(ServicioDeRegistroHttp.URL);
     }
 
-    public async registrar(solicitud: any): Promise<any> {
+    public async registrar(solicitud: SolicitudDeRegistro): Promise<EstadoDeAutorización> {
         return await this.post(solicitud);
     }
 }
