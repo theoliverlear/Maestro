@@ -101,7 +101,8 @@ body {
             .casa,
             .conjugador,
             .baraja-de-cartas,
-            .autorización {
+            .autorización,
+            .panel {
                 @extend %página;
             }
         }
