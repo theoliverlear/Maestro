@@ -13,4 +13,9 @@ public class EstadoDeAutorización
         this.Mensaje = mensaje;
         this.EsAutorizado = esAutorizado;
     }
+
+    public static EstadoDeAutorización DelEstadoDeContraseña(bool contraseñasCoinciden)
+    {
+        return contraseñasCoinciden ? Autoizado : Desautorizado;
+    }
 }
