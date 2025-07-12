@@ -37,7 +37,14 @@ public class ContraseñaSegura : Identificable
 
     public string Codificar(string contraseñaSinCodificar)
     {
-        PasswordHasher<ContraseñaSegura> picadora = new PasswordHasher<ContraseñaSegura>();
+        PasswordHasher<ContraseñaSegura> picadora = new();
         return picadora.HashPassword(this, contraseñaSinCodificar);
+    }
+
+    public bool CoincidenciasCodificadas(string contraseñaSinCodificar)
+    {
+        PasswordHasher<ContraseñaSegura> picadora = new();
+        PasswordVerificationResult resultado = picadora.VerifyHashedPassword(this, this.ContraseñaCodificada, contraseñaSinCodificar);
+        return resultado == PasswordVerificationResult.Success;
     }
 }
