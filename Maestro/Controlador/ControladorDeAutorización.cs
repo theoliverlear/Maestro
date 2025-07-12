@@ -1,3 +1,4 @@
+using System.Net;
 using Maestro.Comunicación.Respuesta.Autorización;
 using Maestro.Comunicación.Solicitud.Autorización;
 using Maestro.Modelos.Autorización;
@@ -20,16 +21,25 @@ public class ControladorDeAutorización : ControllerBase
     {
         RespuestaDeEstadoDeAutorización estadoDeAutorización =
             this._servicioDeAutorización.Acceso(solicitud);
-        int códigoDeEstado = estadoDeAutorización.EsAutorizado ? 200 : 401;
-        return StatusCode(códigoDeEstado, estadoDeAutorización);
+        HttpStatusCode códigoDeEstado = estadoDeAutorización.EsAutorizado ? HttpStatusCode.OK : HttpStatusCode.Unauthorized;
+        return StatusCode((int) códigoDeEstado, estadoDeAutorización);
     }
 
     [HttpPost("registro")]
-    public ActionResult<RespuestaDeEstadoDeAutorización> Registro(SolicitudDeRegistro solicitud)
+    public async Task<ActionResult<RespuestaDeEstadoDeAutorización>> Registro(SolicitudDeRegistro solicitud)
     {
         RespuestaDeEstadoDeAutorización estadoDeAutorización =
-            this._servicioDeAutorización.Registro(solicitud);
-        int códigoDeEstado = estadoDeAutorización.EsAutorizado ? 200 : 400;
-        return StatusCode(códigoDeEstado, estadoDeAutorización);
+            await this._servicioDeAutorización.Registro(solicitud);
+        HttpStatusCode códigoDeEstado = estadoDeAutorización.EsAutorizado ? HttpStatusCode.OK : HttpStatusCode.Unauthorized;
+        return StatusCode((int) códigoDeEstado, estadoDeAutorización);
+    }
+
+    [HttpGet("conectado")]
+    public ActionResult<RespuestaDeEstadoDeAutorización> Conectado()
+    {
+        RespuestaDeEstadoDeAutorización estadoDeAutorización =
+            this._servicioDeAutorización.Conectado();
+        HttpStatusCode códigoDeEstado = estadoDeAutorización.EsAutorizado ? HttpStatusCode.OK : HttpStatusCode.Unauthorized;
+        return StatusCode((int) códigoDeEstado, estadoDeAutorización);
     }
 }
