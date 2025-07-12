@@ -6,5 +6,6 @@ namespace Maestro.Servicio.Autorización.ServicioDeAutorización;
 public interface IServicioDeAutorización
 {
     RespuestaDeEstadoDeAutorización Acceso(SolicitudInicioDeSesión solicitud);
-    RespuestaDeEstadoDeAutorización Registro(SolicitudDeRegistro solicitud);
+    Task<RespuestaDeEstadoDeAutorización> Registro(SolicitudDeRegistro solicitud);
+    RespuestaDeEstadoDeAutorización Conectado();
 }
