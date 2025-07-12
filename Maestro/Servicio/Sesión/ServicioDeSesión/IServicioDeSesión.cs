@@ -7,4 +7,6 @@ public interface IServicioDeSesión
     bool AsignarIdDeUsuario(int id);
     bool EliminarIdDeUsuario();
     bool ExistePorClave(string clave);
+    bool UsuarioEnSesión();
+    int? ObtenerIdDelUsuarioDeSesión();
 }
