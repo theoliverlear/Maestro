@@ -34,8 +34,33 @@ public class ServicioDeAutorización : IServicioDeAutorización
         return new(estadoDeAutorización);
     }
 
-    public RespuestaDeEstadoDeAutorización Registro(SolicitudDeRegistro solicitud)
+    public async Task<RespuestaDeEstadoDeAutorización> Registro(SolicitudDeRegistro solicitud)
     {
-        throw new NotImplementedException();
+        if (this._servicioDeSesión.UsuarioEnSesión())
+        {
+            return new(EstadoDeAutorización.Autoizado);
+        }
+        Usuario? usuarioExistente = this._servicioDeUsuario.ObtenerPorNombreDeUsuario(solicitud.NombreDeUsuario);
+        if (usuarioExistente != null)
+        {
+            return new(EstadoDeAutorización.NoAutorizado);
+        }
+
+        Usuario nuevoUsuario = Usuario.Constructor()
+                                      .ConNombreDeUsuario(solicitud.NombreDeUsuario)
+                                      .ConContraseñaSegura(solicitud.Contraseña)
+                                      .ConCorreoElectrónico(solicitud.CorreoElectrónico)
+                                      .Construir();
+        await this._servicioDeUsuario.AgregarAsíncrono(nuevoUsuario);
+        return new(EstadoDeAutorización.Autoizado);
+    }
+
+    public RespuestaDeEstadoDeAutorización Conectado()
+    {
+        if (this._servicioDeSesión.UsuarioEnSesión())
+        {
+            return new(EstadoDeAutorización.Autoizado);
+        }
+        return new(EstadoDeAutorización.NoAutorizado);
     }
 }
