@@ -1,0 +1,27 @@
+// EntradaDeAutorización.scss
+@use "../../../../../estilos/globales" as *;
+
+.entrada-de-autorización {
+    @include flex(space-between, center, row);
+    width: 100%;
+    .título {
+        //background-color: añadir-alfa($blanco-prístino, 0.2);
+        text-decoration: underline;
+        padding: $medio-porciento;
+        @extend %sombra-de-texto-suave;
+        @extend %radio-de-borde-suave;
+        flex: 1;
+        //margin: 0 $medio-porciento 0 0;
+        text-align: left;
+        @include flex(flex-start, center, row);
+    }
+    .entrada {
+        flex: 1;
+        input {
+            width: 93%;
+            //width: calc(100% - $uno-porciento);
+            height: $uno-porciento;
+            font-size: calc($h6-tamaño-de-fuente * 1.25);
+        }
+    }
+}
