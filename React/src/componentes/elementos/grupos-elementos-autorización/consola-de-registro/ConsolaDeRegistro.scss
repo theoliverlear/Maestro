@@ -2,5 +2,23 @@
 @use "../../../../estilos/globales" as *;
 
 .consola-de-registro {
-
+    width: 100%;
+    .título {
+        color: $piedra-de-alabastro;
+        &.título-de-registro {
+            text-decoration: underline;
+        }
+    }
+    .entrada-con-título {
+        @include flex(space-between, center, row);
+        background-color: transparent;
+        margin: 0;
+        box-shadow: none;
+        .título {
+            margin-right: $medio-porciento;
+            h1, h2, h3, h4, h5, h6 {
+                text-align: left;
+            }
+        }
+    }
 }
