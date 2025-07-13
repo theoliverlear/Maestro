@@ -1,0 +1,10 @@
+// EntradasDeRegistro.scss
+@use "../../../../../estilos/globales" as *;
+
+.entradas-de-registro {
+    @include flex(center, center, column);
+    width: 100%;
+    .botón {
+        align-self: flex-end;
+    }
+}
