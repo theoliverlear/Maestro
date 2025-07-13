@@ -1,0 +1,17 @@
+// Botón.scss
+@use "../../../../estilos/globales" as *;
+
+.botón {
+    margin: $medio-porciento 0;
+    padding: $medio-porciento $uno-porciento;
+    background-color: $mostaza;
+    @extend %radio-de-borde-suave;
+    @extend %sombra-de-texto-suave;
+    @extend %sombra-de-caja-suave;
+    @extend %flotar-crecer-activo-encoger;
+    .título {
+        h1, h2, h3, h4, h5, h6 {
+            font-family: $texto-bloque-sans;
+        }
+    }
+}
