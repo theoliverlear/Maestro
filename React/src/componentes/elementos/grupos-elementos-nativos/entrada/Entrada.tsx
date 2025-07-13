@@ -17,7 +17,7 @@ function Entrada(props: PropsEntrada): ReactElement {
     function cambioDeManejo(evento: ChangeEvent<HTMLInputElement>): void {
         let valorDeEntrada: string = evento.target.value;
         if (props.normalizarEntrada) {
-            valorDeEntrada = props.normalizarEntrada(valorDeEntrada);
+            valorDeEntrada = props.normalizarEntrada(valorDeEntrada) as string;
         }
         asignarValor(valorDeEntrada);
         props.enLaEntrada(valorDeEntrada);
