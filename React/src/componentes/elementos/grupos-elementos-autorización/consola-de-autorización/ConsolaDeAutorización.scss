@@ -2,5 +2,13 @@
 @use "../../../../estilos/globales" as *;
 
 .consola-de-autorización {
-
+    @include flex(center, center, column);
+    background-color: añadir-alfa($carbón, 0.2);
+    width: $cincuenta-porciento;
+    margin: $uno-porciento 0;
+    padding: $uno-porciento;
+    @extend %radio-de-borde-suave;
+    @extend %sombra-de-caja-mediana;
+    border: $borde-muy-delgado solid añadir-alfa($terracota, 0.5);
+    //background-image: linear-gradient($terracota, $naranja-sevilla);
 }
