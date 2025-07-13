@@ -11,6 +11,7 @@ interface PropsEntradaConTítulo {
     textoDelTítulo: string;
     tipoDeEntrada: TipoDeEntrada;
     enLaEntrada: (valor: string | number) => void;
+    tipoDeEtiqueta?: TipoDeEtiqueta;
     normalizarEntrada?: (valor: string | number) => string | number;
     marcadorDePosición?: string;
     min?: number;
@@ -19,9 +20,14 @@ interface PropsEntradaConTítulo {
 }
 
 function EntradaConTítulo(props: PropsEntradaConTítulo): ReactElement {
+
+    function obtenerTipoDeEtiqueta(): TipoDeEtiqueta {
+        return props.tipoDeEtiqueta ? props.tipoDeEtiqueta : TipoDeEtiqueta.H3;
+    }
+
     return (
         <div className={"entrada-con-título"}>
-            <Título texto={props.textoDelTítulo} tipoDeEtiqueta={TipoDeEtiqueta.H4}/>
+            <Título texto={props.textoDelTítulo} tipoDeEtiqueta={obtenerTipoDeEtiqueta()}/>
             <Entrada tipo={props.tipoDeEntrada}
                      enLaEntrada={props.enLaEntrada}
                      marcadorDePosición={props.marcadorDePosición}
