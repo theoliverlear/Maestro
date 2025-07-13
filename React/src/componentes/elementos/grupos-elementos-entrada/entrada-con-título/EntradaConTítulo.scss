@@ -15,8 +15,32 @@
         //background-color: $rojo-real-descolorido;
         padding: $cuarto-porciento $medio-porciento;
         @extend %radio-de-borde-suave;
-        h1, h2, h3, h4, h5, h6 {
+
+        h1 {
+            font-size: calc($h1-tamaño-de-fuente * 0.8);
+        }
+
+        h2 {
+            font-size: calc($h2-tamaño-de-fuente * 0.8);
+        }
+
+        h3 {
             font-size: calc($h3-tamaño-de-fuente * 0.8);
+        }
+
+        h4 {
+            font-size: calc($h4-tamaño-de-fuente * 0.8);
+        }
+
+        h5 {
+            font-size: calc($h5-tamaño-de-fuente * 0.8);
+        }
+
+        h6 {
+            font-size: calc($h6-tamaño-de-fuente * 0.8);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
             font-family: $texto-bloque-serif;
         }
     }
