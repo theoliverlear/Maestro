@@ -12,6 +12,7 @@ import {
 
 interface PropsEntradaDeAutorización {
     tipo: TipoDeEntradaDeAutorización;
+    enLaEntrada: (valor: string | number) => void;
 }
 
 function EntradaDeAutorización(props: PropsEntradaDeAutorización): ReactElement {
@@ -31,7 +32,7 @@ function EntradaDeAutorización(props: PropsEntradaDeAutorización): ReactElemen
     return (
         <div className={"entrada-de-autorización"}>
             <Título texto={props.tipo} tipoDeEtiqueta={TipoDeEtiqueta.H5}/>
-            <Entrada tipo={obtenerTipoDeEntrada()} enLaEntrada={() => null}/>
+            <Entrada tipo={obtenerTipoDeEntrada()} enLaEntrada={props.enLaEntrada}/>
         </div>
     );
 }
