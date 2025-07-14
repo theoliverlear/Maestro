@@ -13,14 +13,30 @@ export class GenSolicitudDeRegistro {
     private _contraseña: string;
     private _confirmarContraseña: string;
     private codificadorDeContraseñas: ServicioDeCodificaciónDeContraseñas = usarInyectar(ServicioDeCodificaciónDeContraseñas);
-    public constructor(nombreDeUsuario: string,
-                       correoElectrónico: string,
-                       contraseña: string,
-                       confirmarContraseña: string) {
+    public constructor(nombreDeUsuario: string = "",
+                       correoElectrónico: string = "",
+                       contraseña: string = "",
+                       confirmarContraseña: string = "") {
         this._nombreDeUsuario = nombreDeUsuario;
         this._correoElectrónico = correoElectrónico;
         this._contraseña = contraseña;
         this._confirmarContraseña = confirmarContraseña;
+    }
+
+    public obtenerOtrosEstadosNoVálidos(estadoExcluido: EstadosDeValidezDeAutorización): EstadosDeValidezDeAutorización {
+        const estadosExcluidos: EstadosDeValidezDeAutorización[] = [
+            EstadosDeValidezDeAutorización.CAMPOS_SIN_RELLENAR,
+            estadoExcluido
+        ];
+        if (!this.esCorreoElectrónicoValido() &&
+            !estadosExcluidos.includes(EstadosDeValidezDeAutorización.CORREO_ELECTRÓNICO_NO_VÁLIDO)) {
+            return EstadosDeValidezDeAutorización.CORREO_ELECTRÓNICO_NO_VÁLIDO;
+        }
+        if (!this.contraseñasCoinciden() &&
+            !estadosExcluidos.includes(EstadosDeValidezDeAutorización.FALTA_DE_COINCIDENCIA_DE_CONTRASEÑAS)) {
+            return EstadosDeValidezDeAutorización.FALTA_DE_COINCIDENCIA_DE_CONTRASEÑAS;
+        }
+        return EstadosDeValidezDeAutorización.VÁLIDO;
     }
 
     public obtenerEstadosNoVálidos(): EstadosDeValidezDeAutorización {
