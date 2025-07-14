@@ -21,7 +21,7 @@ type PropsBotón = PropsBotónConImagen | PropsBotónConTexto;
 
 function Botón(props: PropsBotón): ReactElement {
     return (
-        <div className={"botón"}>
+        <div className={"botón"} onClick={props.alHacerClic}>
             {props.recursoDeImagen && (
                 <Imagen recursoDeImagen={props.recursoDeImagen}/>
             )}
