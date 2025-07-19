@@ -39,6 +39,7 @@ public class BarajaDeCartas : Identificable
     {
         this.Usuario = usuario;
         this.Cartas = cartas;
+        this.Título = string.Empty;
     }
 
     public BarajaDeCartas(Usuario usuario, ICollection<Tarjeta> cartas, string título)
