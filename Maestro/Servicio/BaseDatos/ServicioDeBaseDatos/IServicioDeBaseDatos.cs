@@ -1,4 +1,4 @@
-namespace Maestro.Servicio;
+namespace Maestro.Servicio.BaseDatos.ServicioDeBaseDatos;
 
 public interface IServicioDeBaseDatos<TEntidad>
 {
