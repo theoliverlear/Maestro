@@ -1,14 +1,17 @@
 using Maestro.Comunicación.Solicitud.Autorización;
 using Maestro.Entidad.Usuario;
+using Maestro.Repositorio;
 using Maestro.Repositorio.Usuarios;
+using Maestro.Servicio.BaseDatos.ServicioDeBaseDatos;
 
 namespace Maestro.Servicio.Usuarios.ServicioDeUsuario;
 
-public class ServicioDeUsuario : IServicioDeUsuario
+public class ServicioDeUsuario : ServicioDeBaseDatos<Usuario>, IServicioDeUsuario
 {
     private IUsuariosDeRepositorio _repositorioUsuarios;
 
-    public ServicioDeUsuario(IUsuariosDeRepositorio repositorioUsuarios)
+    public ServicioDeUsuario(IUsuariosDeRepositorio repositorioUsuarios,
+                             IRepositorio repositorio) : base(repositorio)
     {
         this._repositorioUsuarios = repositorioUsuarios;
     }
@@ -20,8 +23,7 @@ public class ServicioDeUsuario : IServicioDeUsuario
             return null;
         }
 
-        var usuario = this._repositorioUsuarios.ObtenerPorNombreDeUsuario(nombreDeUsuario);
-        return usuario;
+        return this._repositorioUsuarios.ObtenerPorNombreDeUsuario(nombreDeUsuario);
     }
 
     public Usuario ObtenerEntidadDeSolicitud(SolicitudInicioDeSesión solicitud)
@@ -30,26 +32,5 @@ public class ServicioDeUsuario : IServicioDeUsuario
                       .ConNombreDeUsuario(solicitud.NombreDeUsuario)
                       .ConContraseñaSegura(solicitud.Contraseña)
                       .Construir();
-    }
-
-    public async Task EliminarAsíncrono(Usuario usuario)
-    {
-        await this._repositorioUsuarios.EliminarAsíncrono(usuario);
-    }
-
-    public async Task EliminarAsíncrono(int id)
-    {
-        await this._repositorioUsuarios.EliminarAsíncrono<Usuario>(id);
-    }
-
-    public async Task ActualizarAsíncrono(Usuario usuario)
-    {
-        await this._repositorioUsuarios.ActualizarAsíncrono(usuario);
-    }
-
-    public async ValueTask<Usuario> AgregarAsíncrono(Usuario usuario)
-    {
-        var nuevoUsuario = await this._repositorioUsuarios.AgregarAsíncrono(usuario);
-        return nuevoUsuario;
     }
 }
