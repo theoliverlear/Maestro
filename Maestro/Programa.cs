@@ -1,13 +1,4 @@
 using Maestro.Datos;
-using Maestro.Repositorio;
-using Maestro.Repositorio.Usuarios;
-using Maestro.Servicio;
-using Maestro.Servicio.Autorización.ServicioDeAutorización;
-using Maestro.Servicio.Conjugación.ServicioDeConjugación;
-using Maestro.Servicio.Palabra.PalabraReal;
-using Maestro.Servicio.Sesión.ServicioDeSesión;
-using Maestro.Servicio.Usuarios.ServicioDeUsuario;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using Serilog;
@@ -65,14 +56,15 @@ constructora.Services.AddControllers();
 constructora.Services.AddEndpointsApiExplorer();
 constructora.Services.AddSwaggerGen();
 
-constructora.Services.AddScoped<IServicioDeAutorización, ServicioDeAutorización>();
-constructora.Services.AddScoped<IServicioDeConjugación, ServicioDeConjugación>();
-constructora.Services.AddScoped<IServicioPalabraReal, ServicioPalabraReal>();
-constructora.Services.AddScoped<IServicioDeSesión, ServicioDeSesión>();
-constructora.Services.AddScoped<IServicioDeUsuario, ServicioDeUsuario>();
-
-constructora.Services.AddScoped<IRepositorio, Repositorio>();
-constructora.Services.AddScoped<IUsuariosDeRepositorio, UsuariosDeRepositorio>();
+constructora.Services.Scan(escáner => escáner
+    .FromApplicationDependencies()
+    .AddClasses(clase => clase.Where(tipo => tipo.Name.StartsWith("Servicio")))
+    .AsImplementedInterfaces()
+    .WithScopedLifetime()
+    .AddClasses(clase => clase.Where(tipo => tipo.Name.EndsWith("Repositorio")))
+    .AsImplementedInterfaces()
+    .WithScopedLifetime()
+);
 
 WebApplication app = constructora.Build();
 app.UseSerilogRequestLogging();
