@@ -44,3 +44,7 @@
 %flotar-crecer-activo-encoger {
     @include flotar-crecer-activo-encoger;
 }
+
+%invertir-color {
+    filter: invert(100%);
+}
