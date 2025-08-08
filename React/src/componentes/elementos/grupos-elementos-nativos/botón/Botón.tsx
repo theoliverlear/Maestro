@@ -9,19 +9,33 @@ interface PropsBotónConImagen {
     recursoDeImagen: RecursoDeImagen;
     texto?: never;
     alHacerClic?: () => void;
+    nombreClase?: string;
 }
 
 interface PropsBotónConTexto {
     recursoDeImagen?: never;
     texto: string;
     alHacerClic?: () => void;
+    nombreClase?: string;
 }
 
 type PropsBotón = PropsBotónConImagen | PropsBotónConTexto;
 
 function Botón(props: PropsBotón): ReactElement {
+    
+    function obtenerClaseBase(): string {
+        let clases: string = "botón";
+        if (props.nombreClase) {
+            clases += " " + props.nombreClase;
+        }
+        if (props.recursoDeImagen) {
+            clases += " cuadrado";
+        }
+        return clases;
+    }
+    
     return (
-        <div className={"botón"} onClick={props.alHacerClic}>
+        <div className={obtenerClaseBase()} onClick={props.alHacerClic}>
             {props.recursoDeImagen && (
                 <Imagen recursoDeImagen={props.recursoDeImagen}/>
             )}
