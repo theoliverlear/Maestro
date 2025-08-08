@@ -2,10 +2,11 @@
 @use "../../../../estilos/globales" as *;
 
 .entrada-con-título {
-    background-color: $mostaza;
+    box-sizing: border-box;
+    background-color: añadir-alfa($mostaza, 1.0);
     @include flex(center, center, column);
-    padding: $uno-porciento;
-    margin: $uno-porciento 0;
+    padding: calc($medio-porciento * 1.2);
+    margin: $medio-porciento 0;
     @extend %radio-de-borde-más-suave;
     @extend %sombra-de-caja-mediana;
     .título {
