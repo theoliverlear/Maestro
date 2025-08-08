@@ -38,3 +38,13 @@ export const recursoDeImagenDeIconoDeUsuarioPredeterminado: RecursoDeImagen = {
     src: obtenerRutaDeImagenDelIcono('icono_de_usuario_predeterminado.svg'),
     alt: 'Icono de usuario predeterminado'
 };
+
+export const recursoDeImagenDeIconoDeCerrar: RecursoDeImagen = {
+    src: obtenerRutaDeImagenDelIcono('icono_de_cerrar.png'),
+    alt: 'Icono de cerrar'
+};
+
+export const recursoDeImagenDeIconoDeCerrarBlanco: RecursoDeImagen = {
+    src: obtenerRutaDeImagenDelIcono('icono_de_cerrar_blanco.png'),
+    alt: 'Icono de cerrar blanco'
+}
