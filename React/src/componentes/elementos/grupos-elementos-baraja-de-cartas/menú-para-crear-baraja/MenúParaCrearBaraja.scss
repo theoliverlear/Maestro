@@ -1,0 +1,43 @@
+// MenúParaCrearBaraja.scss
+@use "../../../../estilos/globales" as *;
+
+.menú-para-crear-baraja {
+    @include flex(center, center, column);
+    @extend %radio-de-borde-más-suave;
+    background-color: añadir-alfa($ambar-cádiz, 0.5);
+    padding: $uno-porciento;
+    margin: $uno-porciento 0;
+    min-width: $treinta-y-cinco-porciento;
+    .línea-superior {
+        width: 100%;
+        @include flex(space-between, center, row);
+        .botón-de-cerrar {
+            @include tamaño-cuadrado($dos-porciento);
+            padding: $cuarto-porciento;
+            @extend %radio-de-borde-más-suave;
+        }
+        .título-del-menú {
+            flex: 1;
+            text-align: center;
+            color: $blanco-prístino;
+            text-decoration: underline;
+        }
+    }
+    .entradas-de-menú {
+        width: 100%;
+
+
+        .entrada-con-título {
+            width: 100%;
+            @include flex(space-between, center, row);
+            background-color: añadir-alfa($carbón, 0.3);
+            @extend %radio-de-borde-más-suave;
+            @extend %sombra-de-caja-mediana;
+        }
+    }
+
+
+    .botón {
+        align-self: flex-end;
+    }
+}
