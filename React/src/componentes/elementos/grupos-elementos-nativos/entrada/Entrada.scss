@@ -3,12 +3,12 @@
 
 .entrada {
     input {
-        font-size: $h5-tamaño-de-fuente;
+        font-size: calc($h6-tamaño-de-fuente * 1.1);
         @extend %radio-de-borde-más-suave;
-        border: $rojo-real $borde-delgado solid;
+        border: $rojo-real calc($borde-muy-delgado * 1.5) solid;
         //background-color: $rojo-real-descolorido;
         background-color: $piedra-de-alabastro;
-        padding: $medio-porciento;
+        padding: calc($cuarto-porciento * 1.25);
         color: $granate-oscura;
         font-family: $texto-bloque-serif;
     }
