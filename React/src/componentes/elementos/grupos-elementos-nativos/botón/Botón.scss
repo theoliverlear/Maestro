@@ -5,6 +5,7 @@
     margin: $medio-porciento 0;
     padding: $medio-porciento $uno-porciento;
     background-color: $mostaza;
+    color: $blanco-prístino;
     @extend %radio-de-borde-suave;
     @extend %sombra-de-texto-suave;
     @extend %sombra-de-caja-suave;
@@ -13,5 +14,8 @@
         h1, h2, h3, h4, h5, h6 {
             font-family: $texto-bloque-sans;
         }
+    }
+    &.cuadrado {
+        padding: $medio-porciento;
     }
 }
