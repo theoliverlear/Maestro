@@ -13,7 +13,7 @@ function BarajaDeCartas(): ReactElement {
     return (
         <div className={"baraja-de-cartas"}>
             {!barajaCrearMenúVisible && <BotónParaCrearBaraja alHacerClic={manejarClicEnMenú}/>}
-            {barajaCrearMenúVisible && <MenúParaCrearBaraja/>}
+            {barajaCrearMenúVisible && <MenúParaCrearBaraja alHacerClicEnCerrar={manejarClicEnMenú}/>}
         </div>
     );
 }
