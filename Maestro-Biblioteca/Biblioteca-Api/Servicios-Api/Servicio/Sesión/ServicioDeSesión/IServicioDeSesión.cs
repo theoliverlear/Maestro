@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Http;
+
 namespace Maestro.Servicio.Sesión.ServicioDeSesión;
 
 public interface IServicioDeSesión

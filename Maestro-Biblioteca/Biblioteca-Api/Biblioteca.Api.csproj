@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>Biblioteca.Api</AssemblyName>
+    <RootNamespace>Maestro.Biblioteca.Api</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Comunicación-Api\**\*.cs" />
+    <Compile Remove="Infraestructura-Api\**\*.cs" />
+    <Compile Remove="Modelos-Api\**\*.cs" />
+    <Compile Remove="Repositorios-Api\**\*.cs" />
+    <Compile Remove="Servicios-Api\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="Comunicación-Api\Comunicación.Api.csproj" />
+    <ProjectReference Include="Infraestructura-Api\Infraestructura.Api.csproj" />
+    <ProjectReference Include="Modelos-Api\Modelos.Api.csproj" />
+    <ProjectReference Include="Repositorios-Api\Repositorios.Api.csproj" />
+    <ProjectReference Include="Servicios-Api\Servicios.Api.csproj" />
+  </ItemGroup>
+</Project>

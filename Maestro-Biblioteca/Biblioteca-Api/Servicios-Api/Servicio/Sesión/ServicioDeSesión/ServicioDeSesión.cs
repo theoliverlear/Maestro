@@ -1,4 +1,5 @@
-using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
 namespace Maestro.Servicio.Sesión.ServicioDeSesión;
 
@@ -57,7 +58,7 @@ public class ServicioDeSesión : IServicioDeSesión
 
     public bool ExistePorClave(string clave)
     {
-        if (clave.IsNullOrEmpty())
+        if (string.IsNullOrEmpty(clave))
         {
             return false;
         }

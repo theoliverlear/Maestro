@@ -22,28 +22,28 @@ public class ServicioDeAutorización : IServicioDeAutorización
     {
         if (this._servicioDeSesión.UsuarioEnSesión())
         {
-            return new(EstadoDeAutorización.Autoizado);
+            return new(EstadoDeAutorización.Autoizado.EsAutorizado);
         }
         Usuario? usuario = this._servicioDeUsuario.ObtenerPorNombreDeUsuario(solicitud.NombreDeUsuario);
         if (usuario == null)
         {
-            return new(EstadoDeAutorización.NoAutorizado);
+            return new(EstadoDeAutorización.NoAutorizado.EsAutorizado);
         }
         bool contraseñasCoinciden = usuario.ContraseñaSegura.CoincidenciasCodificadas(solicitud.Contraseña);
         EstadoDeAutorización estadoDeAutorización = EstadoDeAutorización.DelEstadoDeContraseña(contraseñasCoinciden);
-        return new(estadoDeAutorización);
+        return new(estadoDeAutorización.EsAutorizado);
     }
 
     public async Task<RespuestaDeEstadoDeAutorización> Registro(SolicitudDeRegistro solicitud)
     {
         if (this._servicioDeSesión.UsuarioEnSesión())
         {
-            return new(EstadoDeAutorización.Autoizado);
+            return new(EstadoDeAutorización.Autoizado.EsAutorizado);
         }
         Usuario? usuarioExistente = this._servicioDeUsuario.ObtenerPorNombreDeUsuario(solicitud.NombreDeUsuario);
         if (usuarioExistente != null)
         {
-            return new(EstadoDeAutorización.NoAutorizado);
+            return new(EstadoDeAutorización.NoAutorizado.EsAutorizado);
         }
 
         Usuario nuevoUsuario = Usuario.Constructor()
@@ -52,15 +52,15 @@ public class ServicioDeAutorización : IServicioDeAutorización
                                       .ConCorreoElectrónico(solicitud.CorreoElectrónico)
                                       .Construir();
         await this._servicioDeUsuario.AgregarAsíncrono(nuevoUsuario);
-        return new(EstadoDeAutorización.Autoizado);
+        return new(EstadoDeAutorización.Autoizado.EsAutorizado);
     }
 
     public RespuestaDeEstadoDeAutorización Conectado()
     {
         if (this._servicioDeSesión.UsuarioEnSesión())
         {
-            return new(EstadoDeAutorización.Autoizado);
+            return new(EstadoDeAutorización.Autoizado.EsAutorizado);
         }
-        return new(EstadoDeAutorización.NoAutorizado);
+        return new(EstadoDeAutorización.NoAutorizado.EsAutorizado);
     }
 }

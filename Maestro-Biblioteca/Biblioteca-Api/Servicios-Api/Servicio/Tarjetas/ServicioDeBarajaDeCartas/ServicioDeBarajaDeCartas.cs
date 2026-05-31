@@ -29,7 +29,8 @@ public class ServicioDeBarajaDeCartas : ServicioDeBaseDatos<BarajaDeCartas>, ISe
         usuario.BarajasDeCartas.Add(cartas);
         await this._servicioDeUsuario.AgregarAsíncrono(usuario);
         await this._barajaDeCartasDeRepositorio.AgregarAsíncrono(cartas);
-        return new(EstadoDeOperación.ÉxitoDeOperación);
+        EstadoDeOperación estado = EstadoDeOperación.ÉxitoDeOperación;
+        return new(estado.OperaciónExitosa, estado.Mensaje);
     }
 
     public async Task<RespuestaDeÉxitoDeOperación> GuardarTodasTarjetasAsíncrono(BarajaDeCartas cartas)
@@ -43,7 +44,8 @@ public class ServicioDeBarajaDeCartas : ServicioDeBaseDatos<BarajaDeCartas>, ISe
         {
             await this._barajaDeCartasDeRepositorio.ActualizarAsíncrono(carta);
         }
-        return new(EstadoDeOperación.ÉxitoDeOperación);
+        EstadoDeOperación estado = EstadoDeOperación.ÉxitoDeOperación;
+        return new(estado.OperaciónExitosa, estado.Mensaje);
     }
 
     public Task EliminarAsíncrono(BarajaDeCartas entidad)

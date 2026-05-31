@@ -1,12 +1,11 @@
-using Maestro.Modelos.Autorización;
-
 namespace Maestro.Comunicación.Respuesta.Autorización;
 
 public class RespuestaDeEstadoDeAutorización
 {
     public bool EsAutorizado { get; private set; }
-    public RespuestaDeEstadoDeAutorización(EstadoDeAutorización estado)
+
+    public RespuestaDeEstadoDeAutorización(bool esAutorizado)
     {
-        this.EsAutorizado = estado.EsAutorizado;
+        this.EsAutorizado = esAutorizado;
     }
 }
