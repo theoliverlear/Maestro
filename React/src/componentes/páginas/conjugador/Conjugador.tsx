@@ -81,6 +81,10 @@ function Conjugador(): ReactElement {
             <Título nombreClase={"título-del-verbo-conjugado"}
                     texto={conjugaciónDelVerboObtener()}
                     tipoDeEtiqueta={TipoDeEtiqueta.H3}/>
+            {/*
+              * TODO: Agrega un botón de pronunciación para las palabras
+              *       identificadas.
+              */}
             <EntradaConTítulo textoDelTítulo={"Verbo"}
                               enLaEntrada={manejarEntrada}
                               max={25}
