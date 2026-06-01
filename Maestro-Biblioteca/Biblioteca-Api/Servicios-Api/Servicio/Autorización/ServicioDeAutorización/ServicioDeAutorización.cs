@@ -24,7 +24,7 @@ public class ServicioDeAutorización : IServicioDeAutorización
         {
             return new(EstadoDeAutorización.Autoizado.EsAutorizado);
         }
-        Usuario? usuario = this._servicioDeUsuario.ObtenerPorNombreDeUsuario(solicitud.NombreDeUsuario);
+        Usuario? usuario = this._servicioDeUsuario.ObtenerPorCorreoElectrónico(solicitud.CorreoElectrónico);
         if (usuario == null)
         {
             return new(EstadoDeAutorización.NoAutorizado.EsAutorizado);
@@ -40,14 +40,13 @@ public class ServicioDeAutorización : IServicioDeAutorización
         {
             return new(EstadoDeAutorización.Autoizado.EsAutorizado);
         }
-        Usuario? usuarioExistente = this._servicioDeUsuario.ObtenerPorNombreDeUsuario(solicitud.NombreDeUsuario);
+        Usuario? usuarioExistente = this._servicioDeUsuario.ObtenerPorCorreoElectrónico(solicitud.CorreoElectrónico);
         if (usuarioExistente != null)
         {
             return new(EstadoDeAutorización.NoAutorizado.EsAutorizado);
         }
 
         Usuario nuevoUsuario = Usuario.Constructor()
-                                      .ConNombreDeUsuario(solicitud.NombreDeUsuario)
                                       .ConContraseñaSegura(solicitud.Contraseña)
                                       .ConCorreoElectrónico(solicitud.CorreoElectrónico)
                                       .Construir();
