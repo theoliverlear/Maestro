@@ -21,9 +21,8 @@ function EntradaDeAutorización(props: PropsEntradaDeAutorización): ReactElemen
             case TipoDeEntradaDeAutorización.CONTRASEÑA:
             case TipoDeEntradaDeAutorización.CONFIRMAR_CONTRASEÑA:
                 return TipoDeEntrada.CONTRASEÑA;
-            case TipoDeEntradaDeAutorización.NOMBRE_DE_USUARIO:
             case TipoDeEntradaDeAutorización.CORREO_ELECTRÓNICO:
-                return TipoDeEntrada.TEXTO;
+                return TipoDeEntrada.CORREO_ELECTRÓNICO;
             default:
                 throw new Error(`Tipo de entrada desconocido: ${props.tipo}`);
         }
