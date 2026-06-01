@@ -1,3 +1,3 @@
 namespace Maestro.Comunicación.Solicitud.Autorización;
 
-public record SolicitudInicioDeSesión(string NombreDeUsuario, string Contraseña);
+public record SolicitudInicioDeSesión(string CorreoElectrónico, string Contraseña);
