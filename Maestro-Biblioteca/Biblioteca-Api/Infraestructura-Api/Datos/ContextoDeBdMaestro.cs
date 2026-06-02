@@ -1,4 +1,5 @@
 using Maestro.Entidad.Tarjeta;
+using Maestro.Entidad.Autorización;
 using Maestro.Entidad.Usuario;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +11,7 @@ public class ContextoDeBdMaestro : DbContext
     public DbSet<BarajaDeCartas> BarajasDeCartas => Set<BarajaDeCartas>();
     public DbSet<Tarjeta> Tarjetas => Set<Tarjeta>();
     public DbSet<ContraseñaSegura> ContraseñasSeguras => Set<ContraseñaSegura>();
+    public DbSet<TokenDeActualización> TokensDeActualización => Set<TokenDeActualización>();
 
     public ContextoDeBdMaestro(DbContextOptions<ContextoDeBdMaestro> options)
         : base(options)
@@ -41,5 +43,15 @@ public class ContextoDeBdMaestro : DbContext
             .WithOne(tarjeta => tarjeta.BarajaDeCartas)
             .HasForeignKey(tarjeta => tarjeta.BarajaDeCartasId)
             .OnDelete(DeleteBehavior.Cascade);
+
+        constructorDeModelos.Entity<TokenDeActualización>()
+            .HasIndex(token => token.IdDeToken)
+            .IsUnique();
+
+        constructorDeModelos.Entity<TokenDeActualización>()
+            .HasIndex(token => token.IdDeFamilia);
+
+        constructorDeModelos.Entity<TokenDeActualización>()
+            .HasIndex(token => token.IdUsuario);
     }
 }
