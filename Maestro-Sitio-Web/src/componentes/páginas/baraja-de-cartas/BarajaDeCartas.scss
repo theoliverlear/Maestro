@@ -2,5 +2,208 @@
 @use "../../../estilos/globales" as *;
 
 .baraja-de-cartas {
+    align-items: stretch;
+    gap: $dos-porciento;
+    min-height: calc(100vh - $altura-barra-de-nav);
+    color: $carbón;
+    background:
+        radial-gradient(ellipse at 84% 14%, añadir-alfa($arena-albero, 0.16), transparent 40%),
+        linear-gradient(135deg, $blanco-prístino 0%, $casi-blanca 56%, $caliza-beige 100%);
 
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
+        margin: 0;
+    }
+
+    .ceja-promocional {
+        color: $terracota;
+        font-family: $texto-bloque-sans;
+        font-size: clamp(0.78rem, 0.28vw + 0.72rem, 0.95rem);
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .encabezado-de-baraja {
+        box-sizing: border-box;
+        padding: $tres-porciento $tres-porciento 0;
+
+        > div {
+            @include flex(flex-start, flex-start, column);
+            gap: $medio-porciento;
+            width: min(1120px, 100%);
+            margin: 0 auto;
+        }
+
+        h1 {
+            max-width: 56rem;
+            color: $granate-oscura;
+            font-size: clamp(3rem, 5.6vw, 6.5rem);
+            line-height: 0.95;
+            text-shadow: $sombra-negra 0 $cuarto-porciento $medio-porciento;
+        }
+
+        p:not(.ceja-promocional) {
+            max-width: 45rem;
+            color: $carbón-claro;
+            font-family: $texto-bloque-serif;
+            font-size: clamp(1.05rem, 0.52vw + 0.96rem, 1.36rem);
+            line-height: 1.5;
+        }
+    }
+
+    .espacio-de-baraja {
+        display: grid;
+        grid-template-columns: minmax(18rem, 0.72fr) minmax(24rem, 1.2fr) minmax(16rem, 0.54fr);
+        gap: $uno-porciento;
+        width: min(1120px, calc(100% - 2rem));
+        align-self: center;
+        box-sizing: border-box;
+        padding-bottom: $tres-porciento;
+    }
+
+    .panel-de-acciones-de-baraja,
+    .panel-de-vista-de-baraja,
+    .panel-de-sesión-de-baraja {
+        @include flex(flex-start, stretch, column);
+        gap: $medio-porciento;
+        min-width: 0;
+        box-sizing: border-box;
+        padding: $uno-porciento;
+        background-color: añadir-alfa($blanco-prístino, 0.96);
+        border: $borde-más-delgado solid añadir-alfa($terracota, 0.22);
+        border-top: $borde-delgado solid $terracota;
+        border-radius: 0.75rem;
+        box-shadow: $sombra-negra 0 $medio-porciento $uno-porciento;
+    }
+
+    .barra-de-panel-de-baraja {
+        @include flex(space-between, center, row);
+        gap: $uno-porciento;
+        color: $terracota;
+        font-family: $texto-bloque-sans;
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-transform: uppercase;
+
+        strong {
+            color: $granate-oscura;
+        }
+    }
+
+    .panel-de-acciones-de-baraja {
+        .botón-para-crear-baraja {
+            flex: 1;
+        }
+    }
+
+    .panel-de-vista-de-baraja {
+        .mesa-de-tarjetas {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: $medio-porciento;
+            align-items: stretch;
+            min-height: 21rem;
+            box-sizing: border-box;
+            padding: $uno-porciento;
+            background:
+                radial-gradient(ellipse at 14% 18%, añadir-alfa($arena-albero, 0.18), transparent 44%),
+                $casi-blanca;
+            border: $borde-más-delgado solid añadir-alfa($carbón, 0.1);
+            border-radius: 0.65rem;
+        }
+    }
+
+    .panel-de-sesión-de-baraja {
+        article,
+        .nota-de-sesión-de-baraja {
+            padding: 0.9rem;
+            background-color: $casi-blanca;
+            border: $borde-más-delgado solid añadir-alfa($terracota, 0.16);
+            border-radius: 0.55rem;
+        }
+
+        article {
+            @include flex(space-between, center, row);
+            gap: $medio-porciento;
+
+            span {
+                color: $terracota;
+                font-family: $texto-bloque-sans;
+                font-size: 0.78rem;
+                font-weight: 900;
+                text-transform: uppercase;
+            }
+
+            strong {
+                color: $granate-oscura;
+                font-family: $texto-bloque-sans;
+            }
+        }
+
+        .nota-de-sesión-de-baraja {
+            border-left: $borde-delgado solid $arena-albero;
+
+            strong {
+                display: block;
+                margin-bottom: 0.25rem;
+                color: $granate-oscura;
+                font-family: $texto-bloque-sans;
+            }
+
+            p {
+                color: $carbón-claro;
+                font-family: $texto-bloque-serif;
+                font-size: clamp(0.92rem, 0.26vw + 0.88rem, 1.02rem);
+                line-height: 1.45;
+            }
+        }
+    }
+}
+
+@media (max-width: 1040px) {
+    .baraja-de-cartas {
+        .espacio-de-baraja {
+            grid-template-columns: 1fr 1fr;
+
+            .panel-de-sesión-de-baraja {
+                grid-column: 1 / -1;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(16rem, 1.2fr);
+            }
+        }
+    }
+}
+
+@media (max-width: 760px) {
+    .baraja-de-cartas {
+        .encabezado-de-baraja {
+            padding: 2rem 1rem 0;
+        }
+
+        .espacio-de-baraja {
+            grid-template-columns: 1fr;
+
+            .panel-de-sesión-de-baraja {
+                display: flex;
+            }
+
+            .panel-de-vista-de-baraja .mesa-de-tarjetas {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+}
+
+@media (max-width: 560px) {
+    .baraja-de-cartas {
+        .panel-de-acciones-de-baraja,
+        .panel-de-vista-de-baraja,
+        .panel-de-sesión-de-baraja {
+            padding: 1rem;
+        }
+    }
 }
