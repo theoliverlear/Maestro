@@ -2,14 +2,51 @@
 @use "../../../../estilos/globales" as *;
 
 .entrada {
+    width: 100%;
     input {
-        font-size: calc($h6-tamaño-de-fuente * 1.1);
-        @extend %radio-de-borde-más-suave;
-        border: $rojo-real calc($borde-muy-delgado * 1.5) solid;
-        //background-color: $rojo-real-descolorido;
-        background-color: $piedra-de-alabastro;
-        padding: calc($cuarto-porciento * 1.25);
-        color: $granate-oscura;
-        font-family: $texto-bloque-serif;
+        box-sizing: border-box;
+        width: 100%;
+        min-height: calc($dos-porciento + $medio-porciento);
+        font-size: clamp(0.95rem, 0.35vw + 0.9rem, 1.15rem);
+        border-radius: $medio-porciento;
+        border: $borde-más-delgado solid añadir-alfa($carbón, 0.22);
+        background-color: añadir-alfa($blanco-prístino, 0.96);
+        padding: $medio-porciento $uno-porciento;
+        color: $carbón-claro;
+        font-family: $texto-bloque-sans;
+        line-height: 1.2;
+        outline: none;
+        box-shadow: inset $sombra-negra 0 $octavo-porciento $cuarto-porciento;
+        transition:
+            background-color 0.14s ease-in-out,
+            border-color 0.14s ease-in-out,
+            box-shadow 0.14s ease-in-out;
+        &::placeholder {
+            color: añadir-alfa($carbón-claro, 0.56);
+        }
+        &:hover {
+            border-color: añadir-alfa($terracota, 0.58);
+        }
+        &:focus {
+            background-color: $blanco-prístino;
+            border-color: $terracota;
+            box-shadow:
+                0 0 0 $cuarto-porciento añadir-alfa($arena-albero, 0.32),
+                inset $sombra-negra 0 $octavo-porciento $cuarto-porciento;
+        }
+        &[type="checkbox"] {
+            @include tamaño-cuadrado(clamp(1rem, 0.45vw + 0.9rem, 1.25rem));
+            min-height: auto;
+            padding: 0;
+            accent-color: $terracota;
+            box-shadow: none;
+        }
+        &[type="range"] {
+            padding-right: 0;
+            padding-left: 0;
+            accent-color: $terracota;
+            box-shadow: none;
+            background-color: transparent;
+        }
     }
 }
