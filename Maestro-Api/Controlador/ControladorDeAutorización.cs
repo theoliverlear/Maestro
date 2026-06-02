@@ -10,6 +10,7 @@ namespace Maestro.Controlador;
 [ApiController, Route("api/autorización")]
 public class ControladorDeAutorización : ControllerBase
 {
+    private const string NombreCookieTokenDeActualización = "maestro_rt";
     private readonly IServicioDeAutorización _servicioDeAutorización;
     public ControladorDeAutorización(IServicioDeAutorización servicioDeAutorización)
     {
@@ -17,10 +18,11 @@ public class ControladorDeAutorización : ControllerBase
     }
 
     [HttpPost("acceso")]
-    public ActionResult<RespuestaDeEstadoDeAutorización> Acceso(SolicitudInicioDeSesión solicitud)
+    public async Task<ActionResult<RespuestaDeEstadoDeAutorización>> Acceso(SolicitudInicioDeSesión solicitud)
     {
         RespuestaDeEstadoDeAutorización estadoDeAutorización =
-            this._servicioDeAutorización.Acceso(solicitud);
+            await this._servicioDeAutorización.Acceso(solicitud);
+        this.EscribirCookieDeActualización(estadoDeAutorización);
         HttpStatusCode códigoDeEstado = estadoDeAutorización.EsAutorizado ? HttpStatusCode.OK : HttpStatusCode.Unauthorized;
         return StatusCode((int) códigoDeEstado, estadoDeAutorización);
     }
@@ -30,6 +32,7 @@ public class ControladorDeAutorización : ControllerBase
     {
         RespuestaDeEstadoDeAutorización estadoDeAutorización =
             await this._servicioDeAutorización.Registro(solicitud);
+        this.EscribirCookieDeActualización(estadoDeAutorización);
         HttpStatusCode códigoDeEstado = estadoDeAutorización.EsAutorizado ? HttpStatusCode.OK : HttpStatusCode.Unauthorized;
         return StatusCode((int) códigoDeEstado, estadoDeAutorización);
     }
@@ -41,5 +44,61 @@ public class ControladorDeAutorización : ControllerBase
             this._servicioDeAutorización.Conectado();
         HttpStatusCode códigoDeEstado = estadoDeAutorización.EsAutorizado ? HttpStatusCode.OK : HttpStatusCode.Unauthorized;
         return StatusCode((int) códigoDeEstado, estadoDeAutorización);
+    }
+
+    [HttpPost("actualizar")]
+    public async Task<ActionResult<RespuestaDeEstadoDeAutorización>> Actualizar()
+    {
+        string? idDeToken = Request.Cookies[NombreCookieTokenDeActualización];
+        if (string.IsNullOrWhiteSpace(idDeToken))
+        {
+            return Unauthorized(new RespuestaDeEstadoDeAutorización(false));
+        }
+
+        RespuestaDeEstadoDeAutorización estadoDeAutorización =
+            await this._servicioDeAutorización.Actualizar(idDeToken);
+        this.EscribirCookieDeActualización(estadoDeAutorización);
+        HttpStatusCode códigoDeEstado = estadoDeAutorización.EsAutorizado ? HttpStatusCode.OK : HttpStatusCode.Unauthorized;
+        return StatusCode((int)códigoDeEstado, estadoDeAutorización);
+    }
+
+    [HttpPost("salir")]
+    public async Task<ActionResult<RespuestaDeEstadoDeAutorización>> Salir()
+    {
+        string? idDeToken = Request.Cookies[NombreCookieTokenDeActualización];
+        if (!string.IsNullOrWhiteSpace(idDeToken))
+        {
+            await this._servicioDeAutorización.Salir(idDeToken);
+        }
+
+        Response.Cookies.Delete(NombreCookieTokenDeActualización, this.OpcionesDeCookie());
+        return Ok(new RespuestaDeEstadoDeAutorización(false));
+    }
+
+    private void EscribirCookieDeActualización(RespuestaDeEstadoDeAutorización respuesta)
+    {
+        if (!respuesta.EsAutorizado ||
+            string.IsNullOrWhiteSpace(respuesta.IdDeTokenDeActualización) ||
+            respuesta.ExpiraTokenDeActualizaciónEn == null)
+        {
+            return;
+        }
+
+        CookieOptions opciones = this.OpcionesDeCookie();
+        opciones.Expires = respuesta.ExpiraTokenDeActualizaciónEn;
+        Response.Cookies.Append(NombreCookieTokenDeActualización,
+            respuesta.IdDeTokenDeActualización,
+            opciones);
+    }
+
+    private CookieOptions OpcionesDeCookie()
+    {
+        return new CookieOptions
+        {
+            HttpOnly = true,
+            Secure = false,
+            SameSite = SameSiteMode.Strict,
+            Path = "/api/autorización"
+        };
     }
 }
