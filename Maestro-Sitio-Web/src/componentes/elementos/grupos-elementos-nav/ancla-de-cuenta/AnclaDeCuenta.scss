@@ -2,22 +2,30 @@
 @use "../../../../estilos/globales" as *;
 
 .ancla-de-cuenta {
-    @include tamaño-cuadrado(calc($dos-medio-porciento + $medio-porciento));
-    position: absolute;
-    top: calc($cuarto-porciento + $octavo-porciento);
-    right: $medio-porciento;
+    @include tamaño-cuadrado(calc($dos-porciento + $medio-porciento));
+    flex: 0 0 auto;
     padding: $medio-porciento;
-    background-color: $terracota;
-    border: $granate-oscura $borde-más-delgado solid;
-    @extend %sombra-de-caja-mediana;
-    @extend %radio-de-borde-suave;
-    @extend %flotar-crecer-activo-encoger;
+    box-sizing: border-box;
+    background-color: añadir-alfa($terracota, 0.1);
+    border: $borde-más-delgado solid añadir-alfa($terracota, 0.28);
+    border-radius: $medio-porciento;
+    transition:
+        background-color 0.14s ease-in-out,
+        border-color 0.14s ease-in-out,
+        transform 0.14s ease-in-out;
     .imagen {
-        @extend %radio-de-borde-suave;
+        border-radius: $medio-porciento;
         img {
-            //@extend %radio-de-borde-suave;
-            // Filter to make it red
-            filter: invert(1);
+            filter: none;
         }
+    }
+    &:hover {
+        background-color: añadir-alfa($terracota, 0.18);
+        border-color: añadir-alfa($rojo-real, 0.42);
+        transform: translateY(-1px);
+        cursor: pointer;
+    }
+    &:active {
+        transform: translateY(0);
     }
 }
