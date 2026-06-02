@@ -11,71 +11,67 @@ export function usarEntradasDeRegistro() {
         EstadosDeValidezDeAutorización.VÁLIDO
     );
 
-    const actualizarCampo = useCallback(
-        (campo: string, valor: string) => {
-            asignarSolicitud((prev: GenSolicitudDeRegistro) => {
-                const nuevo: GenSolicitudDeRegistro = new GenSolicitudDeRegistro(
-                    prev.nombreDeUsuario,
-                    prev.correoElectrónico,
-                    prev.contraseña,
-                    prev.confirmarContraseña
-                );
-                switch (campo) {
-                    case "nombreDeUsuario":
-                        nuevo.nombreDeUsuario = valor;
-                        break;
-                    case "correoElectrónico":
-                        nuevo.correoElectrónico = valor;
-                        break;
-                    case "contraseña":
-                        nuevo.contraseña = valor;
-                        break;
-                    case "confirmarContraseña":
-                        nuevo.confirmarContraseña = valor;
-                        break;
-                    default:
-                        throw new Error(`Campo desconocido: ${campo}`);
-                }
-                return nuevo;
-            });
-        }, []);
+    const crearSolicitudActualizada = useCallback(
+        (campo: string, valor: string): GenSolicitudDeRegistro => {
+            const nuevo: GenSolicitudDeRegistro = new GenSolicitudDeRegistro(
+                solicitud.correoElectrónico,
+                solicitud.contraseña,
+                solicitud.confirmarContraseña
+            );
+            switch (campo) {
+                case "correoElectrónico":
+                    nuevo.correoElectrónico = valor;
+                    break;
+                case "contraseña":
+                    nuevo.contraseña = valor;
+                    break;
+                case "confirmarContraseña":
+                    nuevo.confirmarContraseña = valor;
+                    break;
+                default:
+                    throw new Error(`Campo desconocido: ${campo}`);
+            }
+            return nuevo;
+        }, [solicitud]);
 
-    const manejarNombreDeUsuario = useCallback(
-        (valor: string | number) => {
-            actualizarCampo("nombreDeUsuario", valor as string);
-        }, [actualizarCampo]);
+    const actualizarSolicitudYMensaje = useCallback(
+        (campo: string, valor: string): GenSolicitudDeRegistro => {
+            const nuevo: GenSolicitudDeRegistro = crearSolicitudActualizada(campo, valor);
+            asignarSolicitud(nuevo);
+            return nuevo;
+        }, [crearSolicitudActualizada]);
 
     const manejarCorreoElectrónico = useCallback(
         (valor: string | number) => {
-            actualizarCampo("correoElectrónico", valor as string);
-            if (!solicitud.esCorreoElectrónicoValido()) {
+            const nuevaSolicitud = actualizarSolicitudYMensaje("correoElectrónico", valor as string);
+            if (!nuevaSolicitud.esCorreoElectrónicoValido()) {
                 asignarMensaje(EstadosDeValidezDeAutorización.CORREO_ELECTRÓNICO_NO_VÁLIDO);
             } else {
-                asignarMensaje(solicitud.obtenerOtrosEstadosNoVálidos(mensaje));
+                asignarMensaje(nuevaSolicitud.obtenerOtrosEstadosNoVálidos(mensaje));
             }
-        }, [actualizarCampo, solicitud, mensaje]);
+        }, [actualizarSolicitudYMensaje, mensaje]);
 
     const manejarContraseña = useCallback(
         (valor: string | number) => {
-            actualizarCampo("contraseña", valor as string);
-            if (solicitud.confirmarContraseña && !solicitud.contraseñasCoinciden()) {
+            const nuevaSolicitud = actualizarSolicitudYMensaje("contraseña", valor as string);
+            if (nuevaSolicitud.confirmarContraseña && !nuevaSolicitud.contraseñasCoinciden()) {
                 asignarMensaje(EstadosDeValidezDeAutorización.FALTA_DE_COINCIDENCIA_DE_CONTRASEÑAS);
             } else {
                 asignarMensaje(
-                    solicitud.obtenerOtrosEstadosNoVálidos(mensaje)
+                    nuevaSolicitud.obtenerOtrosEstadosNoVálidos(mensaje)
                 );
             }
-        }, [actualizarCampo, solicitud, mensaje]);
+        }, [actualizarSolicitudYMensaje, mensaje]);
 
     const manejarConfirmarContraseña = useCallback(
         (valor: string | number) => {
-            actualizarCampo("confirmarContraseña", valor as string);
-            if (!solicitud.contraseñasCoinciden()) {
+            const nuevaSolicitud = actualizarSolicitudYMensaje("confirmarContraseña", valor as string);
+            if (nuevaSolicitud.confirmarContraseña && !nuevaSolicitud.contraseñasCoinciden()) {
                 asignarMensaje(EstadosDeValidezDeAutorización.FALTA_DE_COINCIDENCIA_DE_CONTRASEÑAS);
             } else {
-                asignarMensaje(solicitud.obtenerOtrosEstadosNoVálidos(mensaje));
+                asignarMensaje(nuevaSolicitud.obtenerOtrosEstadosNoVálidos(mensaje));
             }
-        }, [actualizarCampo, solicitud, mensaje]);
+        }, [actualizarSolicitudYMensaje, mensaje]);
 
     const manejarEnvío = useCallback((): boolean => {
         if (!solicitud.esVálido()) {
@@ -89,7 +85,6 @@ export function usarEntradasDeRegistro() {
         solicitud,
         mensaje,
         manipuladores: {
-            manejarNombreDeUsuario,
             manejarCorreoElectrónico,
             manejarContraseña,
             manejarConfirmarContraseña,
