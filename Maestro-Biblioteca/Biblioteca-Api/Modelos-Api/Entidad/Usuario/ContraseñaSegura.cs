@@ -7,9 +7,7 @@ namespace Maestro.Entidad.Usuario;
 [Table("contraseñas_seguros")]
 public class ContraseñaSegura : Identificable
 {
-    [Key, Column("id"), ForeignKey(nameof(Usuario))]
-    public new int Id { get; set; }
-
+    [NotMapped]
     public Usuario Usuario { get; set; }
 
     [Column("contraseña_codificada", TypeName = "varchar(100)")]
@@ -18,21 +16,19 @@ public class ContraseñaSegura : Identificable
     public ContraseñaSegura()
     {
         this.ContraseñaCodificada = string.Empty;
-        this.Usuario = new Usuario();
+        this.Usuario = null!;
     }
 
     public ContraseñaSegura(string contraseñaSinCodificar)
     {
         this.ContraseñaCodificada = this.Codificar(contraseñaSinCodificar);
-        this.Usuario = new Usuario();
+        this.Usuario = null!;
     }
 
     public ContraseñaSegura(string contraseñaSinCodificar, Usuario usuario)
     {
         this.ContraseñaCodificada = this.Codificar(contraseñaSinCodificar);
         this.Usuario = usuario;
-        this.Id = usuario.Id;
-        this.Usuario.IdContraseñaSegura = this.Id;
     }
 
     public string Codificar(string contraseñaSinCodificar)
