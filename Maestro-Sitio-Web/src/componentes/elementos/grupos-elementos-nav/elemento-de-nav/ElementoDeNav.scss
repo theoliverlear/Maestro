@@ -3,50 +3,46 @@
 
 .elemento-de-nav {
     @include flex(center, center, row);
-    //background-color: $mostaza;
-    //background-image: radial-gradient($carbón-claro, $carbón);
-    //background-image: radial-gradient($piedra-de-alabastro, $blanco-prístino);
-    background-image: radial-gradient($piedra-de-alabastro, $blanco-prístino);
-    //background-image: $radial-alba;
-    //background-image: radial-gradient($rojo-real-descolorido, $mostaza);
-    padding: $tres-cuartos-porciento;
-    //color: $piedra-de-alabastro;
-    color: $carbón-claro;
-    margin: 0 $medio-porciento;
-    //color: $sombra-negra-más-oscura;
-    //color: $blanco-prístino;
-    @extend %radio-de-borde-suave;
-    @extend %sombra-de-caja-mediana;
-    @extend %sombra-de-caja-suave;
+    background-color: transparent;
+    color: $granate-oscura;
+    border-radius: $medio-porciento;
+    min-height: calc($dos-porciento + $medio-porciento);
+    padding: $medio-porciento $uno-porciento;
+    margin: 0;
     user-select: none;
-    opacity: 1;
-    transition: background-color 0.1s ease-in-out, opacity 0.1s ease-in-out;
+    white-space: nowrap;
+    transition:
+        background-color 0.14s ease-in-out,
+        color 0.14s ease-in-out,
+        opacity 0.14s ease-in-out;
     .título {
-        font-size: $h5-tamaño-de-fuente;
-        min-width: calc(10ch + $dos-medio-porciento);
+        min-width: auto;
         h5 {
-            font-family: $texto-bloque-serif;
+            font-family: $texto-bloque-sans;
+            font-size: clamp(0.9rem, 0.35vw + 0.85rem, 1.1rem);
+            font-weight: 600;
+            line-height: 1;
         }
         &.icono-ajustado {
-            margin-right: calc(-1 * $uno-porciento);
+            margin-right: $cuarto-porciento;
         }
     }
     .imagen {
-        @include tamaño-cuadrado($uno-porciento);
-        margin: 0 0 0 $medio-porciento;
+        @include tamaño-cuadrado(clamp(0.65rem, 0.3vw + 0.55rem, 0.9rem));
+        margin: 0;
+        filter: none;
+        opacity: 0.8;
         transition: filter 0.1s ease-in-out;
     }
     &:hover {
-        //background-image: none;
-        //background-color: $piedra-de-alabastro;
-        color: $carbón;
+        background-color: añadir-alfa($terracota, 0.12);
+        color: $rojo-real;
         cursor: pointer;
-        filter: brightness(1.2);
         .imagen {
-            filter: invert(1);
+            opacity: 1;
         }
     }
     &:active {
-        opacity: 0.8;
+        opacity: 0.72;
     }
 }
