@@ -16,6 +16,16 @@ public class ServicioDeUsuario : ServicioDeBaseDatos<Usuario>, IServicioDeUsuari
         this._repositorioUsuarios = repositorioUsuarios;
     }
 
+    public Usuario? ObtenerPorId(int id)
+    {
+        if (id <= 0)
+        {
+            return null;
+        }
+
+        return this._repositorioUsuarios.ObtenerPorId(id);
+    }
+
     public Usuario? ObtenerPorNombreDeUsuario(string nombreDeUsuario)
     {
         if (string.IsNullOrWhiteSpace(nombreDeUsuario))
@@ -26,10 +36,20 @@ public class ServicioDeUsuario : ServicioDeBaseDatos<Usuario>, IServicioDeUsuari
         return this._repositorioUsuarios.ObtenerPorNombreDeUsuario(nombreDeUsuario);
     }
 
+    public Usuario? ObtenerPorCorreoElectrónico(string correoElectrónico)
+    {
+        if (string.IsNullOrWhiteSpace(correoElectrónico))
+        {
+            return null;
+        }
+
+        return this._repositorioUsuarios.ObtenerPorCorreoElectrónico(correoElectrónico);
+    }
+
     public Usuario ObtenerEntidadDeSolicitud(SolicitudInicioDeSesión solicitud)
     {
         return Usuario.Constructor()
-                      .ConNombreDeUsuario(solicitud.NombreDeUsuario)
+                      .ConCorreoElectrónico(solicitud.CorreoElectrónico)
                       .ConContraseñaSegura(solicitud.Contraseña)
                       .Construir();
     }
