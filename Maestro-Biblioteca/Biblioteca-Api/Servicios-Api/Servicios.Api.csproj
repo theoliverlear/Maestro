@@ -13,6 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Comunicación-Api\Comunicación.Api.csproj" />
     <ProjectReference Include="..\Modelos-Api\Modelos.Api.csproj" />
     <ProjectReference Include="..\Repositorios-Api\Repositorios.Api.csproj" />
