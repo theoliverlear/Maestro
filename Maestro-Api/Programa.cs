@@ -1,4 +1,6 @@
 using Maestro.Datos;
+using Maestro.Biblioteca.Crítico.Eventos;
+using Maestro.Biblioteca.Universal.Configuracion;
 using Maestro.Infraestructura;
 using Maestro.Modelos.Autorización.Dpop;
 using Maestro.Servicio.Autorización.ServicioDpop;
@@ -116,6 +118,9 @@ constructora.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 constructora.Services.AddAuthorization();
+constructora.Services.RegistrarBibliotecaUniversal(constructora.Configuration);
+constructora.Services.RegistrarComunicadorCrítico();
+constructora.Services.RegistrarConsumidorDeRespuestasCrítico();
 constructora.Services.AddScoped<IAlmacénDeReproducciónDpop, AlmacénDeReproducciónDpop>();
 
 constructora.Services.AddEndpointsApiExplorer();
