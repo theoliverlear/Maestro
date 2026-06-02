@@ -2,5 +2,19 @@
 @use "../../../../estilos/globales" as *;
 
 .botón-para-crear-baraja {
+    @include flex(center, stretch, column);
+    min-height: 12rem;
+    box-sizing: border-box;
+    padding: $uno-porciento;
+    background:
+        radial-gradient(ellipse at top right, añadir-alfa($arena-albero, 0.18), transparent 52%),
+        $casi-blanca;
+    border: $borde-más-delgado dashed añadir-alfa($terracota, 0.34);
+    border-radius: 0.65rem;
 
+    .botón {
+        align-self: stretch;
+        min-height: 3rem;
+        margin: 0;
+    }
 }
