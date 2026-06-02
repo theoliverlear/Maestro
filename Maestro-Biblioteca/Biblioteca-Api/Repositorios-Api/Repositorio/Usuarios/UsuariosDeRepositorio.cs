@@ -11,6 +11,11 @@ public class UsuariosDeRepositorio : Repositorio, IUsuariosDeRepositorio
 
     }
 
+    public Usuario? ObtenerPorId(int id)
+    {
+        return this.Bd.Usuarios.FirstOrDefault(usuarioRepo => usuarioRepo.Id == id);
+    }
+
     public Usuario? ObtenerPorNombreDeUsuario(string nombreDeUsuario)
     {
         if (string.IsNullOrWhiteSpace(nombreDeUsuario))
@@ -20,6 +25,18 @@ public class UsuariosDeRepositorio : Repositorio, IUsuariosDeRepositorio
 
         Usuario? usuario = this.Bd.Usuarios.FirstOrDefault(usuarioRepo =>
             usuarioRepo.NombreDeUsuario.Equals(nombreDeUsuario));
+        return usuario;
+    }
+
+    public Usuario? ObtenerPorCorreoElectrónico(string correoElectrónico)
+    {
+        if (string.IsNullOrWhiteSpace(correoElectrónico))
+        {
+            return null;
+        }
+
+        Usuario? usuario = this.Bd.Usuarios.FirstOrDefault(usuarioRepo =>
+            usuarioRepo.CorreoElectrónico.Equals(correoElectrónico));
         return usuario;
     }
 }
