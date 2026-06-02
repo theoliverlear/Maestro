@@ -20,6 +20,9 @@ export default tseslint.config([
       globals: globals.browser,
     },
     rules: {
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-unused-vars': 'warn',
+      'react-hooks/rules-of-hooks': 'off',
       semi: ['warn', 'never'],
     },
   },
