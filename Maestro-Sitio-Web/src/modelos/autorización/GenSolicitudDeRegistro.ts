@@ -1,5 +1,7 @@
 import {SolicitudDeRegistro} from "./tipos.ts";
-import {usarInyectar} from "../../servicios/id/ProveedorDeServicios.ts";
+import {
+    inyectar,
+} from "../../servicios/id/ProveedorDeServicios.ts";
 import {
     ServicioDeCodificaciónDeContraseñas
 } from "../../servicios/autorización/ServicioDeCodificaciónDeContraseñas.ts";
@@ -8,16 +10,13 @@ import {
 } from "../../componentes/elementos/grupos-elementos-autorización/modelos/EstadosDeValidezDeAutorización.ts";
 
 export class GenSolicitudDeRegistro {
-    private _nombreDeUsuario: string;
     private _correoElectrónico: string;
     private _contraseña: string;
     private _confirmarContraseña: string;
-    private codificadorDeContraseñas: ServicioDeCodificaciónDeContraseñas = usarInyectar(ServicioDeCodificaciónDeContraseñas);
-    public constructor(nombreDeUsuario: string = "",
-                       correoElectrónico: string = "",
+    private codificadorDeContraseñas: ServicioDeCodificaciónDeContraseñas = inyectar(ServicioDeCodificaciónDeContraseñas);
+    public constructor(correoElectrónico: string = "",
                        contraseña: string = "",
                        confirmarContraseña: string = "") {
-        this._nombreDeUsuario = nombreDeUsuario;
         this._correoElectrónico = correoElectrónico;
         this._contraseña = contraseña;
         this._confirmarContraseña = confirmarContraseña;
@@ -32,7 +31,8 @@ export class GenSolicitudDeRegistro {
             !estadosExcluidos.includes(EstadosDeValidezDeAutorización.CORREO_ELECTRÓNICO_NO_VÁLIDO)) {
             return EstadosDeValidezDeAutorización.CORREO_ELECTRÓNICO_NO_VÁLIDO;
         }
-        if (!this.contraseñasCoinciden() &&
+        if (this.tieneContraseñasParaComparar() &&
+            !this.contraseñasCoinciden() &&
             !estadosExcluidos.includes(EstadosDeValidezDeAutorización.FALTA_DE_COINCIDENCIA_DE_CONTRASEÑAS)) {
             return EstadosDeValidezDeAutorización.FALTA_DE_COINCIDENCIA_DE_CONTRASEÑAS;
         }
@@ -63,7 +63,6 @@ export class GenSolicitudDeRegistro {
         }
         const contraseñaSegura: string = this.codificadorDeContraseñas.codificar(this._contraseña);
         return {
-            nombreDeUsuario: this._nombreDeUsuario,
             contraseña: contraseñaSegura,
             correoElectrónico: this._correoElectrónico
         };
@@ -74,8 +73,7 @@ export class GenSolicitudDeRegistro {
     }
 
     public tieneCamposSinRellenar(): boolean {
-        return !this._nombreDeUsuario ||
-               !this._correoElectrónico ||
+        return !this._correoElectrónico ||
                !this._contraseña ||
                !this._confirmarContraseña;
     }
@@ -89,6 +87,10 @@ export class GenSolicitudDeRegistro {
 
     public contraseñasCoinciden(): boolean {
         return this._contraseña === this._confirmarContraseña;
+    }
+
+    public tieneContraseñasParaComparar(): boolean {
+        return !!this._contraseña && !!this._confirmarContraseña;
     }
 
     get confirmarContraseña(): string {
@@ -111,12 +113,5 @@ export class GenSolicitudDeRegistro {
 
     set correoElectrónico(value: string) {
         this._correoElectrónico = value;
-    }
-    get nombreDeUsuario(): string {
-        return this._nombreDeUsuario;
-    }
-
-    set nombreDeUsuario(value: string) {
-        this._nombreDeUsuario = value;
     }
 }
