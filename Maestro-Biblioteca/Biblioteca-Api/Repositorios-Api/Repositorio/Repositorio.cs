@@ -64,9 +64,9 @@ public class Repositorio : IRepositorio
         await this.GuardarCambiosAsíncronos();
     }
 
-    public async Task<bool> ExistePorId<TEntidad>(int id)
+    public async Task<bool> ExistePorId<TEntidad>(int id) where TEntidad : class
     {
-        object? entidad = await this._bd.ObtenerConjuntoPorEntidad<object>().FindAsync(id);
+        TEntidad? entidad = await this._bd.ObtenerConjuntoPorEntidad<TEntidad>().FindAsync(id);
         return entidad != null;
     }
 }
