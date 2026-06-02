@@ -1,6 +1,7 @@
 using Maestro.Servicio.Autorización.ServicioDpop;
 using Microsoft.Extensions.Primitives;
 using Maestro.Modelos.Autorización.Dpop;
+using Microsoft.AspNetCore.Http;
 
 namespace Maestro.Infraestructura;
 
