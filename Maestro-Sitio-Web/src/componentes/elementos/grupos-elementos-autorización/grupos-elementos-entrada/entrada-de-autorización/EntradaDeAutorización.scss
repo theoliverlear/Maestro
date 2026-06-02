@@ -2,26 +2,23 @@
 @use "../../../../../estilos/globales" as *;
 
 .entrada-de-autorización {
-    @include flex(space-between, center, row);
+    @include flex(flex-start, stretch, column);
     width: 100%;
+    gap: 0.4rem;
     .título {
-        //background-color: añadir-alfa($blanco-prístino, 0.2);
-        text-decoration: underline;
-        padding: $medio-porciento;
-        @extend %sombra-de-texto-suave;
-        @extend %radio-de-borde-suave;
-        flex: 1;
-        //margin: 0 $medio-porciento 0 0;
+        color: $granate-oscura;
+        padding: 0;
         text-align: left;
         @include flex(flex-start, center, row);
+        h5 {
+            font-family: $texto-bloque-sans;
+            font-size: clamp(0.88rem, 0.24vw + 0.84rem, 1rem);
+            font-weight: 700;
+        }
     }
     .entrada {
-        flex: 1;
         input {
-            width: 93%;
-            //width: calc(100% - $uno-porciento);
-            height: $uno-porciento;
-            font-size: calc($h6-tamaño-de-fuente * 1.25);
+            width: 100%;
         }
     }
 }
