@@ -24,6 +24,7 @@ public class ContextoDeBdMaestro : DbContext
         return Set<TEntidad>();
     }
 
+    // TODO: Investiga soluciones más fluidas, tal vez con anotaciones.
     protected override void OnModelCreating(ModelBuilder constructorDeModelos)
     {
         constructorDeModelos.Entity<Usuario>()
