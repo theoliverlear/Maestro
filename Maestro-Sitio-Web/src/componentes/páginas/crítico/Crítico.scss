@@ -1,3 +1,299 @@
-.crítico {
+@use "../../../estilos/globales" as *;
 
+.crítico {
+    align-items: stretch;
+    gap: $dos-porciento;
+    min-height: calc(100vh - $altura-barra-de-nav);
+    color: $carbón;
+    background:
+        radial-gradient(ellipse at 82% 16%, añadir-alfa($arena-albero, 0.16), transparent 40%),
+        linear-gradient(135deg, $blanco-prístino 0%, $casi-blanca 56%, $caliza-beige 100%);
+
+    h1,
+    h2,
+    h3,
+    p {
+        margin: 0;
+    }
+
+    .ceja-promocional {
+        color: $terracota;
+        font-family: $texto-bloque-sans;
+        font-size: clamp(0.78rem, 0.28vw + 0.72rem, 0.95rem);
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .barra-de-panel-crítico {
+        @include flex(space-between, center, row);
+        gap: $uno-porciento;
+        color: $terracota;
+        font-family: $texto-bloque-sans;
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-transform: uppercase;
+
+        strong {
+            color: $granate-oscura;
+        }
+    }
+
+    .encabezado-funcional-crítico {
+        box-sizing: border-box;
+        padding: $tres-porciento $tres-porciento 0;
+
+        > div {
+            @include flex(flex-start, flex-start, column);
+            gap: $medio-porciento;
+            width: min(1120px, 100%);
+            margin: 0 auto;
+        }
+
+        h1 {
+            max-width: 56rem;
+            color: $granate-oscura;
+            font-size: clamp(3rem, 5.8vw, 6.8rem);
+            line-height: 0.95;
+            text-shadow: $sombra-negra 0 $cuarto-porciento $medio-porciento;
+        }
+
+        p:not(.ceja-promocional) {
+            max-width: 48rem;
+            color: $carbón-claro;
+            font-family: $texto-bloque-serif;
+            font-size: clamp(1.05rem, 0.52vw + 0.96rem, 1.38rem);
+            line-height: 1.5;
+        }
+    }
+
+    .espacio-de-trabajo-crítico {
+        display: grid;
+        grid-template-columns: minmax(21rem, 0.95fr) minmax(24rem, 1.08fr) minmax(16rem, 0.52fr);
+        gap: $uno-porciento;
+        width: min(1120px, calc(100% - 2rem));
+        align-self: center;
+        box-sizing: border-box;
+        padding-bottom: $tres-porciento;
+    }
+
+    .panel-de-redacción-crítico,
+    .panel-de-resultado-crítico,
+    .panel-de-sesión-crítico {
+        @include flex(flex-start, stretch, column);
+        gap: $medio-porciento;
+        min-width: 0;
+        box-sizing: border-box;
+        padding: $uno-porciento;
+        background-color: añadir-alfa($blanco-prístino, 0.96);
+        border: $borde-más-delgado solid añadir-alfa($terracota, 0.22);
+        border-top: $borde-delgado solid $terracota;
+        border-radius: 0.75rem;
+        box-shadow: $sombra-negra 0 $medio-porciento $uno-porciento;
+    }
+
+    .panel-de-redacción-crítico {
+        label,
+        .grupo-de-controles-crítico span {
+            color: $granate-oscura;
+            font-family: $texto-bloque-sans;
+            font-size: clamp(0.95rem, 0.28vw + 0.9rem, 1.08rem);
+            font-weight: 800;
+        }
+
+        textarea {
+            flex: 1;
+            min-height: 19rem;
+            resize: vertical;
+            box-sizing: border-box;
+            padding: 1rem;
+            background-color: $casi-blanca;
+            border: $borde-más-delgado solid añadir-alfa($terracota, 0.2);
+            border-left: $borde-delgado solid $rojo-real;
+            border-radius: 0.6rem;
+            color: $carbón-claro;
+            font-family: $texto-bloque-serif;
+            font-size: clamp(1rem, 0.42vw + 0.95rem, 1.2rem);
+            line-height: 1.5;
+        }
+
+        .grupo-de-controles-crítico {
+            @include flex(flex-start, stretch, column);
+            gap: $medio-porciento;
+
+            > div {
+                @include flex(flex-start, stretch, column);
+                gap: 0.4rem;
+            }
+        }
+    }
+
+    .selector-segmentado-crítico {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.35rem;
+
+        button {
+            min-height: 2.35rem;
+            padding: 0.45rem;
+            background-color: $blanco-prístino;
+            border: $borde-más-delgado solid añadir-alfa($terracota, 0.24);
+            border-radius: 0.5rem;
+            color: $granate-oscura;
+            font-family: $texto-bloque-sans;
+            font-size: clamp(0.82rem, 0.22vw + 0.78rem, 0.95rem);
+            font-weight: 800;
+
+            &.activo {
+                background-color: añadir-alfa($arena-albero, 0.22);
+                border-color: añadir-alfa($terracota, 0.62);
+                color: $rojo-real;
+            }
+
+            &:hover {
+                cursor: pointer;
+                border-color: $arena-albero;
+            }
+        }
+    }
+
+    .botón-principal-crítico {
+        min-height: 2.85rem;
+        border: $borde-más-delgado solid añadir-alfa($granate-oscura, 0.55);
+        border-radius: 0.55rem;
+        background-color: $terracota;
+        color: $blanco-prístino;
+        font-family: $texto-bloque-sans;
+        font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.08rem);
+        font-weight: 900;
+        box-shadow: $sombra-negra-más-oscura 0 $cuarto-porciento $medio-porciento;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $rojo-real;
+            border-color: $arena-albero;
+        }
+    }
+
+    .panel-de-resultado-crítico {
+        .tarjetas-de-resultado-crítico {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: $medio-porciento;
+        }
+
+        article {
+            padding: 1rem;
+            background-color: $casi-blanca;
+            border: $borde-más-delgado solid añadir-alfa($terracota, 0.16);
+            border-left: $borde-delgado solid $terracota;
+            border-radius: 0.6rem;
+
+            strong {
+                display: block;
+                margin-bottom: 0.25rem;
+                color: $granate-oscura;
+                font-family: $texto-bloque-sans;
+                font-size: clamp(0.98rem, 0.3vw + 0.92rem, 1.12rem);
+            }
+
+            p {
+                color: $carbón-claro;
+                font-family: $texto-bloque-serif;
+                font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.08rem);
+                line-height: 1.48;
+            }
+        }
+    }
+
+    .panel-de-sesión-crítico {
+        article,
+        .nota-de-sesión-crítico {
+            padding: 0.9rem;
+            background-color: $casi-blanca;
+            border: $borde-más-delgado solid añadir-alfa($terracota, 0.16);
+            border-radius: 0.55rem;
+        }
+
+        article {
+            @include flex(space-between, center, row);
+            gap: $medio-porciento;
+
+            span {
+                color: $terracota;
+                font-family: $texto-bloque-sans;
+                font-size: 0.78rem;
+                font-weight: 900;
+                text-transform: uppercase;
+            }
+
+            strong {
+                color: $granate-oscura;
+                font-family: $texto-bloque-sans;
+                text-transform: capitalize;
+            }
+        }
+
+        .nota-de-sesión-crítico {
+            border-left: $borde-delgado solid $arena-albero;
+
+            strong {
+                display: block;
+                margin-bottom: 0.25rem;
+                color: $granate-oscura;
+                font-family: $texto-bloque-sans;
+            }
+
+            p {
+                color: $carbón-claro;
+                font-family: $texto-bloque-serif;
+                font-size: clamp(0.92rem, 0.26vw + 0.88rem, 1.02rem);
+                line-height: 1.45;
+            }
+        }
+    }
+}
+
+@media (max-width: 1040px) {
+    .crítico {
+        .espacio-de-trabajo-crítico {
+            grid-template-columns: 1fr 1fr;
+
+            .panel-de-sesión-crítico {
+                grid-column: 1 / -1;
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(16rem, 1.2fr);
+            }
+        }
+    }
+}
+
+@media (max-width: 760px) {
+    .crítico {
+        .encabezado-funcional-crítico {
+            padding: 2rem 1rem 0;
+        }
+
+        .espacio-de-trabajo-crítico {
+            grid-template-columns: 1fr;
+
+            .panel-de-sesión-crítico {
+                display: flex;
+            }
+        }
+    }
+}
+
+@media (max-width: 560px) {
+    .crítico {
+        .panel-de-redacción-crítico,
+        .panel-de-resultado-crítico,
+        .panel-de-sesión-crítico {
+            padding: 1rem;
+        }
+
+        .selector-segmentado-crítico {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
 }
