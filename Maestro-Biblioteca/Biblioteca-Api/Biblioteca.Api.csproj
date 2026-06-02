@@ -14,6 +14,7 @@
     <Compile Remove="Modelos-Api\**\*.cs" />
     <Compile Remove="Repositorios-Api\**\*.cs" />
     <Compile Remove="Servicios-Api\**\*.cs" />
+    <Compile Remove="Componentes-Api\**\*.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,5 +23,6 @@
     <ProjectReference Include="Modelos-Api\Modelos.Api.csproj" />
     <ProjectReference Include="Repositorios-Api\Repositorios.Api.csproj" />
     <ProjectReference Include="Servicios-Api\Servicios.Api.csproj" />
+    <ProjectReference Include="Componentes-Api\Componentes.Api.csproj" />
   </ItemGroup>
 </Project>
