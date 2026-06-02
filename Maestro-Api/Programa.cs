@@ -1,6 +1,13 @@
 using Maestro.Datos;
+using Maestro.Infraestructura;
+using Maestro.Modelos.Autorización.Dpop;
+using Maestro.Servicio.Autorización.ServicioDpop;
+using System.Text;
+using System.Text.Json;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using Serilog.Settings.Configuration;
 using Serilog.Sinks.SystemConsole.Themes;
@@ -8,9 +15,10 @@ using Serilog.Sinks.SystemConsole.Themes;
 
 WebApplicationBuilder constructora = WebApplication.CreateBuilder(args);
 Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Override("Microsoft.AspNetCore.Hosting", Serilog.Events.LogEventLevel.Warning)
     .Enrich.FromLogContext()
     .WriteTo.Console(
-        outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {RequestPath} {Message:lj}{NewLine}{Exception}",
+        outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}",
         applyThemeToRedirectedOutput: true,
         theme: AnsiConsoleTheme.Literate)
     .WriteTo.Debug()
@@ -19,10 +27,11 @@ Log.Logger = new LoggerConfiguration()
 constructora.Host.UseSerilog();
 
 constructora.Services.AddDistributedMemoryCache();
+constructora.Services.AddMemoryCache();
 
 constructora.Services.AddSession(opciones =>
 {
-    opciones.Cookie.Name = ".Maestro.Sesión";
+    opciones.Cookie.Name = ".Maestro.Sesion";
     opciones.IdleTimeout = TimeSpan.FromMinutes(30);
     // opciones.Cookie.HttpOnly = true;
 });
@@ -30,12 +39,17 @@ constructora.Services.AddSession(opciones =>
 constructora.Services.AddHttpContextAccessor();
 
 string? cadenaDeConexión = constructora.Configuration.GetConnectionString("MaestroBd");
+string claveJwt = constructora.Configuration["Jwt:Clave"] ??
+                  "maestro-clave-de-desarrollo-cambiar-antes-de-producción";
+string emisorJwt = constructora.Configuration["Jwt:Emisor"] ?? "Maestro";
+string audienciaJwt = constructora.Configuration["Jwt:Audiencia"] ?? "Maestro-Sitio-Web";
 
 constructora.Services.AddDbContext<ContextoDeBdMaestro>(opciones =>
 {
     opciones.UseNpgsql(cadenaDeConexión, opcionesDeSql =>
     {
         opcionesDeSql.SetPostgresVersion(new Version(17, 0));
+        opcionesDeSql.MigrationsAssembly("Maestro.Api");
     });
 });
 
@@ -52,6 +66,57 @@ constructora.Services.AddCors(opciones =>
 });
 
 constructora.Services.AddControllers();
+constructora.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(opciones =>
+    {
+        opciones.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidIssuer = emisorJwt,
+            ValidateAudience = true,
+            ValidAudience = audienciaJwt,
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(claveJwt)),
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.FromSeconds(30)
+        };
+        opciones.Events = new JwtBearerEvents
+        {
+            OnMessageReceived = contexto =>
+            {
+                string? autorización = contexto.Request.Headers.Authorization.FirstOrDefault();
+                if (autorización?.StartsWith("DPoP ", StringComparison.OrdinalIgnoreCase) == true)
+                {
+                    contexto.Token = autorización["DPoP ".Length..].Trim();
+                }
+                return Task.CompletedTask;
+            },
+            OnTokenValidated = contexto =>
+            {
+                string? confirmación = contexto.Principal?.FindFirst("cnf")?.Value;
+                if (string.IsNullOrWhiteSpace(confirmación))
+                {
+                    return Task.CompletedTask;
+                }
+
+                string? huellaDelToken = JsonDocument.Parse(confirmación)
+                    .RootElement
+                    .GetProperty("jkt")
+                    .GetString();
+                string? huellaDePrueba = contexto.HttpContext.Items["dpop.prueba"] is ContextoDePruebaDpop prueba
+                    ? prueba.HuellaDeClave
+                    : null;
+                if (string.IsNullOrWhiteSpace(huellaDePrueba) ||
+                    huellaDePrueba != huellaDelToken)
+                {
+                    contexto.Fail("La prueba DPoP no coincide con el token.");
+                }
+                return Task.CompletedTask;
+            }
+        };
+    });
+constructora.Services.AddAuthorization();
+constructora.Services.AddScoped<IAlmacénDeReproducciónDpop, AlmacénDeReproducciónDpop>();
 
 constructora.Services.AddEndpointsApiExplorer();
 constructora.Services.AddSwaggerGen();
@@ -67,7 +132,18 @@ constructora.Services.Scan(escáner => escáner
 );
 
 WebApplication app = constructora.Build();
-app.UseSerilogRequestLogging();
+app.UseSerilogRequestLogging(opciones =>
+{
+    opciones.MessageTemplate =
+        "HTTP {RequestMethod} {RutaDecodificada} responded {StatusCode} in {Elapsed:0.00} ms";
+
+    opciones.EnrichDiagnosticContext = (contextoDiagnostico, contextoHttp) =>
+    {
+        contextoDiagnostico.Set(
+            "RutaDecodificada",
+            contextoHttp.Request.Path.Value ?? string.Empty);
+    };
+});
 app.UseCors(react);
 
 if (app.Environment.IsDevelopment())
@@ -77,5 +153,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseSession();
+app.UseMiddleware<MiddlewareDpop>();
+app.UseAuthentication();
+app.UseAuthorization();
 app.MapControllers();
 app.Run();
