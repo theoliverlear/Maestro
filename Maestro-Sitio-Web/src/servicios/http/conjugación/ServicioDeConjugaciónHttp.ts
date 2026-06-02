@@ -3,11 +3,11 @@ import {ClienteHttp} from "../ClienteHttp.ts";
 import type {
     Pronombre,
     Verbo,
-    VerboConjugado, VerboConjugadoHttp
+    VerboConjugadoHttp
 } from "../../../modelos/conjugación/tipos.ts";
 
 @injectable()
-export class ServicioDeConjugaciónHttp extends ClienteHttp<any, VerboConjugadoHttp> {
+export class ServicioDeConjugaciónHttp extends ClienteHttp<unknown, VerboConjugadoHttp> {
     private static readonly URL: string = "/conj/";
     constructor() {
         super(ServicioDeConjugaciónHttp.URL);
