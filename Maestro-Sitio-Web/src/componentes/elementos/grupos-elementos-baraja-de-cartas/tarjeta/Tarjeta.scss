@@ -3,17 +3,22 @@
 
 .tarjeta {
     perspective: 1000px;
-    @include tamaño($veinte-porciento, $diez-porciento);
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 3 / 4;
     @include flex(center, center, column);
 
     .envoltura-de-perspectiva {
-        color: $blanco-prístino;
-        background-color: $mostaza;
+        color: $granate-oscura;
+        background:
+            linear-gradient(160deg, $blanco-prístino 0%, $caliza-beige 100%);
+        box-sizing: border-box;
         padding: $uno-porciento;
-        margin: $medio-porciento 0;
-        @extend %radio-de-borde-suave;
-        @extend %sombra-de-texto-suave;
-        @extend %sombra-de-caja-suave;
+        margin: 0;
+        border: $borde-más-delgado solid añadir-alfa($terracota, 0.28);
+        border-top: $borde-delgado solid $terracota;
+        border-radius: 0.75rem;
+        box-shadow: $sombra-negra 0 $medio-porciento $uno-porciento;
         position: relative;
         @include flex(center, center, column);
         width: 100%;
@@ -22,25 +27,41 @@
         transition: transform 0.6s;
         transform-style: preserve-3d;
     }
+
+    &:hover {
+        cursor: pointer;
+
+        .envoltura-de-perspectiva {
+            border-color: añadir-alfa($arena-albero, 0.72);
+        }
+    }
+
     &.volteado {
         .envoltura-de-perspectiva {
             transform: rotateY(180deg);
         }
     }
+
     .contenido-frontal, .contenido-posterior {
         @include flex(center, center, column);
         position: absolute;
         width: 100%;
         height: 100%;
+        box-sizing: border-box;
+        padding: $uno-porciento;
         backface-visibility: hidden;
+
         .título {
             h3 {
                 font-family: $texto-bloque-serif;
+                font-size: clamp(1.4rem, 1.2vw + 1.05rem, 2.2rem);
+                line-height: 1.08;
             }
         }
     }
+
     .contenido-posterior {
-        text-decoration: underline;
+        color: $rojo-real;
         transform: rotateY(180deg);
     }
 }
