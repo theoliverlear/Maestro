@@ -13,3 +13,7 @@ export const usarInyección: () => DependencyContainer = (): DependencyContainer
 export function usarInyectar<T>(nombreClase: new (...args: any[]) => T): T {
     return usarInyección().resolve<T>(nombreClase);
 }
+
+export function inyectar<T>(nombreClase: new (...args: any[]) => T): T {
+    return container.resolve<T>(nombreClase);
+}
