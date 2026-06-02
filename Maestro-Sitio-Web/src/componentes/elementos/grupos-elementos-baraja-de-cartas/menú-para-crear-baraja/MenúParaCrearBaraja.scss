@@ -2,42 +2,59 @@
 @use "../../../../estilos/globales" as *;
 
 .menú-para-crear-baraja {
-    @include flex(center, center, column);
-    @extend %radio-de-borde-más-suave;
-    background-color: añadir-alfa($ambar-cádiz, 0.5);
+    @include flex(flex-start, stretch, column);
+    gap: $medio-porciento;
+    box-sizing: border-box;
+    background:
+        radial-gradient(ellipse at top right, añadir-alfa($arena-albero, 0.16), transparent 48%),
+        $casi-blanca;
+    border: $borde-más-delgado solid añadir-alfa($terracota, 0.18);
+    border-left: $borde-delgado solid $rojo-real;
+    border-radius: 0.65rem;
     padding: $uno-porciento;
-    margin: $uno-porciento 0;
-    min-width: $treinta-y-cinco-porciento;
+    margin: 0;
+    width: 100%;
+
     .línea-superior {
         width: 100%;
         @include flex(space-between, center, row);
+        gap: $medio-porciento;
+
         .botón-de-cerrar {
-            @include tamaño-cuadrado($dos-porciento);
+            @include tamaño-cuadrado(2.4rem);
+            min-width: 2.4rem;
+            min-height: 2.4rem;
+            margin: 0;
             padding: $cuarto-porciento;
-            @extend %radio-de-borde-más-suave;
+            border-radius: 0.5rem;
         }
+
         .título-del-menú {
             flex: 1;
-            text-align: center;
-            color: $blanco-prístino;
-            text-decoration: underline;
+            align-items: flex-start;
+            text-align: left;
+            color: $granate-oscura;
+
+            h4 {
+                font-family: $texto-bloque-sans;
+                font-size: clamp(1.1rem, 0.45vw + 1rem, 1.35rem);
+                line-height: 1.15;
+            }
         }
     }
+
     .entradas-de-menú {
         width: 100%;
 
-
         .entrada-con-título {
             width: 100%;
-            @include flex(space-between, center, row);
-            background-color: añadir-alfa($carbón, 0.3);
-            @extend %radio-de-borde-más-suave;
-            @extend %sombra-de-caja-mediana;
+            margin: 0;
+            background-color: añadir-alfa($blanco-prístino, 0.96);
         }
     }
 
-
     .botón {
         align-self: flex-end;
+        margin-bottom: 0;
     }
 }
