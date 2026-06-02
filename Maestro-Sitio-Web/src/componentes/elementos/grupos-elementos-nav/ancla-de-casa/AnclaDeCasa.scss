@@ -2,27 +2,25 @@
 @use "../../../../estilos/globales" as *;
 
 .ancla-de-casa {
-    @include tamaño-cuadrado($cuatro-porciento);
-    position: absolute;
-    top: calc($cuarto-porciento + $octavo-porciento);
-    left: $medio-porciento;
-    //background-color: $logotipo-gris;
-    //border: gray $borde-delgado solid;
-    //background-color: añadir-alfa($logotipo-gris, 0.5);
-    @extend %radio-de-borde-suave;
-    transition: transform 0.1s ease-in-out;
+    @include tamaño-cuadrado(calc($dos-porciento + $uno-porciento));
+    flex: 0 0 auto;
+    border-radius: $medio-porciento;
+    transition:
+        background-color 0.14s ease-in-out,
+        transform 0.14s ease-in-out;
     .imagen {
-        @extend %radio-de-borde-suave;
+        border-radius: $medio-porciento;
         img {
-            @extend %radio-de-borde-suave;
+            border-radius: $medio-porciento;
         }
     }
     &:hover {
-        transform: scale(1.1);
+        background-color: añadir-alfa($blanco-prístino, 0.1);
+        transform: translateY(-1px);
         cursor: pointer;
     }
     &:active {
-        transform: scale(0.9);
+        transform: translateY(0);
     }
 }
 
