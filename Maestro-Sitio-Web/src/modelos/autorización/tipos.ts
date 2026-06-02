@@ -10,4 +10,5 @@ export type SolicitudDeRegistro = {
 
 export type EstadoDeAutorización = {
     esAutorizado: boolean;
+    token?: string | null;
 };
