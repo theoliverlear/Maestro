@@ -3,20 +3,33 @@
 
 .menú-desplegable-de-nav {
     position: relative;
-    @extend %radio-de-borde-suave;
     .elementos-ocultos {
-        z-index: 2;
+        z-index: 11;
         position: absolute;
+        top: 100%;
         left: 50%;
         transform: translateX(-50%);
+        padding-top: $medio-porciento;
         .elemento-de-nav {
-            margin: $medio-porciento 0;
+            justify-content: flex-start;
+            width: 100%;
+            color: $carbón-claro;
+            border-radius: $cuarto-porciento;
+            padding: $medio-porciento $uno-porciento;
+            &:hover {
+                background-color: añadir-alfa($terracota, 0.12);
+                color: $granate-oscura;
+            }
         }
         .lista-de-elementos {
-
+            @include flex(flex-start, stretch, column);
+            min-width: 12rem;
+            padding: $medio-porciento;
+            background-color: añadir-alfa($blanco-prístino, 0.98);
+            border: $borde-más-delgado solid añadir-alfa($carbón, 0.12);
+            border-top: $borde-delgado solid $terracota;
+            border-radius: $medio-porciento;
+            box-shadow: $sombra-negra-más-oscura 0 $medio-porciento $uno-porciento;
         }
-    }
-    &:hover {
-
     }
 }
