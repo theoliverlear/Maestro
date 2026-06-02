@@ -2,20 +2,48 @@
 @use "../../../../estilos/globales" as *;
 
 .botón {
+    @include flex(center, center, row);
+    box-sizing: border-box;
+    min-height: calc($dos-porciento + $medio-porciento);
     margin: $medio-porciento 0;
-    padding: $medio-porciento $uno-porciento;
-    background-color: $mostaza;
+    padding: $medio-porciento $uno-medio-porciento;
+    background-color: $terracota;
     color: $blanco-prístino;
-    @extend %radio-de-borde-suave;
-    @extend %sombra-de-texto-suave;
-    @extend %sombra-de-caja-suave;
-    @extend %flotar-crecer-activo-encoger;
+    border: $borde-más-delgado solid añadir-alfa($granate-oscura, 0.5);
+    border-radius: $medio-porciento;
+    box-shadow: $sombra-negra 0 $cuarto-porciento $medio-porciento;
+    cursor: pointer;
+    user-select: none;
+    transition:
+        background-color 0.14s ease-in-out,
+        border-color 0.14s ease-in-out,
+        box-shadow 0.14s ease-in-out,
+        transform 0.14s ease-in-out,
+        opacity 0.14s ease-in-out;
     .título {
         h1, h2, h3, h4, h5, h6 {
             font-family: $texto-bloque-sans;
+            font-size: clamp(0.95rem, 0.35vw + 0.9rem, 1.15rem);
+            font-weight: 700;
+            line-height: 1;
         }
+    }
+    .imagen {
+        @include tamaño-cuadrado(clamp(1rem, 0.45vw + 0.9rem, 1.25rem));
+        filter: invert(1);
     }
     &.cuadrado {
         padding: $medio-porciento;
+        min-width: calc($dos-porciento + $medio-porciento);
+    }
+    &:hover {
+        background-color: $rojo-real;
+        border-color: $arena-albero;
+        box-shadow: $sombra-negra-más-oscura 0 $cuarto-porciento $medio-porciento;
+        transform: translateY(-1px);
+    }
+    &:active {
+        opacity: 0.78;
+        transform: translateY(0);
     }
 }
