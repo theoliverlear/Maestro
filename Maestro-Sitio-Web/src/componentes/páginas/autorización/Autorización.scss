@@ -2,5 +2,10 @@
 @use "../../../estilos/globales" as *;
 
 .autorización {
-
+    @include flex(center, center, column);
+    box-sizing: border-box;
+    padding: $dos-porciento 1rem $tres-porciento;
+    background:
+        radial-gradient(ellipse at 20% 10%, añadir-alfa($arena-albero, 0.16), transparent 40%),
+        radial-gradient(ellipse at 82% 18%, añadir-alfa($terracota, 0.1), transparent 36%);
 }
