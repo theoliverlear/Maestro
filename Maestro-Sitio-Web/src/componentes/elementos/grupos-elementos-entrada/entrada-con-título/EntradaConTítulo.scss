@@ -3,19 +3,21 @@
 
 .entrada-con-título {
     box-sizing: border-box;
-    background-color: añadir-alfa($mostaza, 1.0);
-    @include flex(center, center, column);
-    padding: calc($medio-porciento * 1.2);
+    background-color: añadir-alfa($caliza-beige, 0.96);
+    border: $borde-más-delgado solid añadir-alfa($terracota, 0.22);
+    border-left: $borde-delgado solid $terracota;
+    @include flex(center, stretch, column);
+    gap: $cuarto-porciento;
+    padding: $uno-porciento;
     margin: $medio-porciento 0;
-    @extend %radio-de-borde-más-suave;
-    @extend %sombra-de-caja-mediana;
+    border-radius: $medio-porciento;
+    box-shadow: $sombra-negra 0 $cuarto-porciento $medio-porciento;
     .título {
-        color: $blanco-prístino;
-        @extend %sombra-de-texto-suave;
-        margin: $cuarto-porciento 0;
-        //background-color: $rojo-real-descolorido;
-        padding: $cuarto-porciento $medio-porciento;
-        @extend %radio-de-borde-suave;
+        color: $granate-oscura;
+        margin: 0;
+        padding: 0;
+        align-items: flex-start;
+        text-align: left;
 
         h1 {
             font-size: calc($h1-tamaño-de-fuente * 0.8);
@@ -42,7 +44,8 @@
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: $texto-bloque-serif;
+            font-family: $texto-bloque-sans;
+            font-weight: 700;
         }
     }
 }
