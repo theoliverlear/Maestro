@@ -3,15 +3,40 @@
 @use "../../../../estilos/globales" as *;
 
 .barra-de-nav {
-    //background-image: radial-gradient(at bottom, $rojo-real, $rojo-real-descolorido);
-    background-image: linear-gradient($terracota, $naranja-sevilla);
-    box-shadow: $sombra-negra-más-oscura 0 0 $medio-porciento $cuarto-porciento;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: añadir-alfa($blanco-prístino, 0.96);
+    border-bottom: $borde-más-delgado solid añadir-alfa($terracota, 0.2);
+    box-shadow: $sombra-negra 0 $cuarto-porciento $uno-porciento;
     width: 100%;
     height: $altura-barra-de-nav;
-    @include flex(center, center, column);
-    margin: 0 0 $dos-porciento 0 0;
+    box-sizing: border-box;
+    @include flex(space-between, center, row);
+    gap: $uno-porciento;
+    padding: 0 $uno-medio-porciento;
+    margin: 0 0 $dos-porciento 0;
+    &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: $borde-delgado;
+        background-image: linear-gradient(
+            90deg,
+            $rojo-real,
+            $terracota,
+            $arena-albero,
+            $terracota,
+            $rojo-real
+        );
+        opacity: 0.9;
+    }
     nav {
-        width: 70%;
         @include flex(center, center, row);
+        flex: 1;
+        gap: $medio-porciento;
+        min-width: 0;
     }
 }
