@@ -25,7 +25,7 @@ function MenúParaCrearBaraja(props: PropsMenúParaCrearBaraja) {
                        recursoDeImagen={recursoDeImagenDeIconoDeCerrarBlanco}
                        alHacerClic={() => props.alHacerClicEnCerrar(false)}/>
                 <Título nombreClase={"título-del-menú"}
-                        texto={"Creat Baraja de Tarjetas"}
+                        texto={"Crear baraja de tarjetas"}
                         tipoDeEtiqueta={TipoDeEtiqueta.H4}/>
             </div>
 
