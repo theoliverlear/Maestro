@@ -2,5 +2,25 @@
 @use "../../../../estilos/globales" as *;
 
 .mensaje-de-autorización {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.8rem 1rem;
+    background-color: añadir-alfa($rojo-real, 0.08);
+    border: $borde-más-delgado solid añadir-alfa($rojo-real, 0.22);
+    border-left: $borde-delgado solid $rojo-real;
+    border-radius: 0.7rem;
 
+    .título {
+        justify-content: flex-start;
+        text-align: left;
+
+        h4 {
+            color: $granate-oscura;
+            font-family: $texto-bloque-sans;
+            font-size: clamp(0.92rem, 0.28vw + 0.86rem, 1.05rem);
+            font-weight: 700;
+            line-height: 1.35;
+        }
+    }
 }
