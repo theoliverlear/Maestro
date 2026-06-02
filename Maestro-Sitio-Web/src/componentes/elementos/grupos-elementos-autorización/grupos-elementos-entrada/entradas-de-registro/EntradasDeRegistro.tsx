@@ -21,7 +21,7 @@ import {
 interface PropsEntradasDeRegistro {
     cambioPetición: (solicitud: GenSolicitudDeRegistro) => void;
     sobreCambioDeMensaje: (mensaje: EstadosDeValidezDeAutorización) => void;
-    alEnviar: (éxito: boolean) => void;
+    alEnviar: (éxito: boolean, solicitud: GenSolicitudDeRegistro) => void;
 }
 
 function EntradasDeRegistro(props: PropsEntradasDeRegistro): ReactElement {
@@ -38,15 +38,13 @@ function EntradasDeRegistro(props: PropsEntradasDeRegistro): ReactElement {
     return (
         <div className={"entradas-de-registro"}>
             <Título texto={"Registro"} tipoDeEtiqueta={TipoDeEtiqueta.H3}/>
-            <EntradaDeAutorización tipo={TipoDeEntradaDeAutorización.NOMBRE_DE_USUARIO}
-                                   enLaEntrada={manipuladores.manejarNombreDeUsuario}/>
             <EntradaDeAutorización tipo={TipoDeEntradaDeAutorización.CORREO_ELECTRÓNICO}
                                    enLaEntrada={manipuladores.manejarCorreoElectrónico}/>
             <EntradaDeAutorización tipo={TipoDeEntradaDeAutorización.CONTRASEÑA}
                                    enLaEntrada={manipuladores.manejarContraseña}/>
             <EntradaDeAutorización tipo={TipoDeEntradaDeAutorización.CONFIRMAR_CONTRASEÑA}
                                    enLaEntrada={manipuladores.manejarConfirmarContraseña}/>
-            <Botón texto={"Registro"} alHacerClic={() => props.alEnviar(manipuladores.manejarEnvío())}/>
+            <Botón texto={"Registro"} alHacerClic={() => props.alEnviar(manipuladores.manejarEnvío(), solicitud)}/>
         </div>
     );
 }
