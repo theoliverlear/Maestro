@@ -28,9 +28,18 @@ function ConsolaDeRegistro(): ReactElement {
         asignarMensajeDeAutorización(mensaje);
     }
 
-    async function manejarEnvío(éxito: boolean): Promise<void> {
-        if (éxito) {
-            await servicioDeRegistroHttp.registrar(solicitudDeRegistro.obtenerModelo());
+    async function manejarEnvío(éxito: boolean, solicitud: GenSolicitudDeRegistro): Promise<void> {
+        if (!éxito) {
+            return;
+        }
+
+        try {
+            const estado = await servicioDeRegistroHttp.registrar(solicitud.obtenerModelo());
+            if (!estado.esAutorizado) {
+                asignarMensajeDeAutorización(EstadosDeValidezDeAutorización.AUTORIZACIÓN_NO_VÁLIDA);
+            }
+        } catch {
+            asignarMensajeDeAutorización(EstadosDeValidezDeAutorización.AUTORIZACIÓN_NO_VÁLIDA);
         }
     }
 
