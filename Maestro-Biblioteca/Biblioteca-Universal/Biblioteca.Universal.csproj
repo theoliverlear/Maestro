@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <AssemblyName>Biblioteca.Universal</AssemblyName>
+        <RootNamespace>Maestro.Biblioteca.Universal</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Remove="Componentes-Universal\**\*.cs" />
+        <Compile Remove="Comunicación-Universal\**\*.cs" />
+        <Compile Remove="Configuración-Universal\**\*.cs" />
+        <Compile Remove="Eventos-Universal\**\*.cs" />
+        <Compile Remove="Modelos-Universal\**\*.cs" />
+        <Compile Remove="Servicios-Universal\**\*.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="Componentes-Universal\Componentes.Universal.csproj" />
+        <ProjectReference Include="Comunicación-Universal\Comunicación.Universal.csproj" />
+        <ProjectReference Include="Configuración-Universal\Configuración.Universal.csproj" />
+        <ProjectReference Include="Eventos-Universal\Eventos.Universal.csproj" />
+        <ProjectReference Include="Modelos-Universal\Modelos.Universal.csproj" />
+        <ProjectReference Include="Servicios-Universal\Servicios.Universal.csproj" />
+    </ItemGroup>
+</Project>
