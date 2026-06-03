@@ -1,0 +1,374 @@
+@use "../../../../estilos/globales" as *;
+
+.promoción-de-crítico {
+    align-items: stretch;
+    gap: $dos-porciento;
+    color: $carbón;
+
+    h1,
+    h2,
+    h3,
+    p {
+        margin: 0;
+    }
+
+    .ceja-promocional {
+        color: $terracota;
+        font-family: $texto-bloque-sans;
+        font-size: clamp(0.78rem, 0.28vw + 0.72rem, 0.95rem);
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .barra-de-panel-crítico {
+        @include flex(space-between, center, row);
+        gap: $uno-porciento;
+        color: $terracota;
+        font-family: $texto-bloque-sans;
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-transform: uppercase;
+
+        strong {
+            color: $granate-oscura;
+        }
+    }
+
+    .botón-promocional {
+        @include flex(center, center, row);
+        min-height: 2.75rem;
+        box-sizing: border-box;
+        padding: 0.75rem 1.2rem;
+        border: $borde-más-delgado solid añadir-alfa($granate-oscura, 0.55);
+        border-radius: 0.55rem;
+        background-color: $terracota;
+        color: $blanco-prístino;
+        font-family: $texto-bloque-sans;
+        font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.08rem);
+        font-weight: 800;
+        text-decoration: none;
+        box-shadow: $sombra-negra-más-oscura 0 $cuarto-porciento $medio-porciento;
+        transition:
+            background-color 0.16s ease-in-out,
+            border-color 0.16s ease-in-out,
+            transform 0.16s ease-in-out;
+
+        &:hover {
+            transform: translateY(-1px);
+            background-color: $rojo-real;
+            border-color: $arena-albero;
+        }
+    }
+
+    .mesa-de-trabajo-crítico {
+        @include flex(flex-start, stretch, column);
+        gap: $dos-porciento;
+        box-sizing: border-box;
+        min-height: min(76vh, 48rem);
+        padding: $cuatro-porciento $tres-porciento $tres-porciento;
+        background:
+            radial-gradient(ellipse at 86% 20%, añadir-alfa($arena-albero, 0.22), transparent 42%),
+            radial-gradient(ellipse at 12% 16%, añadir-alfa($terracota, 0.16), transparent 38%),
+            linear-gradient(135deg, $blanco-prístino 0%, $casi-blanca 54%, $caliza-beige 100%);
+        border-bottom: $borde-delgado solid añadir-alfa($arena-albero, 0.48);
+
+        .encabezado-de-crítico {
+            @include flex(flex-start, flex-start, column);
+            gap: $uno-porciento;
+            max-width: 58rem;
+
+            h1 {
+                max-width: 54rem;
+                color: $granate-oscura;
+                font-size: clamp(3.2rem, 6.4vw, 7.6rem);
+                line-height: 0.94;
+                text-shadow: $sombra-negra 0 $cuarto-porciento $medio-porciento;
+            }
+
+            p:not(.ceja-promocional) {
+                max-width: 46rem;
+                color: $carbón-claro;
+                font-family: $texto-bloque-serif;
+                font-size: clamp(1.08rem, 0.62vw + 0.98rem, 1.5rem);
+                line-height: 1.5;
+            }
+        }
+
+        .consola-de-crítico {
+            display: grid;
+            grid-template-columns: minmax(20rem, 0.9fr) minmax(22rem, 1.1fr);
+            gap: $uno-porciento;
+            width: min(1120px, 100%);
+        }
+    }
+
+    .panel-de-entrada-crítico,
+    .resultado-de-crítico {
+        @include flex(flex-start, stretch, column);
+        gap: $medio-porciento;
+        box-sizing: border-box;
+        padding: $uno-porciento;
+        background-color: añadir-alfa($blanco-prístino, 0.96);
+        border: $borde-más-delgado solid añadir-alfa($terracota, 0.22);
+        border-top: $borde-delgado solid $terracota;
+        border-radius: 0.75rem;
+        box-shadow: $sombra-negra-más-oscura 0 $uno-porciento $dos-porciento;
+    }
+
+    .panel-de-entrada-crítico {
+        label {
+            color: $granate-oscura;
+            font-family: $texto-bloque-sans;
+            font-size: clamp(1rem, 0.34vw + 0.95rem, 1.16rem);
+            font-weight: 800;
+        }
+
+        textarea {
+            min-height: 13rem;
+            resize: vertical;
+            box-sizing: border-box;
+            padding: 1rem;
+            background-color: $casi-blanca;
+            border: $borde-más-delgado solid añadir-alfa($terracota, 0.2);
+            border-left: $borde-delgado solid $rojo-real;
+            border-radius: 0.6rem;
+            color: $carbón-claro;
+            font-family: $texto-bloque-serif;
+            font-size: clamp(1rem, 0.42vw + 0.95rem, 1.2rem);
+            line-height: 1.5;
+        }
+
+        .controles-de-crítico {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.5rem;
+
+            button {
+                min-height: 2.5rem;
+                background-color: $blanco-prístino;
+                border: $borde-más-delgado solid añadir-alfa($terracota, 0.24);
+                border-radius: 0.5rem;
+                color: $granate-oscura;
+                font-family: $texto-bloque-sans;
+                font-weight: 800;
+
+                &.activo {
+                    background-color: añadir-alfa($arena-albero, 0.2);
+                    border-color: añadir-alfa($terracota, 0.55);
+                    color: $rojo-real;
+                }
+            }
+        }
+    }
+
+    .resultado-de-crítico article {
+        padding: 1rem;
+        background-color: $casi-blanca;
+        border: $borde-más-delgado solid añadir-alfa($terracota, 0.16);
+        border-left: $borde-delgado solid $terracota;
+        border-radius: 0.6rem;
+
+        strong {
+            display: block;
+            margin-bottom: 0.25rem;
+            color: $granate-oscura;
+            font-family: $texto-bloque-sans;
+            font-size: clamp(0.98rem, 0.3vw + 0.92rem, 1.12rem);
+        }
+
+        p {
+            color: $carbón-claro;
+            font-family: $texto-bloque-serif;
+            font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.08rem);
+            line-height: 1.48;
+        }
+    }
+
+    .sección-de-modos-crítico,
+    .anatomía-de-respuesta,
+    .ruta-de-crítica,
+    .cta-de-crítico {
+        width: min(1120px, calc(100% - 2rem));
+        align-self: center;
+    }
+
+    .sección-de-modos-crítico,
+    .ruta-de-crítica {
+        @include flex(flex-start, stretch, column);
+        gap: $uno-medio-porciento;
+        padding: $dos-porciento 0;
+    }
+
+    .encabezado-de-sección {
+        @include flex(flex-start, flex-start, column);
+        gap: $medio-porciento;
+        max-width: 48rem;
+
+        h2 {
+            color: $granate-oscura;
+            font-size: clamp(2.1rem, 3vw, 4.2rem);
+            line-height: 1.02;
+        }
+    }
+
+    .cuadrícula-de-modos-crítico,
+    .pasos-de-crítica {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: $uno-porciento;
+    }
+
+    .modo-de-crítica,
+    .pasos-de-crítica article {
+        @include flex(flex-start, flex-start, column);
+        gap: $medio-porciento;
+        padding: 1.2rem;
+        background-color: $blanco-prístino;
+        border: $borde-más-delgado solid añadir-alfa($terracota, 0.18);
+        border-radius: 0.7rem;
+        box-shadow: $sombra-negra 0 $cuarto-porciento $medio-porciento;
+
+        span {
+            color: $arena-albero;
+            font-family: $texto-bloque-sans;
+            font-size: clamp(0.92rem, 0.26vw + 0.86rem, 1.05rem);
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            color: $granate-oscura;
+            font-family: $texto-bloque-sans;
+            font-size: clamp(1.25rem, 0.65vw + 1.05rem, 1.6rem);
+            line-height: 1.12;
+        }
+
+        p {
+            color: $carbón-claro;
+            font-family: $texto-bloque-serif;
+            font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.08rem);
+            line-height: 1.48;
+        }
+    }
+
+    .anatomía-de-respuesta {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(22rem, 1.05fr);
+        gap: $dos-porciento;
+        box-sizing: border-box;
+        padding: $dos-porciento;
+        background:
+            radial-gradient(ellipse at 12% 18%, añadir-alfa($arena-albero, 0.18), transparent 44%),
+            linear-gradient(135deg, $blanco-prístino, $caliza-beige);
+        border: $borde-más-delgado solid añadir-alfa($terracota, 0.24);
+        border-radius: 0.85rem;
+
+        > div:first-child {
+            @include flex(center, flex-start, column);
+            gap: $medio-porciento;
+        }
+
+        h2 {
+            color: $granate-oscura;
+            font-size: clamp(2rem, 3.2vw, 4rem);
+            line-height: 1.02;
+        }
+
+        .lista-de-capas-crítico {
+            @include flex(flex-start, stretch, column);
+            gap: $medio-porciento;
+
+            article {
+                padding: 1rem;
+                background-color: añadir-alfa($blanco-prístino, 0.94);
+                border: $borde-más-delgado solid añadir-alfa($terracota, 0.18);
+                border-left: $borde-delgado solid $terracota;
+                border-radius: 0.6rem;
+
+                strong {
+                    display: block;
+                    margin-bottom: 0.25rem;
+                    color: $granate-oscura;
+                    font-family: $texto-bloque-sans;
+                    font-size: clamp(1rem, 0.34vw + 0.95rem, 1.16rem);
+                }
+
+                p {
+                    color: $carbón-claro;
+                    font-family: $texto-bloque-serif;
+                    font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.08rem);
+                    line-height: 1.45;
+                }
+            }
+        }
+    }
+
+    .cta-de-crítico {
+        @include flex(space-between, center, row);
+        gap: $dos-porciento;
+        box-sizing: border-box;
+        margin-bottom: $tres-porciento;
+        padding: $dos-porciento;
+        background:
+            radial-gradient(ellipse at 85% 40%, añadir-alfa($arena-albero, 0.2), transparent 52%),
+            linear-gradient(135deg, $blanco-prístino, $caliza-beige);
+        border: $borde-más-delgado solid añadir-alfa($terracota, 0.26);
+        border-left: $borde-delgado solid $rojo-real;
+        border-radius: 0.85rem;
+
+        div {
+            @include flex(flex-start, flex-start, column);
+            gap: $medio-porciento;
+        }
+
+        h2 {
+            max-width: 45rem;
+            color: $granate-oscura;
+            font-size: clamp(1.9rem, 2.4vw, 3.5rem);
+            line-height: 1.05;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .promoción-de-crítico {
+        .mesa-de-trabajo-crítico {
+            min-height: auto;
+            padding: $tres-porciento $uno-porciento;
+
+            .consola-de-crítico {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .cuadrícula-de-modos-crítico,
+        .pasos-de-crítica,
+        .anatomía-de-respuesta {
+            grid-template-columns: 1fr;
+        }
+
+        .cta-de-crítico {
+            @include flex(flex-start, stretch, column);
+        }
+    }
+}
+
+@media (max-width: 560px) {
+    .promoción-de-crítico {
+        .mesa-de-trabajo-crítico {
+            padding: 2rem 1rem;
+        }
+
+        .panel-de-entrada-crítico,
+        .resultado-de-crítico,
+        .anatomía-de-respuesta,
+        .cta-de-crítico {
+            padding: 1rem;
+        }
+
+        .panel-de-entrada-crítico .controles-de-crítico {
+            grid-template-columns: 1fr;
+        }
+    }
+}
