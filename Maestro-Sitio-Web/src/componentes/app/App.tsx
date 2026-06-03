@@ -16,6 +16,7 @@ import Autorización from "../páginas/autorización/Autorización.tsx";
 import AutorizaciónRutaProtegida
     from "../elementos/grupos-elementos-autorización/autorización-ruta-protegida/AutorizaciónRutaProtegida.tsx";
 import Panel from "../páginas/panel/Panel.tsx";
+import Crítico from "../páginas/crítico/Crítico.tsx";
 
 function App(): ReactElement {
     return (
@@ -25,6 +26,7 @@ function App(): ReactElement {
                     <BarraDeNav/>
                     <Routes>
                         <Route path={"/"} element={<Casa/>}/>
+                        <Route path={"/crítico"} element={<Crítico/>}/>
                         <Route path={"/conj"} element={<Conjugador/>}/>
                         <Route path={"/baraja-de-cartas"} element={<BarajaDeCartas/>}/>
                         <Route path={"/cuenta"} element={
