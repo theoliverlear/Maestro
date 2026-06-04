@@ -34,8 +34,8 @@ const herramientas: HerramientaPromocional[] = [
     {
         título: "Crítico",
         texto: "El producto estrella: escribe o habla y recibe elogios, correcciones y crítica de estilo, sintaxis y contenido.",
-        enlace: "/autorización",
-        etiqueta: "Vista previa"
+        enlace: "/crítico",
+        etiqueta: "Abrir Crítico"
     },
     {
         título: "Conjugador",
