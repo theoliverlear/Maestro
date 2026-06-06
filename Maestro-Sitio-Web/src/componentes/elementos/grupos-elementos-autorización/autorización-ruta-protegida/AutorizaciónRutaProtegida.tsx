@@ -1,8 +1,9 @@
 import {JSX} from "react";
 import {Navigate, useLocation} from "react-router-dom";
+
 import {
     usarAutorización
-} from "../../../contextos/contexto-de-autorización/ContextoDeAutorización.tsx";
+} from "../../../contextos/contexto-de-autorización/ganchos/usarAutorización.ts";
 
 interface PropsAutorizaciónRutaProtegida {
     children: JSX.Element;
