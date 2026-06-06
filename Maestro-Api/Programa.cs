@@ -1,5 +1,6 @@
 using Maestro.Biblioteca.Universal.Componentes.Datos;
 using Maestro.Biblioteca.Crítico.Eventos;
+using Maestro.Biblioteca.Traducción.Eventos;
 using Maestro.Biblioteca.Universal.Configuración;
 using Maestro.Biblioteca.Api.Infraestructura;
 using Maestro.Biblioteca.Api.Modelos.Autorización.Dpop;
@@ -123,6 +124,8 @@ constructora.Services.AddAuthorization();
 constructora.Services.RegistrarBibliotecaUniversal(constructora.Configuration);
 constructora.Services.RegistrarComunicadorCrítico();
 constructora.Services.RegistrarConsumidorDeRespuestasCrítico();
+constructora.Services.RegistrarComunicadorTraducción();
+constructora.Services.RegistrarConsumidorDeRespuestasTraducción();
 constructora.Services.AddScoped<IAlmacénDeReproducciónDpop, AlmacénDeReproducciónDpop>();
 
 constructora.Services.AddEndpointsApiExplorer();
