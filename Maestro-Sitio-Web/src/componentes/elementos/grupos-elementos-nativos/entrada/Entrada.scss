@@ -1,50 +1,53 @@
 // Entrada.scss
-@use "../../../../estilos/globales" as *;
+@use "../../../../estilos/variables-globales" as vars;
+@use "../../../../estilos/mixins-globales" as mixins;
+@use "../../../../estilos/funciones-globales" as funcs;
+@use "../../../../estilos/marcadores-de-posición-globales" as placeholders;
 
 .entrada {
     width: 100%;
     input {
         box-sizing: border-box;
         width: 100%;
-        min-height: calc($dos-porciento + $medio-porciento);
+        min-height: calc(vars.$dos-porciento + vars.$medio-porciento);
         font-size: clamp(0.95rem, 0.35vw + 0.9rem, 1.15rem);
-        border-radius: $medio-porciento;
-        border: $borde-más-delgado solid añadir-alfa($carbón, 0.22);
-        background-color: añadir-alfa($blanco-prístino, 0.96);
-        padding: $medio-porciento $uno-porciento;
-        color: $carbón-claro;
-        font-family: $texto-bloque-sans;
+        border-radius: vars.$medio-porciento;
+        border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$carbón, 0.22);
+        background-color: funcs.añadir-alfa(vars.$blanco-prístino, 0.96);
+        padding: vars.$medio-porciento vars.$uno-porciento;
+        color: vars.$carbón-claro;
+        font-family: vars.$texto-bloque-sans;
         line-height: 1.2;
         outline: none;
-        box-shadow: inset $sombra-negra 0 $octavo-porciento $cuarto-porciento;
+        box-shadow: inset vars.$sombra-negra 0 vars.$octavo-porciento vars.$cuarto-porciento;
         transition:
             background-color 0.14s ease-in-out,
             border-color 0.14s ease-in-out,
             box-shadow 0.14s ease-in-out;
         &::placeholder {
-            color: añadir-alfa($carbón-claro, 0.56);
+            color: funcs.añadir-alfa(vars.$carbón-claro, 0.56);
         }
         &:hover {
-            border-color: añadir-alfa($terracota, 0.58);
+            border-color: funcs.añadir-alfa(vars.$terracota, 0.58);
         }
         &:focus {
-            background-color: $blanco-prístino;
-            border-color: $terracota;
+            background-color: vars.$blanco-prístino;
+            border-color: vars.$terracota;
             box-shadow:
-                0 0 0 $cuarto-porciento añadir-alfa($arena-albero, 0.32),
-                inset $sombra-negra 0 $octavo-porciento $cuarto-porciento;
+                0 0 0 vars.$cuarto-porciento funcs.añadir-alfa(vars.$arena-albero, 0.32),
+                inset vars.$sombra-negra 0 vars.$octavo-porciento vars.$cuarto-porciento;
         }
         &[type="checkbox"] {
-            @include tamaño-cuadrado(clamp(1rem, 0.45vw + 0.9rem, 1.25rem));
+            @include mixins.tamaño-cuadrado(clamp(1rem, 0.45vw + 0.9rem, 1.25rem));
             min-height: auto;
             padding: 0;
-            accent-color: $terracota;
+            accent-color: vars.$terracota;
             box-shadow: none;
         }
         &[type="range"] {
             padding-right: 0;
             padding-left: 0;
-            accent-color: $terracota;
+            accent-color: vars.$terracota;
             box-shadow: none;
             background-color: transparent;
         }

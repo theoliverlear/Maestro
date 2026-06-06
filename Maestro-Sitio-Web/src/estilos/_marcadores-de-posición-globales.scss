@@ -1,17 +1,17 @@
-@use "variables-globales" as *;
-@use "funciones-globales" as *;
-@use "mixins-globales" as *;
+@use "variables-globales" as vars;
+@use "funciones-globales" as funcs;
+@use "mixins-globales" as mixins;
 
 %radio-del-borde-del-círculo {
     border-radius: 50%;
 }
 
 %radio-de-borde-suave {
-    border-radius: $uno-porciento;
+    border-radius: vars.$uno-porciento;
 }
 
 %radio-de-borde-más-suave {
-    border-radius: $medio-porciento;
+    border-radius: vars.$medio-porciento;
 }
 
 %llenar-contenedor {
@@ -20,29 +20,29 @@
 }
 
 %sombra-de-caja-suave {
-    box-shadow: $sombra-negra 0 0 $medio-porciento $cuarto-porciento;
+    box-shadow: vars.$sombra-negra 0 0 vars.$medio-porciento vars.$cuarto-porciento;
 }
 
 %sombra-de-caja-mediana {
-    box-shadow: $sombra-negra 0 0 $uno-porciento $medio-porciento;
+    box-shadow: vars.$sombra-negra 0 0 vars.$uno-porciento vars.$medio-porciento;
 }
 
 %sombra-de-texto-suave {
-    text-shadow: $sombra-negra-más-oscura 0 0 $medio-porciento;
+    text-shadow: vars.$sombra-negra-más-oscura 0 0 vars.$medio-porciento;
 }
 
 %página {
     width: 100%;
     box-sizing: border-box;
-    @include flex(flex-start, center, column);
+    @include mixins.flex(flex-start, center, column);
     height: 100%;
-    min-height: calc(100vh - $altura-barra-de-nav);
+    min-height: calc(100vh - vars.$altura-barra-de-nav);
     max-width: 99vw;
     overflow-x: hidden;
 }
 
 %flotar-crecer-activo-encoger {
-    @include flotar-crecer-activo-encoger;
+    @include mixins.flotar-crecer-activo-encoger;
 }
 
 %invertir-color {

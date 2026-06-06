@@ -1,26 +1,29 @@
 // Tarjeta.scss
-@use "../../../../estilos/globales" as *;
+@use "../../../../estilos/variables-globales" as vars;
+@use "../../../../estilos/mixins-globales" as mixins;
+@use "../../../../estilos/funciones-globales" as funcs;
+@use "../../../../estilos/marcadores-de-posición-globales" as placeholders;
 
 .tarjeta {
     perspective: 1000px;
     width: 100%;
     min-width: 0;
     aspect-ratio: 3 / 4;
-    @include flex(center, center, column);
+    @include mixins.flex(center, center, column);
 
     .envoltura-de-perspectiva {
-        color: $granate-oscura;
+        color: vars.$granate-oscura;
         background:
-            linear-gradient(160deg, $blanco-prístino 0%, $caliza-beige 100%);
+            linear-gradient(160deg, vars.$blanco-prístino 0%, vars.$caliza-beige 100%);
         box-sizing: border-box;
-        padding: $uno-porciento;
+        padding: vars.$uno-porciento;
         margin: 0;
-        border: $borde-más-delgado solid añadir-alfa($terracota, 0.28);
-        border-top: $borde-delgado solid $terracota;
+        border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.28);
+        border-top: vars.$borde-delgado solid vars.$terracota;
         border-radius: 0.75rem;
-        box-shadow: $sombra-negra 0 $medio-porciento $uno-porciento;
+        box-shadow: vars.$sombra-negra 0 vars.$medio-porciento vars.$uno-porciento;
         position: relative;
-        @include flex(center, center, column);
+        @include mixins.flex(center, center, column);
         width: 100%;
         height: 100%;
         text-align: center;
@@ -32,7 +35,7 @@
         cursor: pointer;
 
         .envoltura-de-perspectiva {
-            border-color: añadir-alfa($arena-albero, 0.72);
+            border-color: funcs.añadir-alfa(vars.$arena-albero, 0.72);
         }
     }
 
@@ -43,17 +46,17 @@
     }
 
     .contenido-frontal, .contenido-posterior {
-        @include flex(center, center, column);
+        @include mixins.flex(center, center, column);
         position: absolute;
         width: 100%;
         height: 100%;
         box-sizing: border-box;
-        padding: $uno-porciento;
+        padding: vars.$uno-porciento;
         backface-visibility: hidden;
 
         .título {
             h3 {
-                font-family: $texto-bloque-serif;
+                font-family: vars.$texto-bloque-serif;
                 font-size: clamp(1.4rem, 1.2vw + 1.05rem, 2.2rem);
                 line-height: 1.08;
             }
@@ -61,7 +64,7 @@
     }
 
     .contenido-posterior {
-        color: $rojo-real;
+        color: vars.$rojo-real;
         transform: rotateY(180deg);
     }
 }

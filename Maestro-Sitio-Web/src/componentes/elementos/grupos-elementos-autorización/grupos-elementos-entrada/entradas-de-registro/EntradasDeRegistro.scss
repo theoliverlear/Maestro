@@ -1,8 +1,11 @@
 // EntradasDeRegistro.scss
-@use "../../../../../estilos/globales" as *;
+@use "../../../../../estilos/variables-globales" as vars;
+@use "../../../../../estilos/mixins-globales" as mixins;
+@use "../../../../../estilos/funciones-globales" as funcs;
+@use "../../../../../estilos/marcadores-de-posición-globales" as placeholders;
 
 .entradas-de-registro {
-    @include flex(center, center, column);
+    @include mixins.flex(center, center, column);
     width: 100%;
     .botón {
         align-self: flex-end;

@@ -1,13 +1,16 @@
 // ElementDeNav.scss
-@use "../../../../estilos/globales" as *;
+@use "../../../../estilos/variables-globales" as vars;
+@use "../../../../estilos/mixins-globales" as mixins;
+@use "../../../../estilos/funciones-globales" as funcs;
+@use "../../../../estilos/marcadores-de-posición-globales" as placeholders;
 
 .elemento-de-nav {
-    @include flex(center, center, row);
+    @include mixins.flex(center, center, row);
     background-color: transparent;
-    color: $granate-oscura;
-    border-radius: $medio-porciento;
-    min-height: calc($dos-porciento + $medio-porciento);
-    padding: $medio-porciento $uno-porciento;
+    color: vars.$granate-oscura;
+    border-radius: vars.$medio-porciento;
+    min-height: calc(vars.$dos-porciento + vars.$medio-porciento);
+    padding: vars.$medio-porciento vars.$uno-porciento;
     margin: 0;
     user-select: none;
     white-space: nowrap;
@@ -18,25 +21,25 @@
     .título {
         min-width: auto;
         h5 {
-            font-family: $texto-bloque-sans;
+            font-family: vars.$texto-bloque-sans;
             font-size: clamp(0.9rem, 0.35vw + 0.85rem, 1.1rem);
             font-weight: 600;
             line-height: 1;
         }
         &.icono-ajustado {
-            margin-right: $cuarto-porciento;
+            margin-right: vars.$cuarto-porciento;
         }
     }
     .imagen {
-        @include tamaño-cuadrado(clamp(0.65rem, 0.3vw + 0.55rem, 0.9rem));
+        @include mixins.tamaño-cuadrado(clamp(0.65rem, 0.3vw + 0.55rem, 0.9rem));
         margin: 0;
         filter: none;
         opacity: 0.8;
         transition: filter 0.1s ease-in-out;
     }
     &:hover {
-        background-color: añadir-alfa($terracota, 0.12);
-        color: $rojo-real;
+        background-color: funcs.añadir-alfa(vars.$terracota, 0.12);
+        color: vars.$rojo-real;
         cursor: pointer;
         .imagen {
             opacity: 1;

@@ -1,11 +1,14 @@
 // Autorización.scss
-@use "../../../estilos/globales" as *;
+@use "../../../estilos/variables-globales" as vars;
+@use "../../../estilos/mixins-globales" as mixins;
+@use "../../../estilos/funciones-globales" as funcs;
+@use "../../../estilos/marcadores-de-posición-globales" as placeholders;
 
 .autorización {
-    @include flex(center, center, column);
+    @include mixins.flex(center, center, column);
     box-sizing: border-box;
-    padding: $dos-porciento 1rem $tres-porciento;
+    padding: vars.$dos-porciento 1rem vars.$tres-porciento;
     background:
-        radial-gradient(ellipse at 20% 10%, añadir-alfa($arena-albero, 0.16), transparent 40%),
-        radial-gradient(ellipse at 82% 18%, añadir-alfa($terracota, 0.1), transparent 36%);
+        radial-gradient(ellipse at 20% 10%, funcs.añadir-alfa(vars.$arena-albero, 0.16), transparent 40%),
+        radial-gradient(ellipse at 82% 18%, funcs.añadir-alfa(vars.$terracota, 0.1), transparent 36%);
 }

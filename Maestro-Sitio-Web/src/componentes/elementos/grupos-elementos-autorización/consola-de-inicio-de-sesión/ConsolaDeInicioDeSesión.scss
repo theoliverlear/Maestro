@@ -1,8 +1,11 @@
 // ConsolaDeInicioDeSesión.scss
-@use "../../../../estilos/globales" as *;
+@use "../../../../estilos/variables-globales" as vars;
+@use "../../../../estilos/mixins-globales" as mixins;
+@use "../../../../estilos/funciones-globales" as funcs;
+@use "../../../../estilos/marcadores-de-posición-globales" as placeholders;
 
 .consola-de-inicio-de-sesión {
-    @include flex(flex-start, stretch, column);
+    @include mixins.flex(flex-start, stretch, column);
     gap: 0.9rem;
     width: 100%;
 
@@ -13,8 +16,8 @@
     }
 
     .nota-de-acceso {
-        color: añadir-alfa($carbón-claro, 0.66);
-        font-family: $texto-bloque-sans;
+        color: funcs.añadir-alfa(vars.$carbón-claro, 0.66);
+        font-family: vars.$texto-bloque-sans;
         font-size: 0.86rem;
         line-height: 1.4;
         text-align: center;

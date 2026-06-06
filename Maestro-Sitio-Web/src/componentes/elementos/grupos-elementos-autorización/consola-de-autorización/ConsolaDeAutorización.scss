@@ -1,32 +1,35 @@
 // ConsolaDeAutorización.scss
-@use "../../../../estilos/globales" as *;
+@use "../../../../estilos/variables-globales" as vars;
+@use "../../../../estilos/mixins-globales" as mixins;
+@use "../../../../estilos/funciones-globales" as funcs;
+@use "../../../../estilos/marcadores-de-posición-globales" as placeholders;
 
 .consola-de-autorización {
-    @include flex(center, stretch, column);
+    @include mixins.flex(center, stretch, column);
     position: relative;
     width: min(600px, calc(100vw - 2rem));
     box-sizing: border-box;
     padding: 2.5rem;
-    margin: $dos-porciento 0;
-    background-color: añadir-alfa($blanco-prístino, 0.98);
-    border: $borde-más-delgado solid añadir-alfa($terracota, 0.22);
-    border-top: $borde-delgado solid $terracota;
+    margin: vars.$dos-porciento 0;
+    background-color: funcs.añadir-alfa(vars.$blanco-prístino, 0.98);
+    border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.22);
+    border-top: vars.$borde-delgado solid vars.$terracota;
     border-radius: 1.35rem;
-    box-shadow: $sombra-negra-más-oscura 0 $uno-porciento $dos-porciento;
+    box-shadow: vars.$sombra-negra-más-oscura 0 vars.$uno-porciento vars.$dos-porciento;
 
     .botón-de-cierre-de-autorización {
-        @include flex(center, center, row);
+        @include mixins.flex(center, center, row);
         position: absolute;
         top: -0.9rem;
         right: -0.9rem;
         width: 2.35rem;
         height: 2.35rem;
-        background-color: $blanco-prístino;
-        border: $borde-más-delgado solid añadir-alfa($terracota, 0.28);
+        background-color: vars.$blanco-prístino;
+        border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.28);
         border-radius: 50%;
-        box-shadow: $sombra-negra 0 $cuarto-porciento $medio-porciento;
-        color: $granate-oscura;
-        font-family: $texto-bloque-sans;
+        box-shadow: vars.$sombra-negra 0 vars.$cuarto-porciento vars.$medio-porciento;
+        color: vars.$granate-oscura;
+        font-family: vars.$texto-bloque-sans;
         font-size: 1.25rem;
         font-weight: 800;
         line-height: 1;
@@ -38,10 +41,10 @@
             box-shadow 0.16s ease-in-out;
 
         &:hover {
-            background-color: $caliza-beige;
-            color: $rojo-real;
+            background-color: vars.$caliza-beige;
+            color: vars.$rojo-real;
             transform: scale(1.06);
-            box-shadow: $sombra-negra-más-oscura 0 $cuarto-porciento $medio-porciento;
+            box-shadow: vars.$sombra-negra-más-oscura 0 vars.$cuarto-porciento vars.$medio-porciento;
         }
 
         &:active {
@@ -50,14 +53,14 @@
     }
 
     .encabezado-de-autorización {
-        @include flex(center, center, column);
+        @include mixins.flex(center, center, column);
         gap: 0.45rem;
         margin-bottom: 1.75rem;
         text-align: center;
 
         p {
-            color: $terracota;
-            font-family: $texto-bloque-sans;
+            color: vars.$terracota;
+            font-family: vars.$texto-bloque-sans;
             font-size: 0.78rem;
             font-weight: 900;
             letter-spacing: 0.08em;
@@ -65,8 +68,8 @@
         }
 
         h2 {
-            color: $granate-oscura;
-            font-family: $texto-bloque-sans;
+            color: vars.$granate-oscura;
+            font-family: vars.$texto-bloque-sans;
             font-size: clamp(1.75rem, 1vw + 1.5rem, 2.2rem);
             font-weight: 800;
             line-height: 1.05;
@@ -74,21 +77,21 @@
 
         span {
             max-width: 28rem;
-            color: $carbón-claro;
-            font-family: $texto-bloque-serif;
+            color: vars.$carbón-claro;
+            font-family: vars.$texto-bloque-serif;
             font-size: clamp(0.95rem, 0.28vw + 0.9rem, 1.08rem);
             line-height: 1.45;
         }
     }
 
     .pestañas-de-autorización {
-        @include flex(center, center, row);
+        @include mixins.flex(center, center, row);
         width: 100%;
         box-sizing: border-box;
         gap: 0.25rem;
         padding: 0.25rem;
-        background-color: $caliza-beige;
-        border: $borde-más-delgado solid añadir-alfa($terracota, 0.12);
+        background-color: vars.$caliza-beige;
+        border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.12);
         border-radius: 0.85rem;
 
         button {
@@ -97,9 +100,9 @@
             background-color: transparent;
             border: 0;
             border-radius: 0.7rem;
-            color: añadir-alfa($carbón-claro, 0.74);
+            color: funcs.añadir-alfa(vars.$carbón-claro, 0.74);
             cursor: pointer;
-            font-family: $texto-bloque-sans;
+            font-family: vars.$texto-bloque-sans;
             font-size: 0.95rem;
             font-weight: 700;
             transition:
@@ -108,14 +111,14 @@
                 color 0.16s ease-in-out;
 
             &.activa {
-                background-color: $blanco-prístino;
-                color: $granate-oscura;
-                box-shadow: $sombra-negra 0 $octavo-porciento $cuarto-porciento;
+                background-color: vars.$blanco-prístino;
+                color: vars.$granate-oscura;
+                box-shadow: vars.$sombra-negra 0 vars.$octavo-porciento vars.$cuarto-porciento;
             }
 
             &:hover:not(.activa) {
-                background-color: añadir-alfa($blanco-prístino, 0.58);
-                color: $terracota;
+                background-color: funcs.añadir-alfa(vars.$blanco-prístino, 0.58);
+                color: vars.$terracota;
             }
         }
     }
@@ -125,25 +128,25 @@
     }
 
     .texto-de-cambio-de-autorización {
-        @include flex(center, center, row);
+        @include mixins.flex(center, center, row);
         flex-wrap: wrap;
         gap: 0.35rem;
         margin-top: 1.6rem;
-        color: añadir-alfa($carbón-claro, 0.72);
-        font-family: $texto-bloque-sans;
+        color: funcs.añadir-alfa(vars.$carbón-claro, 0.72);
+        font-family: vars.$texto-bloque-sans;
         font-size: 0.92rem;
 
         button {
             background: transparent;
             border: 0;
-            color: $terracota;
+            color: vars.$terracota;
             cursor: pointer;
             font: inherit;
             font-weight: 800;
             padding: 0;
 
             &:hover {
-                color: $rojo-real;
+                color: vars.$rojo-real;
                 text-decoration: underline;
             }
         }

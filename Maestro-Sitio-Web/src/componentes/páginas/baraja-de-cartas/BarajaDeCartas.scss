@@ -1,14 +1,17 @@
 // BarajaDeCartas.scss
-@use "../../../estilos/globales" as *;
+@use "../../../estilos/variables-globales" as vars;
+@use "../../../estilos/mixins-globales" as mixins;
+@use "../../../estilos/funciones-globales" as funcs;
+@use "../../../estilos/marcadores-de-posición-globales" as placeholders;
 
 .baraja-de-cartas {
     align-items: stretch;
-    gap: $dos-porciento;
-    min-height: calc(100vh - $altura-barra-de-nav);
-    color: $carbón;
+    gap: vars.$dos-porciento;
+    min-height: calc(100vh - vars.$altura-barra-de-nav);
+    color: vars.$carbón;
     background:
-        radial-gradient(ellipse at 84% 14%, añadir-alfa($arena-albero, 0.16), transparent 40%),
-        linear-gradient(135deg, $blanco-prístino 0%, $casi-blanca 56%, $caliza-beige 100%);
+        radial-gradient(ellipse at 84% 14%, funcs.añadir-alfa(vars.$arena-albero, 0.16), transparent 40%),
+        linear-gradient(135deg, vars.$blanco-prístino 0%, vars.$casi-blanca 56%, vars.$caliza-beige 100%);
 
     h1,
     h2,
@@ -19,8 +22,8 @@
     }
 
     .ceja-promocional {
-        color: $terracota;
-        font-family: $texto-bloque-sans;
+        color: vars.$terracota;
+        font-family: vars.$texto-bloque-sans;
         font-size: clamp(0.78rem, 0.28vw + 0.72rem, 0.95rem);
         font-weight: 800;
         letter-spacing: 0.08em;
@@ -29,27 +32,27 @@
 
     .encabezado-de-baraja {
         box-sizing: border-box;
-        padding: $tres-porciento $tres-porciento 0;
+        padding: vars.$tres-porciento vars.$tres-porciento 0;
 
         > div {
-            @include flex(flex-start, flex-start, column);
-            gap: $medio-porciento;
+            @include mixins.flex(flex-start, flex-start, column);
+            gap: vars.$medio-porciento;
             width: min(1120px, 100%);
             margin: 0 auto;
         }
 
         h1 {
             max-width: 56rem;
-            color: $granate-oscura;
+            color: vars.$granate-oscura;
             font-size: clamp(3rem, 5.6vw, 6.5rem);
             line-height: 0.95;
-            text-shadow: $sombra-negra 0 $cuarto-porciento $medio-porciento;
+            text-shadow: vars.$sombra-negra 0 vars.$cuarto-porciento vars.$medio-porciento;
         }
 
         p:not(.ceja-promocional) {
             max-width: 45rem;
-            color: $carbón-claro;
-            font-family: $texto-bloque-serif;
+            color: vars.$carbón-claro;
+            font-family: vars.$texto-bloque-serif;
             font-size: clamp(1.05rem, 0.52vw + 0.96rem, 1.36rem);
             line-height: 1.5;
         }
@@ -58,39 +61,39 @@
     .espacio-de-baraja {
         display: grid;
         grid-template-columns: minmax(18rem, 0.72fr) minmax(24rem, 1.2fr) minmax(16rem, 0.54fr);
-        gap: $uno-porciento;
+        gap: vars.$uno-porciento;
         width: min(1120px, calc(100% - 2rem));
         align-self: center;
         box-sizing: border-box;
-        padding-bottom: $tres-porciento;
+        padding-bottom: vars.$tres-porciento;
     }
 
     .panel-de-acciones-de-baraja,
     .panel-de-vista-de-baraja,
     .panel-de-sesión-de-baraja {
-        @include flex(flex-start, stretch, column);
-        gap: $medio-porciento;
+        @include mixins.flex(flex-start, stretch, column);
+        gap: vars.$medio-porciento;
         min-width: 0;
         box-sizing: border-box;
-        padding: $uno-porciento;
-        background-color: añadir-alfa($blanco-prístino, 0.96);
-        border: $borde-más-delgado solid añadir-alfa($terracota, 0.22);
-        border-top: $borde-delgado solid $terracota;
+        padding: vars.$uno-porciento;
+        background-color: funcs.añadir-alfa(vars.$blanco-prístino, 0.96);
+        border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.22);
+        border-top: vars.$borde-delgado solid vars.$terracota;
         border-radius: 0.75rem;
-        box-shadow: $sombra-negra 0 $medio-porciento $uno-porciento;
+        box-shadow: vars.$sombra-negra 0 vars.$medio-porciento vars.$uno-porciento;
     }
 
     .barra-de-panel-de-baraja {
-        @include flex(space-between, center, row);
-        gap: $uno-porciento;
-        color: $terracota;
-        font-family: $texto-bloque-sans;
+        @include mixins.flex(space-between, center, row);
+        gap: vars.$uno-porciento;
+        color: vars.$terracota;
+        font-family: vars.$texto-bloque-sans;
         font-size: 0.78rem;
         font-weight: 800;
         text-transform: uppercase;
 
         strong {
-            color: $granate-oscura;
+            color: vars.$granate-oscura;
         }
     }
 
@@ -104,15 +107,15 @@
         .mesa-de-tarjetas {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: $medio-porciento;
+            gap: vars.$medio-porciento;
             align-items: stretch;
             min-height: 21rem;
             box-sizing: border-box;
-            padding: $uno-porciento;
+            padding: vars.$uno-porciento;
             background:
-                radial-gradient(ellipse at 14% 18%, añadir-alfa($arena-albero, 0.18), transparent 44%),
-                $casi-blanca;
-            border: $borde-más-delgado solid añadir-alfa($carbón, 0.1);
+                radial-gradient(ellipse at 14% 18%, funcs.añadir-alfa(vars.$arena-albero, 0.18), transparent 44%),
+                vars.$casi-blanca;
+            border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$carbón, 0.1);
             border-radius: 0.65rem;
         }
     }
@@ -121,42 +124,42 @@
         article,
         .nota-de-sesión-de-baraja {
             padding: 0.9rem;
-            background-color: $casi-blanca;
-            border: $borde-más-delgado solid añadir-alfa($terracota, 0.16);
+            background-color: vars.$casi-blanca;
+            border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.16);
             border-radius: 0.55rem;
         }
 
         article {
-            @include flex(space-between, center, row);
-            gap: $medio-porciento;
+            @include mixins.flex(space-between, center, row);
+            gap: vars.$medio-porciento;
 
             span {
-                color: $terracota;
-                font-family: $texto-bloque-sans;
+                color: vars.$terracota;
+                font-family: vars.$texto-bloque-sans;
                 font-size: 0.78rem;
                 font-weight: 900;
                 text-transform: uppercase;
             }
 
             strong {
-                color: $granate-oscura;
-                font-family: $texto-bloque-sans;
+                color: vars.$granate-oscura;
+                font-family: vars.$texto-bloque-sans;
             }
         }
 
         .nota-de-sesión-de-baraja {
-            border-left: $borde-delgado solid $arena-albero;
+            border-left: vars.$borde-delgado solid vars.$arena-albero;
 
             strong {
                 display: block;
                 margin-bottom: 0.25rem;
-                color: $granate-oscura;
-                font-family: $texto-bloque-sans;
+                color: vars.$granate-oscura;
+                font-family: vars.$texto-bloque-sans;
             }
 
             p {
-                color: $carbón-claro;
-                font-family: $texto-bloque-serif;
+                color: vars.$carbón-claro;
+                font-family: vars.$texto-bloque-serif;
                 font-size: clamp(0.92rem, 0.26vw + 0.88rem, 1.02rem);
                 line-height: 1.45;
             }

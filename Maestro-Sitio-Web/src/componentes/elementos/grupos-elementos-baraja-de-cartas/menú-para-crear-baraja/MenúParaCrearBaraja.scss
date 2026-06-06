@@ -1,31 +1,34 @@
 // MenúParaCrearBaraja.scss
-@use "../../../../estilos/globales" as *;
+@use "../../../../estilos/variables-globales" as vars;
+@use "../../../../estilos/mixins-globales" as mixins;
+@use "../../../../estilos/funciones-globales" as funcs;
+@use "../../../../estilos/marcadores-de-posición-globales" as placeholders;
 
 .menú-para-crear-baraja {
-    @include flex(flex-start, stretch, column);
-    gap: $medio-porciento;
+    @include mixins.flex(flex-start, stretch, column);
+    gap: vars.$medio-porciento;
     box-sizing: border-box;
     background:
-        radial-gradient(ellipse at top right, añadir-alfa($arena-albero, 0.16), transparent 48%),
-        $casi-blanca;
-    border: $borde-más-delgado solid añadir-alfa($terracota, 0.18);
-    border-left: $borde-delgado solid $rojo-real;
+        radial-gradient(ellipse at top right, funcs.añadir-alfa(vars.$arena-albero, 0.16), transparent 48%),
+        vars.$casi-blanca;
+    border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.18);
+    border-left: vars.$borde-delgado solid vars.$rojo-real;
     border-radius: 0.65rem;
-    padding: $uno-porciento;
+    padding: vars.$uno-porciento;
     margin: 0;
     width: 100%;
 
     .línea-superior {
         width: 100%;
-        @include flex(space-between, center, row);
-        gap: $medio-porciento;
+        @include mixins.flex(space-between, center, row);
+        gap: vars.$medio-porciento;
 
         .botón-de-cerrar {
-            @include tamaño-cuadrado(2.4rem);
+            @include mixins.tamaño-cuadrado(2.4rem);
             min-width: 2.4rem;
             min-height: 2.4rem;
             margin: 0;
-            padding: $cuarto-porciento;
+            padding: vars.$cuarto-porciento;
             border-radius: 0.5rem;
         }
 
@@ -33,10 +36,10 @@
             flex: 1;
             align-items: flex-start;
             text-align: left;
-            color: $granate-oscura;
+            color: vars.$granate-oscura;
 
             h4 {
-                font-family: $texto-bloque-sans;
+                font-family: vars.$texto-bloque-sans;
                 font-size: clamp(1.1rem, 0.45vw + 1rem, 1.35rem);
                 line-height: 1.15;
             }
@@ -49,7 +52,7 @@
         .entrada-con-título {
             width: 100%;
             margin: 0;
-            background-color: añadir-alfa($blanco-prístino, 0.96);
+            background-color: funcs.añadir-alfa(vars.$blanco-prístino, 0.96);
         }
     }
 

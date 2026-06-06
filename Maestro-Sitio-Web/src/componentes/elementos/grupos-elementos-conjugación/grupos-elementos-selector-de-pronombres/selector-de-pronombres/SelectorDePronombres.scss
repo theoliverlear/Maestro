@@ -1,9 +1,12 @@
 // SelectorDePronombres.scss
-@use "../../../../../estilos/globales" as *;
+@use "../../../../../estilos/variables-globales" as vars;
+@use "../../../../../estilos/mixins-globales" as mixins;
+@use "../../../../../estilos/funciones-globales" as funcs;
+@use "../../../../../estilos/marcadores-de-posición-globales" as placeholders;
 
 .selector-de-pronombres {
-    @include flex(center, center, row);
+    @include mixins.flex(center, center, row);
     flex-wrap: wrap;
-    max-width: $cuarenta-porciento;
-    margin: $medio-porciento 0;
+    max-width: vars.$cuarenta-porciento;
+    margin: vars.$medio-porciento 0;
 }

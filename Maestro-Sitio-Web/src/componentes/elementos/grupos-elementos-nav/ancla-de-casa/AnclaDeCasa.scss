@@ -1,21 +1,24 @@
 // AnclaDeCasa.scss
-@use "../../../../estilos/globales" as *;
+@use "../../../../estilos/variables-globales" as vars;
+@use "../../../../estilos/mixins-globales" as mixins;
+@use "../../../../estilos/funciones-globales" as funcs;
+@use "../../../../estilos/marcadores-de-posición-globales" as placeholders;
 
 .ancla-de-casa {
-    @include tamaño-cuadrado(calc($dos-porciento + $uno-porciento));
+    @include mixins.tamaño-cuadrado(calc(vars.$dos-porciento + vars.$uno-porciento));
     flex: 0 0 auto;
-    border-radius: $medio-porciento;
+    border-radius: vars.$medio-porciento;
     transition:
         background-color 0.14s ease-in-out,
         transform 0.14s ease-in-out;
     .imagen {
-        border-radius: $medio-porciento;
+        border-radius: vars.$medio-porciento;
         img {
-            border-radius: $medio-porciento;
+            border-radius: vars.$medio-porciento;
         }
     }
     &:hover {
-        background-color: añadir-alfa($blanco-prístino, 0.1);
+        background-color: funcs.añadir-alfa(vars.$blanco-prístino, 0.1);
         transform: translateY(-1px);
         cursor: pointer;
     }

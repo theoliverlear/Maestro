@@ -1,92 +1,95 @@
 // App.scss
 @use "sass:color";
-@use "../../estilos/globales" as *;
+@use "../../estilos/variables-globales" as vars;
+@use "../../estilos/mixins-globales" as mixins;
+@use "../../estilos/funciones-globales" as funcs;
+@use "../../estilos/marcadores-de-posición-globales" as placeholders;
 
 h1 {
-    font-size: $h1-tamaño-de-fuente;
-    @include relleno-de-margen-básico(0, 0);
+    font-size: vars.$h1-tamaño-de-fuente;
+    @include mixins.relleno-de-margen-básico(0, 0);
 }
 h2 {
-    font-size: $h2-tamaño-de-fuente;
-    @include relleno-de-margen-básico(0, 0);
+    font-size: vars.$h2-tamaño-de-fuente;
+    @include mixins.relleno-de-margen-básico(0, 0);
 }
 h3 {
-    font-size: $h3-tamaño-de-fuente;
-    @include relleno-de-margen-básico(0, 0);
+    font-size: vars.$h3-tamaño-de-fuente;
+    @include mixins.relleno-de-margen-básico(0, 0);
 }
 h4 {
-    font-size: $h4-tamaño-de-fuente;
-    @include relleno-de-margen-básico(0, 0);
+    font-size: vars.$h4-tamaño-de-fuente;
+    @include mixins.relleno-de-margen-básico(0, 0);
 }
 h5 {
-    font-size: $h5-tamaño-de-fuente;
-    @include relleno-de-margen-básico(0, 0);
+    font-size: vars.$h5-tamaño-de-fuente;
+    @include mixins.relleno-de-margen-básico(0, 0);
 }
 h6 {
-    font-size: $h6-tamaño-de-fuente;
-    @include relleno-de-margen-básico(0, 0);
+    font-size: vars.$h6-tamaño-de-fuente;
+    @include mixins.relleno-de-margen-básico(0, 0);
 }
 p {
-    font-size: $p-tamaño-de-fuente;
-    @include relleno-de-margen-básico(0, 0);
+    font-size: vars.$p-tamaño-de-fuente;
+    @include mixins.relleno-de-margen-básico(0, 0);
 }
 span {
-    font-size: $p-tamaño-de-fuente;
-    @include relleno-de-margen-básico(0, 0);
+    font-size: vars.$p-tamaño-de-fuente;
+    @include mixins.relleno-de-margen-básico(0, 0);
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: $fuente-del-título;
+    font-family: vars.$fuente-del-título;
 }
 
 p, span {
-    font-family: $texto-bloque-serif;
+    font-family: vars.$texto-bloque-serif;
 }
 
 body {
-    @include tamaño-cuadrado(100%);
-    @include relleno-de-margen-básico(0, 0);
-    @include flex(center, center, column);
+    @include mixins.tamaño-cuadrado(100%);
+    @include mixins.relleno-de-margen-básico(0, 0);
+    @include mixins.flex(center, center, column);
     min-height: 100vh;
     #root {
-        @include tamaño-cuadrado(100%);
-        @include relleno-de-margen-básico(0, 0);
-        @include flex(center, center, column);
+        @include mixins.tamaño-cuadrado(100%);
+        @include mixins.relleno-de-margen-básico(0, 0);
+        @include mixins.flex(center, center, column);
         min-height: 100vh;
         .app {
-            @include flex(flex-start, center, column);
+            @include mixins.flex(flex-start, center, column);
             width: 100%;
             height: 100%;
-            background-color: $casi-blanca;
+            background-color: vars.$casi-blanca;
             background-image:
-                radial-gradient(ellipse at 12% 8%, añadir-alfa($arena-albero, 0.18), transparent 36%),
-                radial-gradient(ellipse at 88% 18%, añadir-alfa($terracota, 0.12), transparent 34%),
-                linear-gradient(180deg, $blanco-prístino 0%, $casi-blanca 48%, $caliza-beige 100%);
+                radial-gradient(ellipse at 12% 8%, funcs.añadir-alfa(vars.$arena-albero, 0.18), transparent 36%),
+                radial-gradient(ellipse at 88% 18%, funcs.añadir-alfa(vars.$terracota, 0.12), transparent 34%),
+                linear-gradient(180deg, vars.$blanco-prístino 0%, vars.$casi-blanca 48%, vars.$caliza-beige 100%);
             background-attachment: fixed;
             background-size: cover;
 
             min-height: 100vh;
-            @include relleno-de-margen-básico(0, 0);
+            @include mixins.relleno-de-margen-básico(0, 0);
             overflow-x: hidden;
             font-family: 'Croissant One', sans-serif;
             max-width: 100vw;
             main {
                 width: 100%;
                 flex: 1;
-                @include flex(center, center, column);
+                @include mixins.flex(center, center, column);
             }
             .casa,
             .conjugador,
             .baraja-de-cartas,
             .autorización,
             .panel {
-                @extend %página;
+                @extend %placeholders.página;
             }
         }
     }
     hr {
         width: 80%;
-        border: $borde-más-delgado solid $piedra-de-alabastro;
+        border: vars.$borde-más-delgado solid vars.$piedra-de-alabastro;
     }
 }
 .enlace-sin-estilo {

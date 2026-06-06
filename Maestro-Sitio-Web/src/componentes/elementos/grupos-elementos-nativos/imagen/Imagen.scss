@@ -1,8 +1,11 @@
 // Imagen.scss
-@use "../../../../estilos/globales" as *;
+@use "../../../../estilos/variables-globales" as vars;
+@use "../../../../estilos/mixins-globales" as mixins;
+@use "../../../../estilos/funciones-globales" as funcs;
+@use "../../../../estilos/marcadores-de-posición-globales" as placeholders;
 
 .imagen {
     img {
-        @extend %llenar-contenedor;
+        @extend %placeholders.llenar-contenedor;
     }
 }

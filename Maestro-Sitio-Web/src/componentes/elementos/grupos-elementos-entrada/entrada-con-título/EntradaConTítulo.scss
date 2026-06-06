@@ -1,50 +1,53 @@
 // EntradaConTítulo.scss
-@use "../../../../estilos/globales" as *;
+@use "../../../../estilos/variables-globales" as vars;
+@use "../../../../estilos/mixins-globales" as mixins;
+@use "../../../../estilos/funciones-globales" as funcs;
+@use "../../../../estilos/marcadores-de-posición-globales" as placeholders;
 
 .entrada-con-título {
     box-sizing: border-box;
-    background-color: añadir-alfa($caliza-beige, 0.96);
-    border: $borde-más-delgado solid añadir-alfa($terracota, 0.22);
-    border-left: $borde-delgado solid $terracota;
-    @include flex(center, stretch, column);
-    gap: $cuarto-porciento;
-    padding: $uno-porciento;
-    margin: $medio-porciento 0;
-    border-radius: $medio-porciento;
-    box-shadow: $sombra-negra 0 $cuarto-porciento $medio-porciento;
+    background-color: funcs.añadir-alfa(vars.$caliza-beige, 0.96);
+    border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.22);
+    border-left: vars.$borde-delgado solid vars.$terracota;
+    @include mixins.flex(center, stretch, column);
+    gap: vars.$cuarto-porciento;
+    padding: vars.$uno-porciento;
+    margin: vars.$medio-porciento 0;
+    border-radius: vars.$medio-porciento;
+    box-shadow: vars.$sombra-negra 0 vars.$cuarto-porciento vars.$medio-porciento;
     .título {
-        color: $granate-oscura;
+        color: vars.$granate-oscura;
         margin: 0;
         padding: 0;
         align-items: flex-start;
         text-align: left;
 
         h1 {
-            font-size: calc($h1-tamaño-de-fuente * 0.8);
+            font-size: calc(vars.$h1-tamaño-de-fuente * 0.8);
         }
 
         h2 {
-            font-size: calc($h2-tamaño-de-fuente * 0.8);
+            font-size: calc(vars.$h2-tamaño-de-fuente * 0.8);
         }
 
         h3 {
-            font-size: calc($h3-tamaño-de-fuente * 0.8);
+            font-size: calc(vars.$h3-tamaño-de-fuente * 0.8);
         }
 
         h4 {
-            font-size: calc($h4-tamaño-de-fuente * 0.8);
+            font-size: calc(vars.$h4-tamaño-de-fuente * 0.8);
         }
 
         h5 {
-            font-size: calc($h5-tamaño-de-fuente * 0.8);
+            font-size: calc(vars.$h5-tamaño-de-fuente * 0.8);
         }
 
         h6 {
-            font-size: calc($h6-tamaño-de-fuente * 0.8);
+            font-size: calc(vars.$h6-tamaño-de-fuente * 0.8);
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: $texto-bloque-sans;
+            font-family: vars.$texto-bloque-sans;
             font-weight: 700;
         }
     }

@@ -1,17 +1,20 @@
 // EntradaDeAutorización.scss
-@use "../../../../../estilos/globales" as *;
+@use "../../../../../estilos/variables-globales" as vars;
+@use "../../../../../estilos/mixins-globales" as mixins;
+@use "../../../../../estilos/funciones-globales" as funcs;
+@use "../../../../../estilos/marcadores-de-posición-globales" as placeholders;
 
 .entrada-de-autorización {
-    @include flex(flex-start, stretch, column);
+    @include mixins.flex(flex-start, stretch, column);
     width: 100%;
     gap: 0.4rem;
     .título {
-        color: $granate-oscura;
+        color: vars.$granate-oscura;
         padding: 0;
         text-align: left;
-        @include flex(flex-start, center, row);
+        @include mixins.flex(flex-start, center, row);
         h5 {
-            font-family: $texto-bloque-sans;
+            font-family: vars.$texto-bloque-sans;
             font-size: clamp(0.88rem, 0.24vw + 0.84rem, 1rem);
             font-weight: 700;
         }

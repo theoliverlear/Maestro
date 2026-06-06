@@ -1,27 +1,30 @@
 // AnclaDeCuenta.scss
-@use "../../../../estilos/globales" as *;
+@use "../../../../estilos/variables-globales" as vars;
+@use "../../../../estilos/mixins-globales" as mixins;
+@use "../../../../estilos/funciones-globales" as funcs;
+@use "../../../../estilos/marcadores-de-posición-globales" as placeholders;
 
 .ancla-de-cuenta {
-    @include tamaño-cuadrado(calc($dos-porciento + $medio-porciento));
+    @include mixins.tamaño-cuadrado(calc(vars.$dos-porciento + vars.$medio-porciento));
     flex: 0 0 auto;
-    padding: $medio-porciento;
+    padding: vars.$medio-porciento;
     box-sizing: border-box;
-    background-color: añadir-alfa($terracota, 0.1);
-    border: $borde-más-delgado solid añadir-alfa($terracota, 0.28);
-    border-radius: $medio-porciento;
+    background-color: funcs.añadir-alfa(vars.$terracota, 0.1);
+    border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.28);
+    border-radius: vars.$medio-porciento;
     transition:
         background-color 0.14s ease-in-out,
         border-color 0.14s ease-in-out,
         transform 0.14s ease-in-out;
     .imagen {
-        border-radius: $medio-porciento;
+        border-radius: vars.$medio-porciento;
         img {
             filter: none;
         }
     }
     &:hover {
-        background-color: añadir-alfa($terracota, 0.18);
-        border-color: añadir-alfa($rojo-real, 0.42);
+        background-color: funcs.añadir-alfa(vars.$terracota, 0.18);
+        border-color: funcs.añadir-alfa(vars.$rojo-real, 0.42);
         transform: translateY(-1px);
         cursor: pointer;
     }

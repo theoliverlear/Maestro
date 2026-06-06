@@ -1,17 +1,20 @@
 // Botón.scss
-@use "../../../../estilos/globales" as *;
+@use "../../../../estilos/variables-globales" as vars;
+@use "../../../../estilos/mixins-globales" as mixins;
+@use "../../../../estilos/funciones-globales" as funcs;
+@use "../../../../estilos/marcadores-de-posición-globales" as placeholders;
 
 .botón {
-    @include flex(center, center, row);
+    @include mixins.flex(center, center, row);
     box-sizing: border-box;
-    min-height: calc($dos-porciento + $medio-porciento);
-    margin: $medio-porciento 0;
-    padding: $medio-porciento $uno-medio-porciento;
-    background-color: $terracota;
-    color: $blanco-prístino;
-    border: $borde-más-delgado solid añadir-alfa($granate-oscura, 0.5);
-    border-radius: $medio-porciento;
-    box-shadow: $sombra-negra 0 $cuarto-porciento $medio-porciento;
+    min-height: calc(vars.$dos-porciento + vars.$medio-porciento);
+    margin: vars.$medio-porciento 0;
+    padding: vars.$medio-porciento vars.$uno-medio-porciento;
+    background-color: vars.$terracota;
+    color: vars.$blanco-prístino;
+    border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$granate-oscura, 0.5);
+    border-radius: vars.$medio-porciento;
+    box-shadow: vars.$sombra-negra 0 vars.$cuarto-porciento vars.$medio-porciento;
     cursor: pointer;
     user-select: none;
     transition:
@@ -22,24 +25,24 @@
         opacity 0.14s ease-in-out;
     .título {
         h1, h2, h3, h4, h5, h6 {
-            font-family: $texto-bloque-sans;
+            font-family: vars.$texto-bloque-sans;
             font-size: clamp(0.95rem, 0.35vw + 0.9rem, 1.15rem);
             font-weight: 700;
             line-height: 1;
         }
     }
     .imagen {
-        @include tamaño-cuadrado(clamp(1rem, 0.45vw + 0.9rem, 1.25rem));
+        @include mixins.tamaño-cuadrado(clamp(1rem, 0.45vw + 0.9rem, 1.25rem));
         filter: invert(1);
     }
     &.cuadrado {
-        padding: $medio-porciento;
-        min-width: calc($dos-porciento + $medio-porciento);
+        padding: vars.$medio-porciento;
+        min-width: calc(vars.$dos-porciento + vars.$medio-porciento);
     }
     &:hover {
-        background-color: $rojo-real;
-        border-color: $arena-albero;
-        box-shadow: $sombra-negra-más-oscura 0 $cuarto-porciento $medio-porciento;
+        background-color: vars.$rojo-real;
+        border-color: vars.$arena-albero;
+        box-shadow: vars.$sombra-negra-más-oscura 0 vars.$cuarto-porciento vars.$medio-porciento;
         transform: translateY(-1px);
     }
     &:active {

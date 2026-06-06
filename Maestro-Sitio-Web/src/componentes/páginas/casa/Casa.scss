@@ -1,10 +1,13 @@
 // Casa.scss
-@use "../../../estilos/globales" as *;
+@use "../../../estilos/variables-globales" as vars;
+@use "../../../estilos/mixins-globales" as mixins;
+@use "../../../estilos/funciones-globales" as funcs;
+@use "../../../estilos/marcadores-de-posición-globales" as placeholders;
 
 .casa {
     align-items: stretch;
-    gap: $dos-porciento;
-    color: $carbón;
+    gap: vars.$dos-porciento;
+    color: vars.$carbón;
 
     h1,
     h2,
@@ -14,8 +17,8 @@
     }
 
     .ceja-promocional {
-        color: $terracota;
-        font-family: $texto-bloque-sans;
+        color: vars.$terracota;
+        font-family: vars.$texto-bloque-sans;
         font-size: clamp(0.78rem, 0.28vw + 0.72rem, 0.95rem);
         font-weight: 800;
         letter-spacing: 0.08em;
@@ -23,12 +26,12 @@
     }
 
     .botón-promocional {
-        @include flex(center, center, row);
+        @include mixins.flex(center, center, row);
         min-height: 2.75rem;
         box-sizing: border-box;
         padding: 0.75rem 1.2rem;
         border-radius: 0.55rem;
-        font-family: $texto-bloque-sans;
+        font-family: vars.$texto-bloque-sans;
         font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.08rem);
         font-weight: 800;
         text-decoration: none;
@@ -40,16 +43,16 @@
             transform 0.16s ease-in-out;
 
         &.primario {
-            background-color: $terracota;
-            border: $borde-más-delgado solid añadir-alfa($granate-oscura, 0.55);
-            color: $blanco-prístino;
-            box-shadow: $sombra-negra-más-oscura 0 $cuarto-porciento $medio-porciento;
+            background-color: vars.$terracota;
+            border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$granate-oscura, 0.55);
+            color: vars.$blanco-prístino;
+            box-shadow: vars.$sombra-negra-más-oscura 0 vars.$cuarto-porciento vars.$medio-porciento;
         }
 
         &.secundario {
-            background-color: $blanco-prístino;
-            border: $borde-más-delgado solid añadir-alfa($terracota, 0.38);
-            color: $granate-oscura;
+            background-color: vars.$blanco-prístino;
+            border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.38);
+            color: vars.$granate-oscura;
         }
 
         &:hover {
@@ -57,14 +60,14 @@
             cursor: pointer;
 
             &.primario {
-                background-color: $rojo-real;
-                border-color: $arena-albero;
+                background-color: vars.$rojo-real;
+                border-color: vars.$arena-albero;
             }
 
             &.secundario {
-                background-color: añadir-alfa($arena-albero, 0.16);
-                border-color: añadir-alfa($arena-albero, 0.72);
-                color: $rojo-real;
+                background-color: funcs.añadir-alfa(vars.$arena-albero, 0.16);
+                border-color: funcs.añadir-alfa(vars.$arena-albero, 0.72);
+                color: vars.$rojo-real;
             }
         }
 
@@ -74,18 +77,18 @@
     }
 
     .sección-hero-casa {
-        @include flex(space-between, center, row);
+        @include mixins.flex(space-between, center, row);
         position: relative;
-        gap: $tres-porciento;
+        gap: vars.$tres-porciento;
         overflow: hidden;
         min-height: min(74vh, 46rem);
         box-sizing: border-box;
-        padding: $cinco-porciento $tres-porciento;
+        padding: vars.$cinco-porciento vars.$tres-porciento;
         background:
-            radial-gradient(ellipse at 88% 42%, añadir-alfa($arena-albero, 0.22), transparent 42%),
-            radial-gradient(ellipse at 12% 12%, añadir-alfa($terracota, 0.16), transparent 38%),
-            linear-gradient(135deg, $blanco-prístino 0%, $casi-blanca 52%, $caliza-beige 100%);
-        border-bottom: $borde-delgado solid añadir-alfa($arena-albero, 0.48);
+            radial-gradient(ellipse at 88% 42%, funcs.añadir-alfa(vars.$arena-albero, 0.22), transparent 42%),
+            radial-gradient(ellipse at 12% 12%, funcs.añadir-alfa(vars.$terracota, 0.16), transparent 38%),
+            linear-gradient(135deg, vars.$blanco-prístino 0%, vars.$casi-blanca 52%, vars.$caliza-beige 100%);
+        border-bottom: vars.$borde-delgado solid funcs.añadir-alfa(vars.$arena-albero, 0.48);
 
         &::after {
             content: "";
@@ -93,27 +96,27 @@
             right: 0;
             bottom: 0;
             left: 0;
-            height: $borde-delgado;
-            background-image: linear-gradient(90deg, $granate-oscura, $terracota, $arena-albero);
+            height: vars.$borde-delgado;
+            background-image: linear-gradient(90deg, vars.$granate-oscura, vars.$terracota, vars.$arena-albero);
         }
 
         .columna-de-copy-hero {
-            @include flex(flex-start, flex-start, column);
+            @include mixins.flex(flex-start, flex-start, column);
             position: relative;
             z-index: 1;
             flex: 1 1 34rem;
             max-width: 54rem;
-            gap: $uno-porciento;
+            gap: vars.$uno-porciento;
 
             h1 {
-                color: $granate-oscura;
+                color: vars.$granate-oscura;
                 font-size: clamp(4.5rem, 9vw, 9rem);
                 line-height: 0.92;
-                text-shadow: $sombra-negra 0 $cuarto-porciento $medio-porciento;
+                text-shadow: vars.$sombra-negra 0 vars.$cuarto-porciento vars.$medio-porciento;
             }
 
             h2 {
-                color: $granate-oscura;
+                color: vars.$granate-oscura;
                 font-size: clamp(2.4rem, 4.2vw, 5rem);
                 line-height: 1;
                 text-shadow: none;
@@ -121,22 +124,22 @@
 
             .texto-principal-hero {
                 max-width: 44rem;
-                color: $carbón-claro;
-                font-family: $texto-bloque-serif;
+                color: vars.$carbón-claro;
+                font-family: vars.$texto-bloque-serif;
                 font-size: clamp(1.15rem, 0.75vw + 1rem, 1.65rem);
                 line-height: 1.48;
             }
 
             .fila-de-acciones-hero {
-                @include flex(flex-start, center, row);
+                @include mixins.flex(flex-start, center, row);
                 flex-wrap: wrap;
-                gap: $medio-porciento;
-                margin-top: $medio-porciento;
+                gap: vars.$medio-porciento;
+                margin-top: vars.$medio-porciento;
             }
         }
 
         .visual-hero {
-            @include flex(center, center, column);
+            @include mixins.flex(center, center, column);
             position: relative;
             z-index: 1;
             flex: 0 1 28rem;
@@ -153,61 +156,61 @@
             }
 
             .panel-de-práctica {
-                @include flex(flex-start, stretch, column);
+                @include mixins.flex(flex-start, stretch, column);
                 position: relative;
-                gap: $medio-porciento;
+                gap: vars.$medio-porciento;
                 width: min(100%, 25rem);
                 box-sizing: border-box;
-                padding: $uno-medio-porciento;
-                background-color: añadir-alfa($blanco-prístino, 0.96);
-                border: $borde-más-delgado solid añadir-alfa($arena-albero, 0.55);
-                border-top: $borde-delgado solid $terracota;
+                padding: vars.$uno-medio-porciento;
+                background-color: funcs.añadir-alfa(vars.$blanco-prístino, 0.96);
+                border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$arena-albero, 0.55);
+                border-top: vars.$borde-delgado solid vars.$terracota;
                 border-radius: 0.75rem;
-                box-shadow: $sombra-negra-más-oscura 0 $uno-porciento $dos-porciento;
+                box-shadow: vars.$sombra-negra-más-oscura 0 vars.$uno-porciento vars.$dos-porciento;
 
                 .etiqueta-de-panel {
-                    color: $terracota;
-                    font-family: $texto-bloque-sans;
+                    color: vars.$terracota;
+                    font-family: vars.$texto-bloque-sans;
                     font-size: 0.78rem;
                     font-weight: 800;
                     text-transform: uppercase;
                 }
 
                 h2 {
-                    color: $granate-oscura;
-                    font-family: $texto-bloque-sans;
+                    color: vars.$granate-oscura;
+                    font-family: vars.$texto-bloque-sans;
                     font-size: clamp(1.35rem, 0.8vw + 1.1rem, 1.9rem);
                     line-height: 1.1;
                 }
 
                 .fila-de-ejercicio {
-                    @include flex(space-between, center, row);
-                    gap: $uno-porciento;
+                    @include mixins.flex(space-between, center, row);
+                    gap: vars.$uno-porciento;
                     padding: 0.85rem 1rem;
-                    background-color: $casi-blanca;
-                    border: $borde-más-delgado solid añadir-alfa($carbón, 0.08);
+                    background-color: vars.$casi-blanca;
+                    border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$carbón, 0.08);
                     border-radius: 0.55rem;
-                    color: $carbón-claro;
-                    font-family: $texto-bloque-sans;
+                    color: vars.$carbón-claro;
+                    font-family: vars.$texto-bloque-sans;
                     font-size: clamp(0.95rem, 0.35vw + 0.9rem, 1.12rem);
 
                     strong {
-                        color: $rojo-real;
+                        color: vars.$rojo-real;
                     }
 
                     &.activa {
-                        background-color: añadir-alfa($arena-albero, 0.18);
-                        border-color: añadir-alfa($terracota, 0.38);
+                        background-color: funcs.añadir-alfa(vars.$arena-albero, 0.18);
+                        border-color: funcs.añadir-alfa(vars.$terracota, 0.38);
                     }
                 }
 
                 .burbuja-de-entrada {
                     padding: 1rem;
-                    background-color: $caliza-beige;
-                    border-left: $borde-delgado solid $terracota;
+                    background-color: vars.$caliza-beige;
+                    border-left: vars.$borde-delgado solid vars.$terracota;
                     border-radius: 0.55rem;
-                    color: $carbón-claro;
-                    font-family: $texto-bloque-serif;
+                    color: vars.$carbón-claro;
+                    font-family: vars.$texto-bloque-serif;
                     font-size: clamp(1rem, 0.36vw + 0.95rem, 1.14rem);
                     line-height: 1.42;
                 }
@@ -218,12 +221,12 @@
             min-height: auto;
             width: min(1120px, calc(100% - 2rem));
             align-self: center;
-            padding: $dos-porciento;
-            border: $borde-más-delgado solid añadir-alfa($arena-albero, 0.22);
+            padding: vars.$dos-porciento;
+            border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$arena-albero, 0.22);
             border-radius: 0.85rem;
             background:
-                radial-gradient(ellipse at 84% 40%, añadir-alfa($terracota, 0.14), transparent 48%),
-                linear-gradient(135deg, $blanco-prístino, $caliza-beige);
+                radial-gradient(ellipse at 84% 40%, funcs.añadir-alfa(vars.$terracota, 0.14), transparent 48%),
+                linear-gradient(135deg, vars.$blanco-prístino, vars.$caliza-beige);
         }
     }
 
@@ -239,42 +242,42 @@
     .sección-critico {
         display: grid;
         grid-template-columns: minmax(0, 0.95fr) minmax(22rem, 1.05fr);
-        gap: $dos-porciento;
+        gap: vars.$dos-porciento;
         box-sizing: border-box;
-        padding: $dos-porciento;
-        background-color: añadir-alfa($blanco-prístino, 0.98);
-        border: $borde-más-delgado solid añadir-alfa($terracota, 0.22);
-        border-top: $borde-delgado solid $terracota;
+        padding: vars.$dos-porciento;
+        background-color: funcs.añadir-alfa(vars.$blanco-prístino, 0.98);
+        border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.22);
+        border-top: vars.$borde-delgado solid vars.$terracota;
         border-radius: 0.85rem;
-        box-shadow: $sombra-negra 0 $medio-porciento $uno-porciento;
+        box-shadow: vars.$sombra-negra 0 vars.$medio-porciento vars.$uno-porciento;
 
         .copy-de-critico {
-            @include flex(center, flex-start, column);
-            gap: $medio-porciento;
+            @include mixins.flex(center, flex-start, column);
+            gap: vars.$medio-porciento;
 
             h2 {
-                color: $granate-oscura;
+                color: vars.$granate-oscura;
                 font-size: clamp(2.2rem, 3.8vw, 4.6rem);
                 line-height: 1;
             }
 
             p:not(.ceja-promocional) {
-                color: $carbón-claro;
-                font-family: $texto-bloque-serif;
+                color: vars.$carbón-claro;
+                font-family: vars.$texto-bloque-serif;
                 font-size: clamp(1rem, 0.45vw + 0.95rem, 1.22rem);
                 line-height: 1.58;
             }
         }
 
         .panel-de-crítica {
-            @include flex(flex-start, stretch, column);
-            gap: $medio-porciento;
+            @include mixins.flex(flex-start, stretch, column);
+            gap: vars.$medio-porciento;
             box-sizing: border-box;
-            padding: $uno-porciento;
+            padding: vars.$uno-porciento;
             background:
-                radial-gradient(ellipse at top right, añadir-alfa($arena-albero, 0.18), transparent 48%),
-                $casi-blanca;
-            border: $borde-más-delgado solid añadir-alfa($carbón, 0.1);
+                radial-gradient(ellipse at top right, funcs.añadir-alfa(vars.$arena-albero, 0.18), transparent 48%),
+                vars.$casi-blanca;
+            border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$carbón, 0.1);
             border-radius: 0.75rem;
 
             .entrada-crítico,
@@ -285,23 +288,23 @@
             }
 
             .entrada-crítico {
-                background-color: $blanco-prístino;
-                color: $carbón-claro;
-                border: $borde-más-delgado solid añadir-alfa($terracota, 0.18);
-                border-left: $borde-delgado solid $rojo-real;
+                background-color: vars.$blanco-prístino;
+                color: vars.$carbón-claro;
+                border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.18);
+                border-left: vars.$borde-delgado solid vars.$rojo-real;
 
                 span {
                     display: block;
                     margin-bottom: 0.35rem;
-                    color: $terracota;
-                    font-family: $texto-bloque-sans;
+                    color: vars.$terracota;
+                    font-family: vars.$texto-bloque-sans;
                     font-size: 0.78rem;
                     font-weight: 800;
                     text-transform: uppercase;
                 }
 
                 p {
-                    font-family: $texto-bloque-serif;
+                    font-family: vars.$texto-bloque-serif;
                     font-size: clamp(1rem, 0.42vw + 0.95rem, 1.2rem);
                     line-height: 1.45;
                 }
@@ -310,24 +313,24 @@
             .resultado-crítico {
                 display: grid;
                 grid-template-columns: 1fr;
-                gap: $medio-porciento;
+                gap: vars.$medio-porciento;
 
                 article {
-                    background-color: $blanco-prístino;
-                    border: $borde-más-delgado solid añadir-alfa($terracota, 0.16);
-                    border-left: $borde-delgado solid $terracota;
+                    background-color: vars.$blanco-prístino;
+                    border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.16);
+                    border-left: vars.$borde-delgado solid vars.$terracota;
 
                     strong {
                         display: block;
                         margin-bottom: 0.25rem;
-                        color: $granate-oscura;
-                        font-family: $texto-bloque-sans;
+                        color: vars.$granate-oscura;
+                        font-family: vars.$texto-bloque-sans;
                         font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.1rem);
                     }
 
                     p {
-                        color: $carbón-claro;
-                        font-family: $texto-bloque-serif;
+                        color: vars.$carbón-claro;
+                        font-family: vars.$texto-bloque-serif;
                         font-size: clamp(0.92rem, 0.28vw + 0.88rem, 1.05rem);
                         line-height: 1.45;
                     }
@@ -339,60 +342,60 @@
     .sección-ojeada {
         display: grid;
         grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.9fr);
-        gap: $dos-porciento;
+        gap: vars.$dos-porciento;
         align-items: center;
         box-sizing: border-box;
-        padding: $dos-porciento;
+        padding: vars.$dos-porciento;
         background:
-            radial-gradient(ellipse at 12% 18%, añadir-alfa($arena-albero, 0.18), transparent 44%),
-            linear-gradient(135deg, $blanco-prístino, $caliza-beige);
-        border: $borde-más-delgado solid añadir-alfa($terracota, 0.24);
+            radial-gradient(ellipse at 12% 18%, funcs.añadir-alfa(vars.$arena-albero, 0.18), transparent 44%),
+            linear-gradient(135deg, vars.$blanco-prístino, vars.$caliza-beige);
+        border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.24);
         border-radius: 0.85rem;
 
         .tarjeta-ojeada {
-            @include flex(flex-start, flex-start, column);
-            gap: $medio-porciento;
+            @include mixins.flex(flex-start, flex-start, column);
+            gap: vars.$medio-porciento;
 
             h2 {
-                color: $granate-oscura;
+                color: vars.$granate-oscura;
                 font-size: clamp(2rem, 3.2vw, 4rem);
                 line-height: 1.02;
             }
 
             p:not(.ceja-promocional) {
-                color: $carbón-claro;
-                font-family: $texto-bloque-serif;
+                color: vars.$carbón-claro;
+                font-family: vars.$texto-bloque-serif;
                 font-size: clamp(1rem, 0.42vw + 0.95rem, 1.2rem);
                 line-height: 1.56;
             }
         }
 
         .demostración-ojeada {
-            @include flex(center, stretch, column);
-            gap: $medio-porciento;
+            @include mixins.flex(center, stretch, column);
+            gap: vars.$medio-porciento;
             position: relative;
-            padding: $uno-porciento;
-            background-color: añadir-alfa($blanco-prístino, 0.08);
-            border: $borde-más-delgado solid añadir-alfa($terracota, 0.18);
+            padding: vars.$uno-porciento;
+            background-color: funcs.añadir-alfa(vars.$blanco-prístino, 0.08);
+            border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.18);
             border-radius: 0.75rem;
 
             .línea-ojeada {
                 padding: 1rem;
                 border-radius: 0.55rem;
-                font-family: $texto-bloque-sans;
+                font-family: vars.$texto-bloque-sans;
                 font-size: clamp(1rem, 0.45vw + 0.95rem, 1.2rem);
                 font-weight: 700;
                 line-height: 1.35;
 
                 &.español {
-                    background-color: añadir-alfa($blanco-prístino, 0.94);
-                    color: $granate-oscura;
+                    background-color: funcs.añadir-alfa(vars.$blanco-prístino, 0.94);
+                    color: vars.$granate-oscura;
                 }
 
                 &.inglés {
-                    background-color: añadir-alfa($terracota, 0.1);
-                    border: $borde-más-delgado solid añadir-alfa($arena-albero, 0.42);
-                    color: $granate-oscura;
+                    background-color: funcs.añadir-alfa(vars.$terracota, 0.1);
+                    border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$arena-albero, 0.42);
+                    color: vars.$granate-oscura;
                 }
             }
 
@@ -401,8 +404,8 @@
                 width: 78%;
                 height: 0.32rem;
                 border-radius: 999px;
-                background-image: linear-gradient(90deg, transparent, $arena-albero, $terracota, transparent);
-                box-shadow: añadir-alfa($arena-albero, 0.32) 0 0 $medio-porciento;
+                background-image: linear-gradient(90deg, transparent, vars.$arena-albero, vars.$terracota, transparent);
+                box-shadow: funcs.añadir-alfa(vars.$arena-albero, 0.32) 0 0 vars.$medio-porciento;
             }
         }
     }
@@ -410,29 +413,29 @@
     .franja-de-valor {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: $uno-porciento;
-        margin-top: calc(-1 * $tres-porciento);
+        gap: vars.$uno-porciento;
+        margin-top: calc(-1 * vars.$tres-porciento);
         position: relative;
         z-index: 2;
 
         .punto-de-valor {
             padding: 1.15rem;
-            background-color: añadir-alfa($blanco-prístino, 0.98);
-            border: $borde-más-delgado solid añadir-alfa($terracota, 0.18);
+            background-color: funcs.añadir-alfa(vars.$blanco-prístino, 0.98);
+            border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.18);
             border-radius: 0.7rem;
-            box-shadow: $sombra-negra 0 $cuarto-porciento $medio-porciento;
+            box-shadow: vars.$sombra-negra 0 vars.$cuarto-porciento vars.$medio-porciento;
 
             h2 {
-                color: $granate-oscura;
-                font-family: $texto-bloque-sans;
+                color: vars.$granate-oscura;
+                font-family: vars.$texto-bloque-sans;
                 font-size: clamp(1.05rem, 0.45vw + 0.95rem, 1.28rem);
                 line-height: 1.15;
                 margin-bottom: 0.45rem;
             }
 
             p {
-                color: $carbón-claro;
-                font-family: $texto-bloque-serif;
+                color: vars.$carbón-claro;
+                font-family: vars.$texto-bloque-serif;
                 font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.08rem);
                 line-height: 1.45;
             }
@@ -440,43 +443,43 @@
     }
 
     .sección-promocional {
-        @include flex(flex-start, stretch, column);
-        gap: $uno-medio-porciento;
+        @include mixins.flex(flex-start, stretch, column);
+        gap: vars.$uno-medio-porciento;
         box-sizing: border-box;
-        padding: $dos-porciento 0;
+        padding: vars.$dos-porciento 0;
 
         .encabezado-de-sección {
-            @include flex(flex-start, flex-start, column);
-            gap: $medio-porciento;
+            @include mixins.flex(flex-start, flex-start, column);
+            gap: vars.$medio-porciento;
             max-width: 48rem;
 
             h2 {
-                color: $granate-oscura;
+                color: vars.$granate-oscura;
                 font-size: clamp(2.1rem, 3vw, 4.2rem);
                 line-height: 1.02;
             }
 
             p:not(.ceja-promocional) {
-                color: $carbón-claro;
-                font-family: $texto-bloque-serif;
+                color: vars.$carbón-claro;
+                font-family: vars.$texto-bloque-serif;
                 font-size: clamp(1rem, 0.45vw + 0.95rem, 1.22rem);
                 line-height: 1.55;
             }
         }
 
         &.clara {
-            padding: $dos-porciento;
-            background-color: añadir-alfa($caliza-beige, 0.96);
-            border: $borde-más-delgado solid añadir-alfa($terracota, 0.2);
+            padding: vars.$dos-porciento;
+            background-color: funcs.añadir-alfa(vars.$caliza-beige, 0.96);
+            border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.2);
             border-radius: 0.85rem;
 
             .encabezado-de-sección {
                 h2 {
-                    color: $granate-oscura;
+                    color: vars.$granate-oscura;
                 }
 
                 p:not(.ceja-promocional) {
-                    color: $carbón-claro;
+                    color: vars.$carbón-claro;
                 }
             }
         }
@@ -485,49 +488,49 @@
     .cuadrícula-de-herramientas {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr));
-        gap: $uno-porciento;
+        gap: vars.$uno-porciento;
 
         .tarjeta-de-herramienta {
-            @include flex(flex-start, flex-start, column);
-            gap: $medio-porciento;
+            @include mixins.flex(flex-start, flex-start, column);
+            gap: vars.$medio-porciento;
             min-height: 13rem;
             box-sizing: border-box;
             padding: 1.2rem;
-            background-color: $blanco-prístino;
-            border: $borde-más-delgado solid añadir-alfa($carbón, 0.1);
+            background-color: vars.$blanco-prístino;
+            border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$carbón, 0.1);
             border-radius: 0.7rem;
-            box-shadow: $sombra-negra 0 $cuarto-porciento $medio-porciento;
+            box-shadow: vars.$sombra-negra 0 vars.$cuarto-porciento vars.$medio-porciento;
 
             .acento-de-tarjeta {
                 width: 3rem;
                 height: 0.28rem;
-                background-image: linear-gradient(90deg, $terracota, $arena-albero);
+                background-image: linear-gradient(90deg, vars.$terracota, vars.$arena-albero);
                 border-radius: 999px;
             }
 
             h3 {
-                color: $granate-oscura;
-                font-family: $texto-bloque-sans;
+                color: vars.$granate-oscura;
+                font-family: vars.$texto-bloque-sans;
                 font-size: clamp(1.25rem, 0.65vw + 1.05rem, 1.6rem);
                 line-height: 1.1;
             }
 
             p {
-                color: $carbón-claro;
-                font-family: $texto-bloque-serif;
+                color: vars.$carbón-claro;
+                font-family: vars.$texto-bloque-serif;
                 font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.08rem);
                 line-height: 1.48;
                 flex: 1;
             }
 
             a {
-                color: $terracota;
-                font-family: $texto-bloque-sans;
+                color: vars.$terracota;
+                font-family: vars.$texto-bloque-sans;
                 font-weight: 800;
                 text-decoration: none;
 
                 &:hover {
-                    color: $rojo-real;
+                    color: vars.$rojo-real;
                     text-decoration: underline;
                 }
             }
@@ -538,32 +541,32 @@
         .pasos-de-aprendizaje {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: $uno-porciento;
+            gap: vars.$uno-porciento;
         }
 
         .paso-de-aprendizaje {
-            @include flex(flex-start, flex-start, column);
-            gap: $medio-porciento;
+            @include mixins.flex(flex-start, flex-start, column);
+            gap: vars.$medio-porciento;
             padding: 1.2rem 0;
-            border-top: $borde-delgado solid añadir-alfa($arena-albero, 0.75);
+            border-top: vars.$borde-delgado solid funcs.añadir-alfa(vars.$arena-albero, 0.75);
 
             span {
-                color: $arena-albero;
-                font-family: $texto-bloque-sans;
+                color: vars.$arena-albero;
+                font-family: vars.$texto-bloque-sans;
                 font-size: clamp(1.15rem, 0.9vw + 1rem, 1.8rem);
                 font-weight: 900;
             }
 
             h3 {
-                color: $granate-oscura;
-                font-family: $texto-bloque-sans;
+                color: vars.$granate-oscura;
+                font-family: vars.$texto-bloque-sans;
                 font-size: clamp(1.25rem, 0.65vw + 1.05rem, 1.55rem);
                 line-height: 1.12;
             }
 
             p {
-                color: $carbón-claro;
-                font-family: $texto-bloque-serif;
+                color: vars.$carbón-claro;
+                font-family: vars.$texto-bloque-serif;
                 font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.08rem);
                 line-height: 1.5;
             }
@@ -571,26 +574,26 @@
     }
 
     .cta-final-casa {
-        @include flex(space-between, center, row);
-        gap: $dos-porciento;
+        @include mixins.flex(space-between, center, row);
+        gap: vars.$dos-porciento;
         box-sizing: border-box;
-        margin-bottom: $tres-porciento;
-        padding: $dos-porciento;
+        margin-bottom: vars.$tres-porciento;
+        padding: vars.$dos-porciento;
         background:
-            radial-gradient(ellipse at 85% 40%, añadir-alfa($arena-albero, 0.2), transparent 52%),
-            linear-gradient(135deg, $blanco-prístino, $caliza-beige);
-        border: $borde-más-delgado solid añadir-alfa($terracota, 0.26);
-        border-left: $borde-delgado solid $rojo-real;
+            radial-gradient(ellipse at 85% 40%, funcs.añadir-alfa(vars.$arena-albero, 0.2), transparent 52%),
+            linear-gradient(135deg, vars.$blanco-prístino, vars.$caliza-beige);
+        border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.26);
+        border-left: vars.$borde-delgado solid vars.$rojo-real;
         border-radius: 0.85rem;
 
         div {
-            @include flex(flex-start, flex-start, column);
-            gap: $medio-porciento;
+            @include mixins.flex(flex-start, flex-start, column);
+            gap: vars.$medio-porciento;
         }
 
         h2 {
             max-width: 45rem;
-            color: $granate-oscura;
+            color: vars.$granate-oscura;
             font-size: clamp(1.9rem, 2.4vw, 3.5rem);
             line-height: 1.05;
         }
@@ -600,9 +603,9 @@
 @media (max-width: 900px) {
     .casa {
         .sección-hero-casa {
-            @include flex(center, stretch, column);
+            @include mixins.flex(center, stretch, column);
             min-height: auto;
-            padding: $tres-porciento $uno-porciento;
+            padding: vars.$tres-porciento vars.$uno-porciento;
 
             .visual-hero {
                 min-height: auto;
@@ -633,7 +636,7 @@
         }
 
         .cta-final-casa {
-            @include flex(flex-start, stretch, column);
+            @include mixins.flex(flex-start, stretch, column);
         }
     }
 }

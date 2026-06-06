@@ -1,14 +1,17 @@
 // MensajeDeAutorización.scss
-@use "../../../../estilos/globales" as *;
+@use "../../../../estilos/variables-globales" as vars;
+@use "../../../../estilos/mixins-globales" as mixins;
+@use "../../../../estilos/funciones-globales" as funcs;
+@use "../../../../estilos/marcadores-de-posición-globales" as placeholders;
 
 .mensaje-de-autorización {
     box-sizing: border-box;
     width: 100%;
     margin-top: 1rem;
     padding: 0.8rem 1rem;
-    background-color: añadir-alfa($rojo-real, 0.08);
-    border: $borde-más-delgado solid añadir-alfa($rojo-real, 0.22);
-    border-left: $borde-delgado solid $rojo-real;
+    background-color: funcs.añadir-alfa(vars.$rojo-real, 0.08);
+    border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$rojo-real, 0.22);
+    border-left: vars.$borde-delgado solid vars.$rojo-real;
     border-radius: 0.7rem;
 
     .título {
@@ -16,8 +19,8 @@
         text-align: left;
 
         h4 {
-            color: $granate-oscura;
-            font-family: $texto-bloque-sans;
+            color: vars.$granate-oscura;
+            font-family: vars.$texto-bloque-sans;
             font-size: clamp(0.92rem, 0.28vw + 0.86rem, 1.05rem);
             font-weight: 700;
             line-height: 1.35;
