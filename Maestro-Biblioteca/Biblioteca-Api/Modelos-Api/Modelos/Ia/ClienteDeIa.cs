@@ -1,4 +1,5 @@
 using System.ClientModel;
+using Microsoft.Extensions.Configuration;
 using OpenAI;
 using OpenAI.Chat;
 
@@ -10,15 +11,16 @@ public class ClienteDeIa
     private ChatClient _cliente;
     private float _temperatura;
 
-    public ClienteDeIa() : this(0.7f)
+    public ClienteDeIa(IConfiguration configuración) : this(configuración, 0.7f)
     {
 
     }
 
-    private ClienteDeIa(float temperatura)
+    private ClienteDeIa(IConfiguration configuración,
+                        float temperatura)
     {
         this._temperatura = temperatura;
-        string? claveApi = Environment.GetEnvironmentVariable("CLAVE_API_DE_OPEN_AI");
+        string? claveApi = configuración["CLAVE_API_DE_OPEN_AI"];
         if (string.IsNullOrEmpty(claveApi))
         {
             const string mensajeDeException = "No se puede crear un cliente" +
