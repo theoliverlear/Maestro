@@ -9,6 +9,7 @@ HostApplicationBuilderSettings configuración = new()
     ContentRootPath = AppContext.BaseDirectory
 };
 HostApplicationBuilder constructor = Host.CreateApplicationBuilder(configuración);
+await constructor.Configuration.CargarSecretosAws(constructor.Environment);
 
 constructor.Services.RegistrarBibliotecaUniversal(constructor.Configuration);
 constructor.Services.RegistrarServiciosCrítico();
