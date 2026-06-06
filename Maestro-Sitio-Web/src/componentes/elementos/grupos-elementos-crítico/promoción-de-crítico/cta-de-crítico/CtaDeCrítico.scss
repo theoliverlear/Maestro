@@ -1,0 +1,80 @@
+@use "../../../../../estilos/variables-globales" as vars;
+@use "../../../../../estilos/mixins-globales" as mixins;
+@use "../../../../../estilos/funciones-globales" as funcs;
+@use "../../../../../estilos/marcadores-de-posición-globales" as placeholders;
+
+.cta-de-crítico {
+    @include mixins.flex(space-between, center, row);
+    gap: vars.$dos-porciento;
+    width: min(1120px, calc(100% - 2rem));
+    align-self: center;
+    box-sizing: border-box;
+    margin-bottom: vars.$tres-porciento;
+    padding: vars.$dos-porciento;
+    background:
+        radial-gradient(ellipse at 85% 40%, funcs.añadir-alfa(vars.$arena-albero, 0.2), transparent 52%),
+        linear-gradient(135deg, vars.$blanco-prístino, vars.$caliza-beige);
+    border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.26);
+    border-left: vars.$borde-delgado solid vars.$rojo-real;
+    border-radius: 0.85rem;
+
+    .ceja-promocional {
+        color: vars.$terracota;
+        font-family: vars.$texto-bloque-sans;
+        font-size: clamp(0.78rem, 0.28vw + 0.72rem, 0.95rem);
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    div {
+        @include mixins.flex(flex-start, flex-start, column);
+        gap: vars.$medio-porciento;
+    }
+
+    h2 {
+        max-width: 45rem;
+        color: vars.$granate-oscura;
+        font-size: clamp(1.9rem, 2.4vw, 3.5rem);
+        line-height: 1.05;
+    }
+
+    .botón-promocional {
+        @include mixins.flex(center, center, row);
+        min-height: 2.75rem;
+        box-sizing: border-box;
+        padding: 0.75rem 1.2rem;
+        border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$granate-oscura, 0.55);
+        border-radius: 0.55rem;
+        background-color: vars.$terracota;
+        color: vars.$blanco-prístino;
+        font-family: vars.$texto-bloque-sans;
+        font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.08rem);
+        font-weight: 800;
+        text-decoration: none;
+        box-shadow: vars.$sombra-negra-más-oscura 0 vars.$cuarto-porciento vars.$medio-porciento;
+        transition:
+            background-color 0.16s ease-in-out,
+            border-color 0.16s ease-in-out,
+            transform 0.16s ease-in-out;
+
+        &:hover {
+            transform: translateY(-1px);
+            background-color: vars.$rojo-real;
+            border-color: vars.$arena-albero;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .cta-de-crítico {
+        @include mixins.flex(flex-start, stretch, column);
+    }
+}
+
+@media (max-width: 560px) {
+    .cta-de-crítico {
+        padding: 1rem;
+    }
+}
+

@@ -1,0 +1,80 @@
+@use "../../../../../estilos/variables-globales" as vars;
+@use "../../../../../estilos/mixins-globales" as mixins;
+@use "../../../../../estilos/funciones-globales" as funcs;
+@use "../../../../../estilos/marcadores-de-posición-globales" as placeholders;
+
+.sección-de-modos-crítico {
+    @include mixins.flex(flex-start, stretch, column);
+    gap: vars.$uno-medio-porciento;
+    width: min(1120px, calc(100% - 2rem));
+    align-self: center;
+    padding: vars.$dos-porciento 0;
+
+    .ceja-promocional {
+        color: vars.$terracota;
+        font-family: vars.$texto-bloque-sans;
+        font-size: clamp(0.78rem, 0.28vw + 0.72rem, 0.95rem);
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .encabezado-de-sección {
+        @include mixins.flex(flex-start, flex-start, column);
+        gap: vars.$medio-porciento;
+        max-width: 48rem;
+
+        h2 {
+            color: vars.$granate-oscura;
+            font-size: clamp(2.1rem, 3vw, 4.2rem);
+            line-height: 1.02;
+        }
+    }
+
+    .cuadrícula-de-modos-crítico {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: vars.$uno-porciento;
+    }
+
+    .modo-de-crítica {
+        @include mixins.flex(flex-start, flex-start, column);
+        gap: vars.$medio-porciento;
+        padding: 1.2rem;
+        background-color: vars.$blanco-prístino;
+        border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.18);
+        border-radius: 0.7rem;
+        box-shadow: vars.$sombra-negra 0 vars.$cuarto-porciento vars.$medio-porciento;
+
+        span {
+            color: vars.$arena-albero;
+            font-family: vars.$texto-bloque-sans;
+            font-size: clamp(0.92rem, 0.26vw + 0.86rem, 1.05rem);
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            color: vars.$granate-oscura;
+            font-family: vars.$texto-bloque-sans;
+            font-size: clamp(1.25rem, 0.65vw + 1.05rem, 1.6rem);
+            line-height: 1.12;
+        }
+
+        p {
+            color: vars.$carbón-claro;
+            font-family: vars.$texto-bloque-serif;
+            font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.08rem);
+            line-height: 1.48;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .sección-de-modos-crítico {
+        .cuadrícula-de-modos-crítico {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+

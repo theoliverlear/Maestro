@@ -1,0 +1,18 @@
+@use "../../../../estilos/variables-globales" as vars;
+@use "../../../../estilos/mixins-globales" as mixins;
+@use "../../../../estilos/funciones-globales" as funcs;
+@use "../../../../estilos/marcadores-de-posición-globales" as placeholders;
+
+.promoción-de-crítico {
+    align-items: stretch;
+    gap: vars.$dos-porciento;
+    color: vars.$carbón;
+
+    h1,
+    h2,
+    h3,
+    p {
+        margin: 0;
+    }
+}
+

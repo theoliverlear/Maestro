@@ -1,0 +1,73 @@
+@use "../../../../../estilos/variables-globales" as vars;
+@use "../../../../../estilos/mixins-globales" as mixins;
+@use "../../../../../estilos/funciones-globales" as funcs;
+@use "../../../../../estilos/marcadores-de-posición-globales" as placeholders;
+
+.mesa-de-trabajo-crítico {
+    @include mixins.flex(flex-start, stretch, column);
+    gap: vars.$dos-porciento;
+    box-sizing: border-box;
+    min-height: min(76vh, 48rem);
+    padding: vars.$cuatro-porciento vars.$tres-porciento vars.$tres-porciento;
+    background:
+        radial-gradient(ellipse at 86% 20%, funcs.añadir-alfa(vars.$arena-albero, 0.22), transparent 42%),
+        radial-gradient(ellipse at 12% 16%, funcs.añadir-alfa(vars.$terracota, 0.16), transparent 38%),
+        linear-gradient(135deg, vars.$blanco-prístino 0%, vars.$casi-blanca 54%, vars.$caliza-beige 100%);
+    border-bottom: vars.$borde-delgado solid funcs.añadir-alfa(vars.$arena-albero, 0.48);
+
+    .ceja-promocional {
+        color: vars.$terracota;
+        font-family: vars.$texto-bloque-sans;
+        font-size: clamp(0.78rem, 0.28vw + 0.72rem, 0.95rem);
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .encabezado-de-crítico {
+        @include mixins.flex(flex-start, flex-start, column);
+        gap: vars.$uno-porciento;
+        max-width: 58rem;
+
+        h1 {
+            max-width: 54rem;
+            color: vars.$granate-oscura;
+            font-size: clamp(3.2rem, 6.4vw, 7.6rem);
+            line-height: 0.94;
+            text-shadow: vars.$sombra-negra 0 vars.$cuarto-porciento vars.$medio-porciento;
+        }
+
+        p:not(.ceja-promocional) {
+            max-width: 46rem;
+            color: vars.$carbón-claro;
+            font-family: vars.$texto-bloque-serif;
+            font-size: clamp(1.08rem, 0.62vw + 0.98rem, 1.5rem);
+            line-height: 1.5;
+        }
+    }
+
+    .consola-de-crítico {
+        display: grid;
+        grid-template-columns: minmax(20rem, 0.9fr) minmax(22rem, 1.1fr);
+        gap: vars.$uno-porciento;
+        width: min(1120px, 100%);
+    }
+}
+
+@media (max-width: 900px) {
+    .mesa-de-trabajo-crítico {
+        min-height: auto;
+        padding: vars.$tres-porciento vars.$uno-porciento;
+
+        .consola-de-crítico {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+@media (max-width: 560px) {
+    .mesa-de-trabajo-crítico {
+        padding: 2rem 1rem;
+    }
+}
+

@@ -1,0 +1,90 @@
+@use "../../../../estilos/variables-globales" as vars;
+@use "../../../../estilos/mixins-globales" as mixins;
+@use "../../../../estilos/funciones-globales" as funcs;
+@use "../../../../estilos/marcadores-de-posición-globales" as placeholders;
+
+.panel-de-redacción-crítico {
+    @include mixins.flex(flex-start, stretch, column);
+    gap: vars.$medio-porciento;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: vars.$uno-porciento;
+    background-color: funcs.añadir-alfa(vars.$blanco-prístino, 0.96);
+    border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.22);
+    border-top: vars.$borde-delgado solid vars.$terracota;
+    border-radius: 0.75rem;
+    box-shadow: vars.$sombra-negra 0 vars.$medio-porciento vars.$uno-porciento;
+
+    .barra-de-panel-crítico {
+        @include mixins.flex(space-between, center, row);
+        gap: vars.$uno-porciento;
+        color: vars.$terracota;
+        font-family: vars.$texto-bloque-sans;
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-transform: uppercase;
+
+        strong {
+            color: vars.$granate-oscura;
+        }
+    }
+
+    label,
+    .grupo-de-controles-crítico span {
+        color: vars.$granate-oscura;
+        font-family: vars.$texto-bloque-sans;
+        font-size: clamp(0.95rem, 0.28vw + 0.9rem, 1.08rem);
+        font-weight: 800;
+    }
+
+    textarea {
+        flex: 1;
+        min-height: 19rem;
+        resize: vertical;
+        box-sizing: border-box;
+        padding: 1rem;
+        background-color: vars.$casi-blanca;
+        border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.2);
+        border-left: vars.$borde-delgado solid vars.$rojo-real;
+        border-radius: 0.6rem;
+        color: vars.$carbón-claro;
+        font-family: vars.$texto-bloque-serif;
+        font-size: clamp(1rem, 0.42vw + 0.95rem, 1.2rem);
+        line-height: 1.5;
+    }
+
+    .grupo-de-controles-crítico {
+        @include mixins.flex(flex-start, stretch, column);
+        gap: vars.$medio-porciento;
+
+        > div {
+            @include mixins.flex(flex-start, stretch, column);
+            gap: 0.4rem;
+        }
+    }
+
+    .botón-principal-crítico {
+        min-height: 2.85rem;
+        border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$granate-oscura, 0.55);
+        border-radius: 0.55rem;
+        background-color: vars.$terracota;
+        color: vars.$blanco-prístino;
+        font-family: vars.$texto-bloque-sans;
+        font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.08rem);
+        font-weight: 900;
+        box-shadow: vars.$sombra-negra-más-oscura 0 vars.$cuarto-porciento vars.$medio-porciento;
+
+        &:hover {
+            cursor: pointer;
+            background-color: vars.$rojo-real;
+            border-color: vars.$arena-albero;
+        }
+    }
+}
+
+@media (max-width: 560px) {
+    .panel-de-redacción-crítico {
+        padding: 1rem;
+    }
+}
+

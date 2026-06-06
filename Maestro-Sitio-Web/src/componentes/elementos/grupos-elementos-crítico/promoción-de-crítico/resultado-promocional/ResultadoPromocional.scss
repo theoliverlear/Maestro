@@ -1,0 +1,60 @@
+@use "../../../../../estilos/variables-globales" as vars;
+@use "../../../../../estilos/mixins-globales" as mixins;
+@use "../../../../../estilos/funciones-globales" as funcs;
+@use "../../../../../estilos/marcadores-de-posición-globales" as placeholders;
+
+.resultado-de-crítico {
+    @include mixins.flex(flex-start, stretch, column);
+    gap: vars.$medio-porciento;
+    box-sizing: border-box;
+    padding: vars.$uno-porciento;
+    background-color: funcs.añadir-alfa(vars.$blanco-prístino, 0.96);
+    border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.22);
+    border-top: vars.$borde-delgado solid vars.$terracota;
+    border-radius: 0.75rem;
+    box-shadow: vars.$sombra-negra-más-oscura 0 vars.$uno-porciento vars.$dos-porciento;
+
+    .barra-de-panel-crítico {
+        @include mixins.flex(space-between, center, row);
+        gap: vars.$uno-porciento;
+        color: vars.$terracota;
+        font-family: vars.$texto-bloque-sans;
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-transform: uppercase;
+
+        strong {
+            color: vars.$granate-oscura;
+        }
+    }
+
+    article {
+        padding: 1rem;
+        background-color: vars.$casi-blanca;
+        border: vars.$borde-más-delgado solid funcs.añadir-alfa(vars.$terracota, 0.16);
+        border-left: vars.$borde-delgado solid vars.$terracota;
+        border-radius: 0.6rem;
+
+        strong {
+            display: block;
+            margin-bottom: 0.25rem;
+            color: vars.$granate-oscura;
+            font-family: vars.$texto-bloque-sans;
+            font-size: clamp(0.98rem, 0.3vw + 0.92rem, 1.12rem);
+        }
+
+        p {
+            color: vars.$carbón-claro;
+            font-family: vars.$texto-bloque-serif;
+            font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.08rem);
+            line-height: 1.48;
+        }
+    }
+}
+
+@media (max-width: 560px) {
+    .resultado-de-crítico {
+        padding: 1rem;
+    }
+}
+
