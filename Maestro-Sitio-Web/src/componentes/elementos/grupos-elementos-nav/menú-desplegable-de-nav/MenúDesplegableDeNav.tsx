@@ -2,7 +2,7 @@ import './MenúDesplegableDeNav.scss';
 import {ReactElement, useEffect, useState} from "react";
 import {
     EnlaceDeElemento, EnlaceDeElementoDesplegableVinculado
-} from "../../../../activos/activosDeEnlaceDeElementos.ts";
+} from "../../../../activos/EnlaceDeElementos.activos.ts";
 import ElementoDeNav from "../elemento-de-nav/ElementoDeNav.tsx";
 
 interface PropsMenúDesplegableDeNav {

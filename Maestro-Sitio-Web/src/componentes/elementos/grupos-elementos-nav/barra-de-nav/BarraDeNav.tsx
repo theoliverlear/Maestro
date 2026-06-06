@@ -7,7 +7,7 @@ import {
     enlacesDeBarraDeNav,
     enlacesDelDesplegablesDeHerramientas,
     enlacesDelDesplegablesDeJuegos
-} from "../../../../activos/activosDeEnlaceDeElementos.ts";
+} from "../../../../activos/EnlaceDeElementos.activos.ts";
 import MenúDesplegableDeNav
     from "../menú-desplegable-de-nav/MenúDesplegableDeNav.tsx";
 import AnclaDeCuenta from "../ancla-de-cuenta/AnclaDeCuenta.tsx";

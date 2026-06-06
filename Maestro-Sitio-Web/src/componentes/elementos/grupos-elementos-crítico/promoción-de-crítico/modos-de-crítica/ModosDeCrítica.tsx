@@ -4,7 +4,7 @@ import type {ReactElement} from "react";
 import {ModoPromocionalDeCrítica} from "../../../../../modelos/crítico/tipos.ts";
 import {
     modosDeCrítica
-} from "../../../../../activos/activosDeModoPromocionalDeCrítica.ts";
+} from "../../../../../activos/ModoPromocionalDeCrítica.activos.ts";
 
 function ModosDeCrítica(): ReactElement {
     return (

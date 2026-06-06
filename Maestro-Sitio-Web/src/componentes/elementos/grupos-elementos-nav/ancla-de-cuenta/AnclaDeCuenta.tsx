@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import Imagen from "../../grupos-elementos-nativos/imagen/Imagen.tsx";
 import {
     recursoDeImagenDeIconoDeUsuarioPredeterminado
-} from "../../../../activos/recursosDeImagen.ts";
+} from "../../../../activos/RecursosDeImagen.activos.ts";
 
 
 function AnclaDeCuenta() {

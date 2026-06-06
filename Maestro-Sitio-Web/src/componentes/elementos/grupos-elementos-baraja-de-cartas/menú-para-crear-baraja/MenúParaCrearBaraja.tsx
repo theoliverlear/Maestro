@@ -11,7 +11,7 @@ import {
 import {
     recursoDeImagenDeIconoDeCerrarBlanco
 
-} from "../../../../activos/recursosDeImagen.ts";
+} from "../../../../activos/RecursosDeImagen.activos.ts";
 
 interface PropsMenúParaCrearBaraja {
     alHacerClicEnCerrar: (visible: boolean) => void;

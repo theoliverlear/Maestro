@@ -4,7 +4,7 @@ import type {ReactElement} from "react";
 import {PuntoPromocionalDeCrítica} from "../../../../../modelos/crítico/tipos.ts";
 import {
     resultadosDeEjemplo
-} from "../../../../../activos/activosDePuntoPromocionalDeCrítica.ts";
+} from "../../../../../activos/PuntoPromocionalDeCrítica.activos.ts";
 
 function ResultadoPromocional(): ReactElement {
     return (

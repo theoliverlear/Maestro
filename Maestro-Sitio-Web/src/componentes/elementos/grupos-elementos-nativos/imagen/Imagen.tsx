@@ -1,6 +1,6 @@
 import './Imagen.scss';
 import {ReactElement} from "react";
-import {RecursoDeImagen} from "../../../../activos/recursosDeImagen.ts";
+import {RecursoDeImagen} from "../../../../activos/RecursosDeImagen.activos.ts";
 
 interface PropsImagen {
     recursoDeImagen: RecursoDeImagen;

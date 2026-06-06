@@ -2,7 +2,7 @@ import './Casa.scss';
 import type {ReactElement} from "react";
 import {Link} from "react-router-dom";
 import Imagen from "../../elementos/grupos-elementos-nativos/imagen/Imagen.tsx";
-import {recursoDeImagenDelLogotipoTransparente} from "../../../activos/recursosDeImagen.ts";
+import {recursoDeImagenDelLogotipoTransparente} from "../../../activos/RecursosDeImagen.activos.ts";
 
 // TODO: Extraer a archivo de tipo.
 type PuntoPromocional = {

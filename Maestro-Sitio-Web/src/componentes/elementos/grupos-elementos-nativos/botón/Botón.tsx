@@ -1,6 +1,6 @@
 import './Botón.scss';
 import {ReactElement} from "react";
-import {RecursoDeImagen} from "../../../../activos/recursosDeImagen.ts";
+import {RecursoDeImagen} from "../../../../activos/RecursosDeImagen.activos.ts";
 import Imagen from "../imagen/Imagen.tsx";
 import Título from "../../grupos-elementos-texto/título/Título.tsx";
 import {TipoDeEtiqueta} from "../../../../modelos/html/TipoDeEtiqueta.ts";

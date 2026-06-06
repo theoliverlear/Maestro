@@ -5,10 +5,10 @@ import "./ElementoDeNav.scss";
 import {Link} from "react-router-dom";
 import {
     EnlaceDeElemento
-} from "../../../../activos/activosDeEnlaceDeElementos.ts";
+} from "../../../../activos/EnlaceDeElementos.activos.ts";
 import {
     recursoDeImagenDeIconoDesplegable
-} from "../../../../activos/recursosDeImagen.ts";
+} from "../../../../activos/RecursosDeImagen.activos.ts";
 import Imagen from "../../grupos-elementos-nativos/imagen/Imagen.tsx";
 
 interface PropsElementoDeNav {
