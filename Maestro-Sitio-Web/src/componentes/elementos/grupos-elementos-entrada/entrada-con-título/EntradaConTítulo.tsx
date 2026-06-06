@@ -1,11 +1,11 @@
-import './EntradaConTítulo.scss';
-import {ReactElement} from "react";
-import Título from "../../grupos-elementos-texto/título/Título.tsx";
-import {TipoDeEtiqueta} from "../../../../modelos/html/TipoDeEtiqueta.ts";
+import './EntradaConTítulo.scss'
+import {ReactElement} from "react"
+import Título from "../../grupos-elementos-texto/título/Título.tsx"
+import {TipoDeEtiqueta} from "../../../../modelos/html/TipoDeEtiqueta.ts"
 import {
     TipoDeEntrada
-} from "../../grupos-elementos-nativos/entrada/modelos/TipoDeEntrada.ts";
-import Entrada from "../../grupos-elementos-nativos/entrada/Entrada.tsx";
+} from "../../grupos-elementos-nativos/entrada/modelos/TipoDeEntrada.ts"
+import Entrada from "../../grupos-elementos-nativos/entrada/Entrada.tsx"
 
 interface PropsEntradaConTítulo {
     textoDelTítulo: string;
@@ -22,7 +22,7 @@ interface PropsEntradaConTítulo {
 function EntradaConTítulo(props: PropsEntradaConTítulo): ReactElement {
 
     function obtenerTipoDeEtiqueta(): TipoDeEtiqueta {
-        return props.tipoDeEtiqueta ? props.tipoDeEtiqueta : TipoDeEtiqueta.H3;
+        return props.tipoDeEtiqueta ? props.tipoDeEtiqueta : TipoDeEtiqueta.H3
     }
 
     return (
@@ -36,7 +36,7 @@ function EntradaConTítulo(props: PropsEntradaConTítulo): ReactElement {
                      normalizarEntrada={props.normalizarEntrada}
                      valorPredeterminado={props.valorPredeterminado}/>
         </div>
-    );
+    )
 }
 
-export default EntradaConTítulo;
+export default EntradaConTítulo

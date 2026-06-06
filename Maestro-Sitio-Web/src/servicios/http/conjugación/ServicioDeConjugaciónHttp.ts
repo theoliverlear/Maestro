@@ -1,7 +1,6 @@
 import {injectable} from "tsyringe";
 import {ClienteHttp} from "../ClienteHttp.ts";
 import type {
-    Pronombre,
     Verbo,
     VerboConjugadoHttp
 } from "../../../modelos/conjugación/tipos.ts";
@@ -13,7 +12,7 @@ export class ServicioDeConjugaciónHttp extends ClienteHttp<unknown, VerboConjug
         super(ServicioDeConjugaciónHttp.URL);
     }
 
-    public async obtenerConjugación(verbo: Verbo, pronombre: Pronombre): Promise<VerboConjugadoHttp> {
+    public async obtenerConjugación(verbo: Verbo, pronombre: string): Promise<VerboConjugadoHttp> {
         this.url = `${ServicioDeConjugaciónHttp.URL}${verbo}/${pronombre}`;
         return await this.get();
     }

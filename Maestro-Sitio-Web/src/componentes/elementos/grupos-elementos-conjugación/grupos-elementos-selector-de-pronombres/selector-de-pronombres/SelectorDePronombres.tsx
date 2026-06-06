@@ -1,42 +1,42 @@
-import './SelectorDePronombres.scss';
-import {ReactElement, useEffect, useState} from "react";
-import OpciónDePronombre from "../opción-de-pronombre/OpciónDePronombre.tsx";
+import './SelectorDePronombres.scss'
+import {ReactElement, useEffect, useState} from "react"
+import OpciónDePronombre from "../opción-de-pronombre/OpciónDePronombre.tsx"
 import {
     Pronombre,
     pronombres
-} from "../../../../../modelos/conjugación/tipos.ts";
+} from "../../../../../modelos/conjugación/tipos.ts"
 
 interface PropsSelectorDePronombres {
     enLaSelección: (pronombre: Pronombre) => void;
 }
 
 function SelectorDePronombres(props: PropsSelectorDePronombres): ReactElement {
-    const [pronombreSeleccionado, asignarPronombreSeleccionado] = useState<Pronombre>("Yo");
+    const [pronombreSeleccionado, asignarPronombreSeleccionado] = useState<Pronombre>(Pronombre.Yo)
     function selecciónDeMango(pronombre: Pronombre): void {
-        asignarPronombreSeleccionado(pronombre);
-        props.enLaSelección(pronombre);
+        asignarPronombreSeleccionado(pronombre)
+        props.enLaSelección(pronombre)
     }
 
     function esComponenteSeleccionado(pronombreComponente: Pronombre): boolean {
-        return pronombreSeleccionado === pronombreComponente;
+        return pronombreSeleccionado === pronombreComponente
     }
 
     useEffect(() => {
         pronombres.forEach((pronombre: Pronombre) => {
             if (esComponenteSeleccionado(pronombre)) {
-                asignarPronombreSeleccionado(pronombre);
+                asignarPronombreSeleccionado(pronombre)
             }
-        });
-    }, [pronombreSeleccionado]);
+        })
+    }, [pronombreSeleccionado])
     return (
         <div className={"selector-de-pronombres"}>
-            {pronombres.map((pronombre: string, índice: number) =>
+            {pronombres.map((pronombre: Pronombre, índice: number) =>
                 <OpciónDePronombre pronombre={pronombre}
                                    enSeleccionar={selecciónDeMango}
                                    estáSeleccionado={esComponenteSeleccionado(pronombre)}
                                    key={índice}/>)}
         </div>
-    );
+    )
 }
 
-export default SelectorDePronombres;
+export default SelectorDePronombres

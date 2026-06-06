@@ -1,8 +1,8 @@
-import './OpciónDePronombre.scss';
-import {ReactElement} from "react";
-import Título from "../../../grupos-elementos-texto/título/Título.tsx";
-import {TipoDeEtiqueta} from "../../../../../modelos/html/TipoDeEtiqueta.ts";
-import { Pronombre } from '../../../../../modelos/conjugación/tipos.ts';
+import './OpciónDePronombre.scss'
+import {ReactElement} from "react"
+import Título from "../../../grupos-elementos-texto/título/Título.tsx"
+import {TipoDeEtiqueta} from "../../../../../modelos/html/TipoDeEtiqueta.ts"
+import { Pronombre } from '../../../../../modelos/conjugación/tipos.ts'
 
 interface PropsOpciónDePronombre {
     pronombre: Pronombre;
@@ -12,15 +12,15 @@ interface PropsOpciónDePronombre {
 
 function OpciónDePronombre(props: PropsOpciónDePronombre): ReactElement {
     function selecciónDeMango(): void {
-        props.enSeleccionar(props.pronombre);
+        props.enSeleccionar(props.pronombre)
     }
 
     function obtenerClases(): string {
-        let claseBase: string = "opción-de-pronombre";
+        let claseBase: string = "opción-de-pronombre"
         if (props.estáSeleccionado) {
-            claseBase += " seleccionado";
+            claseBase += " seleccionado"
         }
-        return claseBase;
+        return claseBase
     }
 
     return (
@@ -28,7 +28,7 @@ function OpciónDePronombre(props: PropsOpciónDePronombre): ReactElement {
              onClick={selecciónDeMango}>
             <Título texto={props.pronombre} tipoDeEtiqueta={TipoDeEtiqueta.H4}/>
         </div>
-    );
+    )
 }
 
-export default OpciónDePronombre;
+export default OpciónDePronombre
