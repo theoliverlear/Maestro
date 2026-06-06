@@ -2,15 +2,15 @@
 @use "../../../estilos/variables-globales" as vars;
 @use "../../../estilos/mixins-globales" as mixins;
 @use "../../../estilos/funciones-globales" as funcs;
-@use "../../../estilos/marcadores-de-posición-globales" as placeholders;
+@use "../../../estilos/marcadores-de-posición-globales" as *;
 
 .conjugador {
     .título-del-verbo-conjugado {
         background-image: radial-gradient(vars.$piedra-de-alabastro, vars.$blanco-prístino);
         padding: vars.$uno-porciento;
         margin: vars.$uno-porciento 0 vars.$medio-porciento 0;
-        @extend %placeholders.radio-de-borde-suave;
-        @extend %placeholders.sombra-de-texto-suave;
+        @extend %radio-de-borde-suave;
+        @extend %sombra-de-texto-suave;
         font-size: vars.$h3-tamaño-de-fuente;
         min-width: 10ch;
     }

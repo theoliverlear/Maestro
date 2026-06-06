@@ -2,14 +2,14 @@
 @use "../../../../../estilos/variables-globales" as vars;
 @use "../../../../../estilos/mixins-globales" as mixins;
 @use "../../../../../estilos/funciones-globales" as funcs;
-@use "../../../../../estilos/marcadores-de-posición-globales" as placeholders;
+@use "../../../../../estilos/marcadores-de-posición-globales" as *;
 
 .opción-de-pronombre {
     padding: vars.$uno-porciento;
-    @extend %placeholders.radio-de-borde-suave;
+    @extend %radio-de-borde-suave;
     color: vars.$blanco-prístino;
     //text-shadow: vars.$sombra-negra-más-oscura 0 0 vars.$medio-porciento;
-    @extend %placeholders.sombra-de-texto-suave;
+    @extend %sombra-de-texto-suave;
     margin: vars.$medio-porciento;
     background-color: vars.$mostaza;
     .título {
@@ -19,6 +19,6 @@
     &.seleccionado {
         background-color: vars.$rojo-real;
         color: vars.$blanco-prístino;
-        @extend %placeholders.sombra-de-caja-suave;
+        @extend %sombra-de-caja-suave;
     }
 }
