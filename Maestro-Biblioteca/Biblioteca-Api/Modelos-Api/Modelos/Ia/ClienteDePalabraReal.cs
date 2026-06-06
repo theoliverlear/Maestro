@@ -1,11 +1,12 @@
 using Maestro.Biblioteca.Api.Modelos.Json;
 using Maestro.Biblioteca.Api.Modelos.Palabra;
+using Microsoft.Extensions.Configuration;
 
 namespace Maestro.Biblioteca.Api.Modelos.Ia;
 
 public class ClienteDePalabraReal : ClienteDeIa
 {
-    public ClienteDePalabraReal()
+    public ClienteDePalabraReal(IConfiguration configuración) : base(configuración)
     {
 
     }
