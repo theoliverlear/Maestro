@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>Servicios.Traducción</AssemblyName>
+    <RootNamespace>Maestro.Biblioteca.Traducción</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Cloud.Translation.V2" Version="3.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Comunicación-Traducción\Comunicación.Traducción.csproj" />
+    <ProjectReference Include="..\Modelos-Traducción\Modelos.Traducción.csproj" />
+  </ItemGroup>
+</Project>
