@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-#
+# 
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maestro.Api", "Maestro-Api\Maestro.Api.csproj", "{707F89DD-5455-4756-AF7F-DE82A64CEC14}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Maestro-Biblioteca", "Maestro-Biblioteca", "{B36B5E1D-47AF-4A6E-8414-0E84FBF5F19F}"
@@ -43,7 +43,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Biblioteca-Crítico", "Bibl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelos.Crítico", "Maestro-Biblioteca\Biblioteca-Crítico\Modelos-Crítico\Modelos.Crítico.csproj", "{B87743CE-76D0-4C69-B625-C4E5E1CE0E01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comunicacion.Crítico", "Maestro-Biblioteca\Biblioteca-Crítico\Comunicacion-Crítico\Comunicacion.Crítico.csproj", "{C88348F5-ED3A-4916-9B9E-BE86F6EE7D43}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comunicación.Crítico", "Maestro-Biblioteca\Biblioteca-Crítico\Comunicación-Crítico\Comunicación.Crítico.csproj", "{C88348F5-ED3A-4916-9B9E-BE86F6EE7D43}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Componentes.Crítico", "Maestro-Biblioteca\Biblioteca-Crítico\Componentes-Crítico\Componentes.Crítico.csproj", "{D7C6CA9A-D2B2-4F67-90D6-38F7A3D76E83}"
 EndProject
@@ -54,6 +54,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maestro.Crítico", "Maestro-Crítico\Maestro.Crítico.csproj", "{A00E0F15-9F61-4D4D-9AB5-2220B01ED2B4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Componentes.Api", "Maestro-Biblioteca\Biblioteca-Api\Componentes-Api\Componentes.Api.csproj", "{5A4A6F84-ADFB-4DE4-8D40-EA3D709EFF3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositorios.Universal", "Maestro-Biblioteca\Biblioteca-Universal\Repositorios-Universal\Repositorios.Universal.csproj", "{6189F92A-4167-49D6-A38B-C3A6DD1ABEFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maestro.Traducción", "Maestro-Traducción\Maestro.Traducción.csproj", "{E95A2C40-647C-4875-A012-3E0D84CEDC52}"
 EndProject
 Global
 	GlobalSection(RiderSharedRunConfigurations) = postSolution
@@ -343,6 +347,30 @@ Global
 		{5A4A6F84-ADFB-4DE4-8D40-EA3D709EFF3B}.Release|x64.Build.0 = Release|Any CPU
 		{5A4A6F84-ADFB-4DE4-8D40-EA3D709EFF3B}.Release|x86.ActiveCfg = Release|Any CPU
 		{5A4A6F84-ADFB-4DE4-8D40-EA3D709EFF3B}.Release|x86.Build.0 = Release|Any CPU
+		{6189F92A-4167-49D6-A38B-C3A6DD1ABEFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6189F92A-4167-49D6-A38B-C3A6DD1ABEFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6189F92A-4167-49D6-A38B-C3A6DD1ABEFB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6189F92A-4167-49D6-A38B-C3A6DD1ABEFB}.Debug|x64.Build.0 = Debug|Any CPU
+		{6189F92A-4167-49D6-A38B-C3A6DD1ABEFB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6189F92A-4167-49D6-A38B-C3A6DD1ABEFB}.Debug|x86.Build.0 = Debug|Any CPU
+		{6189F92A-4167-49D6-A38B-C3A6DD1ABEFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6189F92A-4167-49D6-A38B-C3A6DD1ABEFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6189F92A-4167-49D6-A38B-C3A6DD1ABEFB}.Release|x64.ActiveCfg = Release|Any CPU
+		{6189F92A-4167-49D6-A38B-C3A6DD1ABEFB}.Release|x64.Build.0 = Release|Any CPU
+		{6189F92A-4167-49D6-A38B-C3A6DD1ABEFB}.Release|x86.ActiveCfg = Release|Any CPU
+		{6189F92A-4167-49D6-A38B-C3A6DD1ABEFB}.Release|x86.Build.0 = Release|Any CPU
+		{E95A2C40-647C-4875-A012-3E0D84CEDC52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E95A2C40-647C-4875-A012-3E0D84CEDC52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E95A2C40-647C-4875-A012-3E0D84CEDC52}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E95A2C40-647C-4875-A012-3E0D84CEDC52}.Debug|x64.Build.0 = Debug|Any CPU
+		{E95A2C40-647C-4875-A012-3E0D84CEDC52}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E95A2C40-647C-4875-A012-3E0D84CEDC52}.Debug|x86.Build.0 = Debug|Any CPU
+		{E95A2C40-647C-4875-A012-3E0D84CEDC52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E95A2C40-647C-4875-A012-3E0D84CEDC52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E95A2C40-647C-4875-A012-3E0D84CEDC52}.Release|x64.ActiveCfg = Release|Any CPU
+		{E95A2C40-647C-4875-A012-3E0D84CEDC52}.Release|x64.Build.0 = Release|Any CPU
+		{E95A2C40-647C-4875-A012-3E0D84CEDC52}.Release|x86.ActiveCfg = Release|Any CPU
+		{E95A2C40-647C-4875-A012-3E0D84CEDC52}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9453D8F3-60D4-4BB5-9068-C1C31E68594D} = {B36B5E1D-47AF-4A6E-8414-0E84FBF5F19F}
@@ -369,5 +397,6 @@ Global
 		{E4E13E28-45FE-48BF-B0DF-B5B26D6F37B2} = {9C0FA4F4-0F95-4A2E-8E83-6AB14C1D4F10}
 		{F38D5610-3D8F-4A3F-A67E-B3E2338252B8} = {9C0FA4F4-0F95-4A2E-8E83-6AB14C1D4F10}
 		{5A4A6F84-ADFB-4DE4-8D40-EA3D709EFF3B} = {03B87464-CEC7-4CA7-BDAB-C3104B1E956B}
+		{6189F92A-4167-49D6-A38B-C3A6DD1ABEFB} = {6C3EDE7C-BD0B-482F-9CB0-2D66226E1167}
 	EndGlobalSection
 EndGlobal
