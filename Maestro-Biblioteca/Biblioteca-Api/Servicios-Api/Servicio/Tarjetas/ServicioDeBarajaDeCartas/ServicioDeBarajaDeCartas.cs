@@ -1,13 +1,13 @@
-using Maestro.Comunicación.Respuesta.Operaciones;
-using Maestro.Entidad.Tarjeta;
-using Maestro.Entidad.Usuario;
-using Maestro.Modelos.Operaciones;
-using Maestro.Repositorio;
-using Maestro.Repositorio.Tarjetas.BarajaDeCartas;
-using Maestro.Servicio.BaseDatos.ServicioDeBaseDatos;
-using Maestro.Servicio.Usuarios.ServicioDeUsuario;
+using Maestro.Biblioteca.Api.Comunicación.Respuesta.Operaciones;
+using Maestro.Biblioteca.Api.Entidad.Tarjeta;
+using Maestro.Biblioteca.Api.Entidad.Usuario;
+using Maestro.Biblioteca.Api.Modelos.Operaciones;
+using Maestro.Biblioteca.Universal.Repositorio;
+using Maestro.Biblioteca.Api.Repositorio.Tarjetas.BarajaDeCartas;
+using Maestro.Biblioteca.Api.Servicio.BaseDatos.ServicioDeBaseDatos;
+using Maestro.Biblioteca.Api.Servicio.Usuarios.ServicioDeUsuario;
 
-namespace Maestro.Servicio.Tarjetas.ServicioDeBarajaDeCartas;
+namespace Maestro.Biblioteca.Api.Servicio.Tarjetas.ServicioDeBarajaDeCartas;
 
 public class ServicioDeBarajaDeCartas : ServicioDeBaseDatos<BarajaDeCartas>, IServicioDeBarajaDeCartas
 {

@@ -1,11 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Maestro.Biblioteca.Universal.Modelos;
 using Microsoft.AspNetCore.Identity;
 
-namespace Maestro.Entidad.Usuario;
+namespace Maestro.Biblioteca.Api.Entidad.Usuario;
 
 [Table("contraseñas_seguros")]
-public class ContraseñaSegura : Identificable
+public class ContraseñaSegura : EntidadIdentificable<int>
 {
     [NotMapped]
     public Usuario Usuario { get; set; }

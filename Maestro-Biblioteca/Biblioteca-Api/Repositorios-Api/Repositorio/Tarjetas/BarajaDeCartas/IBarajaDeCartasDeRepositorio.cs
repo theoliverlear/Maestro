@@ -1,4 +1,5 @@
-namespace Maestro.Repositorio.Tarjetas.BarajaDeCartas;
+using Maestro.Biblioteca.Universal.Repositorio;
+namespace Maestro.Biblioteca.Api.Repositorio.Tarjetas.BarajaDeCartas;
 
 public interface IBarajaDeCartasDeRepositorio : IRepositorio
 {

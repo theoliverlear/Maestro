@@ -1,11 +1,11 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Maestro.Entidad.Usuario;
+using Maestro.Biblioteca.Api.Entidad.Usuario;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Maestro.Servicio.Autorización.ServicioDeTokenJwt;
+namespace Maestro.Biblioteca.Api.Servicio.Autorización.ServicioDeTokenJwt;
 
 public class ServicioDeTokenJwt : IServicioDeTokenJwt
 {

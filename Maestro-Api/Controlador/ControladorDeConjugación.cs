@@ -1,8 +1,8 @@
-using Maestro.Comunicación.Respuesta.Conjugación;
-using Maestro.Excepción;
-using Maestro.Servicio.Conjugación.ServicioDeConjugación;
+using Maestro.Biblioteca.Api.Comunicación.Respuesta.Conjugación;
+using Maestro.Biblioteca.Api.Modelos.Excepción;
+using Maestro.Biblioteca.Api.Servicio.Conjugación.ServicioDeConjugación;
 using Microsoft.AspNetCore.Mvc;
-namespace Maestro.Controlador;
+namespace Maestro.Api.Controlador;
 
 [ApiController, Route("api/conj")]
 public class ControladorDeConjugación : ControllerBase

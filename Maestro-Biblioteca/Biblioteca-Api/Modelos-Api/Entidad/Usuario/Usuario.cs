@@ -1,12 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Maestro.Entidad.Tarjeta;
-using Maestro.Entidad.Usuario.Constructor;
+using Maestro.Biblioteca.Universal.Modelos;
+using Maestro.Biblioteca.Api.Entidad.Tarjeta;
+using Maestro.Biblioteca.Api.Entidad.Usuario.Constructor;
 
-namespace Maestro.Entidad.Usuario;
+namespace Maestro.Biblioteca.Api.Entidad.Usuario;
 
 [Table("usuarios")]
-public class Usuario : Identificable
+public class Usuario : EntidadIdentificable<int>
 {
     [Column("nombre", TypeName = "varchar(100)")]
     public string Nombre { get; set; }

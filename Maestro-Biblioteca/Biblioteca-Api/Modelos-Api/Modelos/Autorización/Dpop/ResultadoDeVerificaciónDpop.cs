@@ -1,4 +1,4 @@
-namespace Maestro.Modelos.Autorización.Dpop;
+namespace Maestro.Biblioteca.Api.Modelos.Autorización.Dpop;
 
 // TODO: Mal olor de código, es excesivamente anulable.
 public sealed record ResultadoDeVerificaciónDpop(ContextoDePruebaDpop? Contexto,

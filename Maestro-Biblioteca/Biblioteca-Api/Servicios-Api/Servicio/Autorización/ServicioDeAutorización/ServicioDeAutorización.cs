@@ -1,16 +1,16 @@
-using Maestro.Comunicación.Respuesta.Autorización;
-using Maestro.Comunicación.Solicitud.Autorización;
-using Maestro.Entidad.Usuario;
-using Maestro.Modelos.Autorización;
-using Maestro.Modelos.Autorización.Dpop;
-using Maestro.Entidad.Autorización;
-using Maestro.Servicio.Autorización.ServicioDeTokenDeActualización;
-using Maestro.Servicio.Autorización.ServicioDeTokenJwt;
-using Maestro.Servicio.Sesión.ServicioDeSesión;
-using Maestro.Servicio.Usuarios.ServicioDeUsuario;
+using Maestro.Biblioteca.Api.Comunicación.Respuesta.Autorización;
+using Maestro.Biblioteca.Api.Comunicación.Solicitud.Autorización;
+using Maestro.Biblioteca.Api.Entidad.Usuario;
+using Maestro.Biblioteca.Api.Modelos.Autorización;
+using Maestro.Biblioteca.Api.Modelos.Autorización.Dpop;
+using Maestro.Biblioteca.Api.Entidad.Autorización;
+using Maestro.Biblioteca.Api.Servicio.Autorización.ServicioDeTokenDeActualización;
+using Maestro.Biblioteca.Api.Servicio.Autorización.ServicioDeTokenJwt;
+using Maestro.Biblioteca.Api.Servicio.Sesión.ServicioDeSesión;
+using Maestro.Biblioteca.Api.Servicio.Usuarios.ServicioDeUsuario;
 using Microsoft.AspNetCore.Http;
 
-namespace Maestro.Servicio.Autorización.ServicioDeAutorización;
+namespace Maestro.Biblioteca.Api.Servicio.Autorización.ServicioDeAutorización;
 
 public class ServicioDeAutorización : IServicioDeAutorización
 {

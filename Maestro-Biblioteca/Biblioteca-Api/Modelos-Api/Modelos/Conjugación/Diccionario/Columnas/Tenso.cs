@@ -1,4 +1,4 @@
-namespace Maestro.Modelos.Conjugación.Diccionario.Columnas;
+namespace Maestro.Biblioteca.Api.Modelos.Conjugación.Diccionario.Columnas;
 
 public class Tenso
 {

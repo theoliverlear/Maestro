@@ -1,7 +1,7 @@
-using Maestro.Modelos.Ia;
-using Maestro.Modelos.Palabra;
+using Maestro.Biblioteca.Api.Modelos.Ia;
+using Maestro.Biblioteca.Api.Modelos.Palabra;
 
-namespace Maestro.Servicio.Palabra.PalabraReal;
+namespace Maestro.Biblioteca.Api.Servicio.Palabra.PalabraReal;
 
 public class ServicioPalabraReal : IServicioPalabraReal
 {

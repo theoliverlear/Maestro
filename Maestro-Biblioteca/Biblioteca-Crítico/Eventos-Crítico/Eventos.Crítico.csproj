@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Comunicacion-Crítico\Comunicacion.Crítico.csproj" />
+    <ProjectReference Include="..\Comunicación-Crítico\Comunicación.Crítico.csproj" />
     <ProjectReference Include="..\Servicios-Crítico\Servicios.Crítico.csproj" />
     <ProjectReference Include="..\..\Biblioteca-Universal\Eventos-Universal\Eventos.Universal.csproj" />
   </ItemGroup>

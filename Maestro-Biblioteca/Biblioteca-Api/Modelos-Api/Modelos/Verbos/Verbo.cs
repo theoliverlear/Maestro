@@ -1,6 +1,6 @@
-using Maestro.Modelos.Conjugación;
+using Maestro.Biblioteca.Api.Modelos.Conjugación;
 
-namespace Maestro.Modelos.Verbos;
+namespace Maestro.Biblioteca.Api.Modelos.Verbos;
 
 public class Verbo
 {

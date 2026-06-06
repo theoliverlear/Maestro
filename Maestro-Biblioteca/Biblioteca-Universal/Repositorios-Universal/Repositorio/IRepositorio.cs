@@ -1,4 +1,4 @@
-namespace Maestro.Repositorio;
+namespace Maestro.Biblioteca.Universal.Repositorio;
 
 public interface IRepositorio
 {

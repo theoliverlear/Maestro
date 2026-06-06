@@ -2,7 +2,7 @@ using System.ClientModel;
 using OpenAI;
 using OpenAI.Chat;
 
-namespace Maestro.Modelos.Ia;
+namespace Maestro.Biblioteca.Api.Modelos.Ia;
 using Lombok.NET;
 
 public class ClienteDeIa

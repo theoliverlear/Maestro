@@ -1,7 +1,7 @@
-using Maestro.Entidad.Tarjeta;
-using Maestro.Servicio.BaseDatos.ServicioDeBaseDatos;
+using Maestro.Biblioteca.Api.Entidad.Tarjeta;
+using Maestro.Biblioteca.Api.Servicio.BaseDatos.ServicioDeBaseDatos;
 
-namespace Maestro.Servicio.Tarjetas.ServicioDeTarjeta;
+namespace Maestro.Biblioteca.Api.Servicio.Tarjetas.ServicioDeTarjeta;
 
 public interface IServicioDeTarjeta : IServicioDeBaseDatos<Tarjeta>
 {

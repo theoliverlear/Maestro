@@ -1,4 +1,4 @@
-namespace Maestro.Servicio.Autorización.ServicioDpop;
+namespace Maestro.Biblioteca.Api.Servicio.Autorización.ServicioDpop;
 
 public interface IAlmacénDeReproducciónDpop
 {

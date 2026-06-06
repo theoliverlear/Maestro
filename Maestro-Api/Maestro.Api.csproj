@@ -1,9 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
         <AssemblyName>Maestro.Api</AssemblyName>
-        <RootNamespace>Maestro</RootNamespace>
+        <RootNamespace>Maestro.Api</RootNamespace>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UserSecretsId>6cbab92b-376b-42b4-9554-06c9ea5ace04</UserSecretsId>

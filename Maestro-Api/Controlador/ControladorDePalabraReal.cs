@@ -1,10 +1,10 @@
-using Maestro.Comunicación.Respuesta.Palabra.PalabraReal;
-using Maestro.Excepción;
-using Maestro.Modelos.Palabra;
-using Maestro.Servicio.Palabra.PalabraReal;
+using Maestro.Biblioteca.Api.Comunicación.Respuesta.Palabra.PalabraReal;
+using Maestro.Biblioteca.Api.Modelos.Excepción;
+using Maestro.Biblioteca.Api.Modelos.Palabra;
+using Maestro.Biblioteca.Api.Servicio.Palabra.PalabraReal;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Maestro.Controlador;
+namespace Maestro.Api.Controlador;
 
 [ApiController, Route("api/palabra-real")]
 public class ControladorDePalabraReal : ControllerBase

@@ -1,9 +1,10 @@
-using Maestro.Datos;
+using Maestro.Biblioteca.Universal.Componentes.Datos;
 using Maestro.Biblioteca.Crítico.Eventos;
-using Maestro.Biblioteca.Universal.Configuracion;
-using Maestro.Infraestructura;
-using Maestro.Modelos.Autorización.Dpop;
-using Maestro.Servicio.Autorización.ServicioDpop;
+using Maestro.Biblioteca.Universal.Configuración;
+using Maestro.Biblioteca.Api.Infraestructura;
+using Maestro.Biblioteca.Api.Modelos.Autorización.Dpop;
+using Maestro.Biblioteca.Universal.Repositorio;
+using Maestro.Biblioteca.Api.Servicio.Autorización.ServicioDpop;
 using System.Text;
 using System.Text.Json;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -16,6 +17,7 @@ using Serilog.Sinks.SystemConsole.Themes;
 
 
 WebApplicationBuilder constructora = WebApplication.CreateBuilder(args);
+await constructora.Configuration.CargarSecretosAws(constructora.Environment);
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Override("Microsoft.AspNetCore.Hosting", Serilog.Events.LogEventLevel.Warning)
     .Enrich.FromLogContext()
@@ -41,8 +43,7 @@ constructora.Services.AddSession(opciones =>
 constructora.Services.AddHttpContextAccessor();
 
 string? cadenaDeConexión = constructora.Configuration.GetConnectionString("MaestroBd");
-string claveJwt = constructora.Configuration["Jwt:Clave"] ??
-                  "maestro-clave-de-desarrollo-cambiar-antes-de-producción";
+string claveJwt = constructora.Configuration.ObtenerClaveJwt(constructora.Environment);
 string emisorJwt = constructora.Configuration["Jwt:Emisor"] ?? "Maestro";
 string audienciaJwt = constructora.Configuration["Jwt:Audiencia"] ?? "Maestro-Sitio-Web";
 
@@ -54,6 +55,7 @@ constructora.Services.AddDbContext<ContextoDeBdMaestro>(opciones =>
         opcionesDeSql.MigrationsAssembly("Maestro.Api");
     });
 });
+constructora.Services.AddScoped<IRepositorio, Repositorio<ContextoDeBdMaestro>>();
 
 const string react = "React";
 

@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace Maestro.Modelos.Palabra;
+namespace Maestro.Biblioteca.Api.Modelos.Palabra;
 
 public class ListaPalabrasConDificultad
 {

@@ -1,27 +1,26 @@
-using Maestro.Entidad.Tarjeta;
-using Maestro.Entidad.Autorización;
-using Maestro.Entidad.Usuario;
+using Maestro.Biblioteca.Api.Entidad.Autorización;
+using Maestro.Biblioteca.Api.Entidad.Tarjeta;
+using Maestro.Biblioteca.Api.Entidad.Usuario;
 using Microsoft.EntityFrameworkCore;
 
-namespace Maestro.Datos;
+namespace Maestro.Biblioteca.Universal.Componentes.Datos;
 
 public class ContextoDeBdMaestro : DbContext
 {
-    public DbSet<Usuario> Usuarios => Set<Usuario>();
-    public DbSet<BarajaDeCartas> BarajasDeCartas => Set<BarajaDeCartas>();
-    public DbSet<Tarjeta> Tarjetas => Set<Tarjeta>();
-    public DbSet<ContraseñaSegura> ContraseñasSeguras => Set<ContraseñaSegura>();
-    public DbSet<TokenDeActualización> TokensDeActualización => Set<TokenDeActualización>();
+    public DbSet<Usuario> Usuarios => this.Set<Usuario>();
+    public DbSet<BarajaDeCartas> BarajasDeCartas => this.Set<BarajaDeCartas>();
+    public DbSet<Tarjeta> Tarjetas => this.Set<Tarjeta>();
+    public DbSet<ContraseñaSegura> ContraseñasSeguras => this.Set<ContraseñaSegura>();
+    public DbSet<TokenDeActualización> TokensDeActualización => this.Set<TokenDeActualización>();
 
     public ContextoDeBdMaestro(DbContextOptions<ContextoDeBdMaestro> options)
         : base(options)
     {
-
     }
 
     public DbSet<TEntidad> ObtenerConjuntoPorEntidad<TEntidad>() where TEntidad : class
     {
-        return Set<TEntidad>();
+        return this.Set<TEntidad>();
     }
 
     // TODO: Investiga soluciones más fluidas, tal vez con anotaciones.

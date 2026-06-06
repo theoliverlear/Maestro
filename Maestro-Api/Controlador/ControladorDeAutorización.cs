@@ -1,11 +1,10 @@
 using System.Net;
-using Maestro.Comunicación.Respuesta.Autorización;
-using Maestro.Comunicación.Solicitud.Autorización;
-using Maestro.Modelos.Autorización;
-using Maestro.Servicio.Autorización.ServicioDeAutorización;
+using Maestro.Biblioteca.Api.Comunicación.Respuesta.Autorización;
+using Maestro.Biblioteca.Api.Comunicación.Solicitud.Autorización;
+using Maestro.Biblioteca.Api.Servicio.Autorización.ServicioDeAutorización;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Maestro.Controlador;
+namespace Maestro.Api.Controlador;
 
 [ApiController, Route("api/autorización")]
 public class ControladorDeAutorización : ControllerBase

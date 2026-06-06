@@ -1,5 +1,5 @@
-namespace Maestro.Prueba.Modelos.Normalizador;
-using Maestro.Modelos.Normalizador;
+namespace Maestro.Api.Prueba.Modelos.Normalizador;
+using Maestro.Biblioteca.Api.Modelos.Normalizador;
 
 using Xunit;
 

@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Caching.Memory;
 
-namespace Maestro.Servicio.Autorización.ServicioDpop;
+namespace Maestro.Biblioteca.Api.Servicio.Autorización.ServicioDpop;
 
 public class AlmacénDeReproducciónDpop : IAlmacénDeReproducciónDpop
 {

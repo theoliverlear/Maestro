@@ -1,6 +1,7 @@
-using Maestro.Entidad.Autorización;
+using Maestro.Biblioteca.Universal.Repositorio;
+using Maestro.Biblioteca.Api.Entidad.Autorización;
 
-namespace Maestro.Repositorio.Autorización;
+namespace Maestro.Biblioteca.Api.Repositorio.Autorización;
 
 public interface ITokensDeActualizaciónDeRepositorio
 {

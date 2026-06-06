@@ -1,4 +1,4 @@
-namespace Maestro.Modelos.Operaciones;
+namespace Maestro.Biblioteca.Api.Modelos.Operaciones;
 
 public class EstadoDeOperación
 {

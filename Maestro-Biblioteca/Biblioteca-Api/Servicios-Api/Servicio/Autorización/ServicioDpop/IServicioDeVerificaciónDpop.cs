@@ -1,6 +1,6 @@
-using Maestro.Modelos.Autorización.Dpop;
+using Maestro.Biblioteca.Api.Modelos.Autorización.Dpop;
 
-namespace Maestro.Servicio.Autorización.ServicioDpop;
+namespace Maestro.Biblioteca.Api.Servicio.Autorización.ServicioDpop;
 
 public interface IServicioDeVerificaciónDpop
 {

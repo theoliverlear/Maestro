@@ -1,9 +1,10 @@
-using Maestro.Datos;
-using Maestro.Entidad.Usuario;
+using Maestro.Biblioteca.Universal.Repositorio;
+using Maestro.Biblioteca.Universal.Componentes.Datos;
+using Maestro.Biblioteca.Api.Entidad.Usuario;
 
-namespace Maestro.Repositorio.Usuarios;
+namespace Maestro.Biblioteca.Api.Repositorio.Usuarios;
 
-public class UsuariosDeRepositorio : Repositorio, IUsuariosDeRepositorio
+public class UsuariosDeRepositorio : Repositorio<ContextoDeBdMaestro>, IUsuariosDeRepositorio
 {
 
     public UsuariosDeRepositorio(ContextoDeBdMaestro bd) : base(bd)

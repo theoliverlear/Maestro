@@ -1,6 +1,6 @@
 using Xunit.Abstractions;
 
-namespace Maestro.Prueba.Modelos.Conjugación;
+namespace Maestro.Api.Prueba.Modelos.Conjugación;
 
 using Xunit;
 

@@ -1,6 +1,6 @@
-using Maestro.Entidad.Autorización;
+using Maestro.Biblioteca.Api.Entidad.Autorización;
 
-namespace Maestro.Servicio.Autorización.ServicioDeTokenDeActualización;
+namespace Maestro.Biblioteca.Api.Servicio.Autorización.ServicioDeTokenDeActualización;
 
 public interface IServicioDeTokenDeActualización
 {

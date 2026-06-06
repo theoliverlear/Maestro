@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Maestro.Controlador;
+namespace Maestro.Api.Controlador;
 
 [ApiController, Route("api/baraja-de-cartas")]
 public class ControladorDeBarajaDeCartas : ControllerBase

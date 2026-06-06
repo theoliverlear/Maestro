@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 
-namespace Maestro.Servicio.Sesión.ServicioDeSesión;
+namespace Maestro.Biblioteca.Api.Servicio.Sesión.ServicioDeSesión;
 
 public class ServicioDeSesión : IServicioDeSesión
 {

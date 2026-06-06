@@ -1,7 +1,7 @@
-using Maestro.Modelos;
-using Maestro.Modelos.Verbos;
+using Maestro.Biblioteca.Api.Modelos;
+using Maestro.Biblioteca.Api.Modelos.Verbos;
 
-namespace Maestro.Prueba.Modelos.Verbos;
+namespace Maestro.Api.Prueba.Modelos.Verbos;
 using Xunit;
 
 

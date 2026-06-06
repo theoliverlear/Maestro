@@ -1,4 +1,4 @@
-namespace Maestro.Comunicación.Respuesta.Palabra.PalabraReal;
+namespace Maestro.Biblioteca.Api.Comunicación.Respuesta.Palabra.PalabraReal;
 
 public class RespuestaDeListaPalabraReal
 {

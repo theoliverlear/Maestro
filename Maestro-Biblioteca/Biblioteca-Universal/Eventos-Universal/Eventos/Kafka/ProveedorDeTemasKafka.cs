@@ -1,6 +1,6 @@
 using Confluent.Kafka;
 using Confluent.Kafka.Admin;
-using Maestro.Biblioteca.Universal.Eventos.Configuracion;
+using Maestro.Biblioteca.Universal.Eventos.Configuración;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 

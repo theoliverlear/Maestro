@@ -1,4 +1,4 @@
-namespace Maestro.Modelos.Autorización.Dpop;
+namespace Maestro.Biblioteca.Api.Modelos.Autorización.Dpop;
 
 public sealed record ContextoDePruebaDpop(string HuellaDeClave,
                                           string? IdDeJwt,

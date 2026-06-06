@@ -1,7 +1,7 @@
 using System.Text;
 using System.Text.Json;
 using Confluent.Kafka;
-using Maestro.Biblioteca.Universal.Eventos.Configuracion;
+using Maestro.Biblioteca.Universal.Eventos.Configuración;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;

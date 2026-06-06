@@ -1,6 +1,6 @@
-using Maestro.Modelos.Palabra;
+using Maestro.Biblioteca.Api.Modelos.Palabra;
 
-namespace Maestro.Servicio.Palabra.PalabraReal;
+namespace Maestro.Biblioteca.Api.Servicio.Palabra.PalabraReal;
 
 public interface IServicioPalabraReal
 {

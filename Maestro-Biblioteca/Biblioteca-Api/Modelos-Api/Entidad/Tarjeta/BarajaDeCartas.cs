@@ -1,12 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Maestro.Biblioteca.Universal.Modelos;
 
-namespace Maestro.Entidad.Tarjeta;
+namespace Maestro.Biblioteca.Api.Entidad.Tarjeta;
 
-using Maestro.Entidad.Usuario;
+using Maestro.Biblioteca.Api.Entidad.Usuario;
 
 [Table("barajas_de_cartas")]
-public class BarajaDeCartas : Identificable
+public class BarajaDeCartas : EntidadIdentificable<int>
 {
     [InverseProperty(nameof(BarajaDeCartas))]
     public ICollection<Tarjeta> Cartas { get; set; }

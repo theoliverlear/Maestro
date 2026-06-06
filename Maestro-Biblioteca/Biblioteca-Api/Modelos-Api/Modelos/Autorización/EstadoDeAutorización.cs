@@ -1,4 +1,4 @@
-namespace Maestro.Modelos.Autorización;
+namespace Maestro.Biblioteca.Api.Modelos.Autorización;
 
 public class EstadoDeAutorización
 {

@@ -1,7 +1,7 @@
-using Maestro.Entidad.Tarjeta;
-using Maestro.Entidad.Usuario.Constructor.Modelos;
+using Maestro.Biblioteca.Api.Entidad.Tarjeta;
+using Maestro.Biblioteca.Api.Entidad.Usuario.Constructor.Modelos;
 
-namespace Maestro.Entidad.Usuario.Constructor;
+namespace Maestro.Biblioteca.Api.Entidad.Usuario.Constructor;
 
 public class ConstructorDeUsuarios : UsuarioAbstracto
 {

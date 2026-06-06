@@ -1,8 +1,8 @@
 using System.Text;
 using System.Text.Json;
 using Confluent.Kafka;
-using Maestro.Biblioteca.Crítico.Comunicacion.Respuesta;
-using Maestro.Biblioteca.Universal.Eventos.Configuracion;
+using Maestro.Biblioteca.Crítico.Comunicación.Respuesta;
+using Maestro.Biblioteca.Universal.Eventos.Configuración;
 using Maestro.Biblioteca.Universal.Eventos.Kafka;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;

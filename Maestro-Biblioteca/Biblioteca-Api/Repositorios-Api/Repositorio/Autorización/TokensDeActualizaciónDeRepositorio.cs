@@ -1,9 +1,10 @@
-using Maestro.Datos;
-using Maestro.Entidad.Autorización;
+using Maestro.Biblioteca.Universal.Repositorio;
+using Maestro.Biblioteca.Universal.Componentes.Datos;
+using Maestro.Biblioteca.Api.Entidad.Autorización;
 
-namespace Maestro.Repositorio.Autorización;
+namespace Maestro.Biblioteca.Api.Repositorio.Autorización;
 
-public class TokensDeActualizaciónDeRepositorio : Repositorio, ITokensDeActualizaciónDeRepositorio
+public class TokensDeActualizaciónDeRepositorio : Repositorio<ContextoDeBdMaestro>, ITokensDeActualizaciónDeRepositorio
 {
     public TokensDeActualizaciónDeRepositorio(ContextoDeBdMaestro bd) : base(bd)
     {

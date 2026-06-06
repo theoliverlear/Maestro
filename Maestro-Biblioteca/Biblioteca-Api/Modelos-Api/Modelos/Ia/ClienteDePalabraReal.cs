@@ -1,7 +1,7 @@
-using Maestro.Modelos.Json;
-using Maestro.Modelos.Palabra;
+using Maestro.Biblioteca.Api.Modelos.Json;
+using Maestro.Biblioteca.Api.Modelos.Palabra;
 
-namespace Maestro.Modelos.Ia;
+namespace Maestro.Biblioteca.Api.Modelos.Ia;
 
 public class ClienteDePalabraReal : ClienteDeIa
 {

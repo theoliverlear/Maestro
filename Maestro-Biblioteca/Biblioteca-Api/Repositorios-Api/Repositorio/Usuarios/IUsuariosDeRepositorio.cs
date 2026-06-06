@@ -1,6 +1,7 @@
-using Maestro.Entidad.Usuario;
+using Maestro.Biblioteca.Universal.Repositorio;
+using Maestro.Biblioteca.Api.Entidad.Usuario;
 
-namespace Maestro.Repositorio.Usuarios;
+namespace Maestro.Biblioteca.Api.Repositorio.Usuarios;
 
 public interface IUsuariosDeRepositorio : IRepositorio
 {

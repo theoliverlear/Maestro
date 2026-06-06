@@ -1,19 +1,19 @@
-using Maestro.Datos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace Maestro.Repositorio;
+namespace Maestro.Biblioteca.Universal.Repositorio;
 
-public class Repositorio : IRepositorio
+public class Repositorio<TContexto> : IRepositorio
+    where TContexto : DbContext
 {
-    private readonly ContextoDeBdMaestro _bd;
+    private readonly TContexto _bd;
 
-    public Repositorio(ContextoDeBdMaestro bd)
+    public Repositorio(TContexto bd)
     {
         this._bd = bd;
     }
 
-    protected ContextoDeBdMaestro Bd
+    protected TContexto Bd
     {
         get { return this._bd; }
     }
@@ -25,13 +25,13 @@ public class Repositorio : IRepositorio
 
     public ValueTask<TEntidad?> ObtenerPorIdAsíncrono<TEntidad>(int id) where TEntidad : class
     {
-        return this._bd.ObtenerConjuntoPorEntidad<TEntidad>()
+        return this._bd.Set<TEntidad>()
                        .FindAsync(id);
     }
 
     public async ValueTask<TEntidad> AgregarAsíncrono<TEntidad>(TEntidad entidad) where TEntidad : class
     {
-        EntityEntry<TEntidad> nuevaEntidad = this._bd.ObtenerConjuntoPorEntidad<TEntidad>().Add(entidad);
+        EntityEntry<TEntidad> nuevaEntidad = this._bd.Set<TEntidad>().Add(entidad);
         await this.GuardarCambiosAsíncronos();
         entidad = nuevaEntidad.Entity;
         return entidad;
@@ -49,7 +49,7 @@ public class Repositorio : IRepositorio
         TEntidad? entidad = await this.ObtenerPorIdAsíncrono<TEntidad>(id);
         if (entidad != null)
         {
-            this._bd.ObtenerConjuntoPorEntidad<TEntidad>().Remove(entidad);
+            this._bd.Set<TEntidad>().Remove(entidad);
             await this.GuardarCambiosAsíncronos();
         }
         else
@@ -60,13 +60,13 @@ public class Repositorio : IRepositorio
 
     public async Task EliminarAsíncrono<TEntidad>(TEntidad entidad) where TEntidad : class
     {
-        this._bd.ObtenerConjuntoPorEntidad<TEntidad>().Remove(entidad);
+        this._bd.Set<TEntidad>().Remove(entidad);
         await this.GuardarCambiosAsíncronos();
     }
 
     public async Task<bool> ExistePorId<TEntidad>(int id) where TEntidad : class
     {
-        TEntidad? entidad = await this._bd.ObtenerConjuntoPorEntidad<TEntidad>().FindAsync(id);
+        TEntidad? entidad = await this._bd.Set<TEntidad>().FindAsync(id);
         return entidad != null;
     }
 }

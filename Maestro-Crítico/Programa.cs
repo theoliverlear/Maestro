@@ -1,6 +1,6 @@
 using Maestro.Biblioteca.Crítico.Eventos;
 using Maestro.Biblioteca.Crítico.Servicios;
-using Maestro.Biblioteca.Universal.Configuracion;
+using Maestro.Biblioteca.Universal.Configuración;
 using Microsoft.Extensions.Hosting;
 
 HostApplicationBuilderSettings configuración = new()

@@ -14,6 +14,7 @@
         <Compile Remove="Configuración-Universal\**\*.cs" />
         <Compile Remove="Eventos-Universal\**\*.cs" />
         <Compile Remove="Modelos-Universal\**\*.cs" />
+        <Compile Remove="Repositorios-Universal\**\*.cs" />
         <Compile Remove="Servicios-Universal\**\*.cs" />
     </ItemGroup>
 
@@ -23,6 +24,7 @@
         <ProjectReference Include="Configuración-Universal\Configuración.Universal.csproj" />
         <ProjectReference Include="Eventos-Universal\Eventos.Universal.csproj" />
         <ProjectReference Include="Modelos-Universal\Modelos.Universal.csproj" />
+        <ProjectReference Include="Repositorios-Universal\Repositorios.Universal.csproj" />
         <ProjectReference Include="Servicios-Universal\Servicios.Universal.csproj" />
     </ItemGroup>
 </Project>

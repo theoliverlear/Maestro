@@ -1,9 +1,9 @@
-using Maestro.Servicio.Autorización.ServicioDpop;
+using Maestro.Biblioteca.Api.Servicio.Autorización.ServicioDpop;
 using Microsoft.Extensions.Primitives;
-using Maestro.Modelos.Autorización.Dpop;
+using Maestro.Biblioteca.Api.Modelos.Autorización.Dpop;
 using Microsoft.AspNetCore.Http;
 
-namespace Maestro.Infraestructura;
+namespace Maestro.Biblioteca.Api.Infraestructura;
 
 public class MiddlewareDpop
 {

@@ -1,4 +1,4 @@
-namespace Maestro.Modelos.Verbos;
+namespace Maestro.Biblioteca.Api.Modelos.Verbos;
 
 public class SufijoVerbal
 {

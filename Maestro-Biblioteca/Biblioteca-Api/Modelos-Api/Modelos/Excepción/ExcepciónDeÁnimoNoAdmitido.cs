@@ -1,4 +1,4 @@
-namespace Maestro.Excepción;
+namespace Maestro.Biblioteca.Api.Modelos.Excepción;
 
 public class ExcepciónDeÁnimoNoAdmitido : Exception
 {

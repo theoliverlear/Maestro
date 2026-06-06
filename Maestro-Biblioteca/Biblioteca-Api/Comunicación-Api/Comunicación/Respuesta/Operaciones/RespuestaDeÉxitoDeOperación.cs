@@ -1,4 +1,4 @@
-namespace Maestro.Comunicación.Respuesta.Operaciones;
+namespace Maestro.Biblioteca.Api.Comunicación.Respuesta.Operaciones;
 
 public class RespuestaDeÉxitoDeOperación
 {

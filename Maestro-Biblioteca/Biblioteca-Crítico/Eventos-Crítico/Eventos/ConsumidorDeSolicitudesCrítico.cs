@@ -1,8 +1,8 @@
-using Maestro.Biblioteca.Crítico.Comunicacion.Respuesta;
-using Maestro.Biblioteca.Crítico.Comunicacion.Solicitud;
+using Maestro.Biblioteca.Crítico.Comunicación.Respuesta;
+using Maestro.Biblioteca.Crítico.Comunicación.Solicitud;
 using Maestro.Biblioteca.Crítico.Servicios;
 using Maestro.Biblioteca.Universal.Eventos;
-using Maestro.Biblioteca.Universal.Eventos.Configuracion;
+using Maestro.Biblioteca.Universal.Eventos.Configuración;
 using Maestro.Biblioteca.Universal.Eventos.Kafka;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;

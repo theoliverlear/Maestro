@@ -1,9 +1,9 @@
-using Maestro.Biblioteca.Crítico.Comunicacion.Respuesta;
-using Maestro.Biblioteca.Crítico.Comunicacion.Solicitud;
+using Maestro.Biblioteca.Crítico.Comunicación.Respuesta;
+using Maestro.Biblioteca.Crítico.Comunicación.Solicitud;
 using Maestro.Biblioteca.Crítico.Eventos;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Maestro.Controlador;
+namespace Maestro.Api.Controlador;
 
 [ApiController]
 [Route("api/crítico")]

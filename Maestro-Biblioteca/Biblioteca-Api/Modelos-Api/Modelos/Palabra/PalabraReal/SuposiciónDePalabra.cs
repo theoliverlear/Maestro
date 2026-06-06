@@ -1,5 +1,5 @@
-namespace Maestro.Modelos.Palabra.PalabraReal;
-using Maestro.Modelos.Normalizador;
+namespace Maestro.Biblioteca.Api.Modelos.Palabra.PalabraReal;
+using Maestro.Biblioteca.Api.Modelos.Normalizador;
 public class SuposiciónDePalabra
 {
     public static string MensajeDeInicModoIncorrecto = "El modo de " +

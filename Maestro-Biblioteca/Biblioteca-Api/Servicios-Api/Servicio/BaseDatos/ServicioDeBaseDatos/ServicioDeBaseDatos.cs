@@ -1,6 +1,6 @@
-using Maestro.Repositorio;
+using Maestro.Biblioteca.Universal.Repositorio;
 
-namespace Maestro.Servicio.BaseDatos.ServicioDeBaseDatos;
+namespace Maestro.Biblioteca.Api.Servicio.BaseDatos.ServicioDeBaseDatos;
 
 public class ServicioDeBaseDatos<TEntidad> : IServicioDeBaseDatos<TEntidad> where TEntidad : class
 {

@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace Maestro.Comunicación.Respuesta.Autorización;
+namespace Maestro.Biblioteca.Api.Comunicación.Respuesta.Autorización;
 
 public class RespuestaDeEstadoDeAutorización
 {

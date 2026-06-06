@@ -9,7 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Remove="Comunicacion-Crítico\**\*.cs" />
+        <Compile Remove="Comunicación-Crítico\**\*.cs" />
         <Compile Remove="Componentes-Crítico\**\*.cs" />
         <Compile Remove="Eventos-Crítico\**\*.cs" />
         <Compile Remove="Modelos-Crítico\**\*.cs" />
@@ -17,7 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="Comunicacion-Crítico\Comunicacion.Crítico.csproj" />
+        <ProjectReference Include="Comunicación-Crítico\Comunicación.Crítico.csproj" />
         <ProjectReference Include="Componentes-Crítico\Componentes.Crítico.csproj" />
         <ProjectReference Include="Eventos-Crítico\Eventos.Crítico.csproj" />
         <ProjectReference Include="Modelos-Crítico\Modelos.Crítico.csproj" />

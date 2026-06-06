@@ -1,11 +1,12 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Maestro.Biblioteca.Universal.Modelos;
 
-namespace Maestro.Entidad.Tarjeta;
+namespace Maestro.Biblioteca.Api.Entidad.Tarjeta;
 
 [Table("tarjetas")]
 
-public class Tarjeta : Identificable
+public class Tarjeta : EntidadIdentificable<int>
 {
     [Column("en_español", TypeName = "varchar(100)")]
     public string EnEspañol { get; set; }

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <AssemblyName>Infraestructura.Api</AssemblyName>
-    <RootNamespace>Maestro</RootNamespace>
+    <RootNamespace>Maestro.Biblioteca.Api</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>

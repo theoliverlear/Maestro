@@ -1,4 +1,4 @@
-namespace Maestro.Modelos;
+namespace Maestro.Biblioteca.Api.Modelos;
 
 public interface IFábricaDeConstrucción<TModelo>
 {

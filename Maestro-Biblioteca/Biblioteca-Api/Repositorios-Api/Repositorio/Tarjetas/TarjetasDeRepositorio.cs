@@ -1,8 +1,9 @@
-using Maestro.Datos;
+using Maestro.Biblioteca.Universal.Repositorio;
+using Maestro.Biblioteca.Universal.Componentes.Datos;
 
-namespace Maestro.Repositorio.Tarjetas;
+namespace Maestro.Biblioteca.Api.Repositorio.Tarjetas;
 
-public class TarjetasDeRepositorio : Repositorio, ITarjetasDeRepositorio
+public class TarjetasDeRepositorio : Repositorio<ContextoDeBdMaestro>, ITarjetasDeRepositorio
 {
     public TarjetasDeRepositorio(ContextoDeBdMaestro bd) : base(bd)
     {

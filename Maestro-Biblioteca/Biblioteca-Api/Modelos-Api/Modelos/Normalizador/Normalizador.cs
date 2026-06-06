@@ -1,4 +1,4 @@
-namespace Maestro.Modelos.Normalizador;
+namespace Maestro.Biblioteca.Api.Modelos.Normalizador;
 
 public class Normalizador
 {

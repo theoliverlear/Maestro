@@ -1,4 +1,4 @@
-namespace Maestro.Comunicación.Respuesta.Conjugación;
+namespace Maestro.Biblioteca.Api.Comunicación.Respuesta.Conjugación;
 
 public class RespuestaVerbalConjugada
 {

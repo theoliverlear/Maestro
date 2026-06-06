@@ -1,6 +1,6 @@
-using Maestro.Entidad.Usuario;
+using Maestro.Biblioteca.Api.Entidad.Usuario;
 
-namespace Maestro.Servicio.Autorización.ServicioDeTokenJwt;
+namespace Maestro.Biblioteca.Api.Servicio.Autorización.ServicioDeTokenJwt;
 
 public interface IServicioDeTokenJwt
 {

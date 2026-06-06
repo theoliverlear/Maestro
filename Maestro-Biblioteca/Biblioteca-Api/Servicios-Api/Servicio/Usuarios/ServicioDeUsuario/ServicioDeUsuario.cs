@@ -1,10 +1,10 @@
-using Maestro.Comunicación.Solicitud.Autorización;
-using Maestro.Entidad.Usuario;
-using Maestro.Repositorio;
-using Maestro.Repositorio.Usuarios;
-using Maestro.Servicio.BaseDatos.ServicioDeBaseDatos;
+using Maestro.Biblioteca.Api.Comunicación.Solicitud.Autorización;
+using Maestro.Biblioteca.Api.Entidad.Usuario;
+using Maestro.Biblioteca.Universal.Repositorio;
+using Maestro.Biblioteca.Api.Repositorio.Usuarios;
+using Maestro.Biblioteca.Api.Servicio.BaseDatos.ServicioDeBaseDatos;
 
-namespace Maestro.Servicio.Usuarios.ServicioDeUsuario;
+namespace Maestro.Biblioteca.Api.Servicio.Usuarios.ServicioDeUsuario;
 
 public class ServicioDeUsuario : ServicioDeBaseDatos<Usuario>, IServicioDeUsuario
 {

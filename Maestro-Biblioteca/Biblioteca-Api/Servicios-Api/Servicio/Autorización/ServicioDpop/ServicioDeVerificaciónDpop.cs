@@ -1,12 +1,12 @@
 using System.Security.Cryptography;
 using System.Text;
-using Maestro.Modelos.Autorización.Dpop;
+using Maestro.Biblioteca.Api.Modelos.Autorización.Dpop;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Maestro.Servicio.Autorización.ServicioDpop;
+namespace Maestro.Biblioteca.Api.Servicio.Autorización.ServicioDpop;
 
 public class ServicioDeVerificaciónDpop : IServicioDeVerificaciónDpop
 {

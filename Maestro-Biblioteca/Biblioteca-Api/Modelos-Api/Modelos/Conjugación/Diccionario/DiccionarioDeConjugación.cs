@@ -1,10 +1,10 @@
 using System.Globalization;
 using CsvHelper;
 using CsvHelper.Configuration;
-using Maestro.Excepción;
-using Maestro.Modelos.Conjugación.Diccionario.Columnas;
+using Maestro.Biblioteca.Api.Modelos.Excepción;
+using Maestro.Biblioteca.Api.Modelos.Conjugación.Diccionario.Columnas;
 
-namespace Maestro.Modelos.Conjugación.Diccionario;
+namespace Maestro.Biblioteca.Api.Modelos.Conjugación.Diccionario;
 
 using DiccionarioBase = Dictionary<string, Dictionary<string,
                         Dictionary<string, FilaDeConjugación>>>;

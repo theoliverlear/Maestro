@@ -1,8 +1,8 @@
-using Maestro.Comunicación.Solicitud.Autorización;
-using Maestro.Entidad.Usuario;
-using Maestro.Servicio.BaseDatos.ServicioDeBaseDatos;
+using Maestro.Biblioteca.Api.Comunicación.Solicitud.Autorización;
+using Maestro.Biblioteca.Api.Entidad.Usuario;
+using Maestro.Biblioteca.Api.Servicio.BaseDatos.ServicioDeBaseDatos;
 
-namespace Maestro.Servicio.Usuarios.ServicioDeUsuario;
+namespace Maestro.Biblioteca.Api.Servicio.Usuarios.ServicioDeUsuario;
 
 public interface IServicioDeUsuario : IServicioDeBaseDatos<Usuario>
 {

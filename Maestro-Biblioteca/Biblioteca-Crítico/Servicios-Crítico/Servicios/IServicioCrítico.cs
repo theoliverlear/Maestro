@@ -1,5 +1,5 @@
-using Maestro.Biblioteca.Crítico.Comunicacion.Respuesta;
-using Maestro.Biblioteca.Crítico.Comunicacion.Solicitud;
+using Maestro.Biblioteca.Crítico.Comunicación.Respuesta;
+using Maestro.Biblioteca.Crítico.Comunicación.Solicitud;
 
 namespace Maestro.Biblioteca.Crítico.Servicios;
 

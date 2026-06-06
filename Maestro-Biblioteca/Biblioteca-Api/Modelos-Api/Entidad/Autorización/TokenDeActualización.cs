@@ -1,10 +1,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Maestro.Biblioteca.Universal.Modelos;
 
-namespace Maestro.Entidad.Autorización;
+namespace Maestro.Biblioteca.Api.Entidad.Autorización;
 
 [Table("tokens_de_actualización")]
-public class TokenDeActualización : Identificable
+public class TokenDeActualización : EntidadIdentificable<int>
 {
     // TODO: Reemplazar pobre nombre de columna.
     [Required, Column("id_de_token", TypeName = "varchar(64)")]

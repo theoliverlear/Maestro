@@ -1,8 +1,8 @@
-using Maestro.Entidad.Autorización;
-using Maestro.Repositorio.Autorización;
+using Maestro.Biblioteca.Api.Entidad.Autorización;
+using Maestro.Biblioteca.Api.Repositorio.Autorización;
 using Microsoft.Extensions.Configuration;
 
-namespace Maestro.Servicio.Autorización.ServicioDeTokenDeActualización;
+namespace Maestro.Biblioteca.Api.Servicio.Autorización.ServicioDeTokenDeActualización;
 
 public class ServicioDeTokenDeActualización : IServicioDeTokenDeActualización
 {

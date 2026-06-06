@@ -1,7 +1,7 @@
-using Maestro.Entidad.Tarjeta;
-using Maestro.Modelos;
+using Maestro.Biblioteca.Api.Entidad.Tarjeta;
+using Maestro.Biblioteca.Api.Modelos;
 
-namespace Maestro.Entidad.Usuario.Constructor.Modelos;
+namespace Maestro.Biblioteca.Api.Entidad.Usuario.Constructor.Modelos;
 
 public abstract class UsuarioAbstracto : IFábricaDeConstrucción<Usuario>
 {

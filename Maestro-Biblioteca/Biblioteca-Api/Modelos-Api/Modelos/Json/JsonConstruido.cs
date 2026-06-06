@@ -1,7 +1,7 @@
-using Maestro.Excepción;
+using Maestro.Biblioteca.Api.Modelos.Excepción;
 using Newtonsoft.Json;
 
-namespace Maestro.Modelos.Json;
+namespace Maestro.Biblioteca.Api.Modelos.Json;
 
 public class JsonConstruido
 {

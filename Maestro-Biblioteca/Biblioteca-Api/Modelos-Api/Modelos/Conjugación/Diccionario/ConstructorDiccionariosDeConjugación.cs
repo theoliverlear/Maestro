@@ -1,8 +1,8 @@
-using Maestro.Excepción;
-using Maestro.Modelos.Conjugación.Diccionario.Columnas;
-using Maestro.Modelos.Verbos;
+using Maestro.Biblioteca.Api.Modelos.Excepción;
+using Maestro.Biblioteca.Api.Modelos.Conjugación.Diccionario.Columnas;
+using Maestro.Biblioteca.Api.Modelos.Verbos;
 
-namespace Maestro.Modelos.Conjugación.Diccionario;
+namespace Maestro.Biblioteca.Api.Modelos.Conjugación.Diccionario;
 
 public class ConstructorDiccionariosDeConjugación
 {

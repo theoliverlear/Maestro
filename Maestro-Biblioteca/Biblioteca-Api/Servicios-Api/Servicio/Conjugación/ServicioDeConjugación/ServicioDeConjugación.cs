@@ -1,7 +1,7 @@
-using Maestro.Modelos;
-using Maestro.Modelos.Conjugación;
+using Maestro.Biblioteca.Api.Modelos;
+using Maestro.Biblioteca.Api.Modelos.Conjugación;
 
-namespace Maestro.Servicio.Conjugación.ServicioDeConjugación;
+namespace Maestro.Biblioteca.Api.Servicio.Conjugación.ServicioDeConjugación;
 
 public class ServicioDeConjugación : IServicioDeConjugación
 {

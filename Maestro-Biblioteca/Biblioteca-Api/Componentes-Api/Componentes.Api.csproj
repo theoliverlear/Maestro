@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <AssemblyName>Componentes.Api</AssemblyName>
-    <RootNamespace>Maestro</RootNamespace>
+    <RootNamespace>Maestro.Biblioteca.Api</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -14,5 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Modelos-Api\Modelos.Api.csproj" />
+    <ProjectReference Include="..\..\Biblioteca-Universal\Componentes-Universal\Componentes.Universal.csproj" />
   </ItemGroup>
 </Project>

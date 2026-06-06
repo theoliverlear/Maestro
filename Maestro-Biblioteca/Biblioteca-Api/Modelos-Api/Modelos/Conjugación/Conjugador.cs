@@ -1,6 +1,6 @@
-using Maestro.Modelos.Conjugación.Diccionario;
+using Maestro.Biblioteca.Api.Modelos.Conjugación.Diccionario;
 
-namespace Maestro.Modelos.Conjugación;
+namespace Maestro.Biblioteca.Api.Modelos.Conjugación;
 
 public class Conjugador
 {

@@ -1,6 +1,6 @@
-using Maestro.Modelos;
+using Maestro.Biblioteca.Api.Modelos;
 
-namespace Maestro.Servicio.Conjugación.ServicioDeConjugación;
+namespace Maestro.Biblioteca.Api.Servicio.Conjugación.ServicioDeConjugación;
 
 public interface IServicioDeConjugación
 {

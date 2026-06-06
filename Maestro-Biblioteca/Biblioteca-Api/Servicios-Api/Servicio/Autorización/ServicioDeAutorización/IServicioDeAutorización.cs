@@ -1,7 +1,7 @@
-using Maestro.Comunicación.Respuesta.Autorización;
-using Maestro.Comunicación.Solicitud.Autorización;
+using Maestro.Biblioteca.Api.Comunicación.Respuesta.Autorización;
+using Maestro.Biblioteca.Api.Comunicación.Solicitud.Autorización;
 
-namespace Maestro.Servicio.Autorización.ServicioDeAutorización;
+namespace Maestro.Biblioteca.Api.Servicio.Autorización.ServicioDeAutorización;
 
 public interface IServicioDeAutorización
 {

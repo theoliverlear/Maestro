@@ -1,4 +1,4 @@
-namespace Maestro.Modelos.Palabra.PalabraReal;
+namespace Maestro.Biblioteca.Api.Modelos.Palabra.PalabraReal;
 
 public enum ModoAdivinanza
 {

@@ -1,8 +1,8 @@
-using Maestro.Excepción;
-using Maestro.Modelos.Conjugación;
-using Maestro.Modelos.Conjugación.Diccionario;
+using Maestro.Biblioteca.Api.Modelos.Excepción;
+using Maestro.Biblioteca.Api.Modelos.Conjugación;
+using Maestro.Biblioteca.Api.Modelos.Conjugación.Diccionario;
 
-namespace Maestro.Prueba.Modelos.Conjugación.Diccionario;
+namespace Maestro.Api.Prueba.Modelos.Conjugación.Diccionario;
 
 using Xunit;
 
