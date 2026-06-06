@@ -8,7 +8,7 @@ export function usarEntradasDeRegistro() {
     );
 
     const [mensaje, asignarMensaje] = useState<EstadosDeValidezDeAutorización>(
-        EstadosDeValidezDeAutorización.VÁLIDO
+        EstadosDeValidezDeAutorización.Válido
     );
 
     const crearSolicitudActualizada = useCallback(
@@ -45,7 +45,7 @@ export function usarEntradasDeRegistro() {
         (valor: string | number) => {
             const nuevaSolicitud = actualizarSolicitudYMensaje("correoElectrónico", valor as string);
             if (!nuevaSolicitud.esCorreoElectrónicoValido()) {
-                asignarMensaje(EstadosDeValidezDeAutorización.CORREO_ELECTRÓNICO_NO_VÁLIDO);
+                asignarMensaje(EstadosDeValidezDeAutorización.CorreoElectrónicoNoVálido);
             } else {
                 asignarMensaje(nuevaSolicitud.obtenerOtrosEstadosNoVálidos(mensaje));
             }
@@ -55,7 +55,7 @@ export function usarEntradasDeRegistro() {
         (valor: string | number) => {
             const nuevaSolicitud = actualizarSolicitudYMensaje("contraseña", valor as string);
             if (nuevaSolicitud.confirmarContraseña && !nuevaSolicitud.contraseñasCoinciden()) {
-                asignarMensaje(EstadosDeValidezDeAutorización.FALTA_DE_COINCIDENCIA_DE_CONTRASEÑAS);
+                asignarMensaje(EstadosDeValidezDeAutorización.FaltaDeCoincidenciaDeContraseñas);
             } else {
                 asignarMensaje(
                     nuevaSolicitud.obtenerOtrosEstadosNoVálidos(mensaje)
@@ -67,7 +67,7 @@ export function usarEntradasDeRegistro() {
         (valor: string | number) => {
             const nuevaSolicitud = actualizarSolicitudYMensaje("confirmarContraseña", valor as string);
             if (nuevaSolicitud.confirmarContraseña && !nuevaSolicitud.contraseñasCoinciden()) {
-                asignarMensaje(EstadosDeValidezDeAutorización.FALTA_DE_COINCIDENCIA_DE_CONTRASEÑAS);
+                asignarMensaje(EstadosDeValidezDeAutorización.FaltaDeCoincidenciaDeContraseñas);
             } else {
                 asignarMensaje(nuevaSolicitud.obtenerOtrosEstadosNoVálidos(mensaje));
             }
