@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <AssemblyName>Comunicación.Traducción</AssemblyName>
+        <RootNamespace>Maestro.Biblioteca.Traducción</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Modelos-Traducción\Modelos.Traducción.csproj" />
+    </ItemGroup>
+</Project>
