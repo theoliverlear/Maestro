@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <AssemblyName>Biblioteca.Traducción</AssemblyName>
+        <RootNamespace>Maestro.Biblioteca.Traducción</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Remove="Comunicación-Traducción\**\*.cs" />
+        <Compile Remove="Componentes-Traducción\**\*.cs" />
+        <Compile Remove="Eventos-Traducción\**\*.cs" />
+        <Compile Remove="Modelos-Traducción\**\*.cs" />
+        <Compile Remove="Servicios-Traducción\**\*.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="Comunicación-Traducción\Comunicación.Traducción.csproj" />
+        <ProjectReference Include="Componentes-Traducción\Componentes.Traducción.csproj" />
+        <ProjectReference Include="Eventos-Traducción\Eventos.Traducción.csproj" />
+        <ProjectReference Include="Modelos-Traducción\Modelos.Traducción.csproj" />
+        <ProjectReference Include="Servicios-Traducción\Servicios.Traducción.csproj" />
+    </ItemGroup>
+</Project>
