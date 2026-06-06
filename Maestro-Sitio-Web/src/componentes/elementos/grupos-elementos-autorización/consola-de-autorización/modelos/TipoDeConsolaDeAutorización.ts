@@ -1,4 +1,4 @@
 export enum TipoDeConsolaDeAutorización {
-    REGISTRO = "Registro",
-    ACCESO = "Acceso",
+    Registro = "Registro",
+    Acceso = "Acceso",
 }

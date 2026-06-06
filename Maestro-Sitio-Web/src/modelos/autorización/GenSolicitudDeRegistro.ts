@@ -24,32 +24,32 @@ export class GenSolicitudDeRegistro {
 
     public obtenerOtrosEstadosNoVálidos(estadoExcluido: EstadosDeValidezDeAutorización): EstadosDeValidezDeAutorización {
         const estadosExcluidos: EstadosDeValidezDeAutorización[] = [
-            EstadosDeValidezDeAutorización.CAMPOS_SIN_RELLENAR,
+            EstadosDeValidezDeAutorización.CamposSinRellenar,
             estadoExcluido
         ];
         if (!this.esCorreoElectrónicoValido() &&
-            !estadosExcluidos.includes(EstadosDeValidezDeAutorización.CORREO_ELECTRÓNICO_NO_VÁLIDO)) {
-            return EstadosDeValidezDeAutorización.CORREO_ELECTRÓNICO_NO_VÁLIDO;
+            !estadosExcluidos.includes(EstadosDeValidezDeAutorización.CorreoElectrónicoNoVálido)) {
+            return EstadosDeValidezDeAutorización.CorreoElectrónicoNoVálido;
         }
         if (this.tieneContraseñasParaComparar() &&
             !this.contraseñasCoinciden() &&
-            !estadosExcluidos.includes(EstadosDeValidezDeAutorización.FALTA_DE_COINCIDENCIA_DE_CONTRASEÑAS)) {
-            return EstadosDeValidezDeAutorización.FALTA_DE_COINCIDENCIA_DE_CONTRASEÑAS;
+            !estadosExcluidos.includes(EstadosDeValidezDeAutorización.FaltaDeCoincidenciaDeContraseñas)) {
+            return EstadosDeValidezDeAutorización.FaltaDeCoincidenciaDeContraseñas;
         }
-        return EstadosDeValidezDeAutorización.VÁLIDO;
+        return EstadosDeValidezDeAutorización.Válido;
     }
 
     public obtenerEstadosNoVálidos(): EstadosDeValidezDeAutorización {
         if (this.tieneCamposSinRellenar()) {
-            return EstadosDeValidezDeAutorización.CAMPOS_SIN_RELLENAR;
+            return EstadosDeValidezDeAutorización.CamposSinRellenar;
         }
         if (!this.esCorreoElectrónicoValido()) {
-            return EstadosDeValidezDeAutorización.CORREO_ELECTRÓNICO_NO_VÁLIDO;
+            return EstadosDeValidezDeAutorización.CorreoElectrónicoNoVálido;
         }
         if (!this.contraseñasCoinciden()) {
-            return EstadosDeValidezDeAutorización.FALTA_DE_COINCIDENCIA_DE_CONTRASEÑAS;
+            return EstadosDeValidezDeAutorización.FaltaDeCoincidenciaDeContraseñas;
         }
-        return EstadosDeValidezDeAutorización.VÁLIDO;
+        return EstadosDeValidezDeAutorización.Válido;
     }
 
     public esCorreoElectrónicoValido(): boolean {

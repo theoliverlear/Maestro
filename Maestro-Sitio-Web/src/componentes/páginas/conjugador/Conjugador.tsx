@@ -7,7 +7,7 @@ import EntradaConTítulo
 import {
     TipoDeEntrada
 } from "../../elementos/grupos-elementos-nativos/entrada/modelos/TipoDeEntrada.ts";
-import {usarConjugación} from "../../../manos/usarConjugación.ts";
+import {usarConjugación} from "../../../ganchos/usarConjugación.ts";
 import Título from "../../elementos/grupos-elementos-texto/título/Título.tsx";
 import {TipoDeEtiqueta} from "../../../modelos/html/TipoDeEtiqueta.ts";
 import {Pronombre} from "../../../modelos/conjugación/tipos.ts";
@@ -15,7 +15,7 @@ import debounce from "lodash/debounce";
 
 
 function Conjugador(): ReactElement {
-    const [pronombreSeleccionado, asignarPronombreSeleccionado] = useState<Pronombre>("Yo");
+    const [pronombreSeleccionado, asignarPronombreSeleccionado] = useState<Pronombre>(Pronombre.Yo);
     const [verbo, asignarVerbo] = useState<string>("");
     const {
         verboConjugado,
@@ -89,7 +89,7 @@ function Conjugador(): ReactElement {
                               enLaEntrada={manejarEntrada}
                               max={25}
                               normalizarEntrada={normalizarEntradaDelVerbo}
-                              tipoDeEntrada={TipoDeEntrada.TEXTO}
+                              tipoDeEntrada={TipoDeEntrada.Texto}
                               marcadorDePosición={"Ej. \"hablar\""}/>
             <SelectorDePronombres enLaSelección={manejarLaSelecciónDePronombre}/>
         </div>

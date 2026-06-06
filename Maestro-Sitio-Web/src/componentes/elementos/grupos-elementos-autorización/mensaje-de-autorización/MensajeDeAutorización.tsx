@@ -12,7 +12,7 @@ interface PropsMensajeDeAutorización {
 
 function MensajeDeAutorización(props: PropsMensajeDeAutorización): ReactElement {
     function esMensajeVálido(): boolean {
-        return props.mensaje === EstadosDeValidezDeAutorización.VÁLIDO;
+        return props.mensaje === EstadosDeValidezDeAutorización.Válido;
     }
     return (
         <>

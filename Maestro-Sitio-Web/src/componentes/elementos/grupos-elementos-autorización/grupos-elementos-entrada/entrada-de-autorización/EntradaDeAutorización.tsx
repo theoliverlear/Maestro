@@ -18,11 +18,11 @@ interface PropsEntradaDeAutorización {
 function EntradaDeAutorización(props: PropsEntradaDeAutorización): ReactElement {
     function obtenerTipoDeEntrada(): TipoDeEntrada {
         switch (props.tipo) {
-            case TipoDeEntradaDeAutorización.CONTRASEÑA:
-            case TipoDeEntradaDeAutorización.CONFIRMAR_CONTRASEÑA:
-                return TipoDeEntrada.CONTRASEÑA;
-            case TipoDeEntradaDeAutorización.CORREO_ELECTRÓNICO:
-                return TipoDeEntrada.CORREO_ELECTRÓNICO;
+            case TipoDeEntradaDeAutorización.Contraseña:
+            case TipoDeEntradaDeAutorización.ConfirmarContraseña:
+                return TipoDeEntrada.Contraseña;
+            case TipoDeEntradaDeAutorización.CorreoElectrónico:
+                return TipoDeEntrada.CorreoElectrónico;
             default:
                 throw new Error(`Tipo de entrada desconocido: ${props.tipo}`);
         }

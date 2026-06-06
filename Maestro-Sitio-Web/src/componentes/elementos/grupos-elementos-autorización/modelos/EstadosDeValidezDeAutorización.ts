@@ -1,7 +1,7 @@
 export enum EstadosDeValidezDeAutorización {
-    VÁLIDO = "Válido.",
-    FALTA_DE_COINCIDENCIA_DE_CONTRASEÑAS = "Falta de coincidencia de contraseñas.",
-    CORREO_ELECTRÓNICO_NO_VÁLIDO = "Correo electrónico no válido.",
-    CAMPOS_SIN_RELLENAR = "Campos sin rellenar.",
-    AUTORIZACIÓN_NO_VÁLIDA = "Autorización no válida.",
+    Válido = "Válido.",
+    FaltaDeCoincidenciaDeContraseñas = "Falta de coincidencia de contraseñas.",
+    CorreoElectrónicoNoVálido = "Correo electrónico no válido.",
+    CamposSinRellenar = "Campos sin rellenar.",
+    AutorizaciónNoVálida = "Autorización no válida.",
 }

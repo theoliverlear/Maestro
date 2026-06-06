@@ -9,10 +9,10 @@ import {
 } from "./modelos/TipoDeConsolaDeAutorización.ts";
 
 function ConsolaDeAutorización(): ReactElement {
-    const [tipoDeConsola, asignarTipoDeConsola] = useState<TipoDeConsolaDeAutorización>(TipoDeConsolaDeAutorización.REGISTRO);
+    const [tipoDeConsola, asignarTipoDeConsola] = useState<TipoDeConsolaDeAutorización>(TipoDeConsolaDeAutorización.Registro);
 
     function esRegistro(): boolean {
-        return tipoDeConsola === TipoDeConsolaDeAutorización.REGISTRO;
+        return tipoDeConsola === TipoDeConsolaDeAutorización.Registro;
     }
     // TODO: Extraer texto a archivo de texto.
     return (
@@ -35,12 +35,12 @@ function ConsolaDeAutorización(): ReactElement {
             <div className={"pestañas-de-autorización"}>
                 <button className={esRegistro() ? "activa" : ""}
                         type={"button"}
-                        onClick={() => asignarTipoDeConsola(TipoDeConsolaDeAutorización.REGISTRO)}>
+                        onClick={() => asignarTipoDeConsola(TipoDeConsolaDeAutorización.Registro)}>
                     Registro
                 </button>
                 <button className={!esRegistro() ? "activa" : ""}
                         type={"button"}
-                        onClick={() => asignarTipoDeConsola(TipoDeConsolaDeAutorización.ACCESO)}>
+                        onClick={() => asignarTipoDeConsola(TipoDeConsolaDeAutorización.Acceso)}>
                     Acceso
                 </button>
             </div>
@@ -53,8 +53,8 @@ function ConsolaDeAutorización(): ReactElement {
                 {esRegistro() ? "¿Ya tienes una cuenta?" : "¿Todavía no tienes cuenta?"}
                 <button type={"button"}
                         onClick={() => asignarTipoDeConsola(esRegistro()
-                            ? TipoDeConsolaDeAutorización.ACCESO
-                            : TipoDeConsolaDeAutorización.REGISTRO)}>
+                            ? TipoDeConsolaDeAutorización.Acceso
+                            : TipoDeConsolaDeAutorización.Registro)}>
                     {esRegistro() ? "Accede" : "Regístrate"}
                 </button>
             </p>

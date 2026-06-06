@@ -26,7 +26,7 @@ function Subtítulo(props: PropsSubtítulo): ReactElement {
                 return <h6>{props.texto}</h6>;
             case TipoDeEtiqueta.P:
                 return <p>{props.texto}</p>;
-            case TipoDeEtiqueta.SPAN:
+            case TipoDeEtiqueta.Span:
                 return <span>{props.texto}</span>;
             default:
                 return <h1>{props.texto}</h1>;

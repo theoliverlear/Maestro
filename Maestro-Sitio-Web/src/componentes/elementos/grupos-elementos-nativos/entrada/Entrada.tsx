@@ -24,11 +24,11 @@ function Entrada(props: PropsEntrada): ReactElement {
     }
 
     function esRango(): boolean {
-        return props.tipo === TipoDeEntrada.RANGO;
+        return props.tipo === TipoDeEntrada.Rango;
     }
 
     function esCaja(): boolean {
-        return props.tipo === TipoDeEntrada.CAJA;
+        return props.tipo === TipoDeEntrada.Caja;
     }
 
     function obtenerElemento(): ReactElement {

@@ -10,9 +10,9 @@ import Botón from "../../grupos-elementos-nativos/botón/Botón.tsx";
 function ConsolaDeInicioDeSesión(): ReactElement {
     return (
         <div className={"consola-de-inicio-de-sesión"}>
-            <EntradaDeAutorización tipo={TipoDeEntradaDeAutorización.CORREO_ELECTRÓNICO}
+            <EntradaDeAutorización tipo={TipoDeEntradaDeAutorización.CorreoElectrónico}
                                    enLaEntrada={() => null}/>
-            <EntradaDeAutorización tipo={TipoDeEntradaDeAutorización.CONTRASEÑA}
+            <EntradaDeAutorización tipo={TipoDeEntradaDeAutorización.Contraseña}
                                    enLaEntrada={() => null}/>
             <Botón texto={"Acceso"}/>
             <p className={"nota-de-acceso"}>

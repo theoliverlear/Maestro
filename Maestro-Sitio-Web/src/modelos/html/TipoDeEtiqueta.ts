@@ -6,7 +6,7 @@ export enum TipoDeEtiqueta {
     H5 = 'h5',
     H6 = 'h6',
     P = 'p',
-    SPAN = 'span',
-    DIV = 'div',
-    CODE = 'code',
+    Span = 'span',
+    Div = 'div',
+    Code = 'code',
 }

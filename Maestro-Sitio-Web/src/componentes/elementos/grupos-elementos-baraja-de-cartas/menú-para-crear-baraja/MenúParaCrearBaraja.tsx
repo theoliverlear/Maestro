@@ -32,7 +32,7 @@ function MenúParaCrearBaraja(props: PropsMenúParaCrearBaraja) {
             <div className={"entradas-de-menú"}>
                 <EntradaConTítulo textoDelTítulo={"Título: "}
                                   tipoDeEtiqueta={TipoDeEtiqueta.H4}
-                                  tipoDeEntrada={TipoDeEntrada.TEXTO}
+                                  tipoDeEntrada={TipoDeEntrada.Texto}
                                   enLaEntrada={() => null}/>
             </div>
             <Botón texto={"Crear"}/>

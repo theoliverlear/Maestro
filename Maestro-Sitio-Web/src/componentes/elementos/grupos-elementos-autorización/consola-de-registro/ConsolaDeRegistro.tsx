@@ -16,7 +16,7 @@ import {
 import {usarInyectar} from "../../../../servicios/id/ProveedorDeServicios.ts";
 
 function ConsolaDeRegistro(): ReactElement {
-    const [mensajeDeAutorización, asignarMensajeDeAutorización] = useState<EstadosDeValidezDeAutorización>(EstadosDeValidezDeAutorización.VÁLIDO);
+    const [mensajeDeAutorización, asignarMensajeDeAutorización] = useState<EstadosDeValidezDeAutorización>(EstadosDeValidezDeAutorización.Válido);
     const [solicitudDeRegistro, asignarSolicitudDeRegistro] = useState<GenSolicitudDeRegistro>(new GenSolicitudDeRegistro());
 
     const servicioDeRegistroHttp: ServicioDeRegistroHttp = usarInyectar(ServicioDeRegistroHttp);
@@ -36,10 +36,10 @@ function ConsolaDeRegistro(): ReactElement {
         try {
             const estado = await servicioDeRegistroHttp.registrar(solicitud.obtenerModelo());
             if (!estado.esAutorizado) {
-                asignarMensajeDeAutorización(EstadosDeValidezDeAutorización.AUTORIZACIÓN_NO_VÁLIDA);
+                asignarMensajeDeAutorización(EstadosDeValidezDeAutorización.AutorizaciónNoVálida);
             }
         } catch {
-            asignarMensajeDeAutorización(EstadosDeValidezDeAutorización.AUTORIZACIÓN_NO_VÁLIDA);
+            asignarMensajeDeAutorización(EstadosDeValidezDeAutorización.AutorizaciónNoVálida);
         }
     }
 
