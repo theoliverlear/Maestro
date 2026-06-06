@@ -1,0 +1,84 @@
+name: Publicar paquetes NuGet en GitHub Packages
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+  push:
+    tags:
+      - "v*"
+
+env:
+  CONFIGURACION: Release
+  DIRECTORIO_PAQUETES: artifacts/paquetes
+  FUENTE_NUGET_GITHUB: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+jobs:
+  publicar-paquetes:
+    name: Empaquetar y publicar
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar codigo
+        uses: actions/checkout@v4
+
+      - name: Preparar .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Validar token
+        shell: pwsh
+        run: |
+          if ([string]::IsNullOrWhiteSpace($env:GH_TOKEN)) {
+            throw "Falta el secreto GH_TOKEN. Crealo en Settings > Secrets and variables > Actions."
+          }
+
+      - name: Restaurar dependencias
+        run: dotnet restore Maestro.sln
+
+      - name: Compilar solucion
+        run: dotnet build Maestro.sln --configuration "$CONFIGURACION" --no-restore
+
+      - name: Empaquetar bibliotecas
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path $env:DIRECTORIO_PAQUETES | Out-Null
+
+          $proyectos = Get-ChildItem -Path . -Recurse -Filter *.csproj |
+            Where-Object {
+              $contenido = Get-Content $_.FullName -Raw
+              $contenido -notmatch '<Project\s+Sdk="Microsoft\.NET\.Sdk\.Web"' -and
+              $contenido -notmatch '<IsPackable>\s*false\s*</IsPackable>'
+            }
+
+          if (-not $proyectos) {
+            throw "No se encontraron proyectos empaquetables."
+          }
+
+          foreach ($proyecto in $proyectos) {
+            Write-Host "Empaquetando $($proyecto.FullName)"
+            dotnet pack $proyecto.FullName `
+              --configuration $env:CONFIGURACION `
+              --no-build `
+              --output $env:DIRECTORIO_PAQUETES
+          }
+
+      - name: Publicar paquetes en GitHub Packages
+        shell: pwsh
+        run: |
+          $paquetes = Get-ChildItem -Path $env:DIRECTORIO_PAQUETES -Filter *.nupkg |
+            Where-Object { $_.Name -notlike "*.symbols.nupkg" }
+
+          if (-not $paquetes) {
+            throw "No se generaron paquetes .nupkg para publicar."
+          }
+
+          foreach ($paquete in $paquetes) {
+            Write-Host "Publicando $($paquete.Name)"
+            dotnet nuget push $paquete.FullName `
+              --source $env:FUENTE_NUGET_GITHUB `
+              --api-key $env:GH_TOKEN `
+              --skip-duplicate
+          }
