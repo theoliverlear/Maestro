@@ -1,23 +1,24 @@
 // ContextoDeAutorización.tsx
 
 import {
+    Context,
     createContext,
+    ReactElement,
     ReactNode,
-    useContext,
     useEffect,
     useMemo
 } from "react"
 import {PosibleIContextoDeAutorización} from "./modelos/tipos.ts"
-import {usarConectado} from "../../../manos/usarConectado.ts"
+import {usarConectado} from "../../../ganchos/usarConectado.ts"
 
 export interface IContextoDeAutorización {
     conectado: boolean;
     refrescar: () => Promise<void>;
 }
 
-const ContextoDeAutorización = createContext<PosibleIContextoDeAutorización>(null)
+export const ContextoDeAutorización: Context<PosibleIContextoDeAutorización> = createContext<PosibleIContextoDeAutorización>(null)
 
-export function ProveedorDeAutorización({ children }: { children: ReactNode }) {
+export function ProveedorDeAutorización({ children }: { children: ReactNode }): ReactElement {
     const {
         conectado,
         estáAutorizado
@@ -29,7 +30,7 @@ export function ProveedorDeAutorización({ children }: { children: ReactNode }) 
         })()
     }, [])
 
-    const valor = useMemo(() => ({ conectado, refrescar: estáAutorizado }),
+    const valor: IContextoDeAutorización = useMemo(() => ({ conectado, refrescar: estáAutorizado }),
         [conectado, estáAutorizado])
     
     return (
@@ -37,15 +38,5 @@ export function ProveedorDeAutorización({ children }: { children: ReactNode }) 
             {children}
         </ContextoDeAutorización.Provider>
     )
-}
-
-export function usarAutorización() {
-    const contexto: PosibleIContextoDeAutorización = useContext(ContextoDeAutorización)
-    if (!contexto) {
-        throw new Error("El contexto de autorización no está disponible. " +
-                        "Asegúrate de envolver tu componente con " +
-                        "ProveedorDeAutorización.")
-    }
-    return contexto
 }
 
