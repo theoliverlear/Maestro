@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>Eventos.Traducción</AssemblyName>
+    <RootNamespace>Maestro.Biblioteca.Traducción</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Confluent.Kafka" Version="2.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Comunicación-Traducción\Comunicación.Traducción.csproj" />
+    <ProjectReference Include="..\Servicios-Traducción\Servicios.Traducción.csproj" />
+    <ProjectReference Include="..\..\Biblioteca-Universal\Eventos-Universal\Eventos.Universal.csproj" />
+  </ItemGroup>
+</Project>
