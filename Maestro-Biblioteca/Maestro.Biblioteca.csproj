@@ -11,18 +11,21 @@
     <ItemGroup>
         <Compile Remove="Biblioteca-Api\**\*.cs" />
         <Compile Remove="Biblioteca-Crítico\**\*.cs" />
+        <Compile Remove="Biblioteca-Traducción\**\*.cs" />
         <Compile Remove="Biblioteca-Universal\**\*.cs" />
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="Biblioteca-Api\Biblioteca.Api.csproj" />
         <ProjectReference Include="Biblioteca-Crítico\Biblioteca-Crítico.csproj" />
+        <ProjectReference Include="Biblioteca-Traducción\Biblioteca.Traducción.csproj" />
         <ProjectReference Include="Biblioteca-Universal\Biblioteca.Universal.csproj" />
     </ItemGroup>
 
     <ItemGroup>
         <Content Include="Biblioteca-Api\Biblioteca.Api.csproj" />
         <Content Include="Biblioteca-Crítico\Biblioteca-Crítico.csproj" />
+        <Content Include="Biblioteca-Traducción\Biblioteca.Traducción.csproj" />
         <Content Include="Biblioteca-Universal\Biblioteca.Universal.csproj" />
     </ItemGroup>
 </Project>
