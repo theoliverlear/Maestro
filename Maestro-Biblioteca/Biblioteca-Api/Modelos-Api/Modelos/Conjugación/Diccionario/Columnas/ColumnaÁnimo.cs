@@ -1,23 +1,23 @@
 namespace Maestro.Biblioteca.Api.Modelos.Conjugación.Diccionario.Columnas;
 
-public class Ánimo
+public class ColumnaÁnimo
 {
-    public string CadenaDeÁnimo { get; set; }
-    public static readonly Ánimo Indicativo = new("Indicativo");
-    public static readonly Ánimo Subjuntivo = new("Subjuntivo");
-    public static readonly Ánimo Imperativo = new("Imperativo");
+    public string CadenaDeÁnimo { get; }
+    public static readonly ColumnaÁnimo Indicativo = new("Indicativo");
+    public static readonly ColumnaÁnimo Subjuntivo = new("Subjuntivo");
+    public static readonly ColumnaÁnimo Imperativo = new("Imperativo");
 
-    public static readonly List<Ánimo> EstadosDeÁnimo = new()
+    public static readonly List<ColumnaÁnimo> EstadosDeÁnimo = new()
     {
         Indicativo, Subjuntivo, Imperativo
     };
 
-    private Ánimo(string ánimo)
+    private ColumnaÁnimo(string ánimo)
     {
         this.CadenaDeÁnimo = ánimo;
     }
 
-    public static Ánimo DeCuerda(string ánimo)
+    public static ColumnaÁnimo DeCuerda(string ánimo)
     {
         ánimo = ánimo[0].ToString().ToUpper() + ánimo[1..].ToLower();
         return ánimo switch
