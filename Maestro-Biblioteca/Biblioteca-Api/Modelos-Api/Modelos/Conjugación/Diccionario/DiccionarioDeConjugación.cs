@@ -113,12 +113,12 @@ public class DiccionarioDeConjugación
     }
 
     public static string ObtenerPorColumnas(string verbo,
-                                            Ánimo ánimo,
-                                            Tenso tenso,
+                                            ColumnaÁnimo columnaÁnimo,
+                                            ColumnaTensa columnaTensa,
                                             Pronombre pronombre)
     {
-        DetectarExcepcionesDeDiccionario(verbo, ánimo.CadenaDeÁnimo, tenso.CadenaDeTenso);
-        FilaDeConjugación fila = Diccionario[verbo][ánimo.CadenaDeÁnimo][tenso.CadenaDeTenso];
+        DetectarExcepcionesDeDiccionario(verbo, columnaÁnimo.CadenaDeÁnimo, columnaTensa.CadenaDeTenso);
+        FilaDeConjugación fila = Diccionario[verbo][columnaÁnimo.CadenaDeÁnimo][columnaTensa.CadenaDeTenso];
         return ObtenerPorPronombre(fila, pronombre);
     }
 
