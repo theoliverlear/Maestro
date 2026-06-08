@@ -7,8 +7,8 @@ namespace Maestro.Biblioteca.Api.Modelos.Conjugación.Diccionario;
 public class ConstructorDiccionariosDeConjugación
 {
     private string? _verbo;
-    private Ánimo? _ánimo;
-    private Tenso? _tenso;
+    private ColumnaÁnimo? _ánimo;
+    private ColumnaTensa? _tenso;
     private Pronombre? _pronombre;
 
     public ConstructorDiccionariosDeConjugación()
@@ -22,27 +22,27 @@ public class ConstructorDiccionariosDeConjugación
         return this;
     }
 
-    public ConstructorDiccionariosDeConjugación ConÁnimo(Ánimo ánimo)
+    public ConstructorDiccionariosDeConjugación ConÁnimo(ColumnaÁnimo columnaÁnimo)
     {
-        this._ánimo = ánimo;
+        this._ánimo = columnaÁnimo;
         return this;
     }
 
     public ConstructorDiccionariosDeConjugación ConÁnimo(string ánimo)
     {
-        this._ánimo = Ánimo.DeCuerda(ánimo);
+        this._ánimo = ColumnaÁnimo.DeCuerda(ánimo);
         return this;
     }
 
-    public ConstructorDiccionariosDeConjugación ConTenso(Tenso tenso)
+    public ConstructorDiccionariosDeConjugación ConTenso(ColumnaTensa columnaTensa)
     {
-        this._tenso = tenso;
+        this._tenso = columnaTensa;
         return this;
     }
 
     public ConstructorDiccionariosDeConjugación ConTenso(string tenso)
     {
-        this._tenso = Tenso.DeCuerda(tenso);
+        this._tenso = ColumnaTensa.DeCuerda(tenso);
         return this;
     }
 
