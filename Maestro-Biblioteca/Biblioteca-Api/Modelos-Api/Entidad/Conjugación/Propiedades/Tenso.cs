@@ -23,6 +23,22 @@ public class Tenso
     
     public Tenso(string cadenaDeTenso)
     {
-        CadenaDeTenso = cadenaDeTenso;
+        this.CadenaDeTenso = cadenaDeTenso;
+    }
+
+    public static Tenso DeCuerda(string cadenaDeTenso)
+    {
+        foreach (Tenso tenso in Tensos)
+        {
+            if (string.Equals(
+                    tenso.CadenaDeTenso,
+                    cadenaDeTenso.Trim(),
+                    StringComparison.OrdinalIgnoreCase))
+            {
+                return tenso;
+            }
+        }
+
+        throw new ArgumentException("Tenso no reconocido.", nameof(cadenaDeTenso));
     }
 }
