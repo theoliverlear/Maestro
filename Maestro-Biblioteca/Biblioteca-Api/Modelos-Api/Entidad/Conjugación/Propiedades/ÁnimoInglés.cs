@@ -17,6 +17,24 @@ public class ÁnimoInglés
     
     public ÁnimoInglés(string cadenaDeÁnimoInglés)
     {
-        CadenaDeÁnimoInglés = cadenaDeÁnimoInglés;
+        this.CadenaDeÁnimoInglés = cadenaDeÁnimoInglés;
+    }
+
+    public static ÁnimoInglés DeCuerda(string cadenaDeÁnimoInglés)
+    {
+        foreach (ÁnimoInglés ánimoInglés in ÁnimosInglés)
+        {
+            if (string.Equals(
+                    ánimoInglés.CadenaDeÁnimoInglés,
+                    cadenaDeÁnimoInglés.Trim(),
+                    StringComparison.OrdinalIgnoreCase))
+            {
+                return ánimoInglés;
+            }
+        }
+
+        throw new ArgumentException(
+            "Ánimo en inglés no reconocido.",
+            nameof(cadenaDeÁnimoInglés));
     }
 }
