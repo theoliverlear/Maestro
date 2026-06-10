@@ -8,12 +8,11 @@ using Maestro.Biblioteca.Universal.Repositorio;
 using Maestro.Biblioteca.Api.Servicio.Autorización.ServicioDpop;
 using System.Text;
 using System.Text.Json;
+using Maestro.Biblioteca.Api.Servicio.Conjugación;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
-using Serilog.Settings.Configuration;
 using Serilog.Sinks.SystemConsole.Themes;
 
 
@@ -130,6 +129,7 @@ constructora.Services.AddScoped<IAlmacénDeReproducciónDpop, AlmacénDeReproduc
 
 constructora.Services.AddEndpointsApiExplorer();
 constructora.Services.AddSwaggerGen();
+constructora.Services.AddHostedService<GestorPoblaciónVerbosConjugados>();
 
 constructora.Services.Scan(escáner => escáner
     .FromApplicationDependencies()
