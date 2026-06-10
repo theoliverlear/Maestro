@@ -1,4 +1,6 @@
 using Maestro.Biblioteca.Api.Entidad.Autorización;
+using Maestro.Biblioteca.Api.Entidad.Conjugación;
+using Maestro.Biblioteca.Api.Entidad.Conjugación.Propiedades;
 using Maestro.Biblioteca.Api.Entidad.Tarjeta;
 using Maestro.Biblioteca.Api.Entidad.Usuario;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +14,7 @@ public class ContextoDeBdMaestro : DbContext
     public DbSet<Tarjeta> Tarjetas => this.Set<Tarjeta>();
     public DbSet<ContraseñaSegura> ContraseñasSeguras => this.Set<ContraseñaSegura>();
     public DbSet<TokenDeActualización> TokensDeActualización => this.Set<TokenDeActualización>();
+    public DbSet<VerboConjugado> VerbosConjugados => this.Set<VerboConjugado>();
 
     public ContextoDeBdMaestro(DbContextOptions<ContextoDeBdMaestro> options)
         : base(options)
@@ -53,5 +56,29 @@ public class ContextoDeBdMaestro : DbContext
 
         constructorDeModelos.Entity<TokenDeActualización>()
             .HasIndex(token => token.IdUsuario);
+
+        constructorDeModelos.Entity<VerboConjugado>()
+            .Property(verbo => verbo.Ánimo)
+            .HasConversion(
+                ánimo => ánimo.CadenaDeÁnimo,
+                cadena => Ánimo.DeCuerda(cadena));
+
+        constructorDeModelos.Entity<VerboConjugado>()
+            .Property(verbo => verbo.ÁnimoInglés)
+            .HasConversion(
+                ánimo => ánimo.CadenaDeÁnimoInglés,
+                cadena => ÁnimoInglés.DeCuerda(cadena));
+
+        constructorDeModelos.Entity<VerboConjugado>()
+            .Property(verbo => verbo.Tenso)
+            .HasConversion(
+                tenso => tenso.CadenaDeTenso,
+                cadena => Tenso.DeCuerda(cadena));
+
+        constructorDeModelos.Entity<VerboConjugado>()
+            .Property(verbo => verbo.TensoInglés)
+            .HasConversion(
+                tenso => tenso.CadenaDeTensoInglés,
+                cadena => TensoInglés.DeCuerda(cadena));
     }
 }
