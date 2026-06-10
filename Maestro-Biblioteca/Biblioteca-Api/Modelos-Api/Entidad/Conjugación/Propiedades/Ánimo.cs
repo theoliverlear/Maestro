@@ -16,6 +16,22 @@ public class Ánimo
 
     public Ánimo(string cadenaDeÁnimo)
     {
-        CadenaDeÁnimo = cadenaDeÁnimo;
+        this.CadenaDeÁnimo = cadenaDeÁnimo;
+    }
+
+    public static Ánimo DeCuerda(string cadenaDeÁnimo)
+    {
+        foreach (Ánimo ánimo in Ánimos)
+        {
+            if (string.Equals(
+                    ánimo.CadenaDeÁnimo,
+                    cadenaDeÁnimo.Trim(),
+                    StringComparison.OrdinalIgnoreCase))
+            {
+                return ánimo;
+            }
+        }
+
+        throw new ArgumentException("Ánimo no reconocido.", nameof(cadenaDeÁnimo));
     }
 }
